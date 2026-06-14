@@ -1,0 +1,287 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+.floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+
+.hero{width:100%;min-height:700px;background:url('DNA_blue_web_hero.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 48px;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.42);z-index:0;}
+.hero-bg-grid{display:none;}
+.hero-vline{display:none;}
+.hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.22em;margin-bottom:22px;position:relative;z-index:1;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold);opacity:.5;}
+.hero-eyebrow.visible{opacity:1;transform:translateY(0);}
+.hero-title{font-family:'Inter',sans-serif;font-size:72px;font-weight:700;color:#fff;line-height:1.12;position:relative;z-index:1;margin-bottom:6px;opacity:0;transform:translateY(24px);transition:opacity 0.7s ease 0.15s,transform 0.7s ease 0.15s;}
+.hero-title.visible{opacity:1;transform:translateY(0);}
+.hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:#fff;letter-spacing:.2em;margin-bottom:28px;position:relative;z-index:1;opacity:0;transform:translateY(20px);transition:opacity 0.7s ease 0.28s,transform 0.7s ease 0.28s;}
+.hero-title-ja.visible{opacity:1;transform:translateY(0);}
+.hero-desc{font-size:12px;color:var(--text-muted-navy);line-height:2;max-width:560px;position:relative;z-index:1;margin-bottom:36px;opacity:0;transform:translateY(16px);transition:opacity 0.7s ease 0.4s,transform 0.7s ease 0.4s;}
+.hero-desc.visible{opacity:1;transform:translateY(0);}
+.hero-cta{display:flex;gap:12px;justify-content:center;position:relative;z-index:1;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.55s,transform 0.6s ease 0.55s;}
+.hero-cta.visible{opacity:1;transform:translateY(0);}
+.btn-primary{background:var(--accent);color:#fff;font-size:11px;padding:10px 22px;border:none;letter-spacing:.08em;cursor:pointer;border-radius:2px;}
+.btn-outline{background:transparent;color:var(--text-muted-navy);font-size:11px;padding:10px 22px;border:1px solid rgba(74,144,196,.4);letter-spacing:.08em;cursor:pointer;border-radius:2px;}
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+.bg-zone{width:100%;height:400px;background-attachment:fixed;background-size:cover;background-position:center;position:relative;}
+.bg-zone::after{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.40);}
+
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-wrap{max-width:860px;margin:0 auto;padding:0 32px;}
+
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+.prof-inner{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;}
+.prof-photo-area{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.prof-photo{width:96px;height:108px;background:var(--accent-pale);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.prof-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.prof-photo-initial{font-family:'DM Serif Display',serif;font-size:36px;color:var(--navy-mid);opacity:.6;}
+.prof-photo-caption{font-size:9px;color:var(--text-muted);letter-spacing:.1em;}
+.prof-section-label{font-size:9px;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;}
+.prof-name-row{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;}
+.prof-name-ja{font-family:'Noto Sans JP',sans-serif;font-size:22px;color:var(--navy);font-weight:500;}
+.prof-name-en{font-size:12px;color:var(--text-muted);letter-spacing:.06em;}
+.prof-affil{font-size:11px;color:var(--text-muted);margin-bottom:18px;}
+.prof-divider{width:32px;height:2px;background:var(--accent);margin-bottom:18px;}
+.prof-quote{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--text-body);line-height:2;padding-left:16px;border-left:2px solid var(--accent-pale);}
+.prof-more{display:inline-block;margin-top:16px;font-size:11px;color:var(--accent);cursor:pointer;}
+
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:32px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── Research: 縦広め・目立つ ── */
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.research-card{
+  background:#FAFDFD;
+  border:1px solid var(--border);
+  border-top:3px solid var(--accent);
+  padding:28px 24px 32px;
+  cursor:pointer;
+  opacity:0;transform:translateY(32px);
+  transition:opacity 0.65s ease,transform 0.65s ease;
+}
+.research-card.visible{opacity:1;transform:translateY(0);}
+.research-card:nth-child(2){transition-delay:0.1s;}
+.research-card:nth-child(3){transition-delay:0.2s;}
+.research-card-num{font-family:'Roboto',sans-serif;font-size:36px;color:var(--accent-pale);line-height:1;}
+.research-card-title{font-size:13px;color:var(--navy);font-weight:500;margin-top:12px;line-height:1.7;letter-spacing:.02em;}
+.research-card-body{font-size:11px;color:var(--text-muted);margin-top:12px;line-height:1.9;border-top:1px solid var(--border);padding-top:12px;}
+.research-card-tag{display:inline-block;margin-top:16px;font-size:9px;background:var(--navy);color:#fff;padding:4px 10px;letter-spacing:.1em;border-radius:2px;}
+
+.news-list{border:1px solid var(--border);}
+.news-item{display:flex;align-items:flex-start;gap:14px;padding:14px 20px;border-bottom:1px solid var(--border);opacity:0;transform:translateX(-20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.news-item.visible{opacity:1;transform:translateX(0);}
+.news-item:nth-child(2){transition-delay:0.08s;}
+.news-item:nth-child(3){transition-delay:0.16s;}
+.news-item:nth-child(4){transition-delay:0.24s;}
+.news-item:last-child{border-bottom:none;}
+.news-date{font-size:11px;color:var(--text-muted);white-space:nowrap;font-family:'Roboto',sans-serif;min-width:52px;padding-top:1px;}
+.news-tag{font-size:9px;background:var(--navy);color:#fff;padding:2px 8px;white-space:nowrap;letter-spacing:.06em;border-radius:2px;flex-shrink:0;}
+.news-tag.pub{background:var(--accent);}
+.news-title{font-size:12px;color:var(--text-body);line-height:1.7;}
+.news-more{text-align:right;margin-top:12px;}
+.news-more-link{font-size:11px;color:var(--accent);cursor:pointer;}
+
+/* ── Quick Access: 4カラム・控えめ ── */
+.access-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.access-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:16px 14px;
+  cursor:pointer;
+  text-align:center;
+  border-radius:4px;
+  transition:background 0.2s;
+}
+.access-card:hover{background:#FAFDFD;}
+.access-icon{font-size:20px;color:var(--text-muted);margin-bottom:8px;}
+.access-label{font-size:11px;color:var(--text-muted);font-weight:500;line-height:1.5;}
+.access-sub{font-size:10px;color:var(--text-muted);opacity:.7;margin-top:4px;line-height:1.5;}
+
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:10px;color:var(--text-muted-navy);}
+.footer-links{display:flex;gap:16px;}
+.footer-link{font-size:10px;color:var(--text-muted-navy);cursor:pointer;}
+.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+</style>
+
+<div class="page" id="page">
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">臨床検査医学分野 トップページ デモ v4</h2>
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links">
+        <div class="nav-item active">ホーム</div>
+        <div class="nav-item">研究内容</div>
+        <div class="nav-item">スタッフ</div>
+        <div class="nav-item">企業の方へ</div>
+        <div class="nav-item">教育・大学院</div>
+        <div class="nav-item">臨床・診療</div>
+        <div class="nav-item">お問い合わせ</div>
+      </div>
+      <div class="nav-lang">EN</div>
+    </div>
+  </nav>
+
+  <div class="hero" id="hero">
+    <div class="hero-bg-grid" id="heroBg"></div>
+    <div class="hero-vline"></div>
+    <div class="hero-eyebrow" id="he">Science Tokyo</div>
+    <div class="hero-title" id="ht">Laboratory Medicine</div>
+    <div class="hero-title-ja" id="htj">Advancing the Frontiers of Hematologic Cancer Research</div>
+    <div class="hero-desc" id="hd">Decoding blood cancers. Developing tomorrow's therapies.<br>Advancing the future of cancer care.</div>
+   
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="prof-inner fade-up">
+        <div class="prof-photo-area">
+          <div class="prof-photo"><img src="sasaki_ph_main.jpg" alt="佐々木 宏治"></div>
+          <!-- <div class="prof-photo-caption">PROFESSOR</div> -->
+        </div>
+        <div>
+          <div class="prof-section-label">PROFESSOR</div>
+          <div class="prof-name-row">
+            <span class="prof-name-ja">佐々木 宏治</span>
+            <span class="prof-name-en">Koji Sasaki, MD, PhD</span>
+          </div>
+          <div class="prof-affil">東京科学大学 医学部 / 臨床検査医学分野 教授</div>
+          <div class="prof-divider"></div>
+          <div class="prof-quote">私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。<br>血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>がん研究と医療は、多くの研究者・医療者の努力によって発展してきました。私たちもその歩みを受け継ぎながら、新たな発見を患者さんの未来へとつなげていきたいと思います。<br>志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。</div>
+          <div class="prof-more">全文を読む →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-zone" style="background-image:url('Genetic-analysis_img2.jpg');"></div>
+
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Research</span>
+        <span class="section-title-ja">主な研究テーマ</span>
+      </div>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-card-num">01</div>
+          <div class="research-card-title">白血病・リンパ腫の発症メカニズム解明</div>
+          <div class="research-card-body">Notchシグナル等を標的とした血液悪性腫瘍の分子機構と新規治療法の探索</div>
+          <span class="research-card-tag">HEMATOLOGY</span>
+        </div>
+        <div class="research-card">
+          <div class="research-card-num">02</div>
+          <div class="research-card-title">新規in vitro薬剤感受性試験の開発</div>
+          <div class="research-card-body">個別化医療実現のための患者由来腫瘍細胞を用いた感受性評価プラットフォーム</div>
+          <span class="research-card-tag">PHARMACOLOGY</span>
+        </div>
+        <div class="research-card">
+          <div class="research-card-num">03</div>
+          <div class="research-card-title">感染症とタイピング技術</div>
+          <div class="research-card-body">SARS-CoV-2等の病原体の遺伝子型解析と迅速診断法の開発・臨床応用</div>
+          <span class="research-card-tag">INFECTIOUS DISEASE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-zone" style="background-image:url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1400&q=80');"></div>
+
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">News</span>
+        <span class="section-title-ja">お知らせ・新着情報</span>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="news-date">2024.05</span>
+          <span class="news-tag pub">論文</span>
+          <span class="news-title">Notchリガンド抗体の白血病細胞増殖抑制効果に関する論文を国際誌に発表しました</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.04</span>
+          <span class="news-tag">お知らせ</span>
+          <span class="news-title">2024年度 大学院生・研究員の募集を開始しました。詳細はこちらをご確認ください</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.03</span>
+          <span class="news-tag pub">論文</span>
+          <span class="news-title">SARS-CoV-2変異株の遺伝子タイピング新手法について論文が掲載されました</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.01</span>
+          <span class="news-tag">学会</span>
+          <span class="news-title">第〇回日本臨床検査医学会総会にて口演発表を行いました</span>
+        </div>
+      </div>
+      <div class="news-more"><span class="news-more-link">お知らせ一覧 →</span></div>
+    </div>
+  </div>
+
+  <div class="bg-zone" style="background-image:url('MDACC_sunrise_exterior_020.jpg');"></div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <span class="footer-link">お問い合わせ</span>
+      <span class="footer-link">アクセス</span>
+      <span class="footer-link">大学ホームページ</span>
+      <span class="footer-link">English</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  const heroBg = document.getElementById('heroBg');
+  ['he','ht','htj','hd','hc'].forEach((id,i)=>{
+    setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 120+i*160);
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+  document.querySelectorAll('.research-card').forEach(el=>io.observe(el));
+  document.querySelectorAll('.news-item').forEach(el=>io.observe(el));
+  function onScroll(){
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+    if(heroBg){ heroBg.style.transform=`translateY(${st*0.35}px)`; }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+})();
+</script>

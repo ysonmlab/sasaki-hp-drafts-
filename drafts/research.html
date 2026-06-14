@@ -15,7 +15,7 @@
 }
 .page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
 
-/* ── Nav (トップページと同一) ── */
+/* ── Nav ── */
 .floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
 .floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-brand{padding:12px 0;}
@@ -26,7 +26,7 @@
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
 .nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 
-/* ── Page Hero (下層ページ用・コンパクト) ── */
+/* ── Page Hero ── */
 .page-hero{width:100%;min-height:340px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:56px 0 52px;}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.6) 0%,rgba(11,31,58,0.75) 100%);z-index:0;}
 .page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;}
@@ -43,17 +43,16 @@
 .accent-bar-gold{width:72px;background:var(--gold);}
 .accent-bar-blue{flex:1;background:var(--navy);}
 
-/* ── Content layout ── */
+/* ── Layout ── */
 .bg-zone{width:100%;height:360px;background-attachment:fixed;background-size:cover;background-position:center;position:relative;}
 .bg-zone::after{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.40);}
-
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
 .content-wrap{max-width:860px;margin:0 auto;padding:0 32px;}
 
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
-/* ── Overview intro ── */
+/* ── Overview ── */
 .research-intro{font-size:14px;color:var(--text-body);line-height:2.1;border-left:3px solid var(--accent);padding-left:20px;}
 
 /* ── Section heading ── */
@@ -62,12 +61,22 @@
 .section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── Research items ── */
-.research-item{border:1px solid var(--border);border-top:3px solid var(--accent);background:#fff;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;padding:28px 32px;opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.research-item{border:1px solid var(--border);border-top:3px solid var(--accent);background:#fff;margin-bottom:20px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;padding:24px 28px;opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .research-item.visible{opacity:1;transform:translateY(0);}
-.research-item-num{font-family:'Roboto',sans-serif;font-size:56px;font-weight:700;color:var(--accent-pale);line-height:1;flex-shrink:0;}
-.research-item-tag{display:inline-block;font-size:9px;background:var(--navy);color:#fff;padding:4px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:12px;}
-.research-item-title{font-family:'Noto Sans JP',sans-serif;font-size:18px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:6px;}
-.research-item-title-en{font-size:11px;color:var(--text-muted);letter-spacing:.05em;}
+.research-item:nth-child(2){transition-delay:0.07s;}
+.research-item:nth-child(3){transition-delay:0.14s;}
+.research-item:nth-child(4){transition-delay:0.21s;}
+.research-item:nth-child(5){transition-delay:0.28s;}
+.research-item-num{font-family:'Roboto',sans-serif;font-size:48px;font-weight:700;color:var(--accent-pale);line-height:1;flex-shrink:0;min-width:56px;}
+.research-item-tag{display:inline-block;font-size:9px;background:var(--navy);color:#fff;padding:4px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:10px;}
+.research-item-title{font-family:'Noto Sans JP',sans-serif;font-size:16px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:10px;}
+.research-item-desc{font-size:12px;color:var(--text-muted);line-height:1.95;}
+
+/* ── Researchmap note ── */
+.researchmap-note{margin-top:40px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.researchmap-text{font-size:12px;color:var(--text-muted);line-height:1.7;}
+.researchmap-link{font-size:11px;color:var(--accent);white-space:nowrap;cursor:pointer;text-decoration:none;}
+.researchmap-link:hover{text-decoration:underline;}
 
 /* ── Footer ── */
 .footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
@@ -124,8 +133,7 @@
         <span class="section-title-ja">研究概要</span>
       </div>
       <div class="research-intro fade-up">
-        臨床検査医学分野では、血液悪性腫瘍（白血病・リンパ腫）の病態解明と新規治療法の開発を中心に、個別化医療を実現するための診断技術、および感染症の迅速診断・タイピング技術の研究を推進しています。<br><br>
-        基礎研究と臨床の密接な連携（トランスレーショナルリサーチ）を通じて、患者さんの予後改善に直結する成果を目指しています。
+        臨床検査医学分野では、血液疾患（白血病、リンパ腫、骨髄異形成症候群など）を中心に、診断・治療に直結する新しい検査法・治療標的の開発を目指して研究を行っています。
       </div>
     </div>
   </div>
@@ -137,37 +145,57 @@
     <div class="content-wrap">
       <div class="section-head fade-up">
         <span class="section-title-en">Research Areas</span>
-        <span class="section-title-ja">研究テーマ</span>
+        <span class="section-title-ja">主な研究テーマ</span>
       </div>
 
-      <!-- 01 -->
       <div class="research-item">
         <div class="research-item-num">01</div>
         <div>
-          <span class="research-item-tag">HEMATOLOGY</span>
-          <div class="research-item-title">白血病・リンパ腫の発症メカニズム解明と新規治療法の開発</div>
-          <div class="research-item-title-en">Molecular Pathogenesis of Leukemia and Lymphoma / Novel Therapeutic Strategies</div>
+          <span class="research-item-tag">STEM CELL BIOLOGY</span>
+          <div class="research-item-title">造血幹細胞・白血病細胞の自己複製・分化異常のメカニズム解明</div>
+          <div class="research-item-desc">正常な造血幹細胞は、自己複製と分化のバランスを保つことで血液系全体を維持しています。白血病細胞においても、一部の「白血病幹細胞」がこの自己複製能を担っており、その制御異常が病態の中心と考えられています。当分野では、Notch・Wnt・Hedgehogなどの幹細胞制御に関わるシグナル伝達経路に着目し、白血病細胞の自己複製・分化異常を細胞・分子レベルで解析しています。</div>
         </div>
       </div>
 
-      <!-- 02 -->
       <div class="research-item">
         <div class="research-item-num">02</div>
         <div>
           <span class="research-item-tag">PHARMACOLOGY</span>
-          <div class="research-item-title">新規 in vitro 薬剤感受性試験の開発と個別化医療への応用</div>
-          <div class="research-item-title-en">Development of Novel In Vitro Drug Sensitivity Assays / Precision Medicine</div>
+          <div class="research-item-title">新規分子標的薬の探索と薬剤感受性試験法の開発</div>
+          <div class="research-item-desc">上記のメカニズム解析から得られた知見をもとに、白血病細胞・リンパ性腫瘍細胞に対する新規分子標的薬の候補を探索しています。また、患者ごとの腫瘍細胞を用いたin vitro薬剤感受性試験により、より効果的な治療法選択につながる検査法の開発を進めています。</div>
         </div>
       </div>
 
-      <!-- 03 -->
       <div class="research-item">
         <div class="research-item-num">03</div>
         <div>
-          <span class="research-item-tag">INFECTIOUS DISEASE</span>
-          <div class="research-item-title">感染症の迅速診断とゲノムタイピング技術の開発</div>
-          <div class="research-item-title-en">Rapid Diagnostics and Genomic Typing of Infectious Pathogens</div>
+          <span class="research-item-tag">DIAGNOSTICS</span>
+          <div class="research-item-title">微小残存腫瘍細胞の検出法開発</div>
+          <div class="research-item-desc">治療によって寛解状態となった後も、ごく少数の腫瘍細胞（微小残存病変：MRD）が体内に残存していることがあり、再発の原因となります。当分野では、遺伝子検査を活用し、微小残存腫瘍細胞を高感度かつ標準的な手法で検出する検査法の開発に取り組んでいます。</div>
         </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-item-num">04</div>
+        <div>
+          <span class="research-item-tag">GENOMICS</span>
+          <div class="research-item-title">腫瘍の遺伝子診断・細胞分子生物学的解析</div>
+          <div class="research-item-desc">腫瘍細胞に特有の遺伝子異常や分子マーカーを解析し、診断・予後予測・治療方針決定に役立つ情報を提供する検査法の確立を目指しています。</div>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-item-num">05</div>
+        <div>
+          <span class="research-item-tag">INFECTIOUS DISEASE</span>
+          <div class="research-item-title">血液疾患と感染症（菌・ウイルス）の関連解析</div>
+          <div class="research-item-desc">血液疾患の病態には、細菌やウイルス感染が関与している場合があります。当分野では、こうした感染症の迅速・高精度な診断法の開発にも取り組んでいます。</div>
+        </div>
+      </div>
+
+      <div class="researchmap-note fade-up">
+        <div class="researchmap-text">各教員・研究員の詳細な研究業績については、researchmap をご参照ください。</div>
+        <a class="researchmap-link" href="https://reins.tmd.ac.jp/html/research_home_ja.html" target="_blank" rel="noopener">researchmap（本学データベース） →</a>
       </div>
 
     </div>
@@ -195,12 +223,10 @@
 (function(){
   const nav = document.getElementById('nav');
 
-  // Page hero アニメーション
   ['pe','pt','ptj'].forEach((id,i)=>{
     setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 100+i*140);
   });
 
-  // スクロール連動アニメーション
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   },{threshold:0.10});
@@ -208,7 +234,6 @@
   document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
   document.querySelectorAll('.research-item').forEach(el=>io.observe(el));
 
-  // Nav スクロール
   window.addEventListener('scroll',function(){
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }

@@ -48,7 +48,6 @@
 .bg-zone::after{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.40);}
 
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
-.content-panel.alt{background:var(--surface);}
 .content-wrap{max-width:860px;margin:0 auto;padding:0 32px;}
 
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
@@ -62,44 +61,13 @@
 .section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
 .section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
-/* ── Research items (詳細) ── */
-.research-item{border:1px solid var(--border);border-top:3px solid var(--accent);background:#fff;margin-bottom:40px;opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+/* ── Research items ── */
+.research-item{border:1px solid var(--border);border-top:3px solid var(--accent);background:#fff;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;padding:28px 32px;opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .research-item.visible{opacity:1;transform:translateY(0);}
-.research-item-header{padding:32px 36px 28px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;}
-.research-item-num{font-family:'Roboto',sans-serif;font-size:64px;font-weight:700;color:var(--accent-pale);line-height:1;flex-shrink:0;}
-.research-item-meta{}
-.research-item-tag{display:inline-block;font-size:9px;background:var(--navy);color:#fff;padding:4px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:14px;}
-.research-item-title{font-family:'Noto Sans JP',sans-serif;font-size:20px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:8px;}
-.research-item-title-en{font-size:11px;color:var(--text-muted);letter-spacing:.06em;}
-.research-item-body{padding:28px 36px 32px;}
-.research-item-desc{font-size:13px;color:var(--text-body);line-height:2.1;margin-bottom:24px;}
-.research-item-divider{width:100%;height:1px;background:var(--border);margin-bottom:24px;}
-
-/* ── Sub-topics ── */
-.subtopic-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.subtopic{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:2px;}
-.subtopic-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;}
-.subtopic-text{font-size:12px;color:var(--text-body);line-height:1.7;}
-
-/* ── Keywords ── */
-.keyword-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
-.keyword{font-size:10px;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;border-radius:2px;letter-spacing:.05em;}
-
-/* ── Publications preview ── */
-.pub-list{border:1px solid var(--border);}
-.pub-item{display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);align-items:flex-start;opacity:0;transform:translateX(-20px);transition:opacity 0.5s ease,transform 0.5s ease;}
-.pub-item.visible{opacity:1;transform:translateX(0);}
-.pub-item:nth-child(2){transition-delay:0.08s;}
-.pub-item:nth-child(3){transition-delay:0.16s;}
-.pub-item:nth-child(4){transition-delay:0.24s;}
-.pub-item:last-child{border-bottom:none;}
-.pub-year{font-family:'Roboto',sans-serif;font-size:11px;color:var(--text-muted);white-space:nowrap;min-width:36px;padding-top:2px;}
-.pub-tag{font-size:9px;background:var(--accent);color:#fff;padding:2px 8px;white-space:nowrap;letter-spacing:.06em;border-radius:2px;flex-shrink:0;}
-.pub-content{flex:1;}
-.pub-title{font-size:12px;color:var(--text-body);line-height:1.7;margin-bottom:4px;}
-.pub-journal{font-size:10px;color:var(--text-muted);}
-.pub-more{text-align:right;margin-top:12px;}
-.pub-more-link{font-size:11px;color:var(--accent);cursor:pointer;}
+.research-item-num{font-family:'Roboto',sans-serif;font-size:56px;font-weight:700;color:var(--accent-pale);line-height:1;flex-shrink:0;}
+.research-item-tag{display:inline-block;font-size:9px;background:var(--navy);color:#fff;padding:4px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:12px;}
+.research-item-title{font-family:'Noto Sans JP',sans-serif;font-size:18px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:6px;}
+.research-item-title-en{font-size:11px;color:var(--text-muted);letter-spacing:.05em;}
 
 /* ── Footer ── */
 .footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
@@ -174,100 +142,31 @@
 
       <!-- 01 -->
       <div class="research-item">
-        <div class="research-item-header">
-          <div class="research-item-num">01</div>
-          <div class="research-item-meta">
-            <span class="research-item-tag">HEMATOLOGY</span>
-            <div class="research-item-title">白血病・リンパ腫の発症メカニズム解明と新規治療法の開発</div>
-            <div class="research-item-title-en">Molecular Pathogenesis of Leukemia and Lymphoma / Novel Therapeutic Strategies</div>
-          </div>
-        </div>
-        <div class="research-item-body">
-          <div class="research-item-desc">
-            白血病・リンパ腫などの血液悪性腫瘍は、遺伝子変異や細胞シグナル伝達の異常によって引き起こされる複雑な疾患群です。私たちは Notch シグナルをはじめとする腫瘍化に関わる分子経路の解明に取り組み、その成果を新規分子標的治療薬の探索へと結びつけることを目指しています。<br><br>
-            患者由来の腫瘍サンプルや細胞株・マウスモデルを活用し、in vitro・in vivo の両面から病態の全容を明らかにするとともに、細胞療法（CAR-T 細胞治療など）との組み合わせ治療戦略についても研究を展開しています。
-          </div>
-          <div class="research-item-divider"></div>
-          <div class="subtopic-list">
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">Notchシグナル経路の腫瘍化における役割の解明</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">急性リンパ性白血病（ALL）・急性骨髄性白血病（AML）の分子病態研究</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">分子標的薬・免疫療法との併用効果の検討</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">CAR-T細胞治療の耐性機序と克服戦略</div></div>
-          </div>
-          <div class="keyword-row">
-            <span class="keyword">Leukemia</span>
-            <span class="keyword">Lymphoma</span>
-            <span class="keyword">Notch signaling</span>
-            <span class="keyword">Molecular targeted therapy</span>
-            <span class="keyword">CAR-T</span>
-            <span class="keyword">Translational research</span>
-          </div>
+        <div class="research-item-num">01</div>
+        <div>
+          <span class="research-item-tag">HEMATOLOGY</span>
+          <div class="research-item-title">白血病・リンパ腫の発症メカニズム解明と新規治療法の開発</div>
+          <div class="research-item-title-en">Molecular Pathogenesis of Leukemia and Lymphoma / Novel Therapeutic Strategies</div>
         </div>
       </div>
 
       <!-- 02 -->
       <div class="research-item">
-        <div class="research-item-header">
-          <div class="research-item-num">02</div>
-          <div class="research-item-meta">
-            <span class="research-item-tag">PHARMACOLOGY</span>
-            <div class="research-item-title">新規 in vitro 薬剤感受性試験の開発と個別化医療への応用</div>
-            <div class="research-item-title-en">Development of Novel In Vitro Drug Sensitivity Assays / Precision Medicine</div>
-          </div>
-        </div>
-        <div class="research-item-body">
-          <div class="research-item-desc">
-            同じ病名であっても患者ごとに腫瘍細胞の薬剤感受性は異なります。患者由来の腫瘍細胞を用いた in vitro 薬剤感受性評価系を構築し、治療前に最適な薬剤を予測・選択するプラットフォームの開発を進めています。<br><br>
-            高感度フローサイトメトリーや次世代シーケンシング（NGS）等の先端技術を組み合わせることで、微量サンプルからでも精度の高い感受性評価を可能とし、難治性・再発症例への新たな治療戦略を提示することを目標としています。
-          </div>
-          <div class="research-item-divider"></div>
-          <div class="subtopic-list">
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">患者由来腫瘍細胞（PDC）を用いた感受性評価プラットフォームの構築</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">フローサイトメトリーによる生細胞・死細胞判定の高精度化</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">ゲノム変異プロファイルと薬剤感受性の相関解析</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">難治性・再発白血病に対する薬剤スクリーニング</div></div>
-          </div>
-          <div class="keyword-row">
-            <span class="keyword">Drug sensitivity</span>
-            <span class="keyword">Precision medicine</span>
-            <span class="keyword">Flow cytometry</span>
-            <span class="keyword">NGS</span>
-            <span class="keyword">PDC</span>
-            <span class="keyword">Personalized therapy</span>
-          </div>
+        <div class="research-item-num">02</div>
+        <div>
+          <span class="research-item-tag">PHARMACOLOGY</span>
+          <div class="research-item-title">新規 in vitro 薬剤感受性試験の開発と個別化医療への応用</div>
+          <div class="research-item-title-en">Development of Novel In Vitro Drug Sensitivity Assays / Precision Medicine</div>
         </div>
       </div>
 
       <!-- 03 -->
       <div class="research-item">
-        <div class="research-item-header">
-          <div class="research-item-num">03</div>
-          <div class="research-item-meta">
-            <span class="research-item-tag">INFECTIOUS DISEASE</span>
-            <div class="research-item-title">感染症の迅速診断とゲノムタイピング技術の開発</div>
-            <div class="research-item-title-en">Rapid Diagnostics and Genomic Typing of Infectious Pathogens</div>
-          </div>
-        </div>
-        <div class="research-item-body">
-          <div class="research-item-desc">
-            SARS-CoV-2 をはじめとする呼吸器感染症病原体の遺伝子型（バリアント）を迅速かつ高精度に同定する新しいタイピング手法の開発に取り組んでいます。変異株の動態把握はサーベイランス・感染対策において極めて重要であり、臨床現場で実装可能な診断技術の確立を目指しています。<br><br>
-            また、免疫不全患者（血液疾患患者を含む）における日和見感染症の病態解析や、治療抵抗性に関わる病原体側の要因解明も研究テーマとして取り組んでいます。
-          </div>
-          <div class="research-item-divider"></div>
-          <div class="subtopic-list">
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">SARS-CoV-2変異株の遺伝子タイピング新手法の開発</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">次世代シーケンシングを用いた病原体ゲノム解析</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">免疫不全患者における日和見感染症の病態研究</div></div>
-            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">感染症迅速診断技術の臨床応用</div></div>
-          </div>
-          <div class="keyword-row">
-            <span class="keyword">SARS-CoV-2</span>
-            <span class="keyword">Variant typing</span>
-            <span class="keyword">NGS</span>
-            <span class="keyword">Rapid diagnostics</span>
-            <span class="keyword">Opportunistic infection</span>
-            <span class="keyword">Immunocompromised</span>
-          </div>
+        <div class="research-item-num">03</div>
+        <div>
+          <span class="research-item-tag">INFECTIOUS DISEASE</span>
+          <div class="research-item-title">感染症の迅速診断とゲノムタイピング技術の開発</div>
+          <div class="research-item-title-en">Rapid Diagnostics and Genomic Typing of Infectious Pathogens</div>
         </div>
       </div>
 
@@ -275,53 +174,6 @@
   </div>
 
   <div class="bg-zone" style="background-image:url('../img/idx-bgzone_bg2.jpg');"></div>
-
-  <!-- Publications -->
-  <div class="content-panel alt">
-    <div class="content-wrap">
-      <div class="section-head fade-up">
-        <span class="section-title-en">Publications</span>
-        <span class="section-title-ja">主な業績・論文</span>
-      </div>
-      <div class="pub-list">
-        <div class="pub-item">
-          <span class="pub-year">2024</span>
-          <span class="pub-tag">論文</span>
-          <div class="pub-content">
-            <div class="pub-title">Notchリガンド抗体の白血病細胞増殖抑制効果に関する研究</div>
-            <div class="pub-journal">Journal of Hematology &amp; Oncology · 2024</div>
-          </div>
-        </div>
-        <div class="pub-item">
-          <span class="pub-year">2024</span>
-          <span class="pub-tag">論文</span>
-          <div class="pub-content">
-            <div class="pub-title">SARS-CoV-2変異株の遺伝子タイピング新手法の開発と臨床的検証</div>
-            <div class="pub-journal">Journal of Clinical Microbiology · 2024</div>
-          </div>
-        </div>
-        <div class="pub-item">
-          <span class="pub-year">2023</span>
-          <span class="pub-tag">論文</span>
-          <div class="pub-content">
-            <div class="pub-title">患者由来白血病細胞を用いたin vitro薬剤感受性評価プラットフォームの構築</div>
-            <div class="pub-journal">Leukemia · 2023</div>
-          </div>
-        </div>
-        <div class="pub-item">
-          <span class="pub-year">2023</span>
-          <span class="pub-tag">論文</span>
-          <div class="pub-content">
-            <div class="pub-title">CAR-T細胞療法耐性メカニズムとNotchシグナルの関与</div>
-            <div class="pub-journal">Blood · 2023</div>
-          </div>
-        </div>
-      </div>
-      <div class="pub-more"><span class="pub-more-link">論文一覧を見る →</span></div>
-    </div>
-  </div>
-
-  <div class="bg-zone" style="background-image:url('../img/idx-bgzone_bg3.jpg');"></div>
 
   <div class="footer">
     <div>
@@ -355,7 +207,6 @@
 
   document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
   document.querySelectorAll('.research-item').forEach(el=>io.observe(el));
-  document.querySelectorAll('.pub-item').forEach(el=>io.observe(el));
 
   // Nav スクロール
   window.addEventListener('scroll',function(){

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究内容 – 臨床検査医学分野 / Science Tokyo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+/* ── Nav (トップページと同一) ── */
+.floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+
+/* ── Page Hero (下層ページ用・コンパクト) ── */
+.page-hero{width:100%;min-height:340px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:56px 0 52px;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.6) 0%,rgba(11,31,58,0.75) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+.page-hero-breadcrumb{font-size:10px;color:var(--text-muted-navy);letter-spacing:.08em;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.page-hero-breadcrumb-sep{opacity:.4;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.page-hero-eyebrow.visible{opacity:1;transform:translateY(0);}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:48px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(18px);transition:opacity 0.6s ease 0.12s,transform 0.6s ease 0.12s;}
+.page-hero-title.visible{opacity:1;transform:translateY(0);}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.18em;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.22s,transform 0.6s ease 0.22s;}
+.page-hero-title-ja.visible{opacity:1;transform:translateY(0);}
+
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+/* ── Content layout ── */
+.bg-zone{width:100%;height:360px;background-attachment:fixed;background-size:cover;background-position:center;position:relative;}
+.bg-zone::after{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.40);}
+
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-panel.alt{background:var(--surface);}
+.content-wrap{max-width:860px;margin:0 auto;padding:0 32px;}
+
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ── Overview intro ── */
+.research-intro{font-size:14px;color:var(--text-body);line-height:2.1;border-left:3px solid var(--accent);padding-left:20px;}
+
+/* ── Section heading ── */
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── Research items (詳細) ── */
+.research-item{border:1px solid var(--border);border-top:3px solid var(--accent);background:#fff;margin-bottom:40px;opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.research-item.visible{opacity:1;transform:translateY(0);}
+.research-item-header{padding:32px 36px 28px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;}
+.research-item-num{font-family:'Roboto',sans-serif;font-size:64px;font-weight:700;color:var(--accent-pale);line-height:1;flex-shrink:0;}
+.research-item-meta{}
+.research-item-tag{display:inline-block;font-size:9px;background:var(--navy);color:#fff;padding:4px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:14px;}
+.research-item-title{font-family:'Noto Sans JP',sans-serif;font-size:20px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:8px;}
+.research-item-title-en{font-size:11px;color:var(--text-muted);letter-spacing:.06em;}
+.research-item-body{padding:28px 36px 32px;}
+.research-item-desc{font-size:13px;color:var(--text-body);line-height:2.1;margin-bottom:24px;}
+.research-item-divider{width:100%;height:1px;background:var(--border);margin-bottom:24px;}
+
+/* ── Sub-topics ── */
+.subtopic-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.subtopic{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:2px;}
+.subtopic-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;}
+.subtopic-text{font-size:12px;color:var(--text-body);line-height:1.7;}
+
+/* ── Keywords ── */
+.keyword-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.keyword{font-size:10px;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;border-radius:2px;letter-spacing:.05em;}
+
+/* ── Publications preview ── */
+.pub-list{border:1px solid var(--border);}
+.pub-item{display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);align-items:flex-start;opacity:0;transform:translateX(-20px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.pub-item.visible{opacity:1;transform:translateX(0);}
+.pub-item:nth-child(2){transition-delay:0.08s;}
+.pub-item:nth-child(3){transition-delay:0.16s;}
+.pub-item:nth-child(4){transition-delay:0.24s;}
+.pub-item:last-child{border-bottom:none;}
+.pub-year{font-family:'Roboto',sans-serif;font-size:11px;color:var(--text-muted);white-space:nowrap;min-width:36px;padding-top:2px;}
+.pub-tag{font-size:9px;background:var(--accent);color:#fff;padding:2px 8px;white-space:nowrap;letter-spacing:.06em;border-radius:2px;flex-shrink:0;}
+.pub-content{flex:1;}
+.pub-title{font-size:12px;color:var(--text-body);line-height:1.7;margin-bottom:4px;}
+.pub-journal{font-size:10px;color:var(--text-muted);}
+.pub-more{text-align:right;margin-top:12px;}
+.pub-more-link{font-size:11px;color:var(--accent);cursor:pointer;}
+
+/* ── Footer ── */
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:10px;color:var(--text-muted-navy);}
+.footer-links{display:flex;gap:16px;}
+.footer-link{font-size:10px;color:var(--text-muted-navy);cursor:pointer;}
+.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links">
+        <div class="nav-item">ホーム</div>
+        <div class="nav-item active">研究内容</div>
+        <div class="nav-item">スタッフ</div>
+        <div class="nav-item">企業の方へ</div>
+        <div class="nav-item">教育・大学院</div>
+        <div class="nav-item">臨床・診療</div>
+        <div class="nav-item">お問い合わせ</div>
+      </div>
+      <div class="nav-lang">EN</div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-breadcrumb">
+        <span>ホーム</span>
+        <span class="page-hero-breadcrumb-sep">›</span>
+        <span>研究内容</span>
+      </div>
+      <div class="page-hero-eyebrow" id="pe">RESEARCH</div>
+      <div class="page-hero-title" id="pt">Research</div>
+      <div class="page-hero-title-ja" id="ptj">研究内容</div>
+    </div>
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <!-- Overview -->
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Overview</span>
+        <span class="section-title-ja">研究概要</span>
+      </div>
+      <div class="research-intro fade-up">
+        臨床検査医学分野では、血液悪性腫瘍（白血病・リンパ腫）の病態解明と新規治療法の開発を中心に、個別化医療を実現するための診断技術、および感染症の迅速診断・タイピング技術の研究を推進しています。<br><br>
+        基礎研究と臨床の密接な連携（トランスレーショナルリサーチ）を通じて、患者さんの予後改善に直結する成果を目指しています。
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-zone" style="background-image:url('../img/idx-bgzone_bg1.jpg');"></div>
+
+  <!-- Research Areas -->
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Research Areas</span>
+        <span class="section-title-ja">研究テーマ</span>
+      </div>
+
+      <!-- 01 -->
+      <div class="research-item">
+        <div class="research-item-header">
+          <div class="research-item-num">01</div>
+          <div class="research-item-meta">
+            <span class="research-item-tag">HEMATOLOGY</span>
+            <div class="research-item-title">白血病・リンパ腫の発症メカニズム解明と新規治療法の開発</div>
+            <div class="research-item-title-en">Molecular Pathogenesis of Leukemia and Lymphoma / Novel Therapeutic Strategies</div>
+          </div>
+        </div>
+        <div class="research-item-body">
+          <div class="research-item-desc">
+            白血病・リンパ腫などの血液悪性腫瘍は、遺伝子変異や細胞シグナル伝達の異常によって引き起こされる複雑な疾患群です。私たちは Notch シグナルをはじめとする腫瘍化に関わる分子経路の解明に取り組み、その成果を新規分子標的治療薬の探索へと結びつけることを目指しています。<br><br>
+            患者由来の腫瘍サンプルや細胞株・マウスモデルを活用し、in vitro・in vivo の両面から病態の全容を明らかにするとともに、細胞療法（CAR-T 細胞治療など）との組み合わせ治療戦略についても研究を展開しています。
+          </div>
+          <div class="research-item-divider"></div>
+          <div class="subtopic-list">
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">Notchシグナル経路の腫瘍化における役割の解明</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">急性リンパ性白血病（ALL）・急性骨髄性白血病（AML）の分子病態研究</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">分子標的薬・免疫療法との併用効果の検討</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">CAR-T細胞治療の耐性機序と克服戦略</div></div>
+          </div>
+          <div class="keyword-row">
+            <span class="keyword">Leukemia</span>
+            <span class="keyword">Lymphoma</span>
+            <span class="keyword">Notch signaling</span>
+            <span class="keyword">Molecular targeted therapy</span>
+            <span class="keyword">CAR-T</span>
+            <span class="keyword">Translational research</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="research-item">
+        <div class="research-item-header">
+          <div class="research-item-num">02</div>
+          <div class="research-item-meta">
+            <span class="research-item-tag">PHARMACOLOGY</span>
+            <div class="research-item-title">新規 in vitro 薬剤感受性試験の開発と個別化医療への応用</div>
+            <div class="research-item-title-en">Development of Novel In Vitro Drug Sensitivity Assays / Precision Medicine</div>
+          </div>
+        </div>
+        <div class="research-item-body">
+          <div class="research-item-desc">
+            同じ病名であっても患者ごとに腫瘍細胞の薬剤感受性は異なります。患者由来の腫瘍細胞を用いた in vitro 薬剤感受性評価系を構築し、治療前に最適な薬剤を予測・選択するプラットフォームの開発を進めています。<br><br>
+            高感度フローサイトメトリーや次世代シーケンシング（NGS）等の先端技術を組み合わせることで、微量サンプルからでも精度の高い感受性評価を可能とし、難治性・再発症例への新たな治療戦略を提示することを目標としています。
+          </div>
+          <div class="research-item-divider"></div>
+          <div class="subtopic-list">
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">患者由来腫瘍細胞（PDC）を用いた感受性評価プラットフォームの構築</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">フローサイトメトリーによる生細胞・死細胞判定の高精度化</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">ゲノム変異プロファイルと薬剤感受性の相関解析</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">難治性・再発白血病に対する薬剤スクリーニング</div></div>
+          </div>
+          <div class="keyword-row">
+            <span class="keyword">Drug sensitivity</span>
+            <span class="keyword">Precision medicine</span>
+            <span class="keyword">Flow cytometry</span>
+            <span class="keyword">NGS</span>
+            <span class="keyword">PDC</span>
+            <span class="keyword">Personalized therapy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="research-item">
+        <div class="research-item-header">
+          <div class="research-item-num">03</div>
+          <div class="research-item-meta">
+            <span class="research-item-tag">INFECTIOUS DISEASE</span>
+            <div class="research-item-title">感染症の迅速診断とゲノムタイピング技術の開発</div>
+            <div class="research-item-title-en">Rapid Diagnostics and Genomic Typing of Infectious Pathogens</div>
+          </div>
+        </div>
+        <div class="research-item-body">
+          <div class="research-item-desc">
+            SARS-CoV-2 をはじめとする呼吸器感染症病原体の遺伝子型（バリアント）を迅速かつ高精度に同定する新しいタイピング手法の開発に取り組んでいます。変異株の動態把握はサーベイランス・感染対策において極めて重要であり、臨床現場で実装可能な診断技術の確立を目指しています。<br><br>
+            また、免疫不全患者（血液疾患患者を含む）における日和見感染症の病態解析や、治療抵抗性に関わる病原体側の要因解明も研究テーマとして取り組んでいます。
+          </div>
+          <div class="research-item-divider"></div>
+          <div class="subtopic-list">
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">SARS-CoV-2変異株の遺伝子タイピング新手法の開発</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">次世代シーケンシングを用いた病原体ゲノム解析</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">免疫不全患者における日和見感染症の病態研究</div></div>
+            <div class="subtopic"><div class="subtopic-dot"></div><div class="subtopic-text">感染症迅速診断技術の臨床応用</div></div>
+          </div>
+          <div class="keyword-row">
+            <span class="keyword">SARS-CoV-2</span>
+            <span class="keyword">Variant typing</span>
+            <span class="keyword">NGS</span>
+            <span class="keyword">Rapid diagnostics</span>
+            <span class="keyword">Opportunistic infection</span>
+            <span class="keyword">Immunocompromised</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bg-zone" style="background-image:url('../img/idx-bgzone_bg2.jpg');"></div>
+
+  <!-- Publications -->
+  <div class="content-panel alt">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Publications</span>
+        <span class="section-title-ja">主な業績・論文</span>
+      </div>
+      <div class="pub-list">
+        <div class="pub-item">
+          <span class="pub-year">2024</span>
+          <span class="pub-tag">論文</span>
+          <div class="pub-content">
+            <div class="pub-title">Notchリガンド抗体の白血病細胞増殖抑制効果に関する研究</div>
+            <div class="pub-journal">Journal of Hematology &amp; Oncology · 2024</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2024</span>
+          <span class="pub-tag">論文</span>
+          <div class="pub-content">
+            <div class="pub-title">SARS-CoV-2変異株の遺伝子タイピング新手法の開発と臨床的検証</div>
+            <div class="pub-journal">Journal of Clinical Microbiology · 2024</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <span class="pub-tag">論文</span>
+          <div class="pub-content">
+            <div class="pub-title">患者由来白血病細胞を用いたin vitro薬剤感受性評価プラットフォームの構築</div>
+            <div class="pub-journal">Leukemia · 2023</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <span class="pub-tag">論文</span>
+          <div class="pub-content">
+            <div class="pub-title">CAR-T細胞療法耐性メカニズムとNotchシグナルの関与</div>
+            <div class="pub-journal">Blood · 2023</div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-more"><span class="pub-more-link">論文一覧を見る →</span></div>
+    </div>
+  </div>
+
+  <div class="bg-zone" style="background-image:url('../img/idx-bgzone_bg3.jpg');"></div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <span class="footer-link">お問い合わせ</span>
+      <span class="footer-link">アクセス</span>
+      <span class="footer-link">大学ホームページ</span>
+      <span class="footer-link">English</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+
+  // Page hero アニメーション
+  ['pe','pt','ptj'].forEach((id,i)=>{
+    setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 100+i*140);
+  });
+
+  // スクロール連動アニメーション
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:0.10});
+
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+  document.querySelectorAll('.research-item').forEach(el=>io.observe(el));
+  document.querySelectorAll('.pub-item').forEach(el=>io.observe(el));
+
+  // Nav スクロール
+  window.addEventListener('scroll',function(){
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

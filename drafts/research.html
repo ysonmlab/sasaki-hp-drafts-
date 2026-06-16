@@ -7,6 +7,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 :root{
   --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
   --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
@@ -56,8 +57,9 @@
 
 /* ── 研究テーマ概要グリッド ── */
 .theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:80px;}
+a.theme-card{text-decoration:none;color:inherit;display:block;}
 .theme-card{
-  background:#FAFDFD;
+  background:#fff;
   border:1px solid var(--border);
   border-top:3px solid var(--accent);
   padding:28px 24px 32px;
@@ -146,21 +148,21 @@
         <span class="section-title-ja">主な研究テーマ</span>
       </div>
       <div class="theme-grid">
-        <div class="theme-card">
+        <a class="theme-card" href="#detail-01">
           <div class="theme-card-num">01</div>
           <div class="theme-card-title">白血病・リンパ腫の発症メカニズム解明</div>
           <div class="theme-card-title-en">Molecular Mechanisms of Leukemia and Lymphoma</div>
-        </div>
-        <div class="theme-card">
+        </a>
+        <a class="theme-card" href="#detail-02">
           <div class="theme-card-num">02</div>
           <div class="theme-card-title">新規in vitro薬剤感受性試験の開発</div>
           <div class="theme-card-title-en">Development of Novel In Vitro Drug Sensitivity Assays</div>
-        </div>
-        <div class="theme-card">
+        </a>
+        <a class="theme-card" href="#detail-03">
           <div class="theme-card-num">03</div>
           <div class="theme-card-title">感染症とタイピング技術</div>
           <div class="theme-card-title-en">Infectious Disease and Pathogen Typing Technologies</div>
-        </div>
+        </a>
       </div>
 
       <!-- テーマ01 詳細 -->
@@ -169,7 +171,7 @@
         <span class="section-title-ja">各テーマの詳細</span>
       </div>
 
-      <div class="research-detail">
+      <div class="research-detail" id="detail-01">
         <div class="detail-header">
           <div class="detail-num">01</div>
           <div class="detail-header-text">
@@ -198,7 +200,7 @@
       </div>
 
       <!-- テーマ02 詳細 -->
-      <div class="research-detail">
+      <div class="research-detail" id="detail-02">
         <div class="detail-header">
           <div class="detail-num">02</div>
           <div class="detail-header-text">
@@ -226,7 +228,7 @@
       </div>
 
       <!-- テーマ03 詳細 -->
-      <div class="research-detail">
+      <div class="research-detail" id="detail-03">
         <div class="detail-header">
           <div class="detail-num">03</div>
           <div class="detail-header-text">

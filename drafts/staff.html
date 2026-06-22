@@ -69,6 +69,8 @@
 .prof-name-en{font-size:12px;color:var(--text-muted);letter-spacing:.06em;}
 .prof-affil{font-size:11px;color:var(--text-muted);margin-bottom:24px;}
 .prof-bio{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--text-body);line-height:2.1;}
+.prof-link-lined{display:block;margin-top:28px;color:var(--text-body);font-size:13px;font-weight:700;letter-spacing:.04em;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-align:right;transition:color 0.2s;}
+.prof-link-lined:hover{color:var(--navy);}
 
 /* ── Group Photo ── */
 .group-photo-outer{background:#FAFDFD;padding-bottom:72px;}
@@ -76,23 +78,6 @@
 .group-photo-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 45%;}
 .group-photo-placeholder-text{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 .group-photo-caption{font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;letter-spacing:.06em;}
-
-/* ── Pattern Label ── */
-.pattern-label{font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.22em;margin-bottom:10px;}
-
-/* ── Name Listing (参考サイト風) ── */
-.name-listing-panel{background:var(--surface);padding:64px 0;}
-.name-listing-row{display:flex;align-items:baseline;gap:0;padding:14px 0;border-bottom:1px solid var(--border);}
-.name-listing-row:first-child{border-top:1px solid var(--border);}
-.name-listing-role{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.18em;color:var(--text-muted);white-space:nowrap;min-width:220px;flex-shrink:0;}
-.name-listing-names{font-size:13px;color:var(--text-body);line-height:1.9;}
-.name-listing-names span+span::before{content:' / ';color:var(--text-muted);}
-
-/* ── Name Listing: 役職区分なし一括 ── */
-.name-all-panel{background:#FAFDFD;padding:64px 0;}
-.name-all-text{font-size:14px;color:var(--text-body);line-height:2.4;letter-spacing:.02em;}
-.name-all-row{display:block;text-align:center;}
-.name-all-row span+span::before{content:' / ';color:var(--text-muted);}
 
 /* ── Member Groups ── */
 .member-group{margin-bottom:44px;opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
@@ -173,6 +158,7 @@
           </div>
           <div class="prof-affil">東京科学大学 医学部 / 臨床検査医学分野 教授</div>
           <div class="prof-bio">私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。<br>血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。</div>
+          <a href="https://researchmap.jp/KSasaki_ResearchMap" target="_blank" rel="noopener noreferrer" class="prof-link-lined">研究業績（researchmap） →</a>
         </div>
       </div>
     </div>
@@ -188,67 +174,10 @@
     </div>
   </div>
 
-  <!-- Pattern A: 役職区分なし一括 -->
-  <div class="name-all-panel">
-    <div class="content-wrap">
-      <div class="pattern-label fade-up">PATTERN A</div>
-      <div class="section-head fade-up">
-        <span class="section-title-en">Members</span>
-        <span class="section-title-ja">メンバー（名前のみ）</span>
-      </div>
-      <div class="name-all-text fade-up">
-        <div class="name-all-row"><span>佐々木 宏治</span><span>山田 太郎</span><span>田中 花子</span><span>中村 健一</span><span>鈴木 一郎</span><span>伊藤 次郎</span><span>渡辺 三郎</span><span>木村 四郎</span><span>小林 五郎</span><span>加藤 六花</span></div>
-        <div class="name-all-row"><span>佐藤 七海</span><span>高橋 八重</span><span>山口 九美</span><span>松本 十子</span><span>井上 凜</span><span>田村 翔太</span><span>高木 あかり</span><span>阿部 未来</span><span>森田 誠</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pattern B: 役職ごとに名前羅列 -->
-  <div class="name-listing-panel">
-    <div class="content-wrap">
-      <div class="pattern-label fade-up">PATTERN B</div>
-      <div class="section-head fade-up">
-        <span class="section-title-en">Members</span>
-        <span class="section-title-ja">メンバー（名前一覧）</span>
-      </div>
-      <div class="fade-up">
-        <div class="name-listing-row">
-          <div class="name-listing-role">PROFESSOR　教授</div>
-          <div class="name-listing-names"><span>佐々木 宏治</span></div>
-        </div>
-        <div class="name-listing-row">
-          <div class="name-listing-role">ASSOCIATE PROFESSOR　准教授</div>
-          <div class="name-listing-names"><span>山田 太郎</span></div>
-        </div>
-        <div class="name-listing-row">
-          <div class="name-listing-role">ASSISTANT PROFESSOR　助教</div>
-          <div class="name-listing-names"><span>田中 花子</span><span>中村 健一</span></div>
-        </div>
-        <div class="name-listing-row">
-          <div class="name-listing-role">PhD STUDENTS　博士課程（後期）</div>
-          <div class="name-listing-names"><span>鈴木 一郎</span><span>伊藤 次郎</span><span>渡辺 三郎</span><span>木村 四郎</span></div>
-        </div>
-        <div class="name-listing-row">
-          <div class="name-listing-role">MASTER'S STUDENTS　修士課程</div>
-          <div class="name-listing-names"><span>小林 五郎</span><span>加藤 六花</span><span>佐藤 七海</span><span>高橋 八重</span><span>山口 九美</span><span>松本 十子</span></div>
-        </div>
-        <div class="name-listing-row">
-          <div class="name-listing-role">UNDERGRADUATE　学部生（研究配属）</div>
-          <div class="name-listing-names"><span>井上 凜</span><span>田村 翔太</span><span>高木 あかり</span></div>
-        </div>
-        <div class="name-listing-row">
-          <div class="name-listing-role">RESEARCH STAFF　研究員・技術補佐員</div>
-          <div class="name-listing-names"><span>阿部 未来</span><span>森田 誠</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pattern C: メンバーカード -->
+  <!-- Members -->
   <div class="content-panel">
     <div class="content-wrap">
-      <div class="pattern-label fade-up">PATTERN C</div>
-      <div class="section-head fade-up">
+<div class="section-head fade-up">
         <span class="section-title-en">Members</span>
         <span class="section-title-ja">メンバー</span>
       </div>

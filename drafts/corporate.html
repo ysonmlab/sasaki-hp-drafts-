@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企業の方へ – 臨床検査医学分野 – Science Tokyo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+/* ── Nav ── */
+.floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;text-decoration:none;display:block;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-item:hover{color:#fff;}
+.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+
+/* ── Hero ── */
+.page-hero{width:100%;min-height:420px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.page-hero-eyebrow.visible{opacity:1;transform:translateY(0);}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:48px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(18px);transition:opacity 0.6s ease 0.12s,transform 0.6s ease 0.12s;}
+.page-hero-title.visible{opacity:1;transform:translateY(0);}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.18em;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.22s,transform 0.6s ease 0.22s;}
+.page-hero-title-ja.visible{opacity:1;transform:translateY(0);}
+
+/* ── Accent bar ── */
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+/* ── Layout ── */
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-panel.dark{background:var(--surface);}
+.content-wrap{max-width:900px;margin:0 auto;padding:0 32px;}
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── リード文 ── */
+.lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+
+/* ── 連携メニューカード ── */
+.collab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:0;}
+.collab-card{background:#fff;border:1px solid var(--border);border-top:3px solid var(--accent);padding:32px 28px 36px;opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease,box-shadow 0.2s;}
+.collab-card.visible{opacity:1;transform:translateY(0);}
+.collab-card:nth-child(2){transition-delay:0.1s;}
+.collab-card:nth-child(3){transition-delay:0.2s;}
+.collab-card:nth-child(4){transition-delay:0.3s;}
+.collab-card:hover{box-shadow:0 4px 20px rgba(74,144,196,0.12);}
+.collab-card-num{font-family:'Roboto',sans-serif;font-size:32px;color:var(--accent-pale);line-height:1;margin-bottom:14px;}
+.collab-card-title{font-size:15px;color:var(--navy);font-weight:500;margin-bottom:12px;line-height:1.6;}
+.collab-card-body{font-size:12px;color:var(--text-muted);line-height:2;border-top:1px solid var(--border);padding-top:14px;}
+
+/* ── フロー ── */
+.flow-list{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.flow-item.visible{opacity:1;transform:translateY(0);}
+.flow-item:nth-child(2){transition-delay:0.08s;}
+.flow-item:nth-child(3){transition-delay:0.16s;}
+.flow-item:nth-child(4){transition-delay:0.24s;}
+.flow-item:nth-child(5){transition-delay:0.32s;}
+.flow-item:first-child{border-top:1px solid var(--border);}
+.flow-step{font-family:'Roboto',sans-serif;font-size:11px;color:#fff;background:var(--accent);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;letter-spacing:.04em;}
+.flow-content-title{font-size:13px;color:var(--navy);font-weight:500;margin-bottom:6px;}
+.flow-content-body{font-size:12px;color:var(--text-muted);line-height:1.9;}
+
+/* ── お問い合わせ CTA ── */
+.cta-block{background:var(--navy);padding:56px 48px;text-align:center;}
+.cta-label{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;}
+.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:22px;color:#fff;font-weight:500;margin-bottom:12px;}
+.cta-body{font-size:12px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:12px 32px;letter-spacing:.08em;cursor:pointer;border-radius:2px;border:none;}
+
+/* ── Footer ── */
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:10px;color:var(--text-muted-navy);}
+.footer-links{display:flex;gap:16px;}
+.footer-link{font-size:10px;color:var(--text-muted-navy);cursor:pointer;}
+.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links">
+        <div class="nav-item" onclick="location.href='mlab_fixed_bg_demo_v2_1.html'">ホーム</div>
+        <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
+        <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
+        <div class="nav-item active">企業の方へ</div>
+        <div class="nav-item">教育・大学院</div>
+        <div class="nav-item">臨床・診療</div>
+        <div class="nav-item">お問い合わせ</div>
+      </div>
+      <div class="nav-lang">EN</div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow" id="pe">FOR COMPANIES</div>
+      <div class="page-hero-title" id="pt">Collaboration</div>
+      <div class="page-hero-title-ja" id="ptj">企業の方へ・産学連携</div>
+    </div>
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <!-- リード文 -->
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="lead-text fade-up">
+        臨床検査医学分野では、血液悪性腫瘍の診断・治療に関わる基礎・臨床研究を通じて、企業との共同研究・受託研究・技術移転など多様な形での産学連携を歓迎しています。<br><br>
+        新規診断技術・治療薬開発・検査プラットフォームの構築など、企業の皆様のニーズに応じた連携の形を柔軟にご提案いたします。まずはお気軽にお問い合わせください。
+      </div>
+
+      <!-- 連携メニュー -->
+      <div class="section-head fade-up">
+        <span class="section-title-en">Collaboration Menu</span>
+        <span class="section-title-ja">連携メニュー</span>
+      </div>
+      <div class="collab-grid">
+        <div class="collab-card">
+          <div class="collab-card-num">01</div>
+          <div class="collab-card-title">共同研究</div>
+          <div class="collab-card-body">企業と大学が費用・人材を分担し、共同で研究を実施します。研究成果の知的財産は双方で協議のうえ帰属を決定します。血液腫瘍・感染症・検査医学の各分野で幅広く対応可能です。</div>
+        </div>
+        <div class="collab-card">
+          <div class="collab-card-num">02</div>
+          <div class="collab-card-title">受託研究</div>
+          <div class="collab-card-body">企業からの依頼を受け、大学が研究を実施します。特定の化合物・デバイス・試薬の評価、患者由来細胞を用いた薬剤感受性試験など、専門的な解析業務を承ります。</div>
+        </div>
+        <div class="collab-card">
+          <div class="collab-card-num">03</div>
+          <div class="collab-card-title">技術移転・ライセンス</div>
+          <div class="collab-card-body">当研究室が開発した診断技術・アッセイ系・解析手法について、実用化に向けたライセンス契約や技術移転のご相談に応じます。</div>
+        </div>
+        <div class="collab-card">
+          <div class="collab-card-num">04</div>
+          <div class="collab-card-title">研究費支援・寄附講座</div>
+          <div class="collab-card-body">研究活動への資金支援や奨学寄附金のご提供を歓迎しています。寄附講座の設置についても大学の規定に従いご相談を承ります。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 連携の流れ -->
+  <div class="content-panel dark">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Process</span>
+        <span class="section-title-ja">連携の流れ</span>
+      </div>
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-step">1</div>
+          <div>
+            <div class="flow-content-title">お問い合わせ</div>
+            <div class="flow-content-body">まずはメールまたはお問い合わせフォームよりご連絡ください。研究内容・ご要望の概要をお知らせいただけますと、スムーズにご対応できます。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-step">2</div>
+          <div>
+            <div class="flow-content-title">ヒアリング・打ち合わせ</div>
+            <div class="flow-content-body">ご要望をお伺いし、連携の方向性・形態・スケジュールについて協議します。必要に応じて守秘義務契約（NDA）を締結のうえ詳細な情報交換を行います。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-step">3</div>
+          <div>
+            <div class="flow-content-title">契約締結</div>
+            <div class="flow-content-body">東京科学大学の産学連携窓口を通じ、共同研究契約・受託研究契約等を締結します。知的財産の取り扱いや費用負担についても契約書で明確にします。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-step">4</div>
+          <div>
+            <div class="flow-content-title">研究実施・報告</div>
+            <div class="flow-content-body">契約に基づき研究を開始します。定期的な進捗報告・ミーティングを通じて連携を密にし、研究終了後には成果報告書を提出します。</div>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-step">5</div>
+          <div>
+            <div class="flow-content-title">成果の活用・継続連携</div>
+            <div class="flow-content-body">得られた成果の実用化・特許化・論文発表等について協議します。継続的な連携関係の構築も積極的にサポートします。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block fade-up">
+    <div class="cta-label">CONTACT</div>
+    <div class="cta-title">産学連携・共同研究のご相談</div>
+    <div class="cta-body">ご質問・ご相談はお気軽にお問い合わせください。<br>担当者より折り返しご連絡いたします。</div>
+    <div class="cta-btn" onclick="location.href='mailto:sasaki-lab@example.ac.jp'">お問い合わせはこちら</div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <span class="footer-link">お問い合わせ</span>
+      <span class="footer-link">アクセス</span>
+      <span class="footer-link">大学ホームページ</span>
+      <span class="footer-link">English</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  ['pe','pt','ptj'].forEach((id,i)=>{
+    setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 120+i*160);
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up,.collab-card,.flow-item').forEach(el=>io.observe(el));
+  window.addEventListener('scroll',()=>{
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

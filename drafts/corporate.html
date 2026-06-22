@@ -47,7 +47,7 @@ html{scroll-behavior:smooth;}
 /* ── Layout ── */
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
 .content-panel.dark{background:var(--surface);}
-.content-wrap{max-width:900px;margin:0 auto;padding:0 32px;}
+.content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
@@ -58,17 +58,23 @@ html{scroll-behavior:smooth;}
 /* ── リード文 ── */
 .lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid var(--border);}
 
-/* ── 連携メニューカード ── */
-.collab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:0;}
-.collab-card{background:#fff;border:1px solid var(--border);border-top:3px solid var(--accent);padding:32px 28px 36px;opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease,box-shadow 0.2s;}
-.collab-card.visible{opacity:1;transform:translateY(0);}
-.collab-card:nth-child(2){transition-delay:0.1s;}
-.collab-card:nth-child(3){transition-delay:0.2s;}
-.collab-card:nth-child(4){transition-delay:0.3s;}
-.collab-card:hover{box-shadow:0 4px 20px rgba(74,144,196,0.12);}
-.collab-card-num{font-family:'Roboto',sans-serif;font-size:32px;color:var(--accent-pale);line-height:1;margin-bottom:14px;}
-.collab-card-title{font-size:15px;color:var(--navy);font-weight:500;margin-bottom:12px;line-height:1.6;}
-.collab-card-body{font-size:12px;color:var(--text-muted);line-height:2;border-top:1px solid var(--border);padding-top:14px;}
+/* ── 連携メニュー ── */
+.collab-list{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;}
+.collab-item{padding:40px 0;position:relative;opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.collab-item::after{content:'';position:absolute;bottom:0;left:7.5%;width:85%;height:1px;background:var(--border);}
+.collab-item:nth-last-child(-n+2)::after{display:none;}
+.collab-item.visible{opacity:1;transform:translateY(0);}
+.collab-item:nth-child(2){transition-delay:0.08s;}
+.collab-item:nth-child(3){transition-delay:0.16s;}
+.collab-item:nth-child(4){transition-delay:0.24s;}
+.collab-item-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;text-decoration:none;}
+.collab-item-icon{width:32px;height:32px;flex-shrink:0;color:var(--accent);}
+.collab-item-title{font-size:20px;color:var(--navy);font-weight:500;line-height:1.5;position:relative;display:inline-block;}
+.collab-item-title::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--navy);transition:width 0.35s ease;}
+.collab-item-header:hover .collab-item-title::after{width:100%;}
+.collab-item-link{width:28px;height:28px;border-radius:50%;background:var(--navy-light);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto;border:2px solid transparent;transition:background 0.35s ease,border-color 0.35s ease,color 0.35s ease;}
+.collab-item-header:hover .collab-item-link{background:transparent;border-color:var(--navy-light);color:var(--navy-light);}
+.collab-item-body{font-size:12px;color:var(--text-muted);line-height:2.1;}
 
 /* ── フロー ── */
 .flow-list{display:flex;flex-direction:column;gap:0;}
@@ -144,26 +150,38 @@ html{scroll-behavior:smooth;}
         <span class="section-title-en">Collaboration Menu</span>
         <span class="section-title-ja">連携メニュー</span>
       </div>
-      <div class="collab-grid">
-        <div class="collab-card">
-          <div class="collab-card-num">01</div>
-          <div class="collab-card-title">共同研究</div>
-          <div class="collab-card-body">企業と大学が費用・人材を分担し、共同で研究を実施します。研究成果の知的財産は双方で協議のうえ帰属を決定します。血液腫瘍・感染症・検査医学の各分野で幅広く対応可能です。</div>
+      <div class="collab-list">
+        <div class="collab-item">
+          <a href="#" class="collab-item-header">
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="7" r="2"/><path d="M21 21v-1.5a3 3 0 0 0-2-2.83"/></svg>
+            <span class="collab-item-title">共同研究</span>
+            <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <div class="collab-item-body">企業と大学が費用・人材を分担し、共同で研究を実施します。研究成果の知的財産は双方で協議のうえ帰属を決定します。血液腫瘍・感染症・検査医学の各分野で幅広く対応可能です。</div>
         </div>
-        <div class="collab-card">
-          <div class="collab-card-num">02</div>
-          <div class="collab-card-title">受託研究</div>
-          <div class="collab-card-body">企業からの依頼を受け、大学が研究を実施します。特定の化合物・デバイス・試薬の評価、患者由来細胞を用いた薬剤感受性試験など、専門的な解析業務を承ります。</div>
+        <div class="collab-item">
+          <a href="#" class="collab-item-header">
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-6-6z"/><path d="M13 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+            <span class="collab-item-title">受託研究</span>
+            <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <div class="collab-item-body">企業からの依頼を受け、大学が研究を実施します。特定の化合物・デバイス・試薬の評価、患者由来細胞を用いた薬剤感受性試験など、専門的な解析業務を承ります。</div>
         </div>
-        <div class="collab-card">
-          <div class="collab-card-num">03</div>
-          <div class="collab-card-title">技術移転・ライセンス</div>
-          <div class="collab-card-body">当研究室が開発した診断技術・アッセイ系・解析手法について、実用化に向けたライセンス契約や技術移転のご相談に応じます。</div>
+        <div class="collab-item">
+          <a href="#" class="collab-item-header">
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span class="collab-item-title">技術移転・ライセンス</span>
+            <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <div class="collab-item-body">当研究室が開発した診断技術・アッセイ系・解析手法について、実用化に向けたライセンス契約や技術移転のご相談に応じます。</div>
         </div>
-        <div class="collab-card">
-          <div class="collab-card-num">04</div>
-          <div class="collab-card-title">研究費支援・寄附講座</div>
-          <div class="collab-card-body">研究活動への資金支援や奨学寄附金のご提供を歓迎しています。寄附講座の設置についても大学の規定に従いご相談を承ります。</div>
+        <div class="collab-item">
+          <a href="#" class="collab-item-header">
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span class="collab-item-title">研究費支援・寄附講座</span>
+            <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </a>
+          <div class="collab-item-body">研究活動への資金支援や奨学寄附金のご提供を歓迎しています。寄附講座の設置についても大学の規定に従いご相談を承ります。</div>
         </div>
       </div>
     </div>
@@ -248,7 +266,7 @@ html{scroll-behavior:smooth;}
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   },{threshold:0.1});
-  document.querySelectorAll('.fade-up,.collab-card,.flow-item').forEach(el=>io.observe(el));
+  document.querySelectorAll('.fade-up,.collab-item,.flow-item').forEach(el=>io.observe(el));
   window.addEventListener('scroll',()=>{
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }

@@ -14,29 +14,29 @@ html{scroll-behavior:smooth;}
   --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
   --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
 }
-.page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#fff;}
+.page{font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.75;letter-spacing:0.04em;color:var(--text-body);width:100%;overflow-x:hidden;background:#fff;}
 
 /* ── Nav ── */
 .floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
 .floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-brand{padding:12px 0;}
-.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
-.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:15px;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:10px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
 .nav-links{display:flex;}
-.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item{padding:15px 11px;font-size:12px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
 .nav-item:hover{color:#fff;}
-.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-lang{font-size:12px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 
 /* ── Hero ── */
 .page-hero{width:100%;min-height:420px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
 .page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
-.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
 .page-hero-eyebrow.visible{opacity:1;transform:translateY(0);}
-.page-hero-title{font-family:'Inter',sans-serif;font-size:48px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(18px);transition:opacity 0.6s ease 0.12s,transform 0.6s ease 0.12s;}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:56px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(18px);transition:opacity 0.6s ease 0.12s,transform 0.6s ease 0.12s;}
 .page-hero-title.visible{opacity:1;transform:translateY(0);}
-.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.18em;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.22s,transform 0.6s ease 0.22s;}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:15px;color:rgba(255,255,255,.65);letter-spacing:.18em;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.22s,transform 0.6s ease 0.22s;}
 .page-hero-title-ja.visible{opacity:1;transform:translateY(0);}
 
 /* ── Accent bar ── */
@@ -47,27 +47,27 @@ html{scroll-behavior:smooth;}
 /* ── 共通 ── */
 .fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-.content-wrap{max-width:900px;margin:0 auto;padding:0 40px;}
+.content-wrap{width:min(90%,1440px);margin:0 auto;padding:0 24px;}
 .section-divider{border:none;border-top:1px solid var(--border);margin:0;}
 
 /* ── ページ導入 ── */
 .page-intro{padding:72px 0 64px;}
-.page-intro-lead{font-family:'Noto Sans JP',sans-serif;font-size:20px;color:var(--navy);font-weight:500;line-height:1.7;margin-bottom:20px;}
-.page-intro-body{font-size:13px;color:var(--text-muted);line-height:2.2;max-width:680px;}
+.page-intro-lead{font-family:'Noto Sans JP',sans-serif;font-size:23px;color:var(--navy);font-weight:500;line-height:1.7;margin-bottom:20px;}
+.page-intro-body{font-size:16px;color:var(--text-muted);line-height:1.75;max-width:680px;}
 
 /* ── セクション共通 ── */
 .edu-section{padding:64px 0;border-top:1px solid var(--border);}
 .edu-section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:10px;}
-.edu-section-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:22px;color:var(--navy);font-weight:500;}
-.edu-section-title-en{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
-.edu-section-lead{font-size:13px;color:var(--text-body);line-height:2.1;margin-top:16px;margin-bottom:36px;max-width:720px;}
+.edu-section-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:25px;color:var(--navy);font-weight:500;}
+.edu-section-title-en{font-size:13px;color:var(--text-muted);letter-spacing:.1em;}
+.edu-section-lead{font-size:16px;color:var(--text-body);line-height:1.75;margin-top:16px;margin-bottom:36px;max-width:720px;}
 
 /* ── 学部生向け ── */
 .undergrad-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);padding:28px 32px;}
-.undergrad-box-dept{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.2em;margin-bottom:8px;}
-.undergrad-box-title{font-size:15px;color:var(--navy);font-weight:500;margin-bottom:10px;}
-.undergrad-box-body{font-size:12px;color:var(--text-muted);line-height:2;}
-.undergrad-box-link{display:inline-block;margin-top:16px;font-size:11px;color:var(--accent);letter-spacing:.04em;}
+.undergrad-box-dept{font-family:'Oswald',sans-serif;font-size:13px;color:var(--gold);letter-spacing:.2em;margin-bottom:8px;}
+.undergrad-box-title{font-size:17px;color:var(--navy);font-weight:500;margin-bottom:10px;}
+.undergrad-box-body{font-size:14px;color:var(--text-muted);line-height:1.75;}
+.undergrad-box-link{display:inline-block;margin-top:16px;font-size:13px;color:var(--accent);letter-spacing:.04em;}
 .undergrad-box-link::after{content:' →';}
 
 /* ── 大学院入学経路カード ── */
@@ -78,54 +78,54 @@ html{scroll-behavior:smooth;}
 .grad-card:nth-child(3){transition-delay:0.16s;}
 .grad-card:nth-child(4){transition-delay:0.24s;}
 .grad-card:hover{box-shadow:0 4px 16px rgba(74,144,196,0.1);}
-.grad-card-badge{display:inline-block;font-size:9px;background:var(--navy);color:#fff;padding:3px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:14px;}
+.grad-card-badge{display:inline-block;font-size:10px;background:var(--navy);color:#fff;padding:3px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:14px;}
 .grad-card-badge.en{background:var(--accent);}
-.grad-card-title{font-size:14px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:10px;}
-.grad-card-body{font-size:11px;color:var(--text-muted);line-height:1.95;border-top:1px solid var(--border);padding-top:12px;}
-.grad-card-link{display:inline-block;margin-top:14px;font-size:10px;color:var(--accent);letter-spacing:.04em;}
+.grad-card-title{font-size:16px;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:10px;}
+.grad-card-body{font-size:13px;color:var(--text-muted);line-height:1.75;border-top:1px solid var(--border);padding-top:12px;}
+.grad-card-link{display:inline-block;margin-top:14px;font-size:11px;color:var(--accent);letter-spacing:.04em;}
 .grad-card-link::after{content:' →';}
 
 /* ── 研究室の教育方針 ── */
 .policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .policy-item{padding:24px 20px;border-top:2px solid var(--accent);}
-.policy-num{font-family:'Roboto',sans-serif;font-size:28px;color:var(--accent-pale);margin-bottom:10px;}
-.policy-title{font-size:13px;color:var(--navy);font-weight:500;margin-bottom:8px;line-height:1.6;}
-.policy-body{font-size:11px;color:var(--text-muted);line-height:1.9;}
+.policy-num{font-family:'Roboto',sans-serif;font-size:32px;color:var(--accent-pale);margin-bottom:10px;}
+.policy-title{font-size:15px;color:var(--navy);font-weight:500;margin-bottom:8px;line-height:1.6;}
+.policy-body{font-size:13px;color:var(--text-muted);line-height:1.75;}
 
 /* ── よくある質問 ── */
 .faq-list{display:flex;flex-direction:column;}
 .faq-item{padding:20px 0;border-bottom:1px solid var(--border);}
 .faq-item:first-child{border-top:1px solid var(--border);}
 .faq-q{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
-.faq-q-mark{font-family:'Roboto',sans-serif;font-size:16px;color:var(--gold);font-weight:700;flex-shrink:0;line-height:1.5;}
-.faq-q-text{font-size:13px;color:var(--navy);font-weight:500;line-height:1.7;}
+.faq-q-mark{font-family:'Roboto',sans-serif;font-size:18px;color:var(--gold);font-weight:700;flex-shrink:0;line-height:1.5;}
+.faq-q-text{font-size:15px;color:var(--navy);font-weight:500;line-height:1.7;}
 .faq-a{display:flex;gap:14px;align-items:flex-start;}
-.faq-a-mark{font-family:'Roboto',sans-serif;font-size:16px;color:var(--accent);font-weight:700;flex-shrink:0;line-height:1.5;}
-.faq-a-text{font-size:12px;color:var(--text-muted);line-height:1.9;}
+.faq-a-mark{font-family:'Roboto',sans-serif;font-size:18px;color:var(--accent);font-weight:700;flex-shrink:0;line-height:1.5;}
+.faq-a-text{font-size:14px;color:var(--text-muted);line-height:1.75;}
 
 /* ── CTA ── */
 .cta-section{background:var(--navy);padding:64px 40px;text-align:center;}
-.cta-eyebrow{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.25em;margin-bottom:14px;}
-.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:20px;color:#fff;font-weight:500;margin-bottom:10px;}
-.cta-body{font-size:12px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
-.cta-email{font-family:'Roboto',sans-serif;font-size:15px;color:#fff;letter-spacing:.04em;margin-bottom:28px;display:block;}
-.cta-btn{display:inline-block;background:#fff;color:var(--navy);font-size:12px;font-weight:500;padding:13px 36px;letter-spacing:.08em;cursor:pointer;border-radius:2px;}
+.cta-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;color:var(--gold);letter-spacing:.25em;margin-bottom:14px;}
+.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:23px;color:#fff;font-weight:500;margin-bottom:10px;}
+.cta-body{font-size:14px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
+.cta-email{font-family:'Roboto',sans-serif;font-size:17px;color:#fff;letter-spacing:.04em;margin-bottom:28px;display:block;}
+.cta-btn{display:inline-block;background:#fff;color:var(--navy);font-size:14px;font-weight:500;padding:13px 36px;letter-spacing:.08em;cursor:pointer;border-radius:2px;}
 
 /* ── Learn more リンク ── */
 .learn-more-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border);}
 .learn-more-item{padding:24px 20px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.2s;}
 .learn-more-item:hover{background:var(--surface);}
-.learn-more-label{font-size:10px;color:var(--text-muted);letter-spacing:.1em;margin-bottom:6px;}
-.learn-more-title{font-size:13px;color:var(--navy);font-weight:500;}
-.learn-more-arrow{font-size:10px;color:var(--accent);margin-top:8px;}
+.learn-more-label{font-size:12px;color:var(--text-muted);letter-spacing:.1em;margin-bottom:6px;}
+.learn-more-title{font-size:15px;color:var(--navy);font-weight:500;}
+.learn-more-arrow{font-size:12px;color:var(--accent);margin-top:8px;}
 
 /* ── Footer ── */
 .footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;}
-.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
-.footer-univ{font-size:10px;color:var(--text-muted-navy);}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:12px;color:var(--text-muted-navy);}
 .footer-links{display:flex;gap:16px;}
-.footer-link{font-size:10px;color:var(--text-muted-navy);cursor:pointer;}
-.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+.footer-link{font-size:12px;color:var(--text-muted-navy);cursor:pointer;}
+.footer-copy{font-size:11px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 </style>
 </head>
 <body>

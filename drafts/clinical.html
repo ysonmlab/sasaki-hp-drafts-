@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臨床・診療 – 臨床検査医学分野 – Science Tokyo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+/* ── Nav ── */
+.floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;text-decoration:none;display:block;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-item:hover{color:#fff;}
+.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+
+/* ── Hero ── */
+.page-hero{width:100%;min-height:420px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.page-hero-eyebrow.visible{opacity:1;transform:translateY(0);}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:48px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(18px);transition:opacity 0.6s ease 0.12s,transform 0.6s ease 0.12s;}
+.page-hero-title.visible{opacity:1;transform:translateY(0);}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.18em;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.22s,transform 0.6s ease 0.22s;}
+.page-hero-title-ja.visible{opacity:1;transform:translateY(0);}
+
+/* ── Accent bar ── */
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+/* ── Layout ── */
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── リード文 ── */
+.lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:48px;}
+.lead-text-en{font-size:12px;color:var(--text-muted);line-height:2.1;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border);}
+
+/* ── Pattern A: バナーカード ── */
+.link-banner{display:flex;align-items:center;gap:20px;padding:24px 28px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--navy);text-decoration:none;transition:background 0.25s,border-color 0.25s;}
+.link-banner:hover{background:#EEF3F8;border-left-color:var(--accent);}
+.link-banner-icon{width:36px;height:36px;flex-shrink:0;color:var(--accent);}
+.link-banner-body{flex:1;}
+.link-banner-title{font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:4px;}
+.link-banner-sub{font-size:11px;color:var(--text-muted);letter-spacing:.02em;}
+.link-banner-arrow{font-size:20px;color:var(--text-muted);flex-shrink:0;}
+
+/* ── Pattern B: ゴールド左ボーダーリンク ── */
+.link-gold{display:flex;align-items:center;gap:16px;padding:20px 24px;border-left:3px solid var(--gold);text-decoration:none;transition:background 0.2s;}
+.link-gold:hover{background:rgba(201,168,76,0.06);}
+.link-gold-body{flex:1;}
+.link-gold-title{font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:4px;}
+.link-gold-sub{font-size:11px;color:var(--text-muted);}
+.link-gold-arrow{font-size:18px;color:var(--gold);flex-shrink:0;font-weight:700;}
+
+/* ── Pattern C: フルワイドブロック ── */
+.link-cta{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:36px 40px;border:1px solid var(--border);text-decoration:none;transition:border-color 0.25s,background 0.25s;}
+.link-cta:hover{border-color:var(--navy);background:var(--surface);}
+.link-cta-title{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:6px;}
+.link-cta-sub{font-size:11px;color:var(--text-muted);}
+.link-cta-btn{display:flex;align-items:center;gap:10px;padding:12px 28px;border:1.5px solid var(--navy);color:var(--navy);font-size:12px;letter-spacing:.08em;white-space:nowrap;flex-shrink:0;transition:background 0.25s,color 0.25s;}
+.link-cta:hover .link-cta-btn{background:var(--navy);color:#fff;}
+
+/* ── Pattern D: アウトラインボタン ── */
+.link-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:background 0.25s,color 0.25s;}
+.link-outline:hover{background:var(--navy);color:#fff;}
+.link-outline svg{transition:color 0.25s;}
+.link-outline:hover svg{color:#fff;}
+
+/* ── パターンラベル（確認用） ── */
+.pattern-label{font-size:10px;color:var(--text-muted);letter-spacing:.12em;margin-bottom:12px;}
+
+/* ── Footer ── */
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:10px;color:var(--text-muted-navy);}
+.footer-links{display:flex;gap:16px;}
+.footer-link{font-size:10px;color:var(--text-muted-navy);cursor:pointer;}
+.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links">
+        <div class="nav-item" onclick="location.href='mlab_fixed_bg_demo_v2_1.html'">ホーム</div>
+        <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
+        <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
+        <div class="nav-item" onclick="location.href='corporate.html'">企業の方へ</div>
+        <div class="nav-item">教育・大学院</div>
+        <div class="nav-item active">臨床・診療</div>
+        <div class="nav-item">お問い合わせ</div>
+      </div>
+      <div class="nav-lang">EN</div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow" id="pe">CLINICAL</div>
+      <div class="page-hero-title" id="pt">Clinical Practice</div>
+      <div class="page-hero-title-ja" id="ptj">臨床・診療</div>
+    </div>
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Clinical Laboratory</span>
+        <span class="section-title-ja">臨床検査部門</span>
+      </div>
+
+      <div class="lead-text fade-up">
+        臨床検査医学分野は、東京科学大学病院の検査部と密接に連携し、患者さんの診断・治療に不可欠な臨床検査を提供しています。血液学・生化学・免疫学・微生物学など幅広い検査領域において、高精度な検査の実施と検査医学の発展に取り組んでいます。
+      </div>
+      <div class="lead-text-en fade-up">
+        The Department of Laboratory Medicine works in close collaboration with the Clinical Laboratory of Science Tokyo Hospital, providing essential diagnostic testing for patient care. Our expertise spans a wide range of disciplines including hematology, biochemistry, immunology, and microbiology, with a commitment to both high-quality testing and the advancement of laboratory medicine.
+      </div>
+
+      <!-- Pattern D: アウトラインボタン -->
+      <div class="pattern-label fade-up">PATTERN D — アウトラインボタン</div>
+      <div class="fade-up" style="margin-bottom:48px;">
+        <p style="font-size:13px;color:var(--text-muted);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
+        <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
+          東京科学大学病院検査部へ
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <!-- Pattern A: バナーカード -->
+      <div class="pattern-label fade-up">PATTERN A — バナーカード</div>
+      <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-banner fade-up" style="margin-bottom:48px;">
+        <svg class="link-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div class="link-banner-body">
+          <div class="link-banner-title">東京科学大学病院検査部</div>
+          <div class="link-banner-sub">臨床検査に関する詳細・診療案内はこちらからご覧ください</div>
+        </div>
+        <span class="link-banner-arrow">→</span>
+      </a>
+
+      <!-- Pattern B: ゴールド左ボーダー -->
+      <div class="pattern-label fade-up">PATTERN B — ゴールドボーダー</div>
+      <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-gold fade-up" style="margin-bottom:48px;">
+        <div class="link-gold-body">
+          <div class="link-gold-title">東京科学大学病院検査部</div>
+          <div class="link-gold-sub">臨床検査に関する詳細・診療案内はこちらからご覧ください</div>
+        </div>
+        <span class="link-gold-arrow">↗</span>
+      </a>
+
+      <!-- Pattern C: フルワイドCTA -->
+      <div class="pattern-label fade-up">PATTERN C — フルワイドCTA</div>
+      <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-cta fade-up" style="margin-bottom:48px;">
+        <div>
+          <div class="link-cta-title">東京科学大学病院検査部</div>
+          <div class="link-cta-sub">臨床検査に関する詳細・診療案内はこちらからご覧ください</div>
+        </div>
+        <div class="link-cta-btn">検査部HPへ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <span class="footer-link">お問い合わせ</span>
+      <span class="footer-link">アクセス</span>
+      <span class="footer-link">大学ホームページ</span>
+      <span class="footer-link">English</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  ['pe','pt','ptj'].forEach((id,i)=>{
+    setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 120+i*160);
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+  window.addEventListener('scroll',()=>{
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

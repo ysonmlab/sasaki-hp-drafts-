@@ -29,7 +29,7 @@ html{scroll-behavior:smooth;}
 .nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 
 /* ── Hero ── */
-.page-hero{width:100%;min-height:420px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero{width:100%;min-height:420px;background:url('../img/idx-hero_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
 .page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
 .page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;}
@@ -69,25 +69,26 @@ html{scroll-behavior:smooth;}
 .collab-item:nth-child(4){transition-delay:0.24s;}
 .collab-item-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;text-decoration:none;}
 .collab-item-icon{width:32px;height:32px;flex-shrink:0;color:var(--accent);}
-.collab-item-title{font-size:20px;color:var(--navy);font-weight:500;line-height:1.5;position:relative;display:inline-block;}
+.collab-item-title{font-size:20px;color:var(--navy);font-weight:700;line-height:1.5;position:relative;display:inline-block;}
 .collab-item-title::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--navy);transition:width 0.35s ease;}
 .collab-item-header:hover .collab-item-title::after{width:100%;}
 .collab-item-link{width:28px;height:28px;border-radius:50%;background:var(--navy-light);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto;border:2px solid transparent;transition:background 0.35s ease,border-color 0.35s ease,color 0.35s ease;}
 .collab-item-header:hover .collab-item-link{background:transparent;border-color:var(--navy-light);color:var(--navy-light);}
-.collab-item-body{font-size:12px;color:var(--text-muted);line-height:2.1;}
+.collab-item-body{font-size:14px;color:#333;line-height:2.1;}
 
 /* ── フロー ── */
-.flow-list{display:flex;flex-direction:column;gap:0;}
-.flow-item{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.flow-item.visible{opacity:1;transform:translateY(0);}
-.flow-item:nth-child(2){transition-delay:0.08s;}
-.flow-item:nth-child(3){transition-delay:0.16s;}
-.flow-item:nth-child(4){transition-delay:0.24s;}
-.flow-item:nth-child(5){transition-delay:0.32s;}
-.flow-item:first-child{border-top:1px solid var(--border);}
-.flow-step{font-family:'Roboto',sans-serif;font-size:11px;color:#fff;background:var(--accent);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;letter-spacing:.04em;}
-.flow-content-title{font-size:13px;color:var(--navy);font-weight:500;margin-bottom:6px;}
-.flow-content-body{font-size:12px;color:var(--text-muted);line-height:1.9;}
+.flow-diagram{display:flex;align-items:flex-start;padding:48px 0 24px;}
+.flow-node{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.flow-node.visible{opacity:1;transform:translateY(0);}
+.flow-node:nth-child(2){transition-delay:0.1s;}
+.flow-node:nth-child(4){transition-delay:0.2s;}
+.flow-node:nth-child(6){transition-delay:0.3s;}
+.flow-node:nth-child(8){transition-delay:0.4s;}
+.flow-node:nth-child(10){transition-delay:0.5s;}
+.flow-circle{width:64px;height:64px;border-radius:50%;background:#ffa66d;color:#fff;font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(255,166,109,0.35);margin-bottom:20px;flex-shrink:0;}
+.flow-arrow-sep{flex:0 0 40px;display:flex;align-items:flex-start;padding-top:22px;color:var(--accent);font-size:26px;line-height:1;}
+.flow-card-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;text-align:center;}
+.flow-card-body{font-size:12px;color:var(--text-muted);line-height:1.85;text-align:center;padding:0 4px;}
 
 /* ── お問い合わせ CTA ── */
 .cta-block{background:var(--navy);padding:56px 48px;text-align:center;}
@@ -146,13 +147,13 @@ html{scroll-behavior:smooth;}
 
       <!-- 連携メニュー -->
       <div class="section-head fade-up">
-        <span class="section-title-en" style="font-size:40px;font-weight:700;">Collaboration Menu</span>
+        <span class="section-title-en" style="font-size:40px;font-weight:700;color:#000;">Collaboration Menu</span>
         <span class="section-title-ja">連携メニュー</span>
       </div>
       <div class="collab-list">
         <div class="collab-item">
           <a href="#" class="collab-item-header">
-            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="7" r="2"/><path d="M21 21v-1.5a3 3 0 0 0-2-2.83"/></svg>
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="#ffa66d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="7" r="2"/><path d="M21 21v-1.5a3 3 0 0 0-2-2.83"/></svg>
             <span class="collab-item-title">共同研究</span>
             <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
           </a>
@@ -160,7 +161,7 @@ html{scroll-behavior:smooth;}
         </div>
         <div class="collab-item">
           <a href="#" class="collab-item-header">
-            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-6-6z"/><path d="M13 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="#ffa66d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-6-6z"/><path d="M13 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
             <span class="collab-item-title">受託研究</span>
             <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
           </a>
@@ -168,7 +169,7 @@ html{scroll-behavior:smooth;}
         </div>
         <div class="collab-item">
           <a href="#" class="collab-item-header">
-            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="#ffa66d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             <span class="collab-item-title">技術移転・ライセンス</span>
             <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
           </a>
@@ -176,7 +177,7 @@ html{scroll-behavior:smooth;}
         </div>
         <div class="collab-item">
           <a href="#" class="collab-item-header">
-            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <svg class="collab-item-icon" viewBox="0 0 24 24" fill="none" stroke="#ffa66d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
             <span class="collab-item-title">研究費支援・寄附講座</span>
             <span class="collab-item-link"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
           </a>
@@ -190,44 +191,38 @@ html{scroll-behavior:smooth;}
   <div class="content-panel dark">
     <div class="content-wrap">
       <div class="section-head fade-up">
-        <span class="section-title-en">Process</span>
+        <span class="section-title-en" style="font-size:40px;font-weight:700;color:#000;">Process</span>
         <span class="section-title-ja">連携の流れ</span>
       </div>
-      <div class="flow-list">
-        <div class="flow-item">
-          <div class="flow-step">1</div>
-          <div>
-            <div class="flow-content-title">お問い合わせ</div>
-            <div class="flow-content-body">まずはメールまたはお問い合わせフォームよりご連絡ください。研究内容・ご要望の概要をお知らせいただけますと、スムーズにご対応できます。</div>
-          </div>
+      <div class="flow-diagram">
+        <div class="flow-node">
+          <div class="flow-circle"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+          <div class="flow-card-title">お問い合わせ</div>
+          <div class="flow-card-body">まずはメールまたはお問い合わせフォームよりご連絡ください。研究内容・ご要望の概要をお知らせいただけますと、スムーズにご対応できます。</div>
         </div>
-        <div class="flow-item">
-          <div class="flow-step">2</div>
-          <div>
-            <div class="flow-content-title">ヒアリング・打ち合わせ</div>
-            <div class="flow-content-body">ご要望をお伺いし、連携の方向性・形態・スケジュールについて協議します。必要に応じて守秘義務契約（NDA）を締結のうえ詳細な情報交換を行います。</div>
-          </div>
+        <div class="flow-arrow-sep">›</div>
+        <div class="flow-node">
+          <div class="flow-circle"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="flow-card-title">ヒアリング・<br>打ち合わせ</div>
+          <div class="flow-card-body">ご要望をお伺いし、連携の方向性・形態・スケジュールについて協議します。必要に応じてNDAを締結のうえ詳細な情報交換を行います。</div>
         </div>
-        <div class="flow-item">
-          <div class="flow-step">3</div>
-          <div>
-            <div class="flow-content-title">契約締結</div>
-            <div class="flow-content-body">東京科学大学の産学連携窓口を通じ、共同研究契約・受託研究契約等を締結します。知的財産の取り扱いや費用負担についても契約書で明確にします。</div>
-          </div>
+        <div class="flow-arrow-sep">›</div>
+        <div class="flow-node">
+          <div class="flow-circle"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <div class="flow-card-title">契約締結</div>
+          <div class="flow-card-body">東京科学大学の産学連携窓口を通じ、共同研究契約・受託研究契約等を締結します。知的財産の取り扱いや費用負担も契約書で明確にします。</div>
         </div>
-        <div class="flow-item">
-          <div class="flow-step">4</div>
-          <div>
-            <div class="flow-content-title">研究実施・報告</div>
-            <div class="flow-content-body">契約に基づき研究を開始します。定期的な進捗報告・ミーティングを通じて連携を密にし、研究終了後には成果報告書を提出します。</div>
-          </div>
+        <div class="flow-arrow-sep">›</div>
+        <div class="flow-node">
+          <div class="flow-circle"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5v18h14V3h-4"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6"/><path d="M9 16h4"/></svg></div>
+          <div class="flow-card-title">研究実施・報告</div>
+          <div class="flow-card-body">契約に基づき研究を開始します。定期的な進捗報告・ミーティングを通じて連携を密にし、終了後に成果報告書を提出します。</div>
         </div>
-        <div class="flow-item">
-          <div class="flow-step">5</div>
-          <div>
-            <div class="flow-content-title">成果の活用・継続連携</div>
-            <div class="flow-content-body">得られた成果の実用化・特許化・論文発表等について協議します。継続的な連携関係の構築も積極的にサポートします。</div>
-          </div>
+        <div class="flow-arrow-sep">›</div>
+        <div class="flow-node">
+          <div class="flow-circle"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="flow-card-title">成果の活用・<br>継続連携</div>
+          <div class="flow-card-body">得られた成果の実用化・特許化・論文発表等について協議します。継続的な連携関係の構築も積極的にサポートします。</div>
         </div>
       </div>
     </div>
@@ -265,7 +260,7 @@ html{scroll-behavior:smooth;}
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   },{threshold:0.1});
-  document.querySelectorAll('.fade-up,.collab-item,.flow-item').forEach(el=>io.observe(el));
+  document.querySelectorAll('.fade-up,.collab-item,.flow-node').forEach(el=>io.observe(el));
   window.addEventListener('scroll',()=>{
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }

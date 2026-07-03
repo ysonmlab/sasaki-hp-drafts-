@@ -61,22 +61,6 @@ html{scroll-behavior:smooth;}
 .link-banner-sub{font-size:11px;color:var(--text-muted);letter-spacing:.02em;}
 .link-banner-arrow{font-size:20px;color:var(--text-muted);flex-shrink:0;}
 
-/* ── Pattern B: ゴールド左ボーダーリンク ── */
-.link-gold{display:flex;align-items:center;gap:16px;padding:20px 24px;border-left:3px solid var(--gold);text-decoration:none;transition:background 0.2s;}
-.link-gold:hover{background:rgba(201,168,76,0.06);}
-.link-gold-body{flex:1;}
-.link-gold-title{font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:4px;}
-.link-gold-sub{font-size:11px;color:var(--text-muted);}
-.link-gold-arrow{font-size:18px;color:var(--gold);flex-shrink:0;font-weight:700;}
-
-/* ── Pattern C: フルワイドブロック ── */
-.link-cta{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:36px 40px;border:1px solid var(--border);text-decoration:none;transition:border-color 0.25s,background 0.25s;}
-.link-cta:hover{border-color:var(--navy);background:var(--surface);}
-.link-cta-title{font-size:18px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:6px;}
-.link-cta-sub{font-size:11px;color:var(--text-muted);}
-.link-cta-btn{display:flex;align-items:center;gap:10px;padding:12px 28px;border:1.5px solid var(--navy);color:var(--navy);font-size:12px;letter-spacing:.08em;white-space:nowrap;flex-shrink:0;transition:background 0.25s,color 0.25s;}
-.link-cta:hover .link-cta-btn{background:var(--navy);color:#fff;}
-
 /* ── Pattern D: アウトラインボタン ── */
 .link-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:background 0.25s,color 0.25s;}
 .link-outline:hover{background:var(--navy);color:#fff;}
@@ -141,16 +125,6 @@ html{scroll-behavior:smooth;}
         The Department of Laboratory Medicine works in close collaboration with the Clinical Laboratory of Science Tokyo Hospital, providing essential diagnostic testing for patient care. Our expertise spans a wide range of disciplines including hematology, biochemistry, immunology, and microbiology, with a commitment to both high-quality testing and the advancement of laboratory medicine.
       </div>
 
-      <!-- Pattern D: アウトラインボタン -->
-      <div class="pattern-label fade-up">PATTERN D — アウトラインボタン</div>
-      <div class="fade-up" style="margin-bottom:48px;">
-        <p style="font-size:13px;color:var(--text-muted);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
-        <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
-          東京科学大学病院検査部
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-
       <!-- Pattern A: バナーカード -->
       <div class="pattern-label fade-up">PATTERN A — バナーカード</div>
       <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-banner fade-up" style="margin-bottom:48px;">
@@ -162,25 +136,15 @@ html{scroll-behavior:smooth;}
         <span class="link-banner-arrow">→</span>
       </a>
 
-      <!-- Pattern B: ゴールド左ボーダー -->
-      <div class="pattern-label fade-up">PATTERN B — ゴールドボーダー</div>
-      <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-gold fade-up" style="margin-bottom:48px;">
-        <div class="link-gold-body">
-          <div class="link-gold-title">東京科学大学病院検査部</div>
-          <div class="link-gold-sub">臨床検査に関する詳細・診療案内はこちらからご覧ください</div>
-        </div>
-        <span class="link-gold-arrow">↗</span>
-      </a>
-
-      <!-- Pattern C: フルワイドCTA -->
-      <div class="pattern-label fade-up">PATTERN C — フルワイドCTA</div>
-      <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-cta fade-up" style="margin-bottom:48px;">
-        <div>
-          <div class="link-cta-title">東京科学大学病院検査部</div>
-          <div class="link-cta-sub">臨床検査に関する詳細・診療案内はこちらからご覧ください</div>
-        </div>
-        <div class="link-cta-btn">検査部HPへ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-      </a>
+      <!-- Pattern D: アウトラインボタン -->
+      <div class="pattern-label fade-up">PATTERN D — アウトラインボタン</div>
+      <div class="fade-up" style="margin-bottom:48px;">
+        <p style="font-size:13px;color:var(--text-muted);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
+        <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
+          東京科学大学病院検査部
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 

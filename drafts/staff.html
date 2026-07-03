@@ -17,7 +17,7 @@ html{scroll-behavior:smooth;}
 .page{font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.75;letter-spacing:0.04em;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
 
 /* ── Nav ── */
-.floating-nav{position:sticky;top:0;z-index:100;width:100%;line-height:normal;letter-spacing:normal;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;line-height:normal;letter-spacing:normal;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
 .floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-brand{padding:12px 0;}
 .nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
@@ -28,17 +28,12 @@ html{scroll-behavior:smooth;}
 .nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 
 /* ── Page Hero ── */
-.page-hero{width:100%;min-height:340px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:56px 0 52px;}
-.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.6) 0%,rgba(11,31,58,0.75) 100%);z-index:0;}
-.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;}
-.page-hero-breadcrumb{font-size:11px;color:var(--text-muted-navy);letter-spacing:.08em;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
-.page-hero-breadcrumb-sep{opacity:.4;}
-.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease,transform 0.6s ease;text-align:center;}
-.page-hero-eyebrow.visible{opacity:1;transform:translateY(0);}
-.page-hero-title{font-family:'Inter',sans-serif;font-size:55px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(18px);transition:opacity 0.6s ease 0.12s,transform 0.6s ease 0.12s;text-align:center;}
-.page-hero-title.visible{opacity:1;transform:translateY(0);}
-.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:15px;color:rgba(255,255,255,.65);letter-spacing:.18em;opacity:0;transform:translateY(14px);transition:opacity 0.6s ease 0.22s,transform 0.6s ease 0.22s;text-align:center;}
-.page-hero-title-ja.visible{opacity:1;transform:translateY(0);}
+.page-hero{width:100%;min-height:460px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,.65);letter-spacing:.18em;}
 
 /* ── Accent bar ── */
 .accent-bar{height:3px;display:flex;}
@@ -51,8 +46,6 @@ html{scroll-behavior:smooth;}
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
 .content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
 
-.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.fade-up.visible{opacity:1;transform:translateY(0);}
 
 /* ── Section heading ── */
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
@@ -80,13 +73,7 @@ html{scroll-behavior:smooth;}
 .group-photo-caption{font-size:13px;color:var(--text-muted);text-align:center;margin-top:12px;letter-spacing:.06em;}
 
 /* ── Member Groups ── */
-.member-group{margin-bottom:44px;opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.member-group.visible{opacity:1;transform:translateY(0);}
-.member-group:nth-child(2){transition-delay:0.08s;}
-.member-group:nth-child(3){transition-delay:0.16s;}
-.member-group:nth-child(4){transition-delay:0.24s;}
-.member-group:nth-child(5){transition-delay:0.32s;}
-.member-group:nth-child(6){transition-delay:0.40s;}
+.member-group{margin-bottom:44px;}
 .member-group-label{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--text-muted);letter-spacing:.2em;margin-bottom:14px;}
 .member-name-list{border-top:1px solid var(--border);}
 .member-name-item{display:flex;align-items:baseline;gap:16px;padding:11px 4px;border-bottom:1px solid var(--border);}
@@ -313,14 +300,10 @@ html{scroll-behavior:smooth;}
 <script>
 (function(){
   const nav = document.getElementById('nav');
-  ['pe','pt','ptj'].forEach((id,i)=>{
-    setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 120+i*160);
-  });
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
-  },{threshold:0.12, rootMargin:'0px 0px -80px 0px'});
-  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
-  document.querySelectorAll('.member-group').forEach(el=>io.observe(el));
+  const hero = document.querySelector('.page-hero');
+  function setHeroOffset(){ if(nav && hero){ hero.style.marginTop = nav.offsetHeight + 'px'; } }
+  setHeroOffset();
+  window.addEventListener('resize', setHeroOffset);
   function onScroll(){
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }

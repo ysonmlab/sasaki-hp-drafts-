@@ -65,7 +65,14 @@ html{scroll-behavior:smooth;}
 .project-viewmore{display:block;text-align:right;font-size:13px;color:var(--text-muted);letter-spacing:.04em;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;transition:color 0.2s;}
 .project-viewmore:hover{color:var(--navy);}
 
-.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+/* ── 寄付 CTA ── */
+.cta-block{background:var(--navy);padding:56px 48px;text-align:center;}
+.cta-label{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;}
+.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:22px;color:#fff;font-weight:500;margin-bottom:12px;}
+.cta-body{font-size:12px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:12px 32px;letter-spacing:.08em;cursor:pointer;border-radius:2px;border:none;}
+
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;border-top:3px solid rgba(255,255,255,.12);}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
@@ -180,6 +187,14 @@ html{scroll-behavior:smooth;}
 
       </div>
     </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block fade-up">
+    <div class="cta-label">SUPPORT US</div>
+    <div class="cta-title">研究活動へのご支援のお願い</div>
+    <div class="cta-body">当分野の研究・教育活動は、皆様からのご寄付に支えられています。<br>血液悪性腫瘍の克服に向けた研究の発展のため、ご支援をお願いいたします。</div>
+    <div class="cta-btn" onclick="location.href='contact.html'">寄付に関するお問い合わせ</div>
   </div>
 
   <div class="footer">

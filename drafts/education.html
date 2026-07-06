@@ -99,23 +99,13 @@ html{scroll-behavior:smooth;}
 .cta-title{font-family:'Noto Sans JP',sans-serif;font-size:23px;color:#fff;font-weight:500;margin-bottom:10px;}
 .cta-body{font-size:14px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
 .cta-email{font-family:'Roboto',sans-serif;font-size:17px;color:#fff;letter-spacing:.04em;margin-bottom:28px;display:block;}
-.cta-btn{display:inline-block;background:#fff;color:var(--navy);font-size:14px;font-weight:500;padding:13px 36px;letter-spacing:.08em;cursor:pointer;border-radius:2px;}
-
-/* ── Learn more リンク ── */
-.learn-more-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border);background:#fff;}
-.learn-more-item{padding:24px 20px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.2s;}
-.learn-more-item:hover{background:var(--surface);}
-.learn-more-label{font-size:12px;color:var(--text-muted);letter-spacing:.1em;margin-bottom:6px;}
-.learn-more-title{font-size:15px;color:var(--navy);font-weight:500;}
-.learn-more-arrow{font-size:12px;color:var(--accent);margin-top:8px;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:12px 32px;letter-spacing:.08em;cursor:pointer;border-radius:2px;border:none;}
 
 /* ── Footer ── */
-.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;}
-.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:var(--text-on-navy);margin-bottom:4px;}
-.footer-univ{font-size:12px;color:var(--text-muted-navy);}
-.footer-links{display:flex;gap:16px;}
-.footer-link{font-size:12px;color:var(--text-muted-navy);cursor:pointer;}
-.footer-copy{font-size:11px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;border-top:3px solid rgba(255,255,255,.12);}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:10px;color:var(--text-muted-navy);}
+.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 </style>
 </head>
 <body>
@@ -261,32 +251,7 @@ html{scroll-behavior:smooth;}
     <div class="cta-eyebrow">GET IN TOUCH</div>
     <div class="cta-title">お気軽にお問い合わせください</div>
     <div class="cta-body">研究室見学・大学院進学・ポスドク応募など、<br>どのようなご相談でも歓迎します。</div>
-    <span class="cta-email">sasaki-lab [at] example.ac.jp</span>
-    <div class="cta-btn">お問い合わせフォームへ</div>
-  </div>
-
-  <!-- Learn more -->
-  <div class="learn-more-grid">
-    <div class="learn-more-item" onclick="location.href='research.html'">
-      <div class="learn-more-label">RESEARCH</div>
-      <div class="learn-more-title">研究内容</div>
-      <div class="learn-more-arrow">→</div>
-    </div>
-    <div class="learn-more-item" onclick="location.href='staff.html'">
-      <div class="learn-more-label">STAFF</div>
-      <div class="learn-more-title">スタッフ</div>
-      <div class="learn-more-arrow">→</div>
-    </div>
-    <div class="learn-more-item" onclick="location.href='corporate.html'">
-      <div class="learn-more-label">COLLABORATION</div>
-      <div class="learn-more-title">企業の方へ</div>
-      <div class="learn-more-arrow">→</div>
-    </div>
-    <div class="learn-more-item">
-      <div class="learn-more-label">ACCESS</div>
-      <div class="learn-more-title">アクセス</div>
-      <div class="learn-more-arrow">→</div>
-    </div>
+    <div class="cta-btn" onclick="location.href='contact.html'">お問い合わせはこちら</div>
   </div>
 
   <div class="footer">
@@ -294,12 +259,6 @@ html{scroll-behavior:smooth;}
       <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
       <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
       <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
-    </div>
-    <div class="footer-links">
-      <span class="footer-link">お問い合わせ</span>
-      <span class="footer-link">アクセス</span>
-      <span class="footer-link">大学ホームページ</span>
-      <span class="footer-link">English</span>
     </div>
   </div>
 </div>

@@ -65,12 +65,13 @@ html{scroll-behavior:smooth;}
 .prof-link-lined{display:block;margin-top:28px;color:var(--text-body);font-size:15px;font-weight:700;letter-spacing:.04em;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-align:right;transition:color 0.2s;}
 .prof-link-lined:hover{color:var(--navy);}
 
-/* ── Group Photo ── */
+/* ── Group Photo ──
 .group-photo-outer{background:#FAFDFD;padding-bottom:72px;}
 .group-photo-placeholder{width:100%;aspect-ratio:16/6;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .group-photo-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 45%;}
 .group-photo-placeholder-text{font-size:13px;color:var(--text-muted);letter-spacing:.1em;}
 .group-photo-caption{font-size:13px;color:var(--text-muted);text-align:center;margin-top:12px;letter-spacing:.06em;}
+── */
 
 /* ── Member Groups ── */
 .member-group{margin-bottom:44px;}
@@ -121,7 +122,7 @@ html{scroll-behavior:smooth;}
   <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
 
   <!-- PI Profile -->
-  <div class="content-panel">
+  <div class="content-panel" style="padding-bottom:24px;">
     <div class="content-wrap">
       <div class="section-head fade-up">
         <span class="section-title-en">Principal Investigator</span>
@@ -144,7 +145,8 @@ html{scroll-behavior:smooth;}
     </div>
   </div>
 
-  <!-- Group Photo -->
+  <!--
+  Group Photo
   <div class="group-photo-outer">
     <div class="group-photo-placeholder fade-up">
       <img src="../img/allmember3.jpg" alt="研究室集合写真">
@@ -153,9 +155,10 @@ html{scroll-behavior:smooth;}
       <div class="group-photo-caption">検査部一同（2026年）</div>
     </div>
   </div>
+  -->
 
   <!-- Pattern C: メンバーカード -->
-  <div class="content-panel">
+  <div class="content-panel" style="padding-top:24px;">
     <div class="content-wrap">
       <div class="section-head fade-up">
         <span class="section-title-en">Members</span>
@@ -167,8 +170,19 @@ html{scroll-behavior:smooth;}
         <div class="member-group-label">ASSOCIATE PROFESSOR　准教授</div>
         <div class="member-name-list">
           <div class="member-name-item">
-            <span class="member-name-ja">山田 太郎</span>
-            <span class="member-name-en">Taro Yamada, MD, PhD</span>
+            <span class="member-name-ja">野上 彩子</span>
+            <span class="member-name-en">Ayako Nogami, 〇</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 講師 -->
+      <div class="member-group">
+        <div class="member-group-label">LECTURER　講師</div>
+        <div class="member-name-list">
+          <div class="member-name-item">
+            <span class="member-name-ja">叶内 匡</span>
+            <span class="member-name-en">Tadashi Kanouchi, 〇</span>
           </div>
         </div>
       </div>
@@ -178,103 +192,79 @@ html{scroll-behavior:smooth;}
         <div class="member-group-label">ASSISTANT PROFESSOR　助教</div>
         <div class="member-name-list">
           <div class="member-name-item">
-            <span class="member-name-ja">田中 花子</span>
-            <span class="member-name-en">Hanako Tanaka, PhD</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">中村 健一</span>
-            <span class="member-name-en">Kenichi Nakamura, PhD</span>
+            <span class="member-name-ja">渡部 悟</span>
+            <span class="member-name-en">Satoru Watanabe, 〇</span>
           </div>
         </div>
       </div>
 
-      <!-- 博士課程（後期） -->
+      <!--
+      博士課程（後期）
       <div class="member-group">
         <div class="member-group-label">PhD STUDENTS　博士課程（後期）</div>
         <div class="member-name-list">
           <div class="member-name-item">
-            <span class="member-name-ja">鈴木 一郎</span>
-            <span class="member-name-en">Ichiro Suzuki</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
           <div class="member-name-item">
-            <span class="member-name-ja">伊藤 次郎</span>
-            <span class="member-name-en">Jiro Ito</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">渡辺 三郎</span>
-            <span class="member-name-en">Saburo Watanabe</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">木村 四郎</span>
-            <span class="member-name-en">Shiro Kimura</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
         </div>
       </div>
+      -->
 
-      <!-- 修士課程 -->
+      <!--
+      修士課程
       <div class="member-group">
         <div class="member-group-label">MASTER'S STUDENTS　修士課程</div>
         <div class="member-name-list">
           <div class="member-name-item">
-            <span class="member-name-ja">小林 五郎</span>
-            <span class="member-name-en">Goro Kobayashi</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
           <div class="member-name-item">
-            <span class="member-name-ja">加藤 六花</span>
-            <span class="member-name-en">Rokka Kato</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">佐藤 七海</span>
-            <span class="member-name-en">Nanami Sato</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">高橋 八重</span>
-            <span class="member-name-en">Yae Takahashi</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">山口 九美</span>
-            <span class="member-name-en">Kumi Yamaguchi</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">松本 十子</span>
-            <span class="member-name-en">Toko Matsumoto</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
         </div>
       </div>
+      -->
 
-      <!-- 学部生 -->
+      <!--
+      学部生
       <div class="member-group">
         <div class="member-group-label">UNDERGRADUATE STUDENTS　学部生（研究配属）</div>
         <div class="member-name-list">
           <div class="member-name-item">
-            <span class="member-name-ja">井上 凜</span>
-            <span class="member-name-en">Rin Inoue</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
           <div class="member-name-item">
-            <span class="member-name-ja">田村 翔太</span>
-            <span class="member-name-en">Shota Tamura</span>
-          </div>
-          <div class="member-name-item">
-            <span class="member-name-ja">高木 あかり</span>
-            <span class="member-name-en">Akari Takagi</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
         </div>
       </div>
+      -->
 
-      <!-- 研究員 -->
+      <!--
+      研究員
       <div class="member-group">
         <div class="member-group-label">RESEARCH STAFF　研究員・技術補佐員</div>
         <div class="member-name-list">
           <div class="member-name-item">
-            <span class="member-name-ja">阿部 未来</span>
-            <span class="member-name-en">Mirai Abe</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
           <div class="member-name-item">
-            <span class="member-name-ja">森田 誠</span>
-            <span class="member-name-en">Makoto Morita</span>
+            <span class="member-name-ja">山田 太郎</span>
+            <span class="member-name-en">Taro Yamada</span>
           </div>
         </div>
       </div>
+      -->
 
     </div>
   </div>

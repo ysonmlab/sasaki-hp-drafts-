@@ -26,6 +26,11 @@ html{scroll-behavior:smooth;}
 .nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
 .nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
+.nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* ── Hero ── */
 .page-hero{width:100%;min-height:460px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
@@ -50,7 +55,11 @@ html{scroll-behavior:smooth;}
 
 /* ── リード文 ── */
 .lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:48px;}
-.lead-text-en{font-size:12px;color:var(--text-muted);line-height:2.1;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border);}
+
+/* ── Group Photo ── */
+.group-photo-outer{background:#FAFDFD;padding-bottom:24px;}
+.group-photo-placeholder{width:100%;aspect-ratio:16/6;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.group-photo-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 70%;}
 
 /* ── Pattern D: アウトラインボタン ── */
 .link-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:background 0.25s,color 0.25s;}
@@ -66,6 +75,35 @@ html{scroll-behavior:smooth;}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+  .floating-nav{padding:0 20px;}
+  .nav-brand-en{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .nav-links.open{display:flex;}
+  .nav-item{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+  .nav-item.active{background:rgba(255,255,255,.04);}
+  .nav-toggle{display:flex;}
+
+  .page-hero{min-height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:36px;}
+  .page-hero-eyebrow{font-size:14px;}
+  .page-hero-title-ja{font-size:12px;}
+
+  .content-panel{padding:56px 0;}
+  .content-wrap{padding:0 24px;}
+  .section-title-en{font-size:20px;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+
+@media (max-width:480px){
+  .page-hero-title{font-size:28px;}
+  .content-wrap{padding:0 18px;}
+  .lead-text{line-height:1.9;}
+}
 </style>
 </head>
 <body>
@@ -77,7 +115,7 @@ html{scroll-behavior:smooth;}
       <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
     </div>
     <div style="display:flex;align-items:center;">
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <div class="nav-item" onclick="location.href='mlab_fixed_bg_demo_v2_1.html'">ホーム</div>
         <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
         <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
@@ -87,6 +125,9 @@ html{scroll-behavior:smooth;}
         <div class="nav-item" onclick="location.href='contact.html'">お問い合わせ</div>
       </div>
       <div class="nav-lang">EN</div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -100,20 +141,27 @@ html{scroll-behavior:smooth;}
 
   <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
 
-  <div class="content-panel">
+  <div class="content-panel" style="padding-bottom:24px;">
     <div class="content-wrap">
       <div class="section-head fade-up">
         <span class="section-title-en">Clinical Laboratory</span>
         <span class="section-title-ja">臨床検査部門</span>
       </div>
 
-      <div class="lead-text fade-up">
+      <div class="lead-text fade-up" style="margin-bottom:0;">
         臨床検査医学分野は、東京科学大学病院の検査部と密接に連携し、患者さんの診断・治療に不可欠な臨床検査を提供しています。血液学・生化学・免疫学・微生物学など幅広い検査領域において、高精度な検査の実施と検査医学の発展に取り組んでいます。
       </div>
-      <div class="lead-text-en fade-up">
-        The Department of Laboratory Medicine works in close collaboration with the Clinical Laboratory of Science Tokyo Hospital, providing essential diagnostic testing for patient care. Our expertise spans a wide range of disciplines including hematology, biochemistry, immunology, and microbiology, with a commitment to both high-quality testing and the advancement of laboratory medicine.
-      </div>
+    </div>
+  </div>
 
+  <div class="group-photo-outer">
+    <div class="group-photo-placeholder fade-up">
+      <img src="../img/allmember3.jpg" alt="検査部集合写真">
+    </div>
+  </div>
+
+  <div class="content-panel" style="padding-top:24px;">
+    <div class="content-wrap">
       <div class="fade-up" style="margin-bottom:48px;">
         <p style="font-size:14px;color:var(--text-body);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
         <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
@@ -144,6 +192,23 @@ html{scroll-behavior:smooth;}
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
   },{passive:true});
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
 })();
 </script>
 </body>

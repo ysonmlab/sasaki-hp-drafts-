@@ -16,7 +16,7 @@ html{scroll-behavior:smooth;}
 }
 .page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
 
-.floating-nav{position:sticky;top:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
 .floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-brand{padding:12px 0;}
 .nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
@@ -28,15 +28,11 @@ html{scroll-behavior:smooth;}
 
 .hero{width:100%;min-height:460px;background:url('../img/idx-hero_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 48px;text-align:center;}
 .hero::before{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.52);z-index:0;}
-.hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.22em;margin-bottom:22px;position:relative;z-index:1;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.22em;margin-bottom:22px;position:relative;z-index:1;display:flex;align-items:center;gap:12px;}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold);opacity:.5;}
-.hero-eyebrow.visible{opacity:1;transform:translateY(0);}
-.hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.12;position:relative;z-index:1;margin-bottom:6px;opacity:0;transform:translateY(24px);transition:opacity 0.7s ease 0.15s,transform 0.7s ease 0.15s;}
-.hero-title.visible{opacity:1;transform:translateY(0);}
-.hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:#fff;letter-spacing:.2em;margin-bottom:20px;position:relative;z-index:1;opacity:0;transform:translateY(20px);transition:opacity 0.7s ease 0.28s,transform 0.7s ease 0.28s;}
-.hero-title-ja.visible{opacity:1;transform:translateY(0);}
-.hero-desc{font-size:12px;color:var(--text-muted-navy);line-height:2;max-width:520px;position:relative;z-index:1;opacity:0;transform:translateY(16px);transition:opacity 0.7s ease 0.4s,transform 0.7s ease 0.4s;}
-.hero-desc.visible{opacity:1;transform:translateY(0);}
+.hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.12;position:relative;z-index:1;margin-bottom:6px;}
+.hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:#fff;letter-spacing:.2em;margin-bottom:20px;position:relative;z-index:1;}
+.hero-desc{font-size:12px;color:var(--text-muted-navy);line-height:2;max-width:520px;position:relative;z-index:1;}
 
 .accent-bar{height:3px;display:flex;}
 .accent-bar-gold{width:72px;background:var(--gold);}
@@ -45,11 +41,8 @@ html{scroll-behavior:smooth;}
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
 .content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
 
-.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
-.fade-up.visible{opacity:1;transform:translateY(0);}
-
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:40px;}
-.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:45px;font-weight:700;color:var(--navy);}
 .section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── Project Items ── */
@@ -72,11 +65,16 @@ html{scroll-behavior:smooth;}
 .project-viewmore{display:block;text-align:right;font-size:13px;color:var(--text-muted);letter-spacing:.04em;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;transition:color 0.2s;}
 .project-viewmore:hover{color:var(--navy);}
 
-.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+/* ── 寄付 CTA ── */
+.cta-block{background:var(--navy);padding:56px 48px;text-align:center;}
+.cta-label{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;}
+.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:22px;color:#fff;font-weight:500;margin-bottom:12px;}
+.cta-body{font-size:12px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:12px 32px;letter-spacing:.08em;cursor:pointer;border-radius:2px;border:none;}
+
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;border-top:3px solid rgba(255,255,255,.12);}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
-.footer-links{display:flex;gap:16px;}
-.footer-link{font-size:10px;color:var(--text-muted-navy);cursor:pointer;}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 </style>
 </head>
@@ -94,7 +92,7 @@ html{scroll-behavior:smooth;}
         <div class="nav-item active">研究内容</div>
         <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
         <div class="nav-item" onclick="location.href='corporate.html'">企業の方へ</div>
-        <div class="nav-item">教育・大学院</div>
+        <div class="nav-item" onclick="location.href='education.html'">教育・大学院</div>
         <div class="nav-item" onclick="location.href='clinical.html'">臨床・診療</div>
         <div class="nav-item" onclick="location.href='contact.html'">お問い合わせ</div>
       </div>
@@ -124,7 +122,7 @@ html{scroll-behavior:smooth;}
           <div class="project-left">
             <div class="project-title-ja">白血病・リンパ腫の発症メカニズム解明</div>
             <div class="project-title-en">Molecular Mechanisms of Leukemia and Lymphoma</div>
-            <div class="project-photo"><div class="project-photo-num">01</div></div>
+            <div class="project-photo"><img src="../img/Molecular%20Mechanisms%20of%20Leukemia%20and%20Lymphoma.png" alt="Molecular Mechanisms of Leukemia and Lymphoma"></div>
           </div>
           <div class="project-right">
             <div>
@@ -147,7 +145,7 @@ html{scroll-behavior:smooth;}
           <div class="project-left">
             <div class="project-title-ja">新規in vitro薬剤感受性試験の開発</div>
             <div class="project-title-en">Development of Novel In Vitro Drug Sensitivity Assays</div>
-            <div class="project-photo"><div class="project-photo-num">02</div></div>
+            <div class="project-photo"><img src="../img/Development%20of%20Novel%20In%20Vitro%20Drug%20Sensitivity%20Assays.png" alt="Development of Novel In Vitro Drug Sensitivity Assays"></div>
           </div>
           <div class="project-right">
             <div>
@@ -169,7 +167,7 @@ html{scroll-behavior:smooth;}
           <div class="project-left">
             <div class="project-title-ja">感染症とタイピング技術</div>
             <div class="project-title-en">Infectious Disease and Pathogen Typing Technologies</div>
-            <div class="project-photo"><div class="project-photo-num">03</div></div>
+            <div class="project-photo"><img src="../img/Infectious%20Disease%20and%20Pathogen%20Typing%20Technologies.png" alt="Infectious Disease and Pathogen Typing Technologies" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
           </div>
           <div class="project-right">
             <div>
@@ -191,17 +189,19 @@ html{scroll-behavior:smooth;}
     </div>
   </div>
 
+  <!-- CTA -->
+  <div class="cta-block fade-up">
+    <div class="cta-label">SUPPORT US</div>
+    <div class="cta-title">研究活動へのご支援のお願い</div>
+    <div class="cta-body">当分野の研究・教育活動は、皆様からのご寄付に支えられています。<br>血液悪性腫瘍の克服に向けた研究の発展のため、ご支援をお願いいたします。</div>
+    <div class="cta-btn" onclick="location.href='contact.html'">寄付に関するお問い合わせ</div>
+  </div>
+
   <div class="footer">
     <div>
       <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
       <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
       <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
-    </div>
-    <div class="footer-links">
-      <span class="footer-link">お問い合わせ</span>
-      <span class="footer-link">アクセス</span>
-      <span class="footer-link">大学ホームページ</span>
-      <span class="footer-link">English</span>
     </div>
   </div>
 </div>
@@ -209,13 +209,14 @@ html{scroll-behavior:smooth;}
 <script>
 (function(){
   const nav = document.getElementById('nav');
-  ['he','ht','htj','hd'].forEach((id,i)=>{
-    setTimeout(()=>{ const el=document.getElementById(id); if(el) el.classList.add('visible'); }, 120+i*160);
-  });
+  const hero = document.querySelector('.hero');
+  function setHeroOffset(){ if(nav && hero){ hero.style.marginTop = nav.offsetHeight + 'px'; } }
+  setHeroOffset();
+  window.addEventListener('resize', setHeroOffset);
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
   },{threshold:0.1});
-  document.querySelectorAll('.fade-up,.project-item').forEach(el=>io.observe(el));
+  document.querySelectorAll('.project-item').forEach(el=>io.observe(el));
   window.addEventListener('scroll',()=>{
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }

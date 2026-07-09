@@ -42,18 +42,17 @@ html{scroll-behavior:smooth;}
 
 /* ── 共通 ── */
 .content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
-.section-divider{border:none;border-top:1px solid var(--border);margin:0;}
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-panel.dark{background:var(--surface);}
 
-/* ── ページ導入 ── */
-.page-intro{padding:72px 0 64px;background:#fff;}
-.page-intro-lead{font-family:'Noto Sans JP',sans-serif;font-size:23px;color:var(--navy);font-weight:500;line-height:1.7;margin-bottom:20px;}
-.page-intro-body{font-size:16px;color:var(--text-muted);line-height:1.75;max-width:680px;}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── リード文 ── */
+.lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid var(--border);max-width:800px;margin-left:auto;margin-right:auto;}
 
 /* ── セクション共通 ── */
-.edu-section{padding:64px 0;border-top:1px solid var(--border);background:#fff;}
-.edu-section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:10px;}
-.edu-section-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:25px;color:var(--navy);font-weight:500;}
-.edu-section-title-en{font-size:13px;color:var(--text-muted);letter-spacing:.1em;}
 .edu-section-lead{font-size:16px;color:var(--text-body);line-height:1.75;margin-top:16px;margin-bottom:36px;max-width:720px;}
 
 /* ── 学部生向け ── */
@@ -94,11 +93,10 @@ html{scroll-behavior:smooth;}
 .faq-a-text{font-size:14px;color:var(--text-muted);line-height:1.75;}
 
 /* ── CTA ── */
-.cta-section{background:var(--navy);padding:64px 40px;text-align:center;}
-.cta-eyebrow{font-family:'Oswald',sans-serif;font-size:13px;color:var(--gold);letter-spacing:.25em;margin-bottom:14px;}
-.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:23px;color:#fff;font-weight:500;margin-bottom:10px;}
-.cta-body{font-size:14px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
-.cta-email{font-family:'Roboto',sans-serif;font-size:17px;color:#fff;letter-spacing:.04em;margin-bottom:28px;display:block;}
+.cta-block{background:var(--navy);padding:56px 48px;text-align:center;}
+.cta-label{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;}
+.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:22px;color:#fff;font-weight:500;margin-bottom:12px;}
+.cta-body{font-size:12px;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
 .cta-btn{display:inline-block;background:var(--accent);color:#fff;font-size:12px;padding:12px 32px;letter-spacing:.08em;cursor:pointer;border-radius:2px;border:none;}
 
 /* ── Footer ── */
@@ -106,6 +104,32 @@ html{scroll-behavior:smooth;}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+  .page-hero{min-height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:36px;}
+  .page-hero-eyebrow{font-size:14px;}
+  .page-hero-title-ja{font-size:12px;}
+
+  .content-wrap{padding:0 24px;}
+  .content-panel{padding:56px 0;}
+  .section-title-en{font-size:20px;}
+
+  .grad-grid{grid-template-columns:1fr;}
+  .policy-grid{grid-template-columns:1fr;}
+
+  .cta-block{padding:40px 24px;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+
+@media (max-width:480px){
+  .page-hero-title{font-size:28px;}
+  .content-wrap{padding:0 18px;}
+  .lead-text{line-height:1.9;}
+}
 </style>
 </head>
 <body>
@@ -140,20 +164,14 @@ html{scroll-behavior:smooth;}
 
   <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
 
-  <!-- 導入 -->
-  <div class="page-intro fade-up">
+  <!-- 導入 / 学部生向け -->
+  <div class="content-panel dark fade-up">
     <div class="content-wrap">
-      <div class="page-intro-lead">血液腫瘍学・感染症・検査医学の<br>フロンティアを、ともに切り拓きませんか。</div>
-      <div class="page-intro-body">臨床検査医学分野は、東京科学大学の複数の大学院・専攻を通じて、様々なバックグラウンドを持つ学生・研究者を受け入れています。基礎研究から臨床応用まで幅広い研究環境で、次世代の研究者・臨床家を育成します。</div>
-    </div>
-  </div>
+      <div class="lead-text">血液腫瘍学・感染症・検査医学のフロンティアを、ともに切り拓きませんか。臨床検査医学分野は、東京科学大学の複数の大学院・専攻を通じて、様々なバックグラウンドを持つ学生・研究者を受け入れています。基礎研究から臨床応用まで幅広い研究環境で、次世代の研究者・臨床家を育成します。</div>
 
-  <!-- 学部生向け -->
-  <div class="edu-section fade-up">
-    <div class="content-wrap">
-      <div class="edu-section-header">
-        <span class="edu-section-title-ja">学部生の方へ</span>
-        <span class="edu-section-title-en">For Undergraduate Students</span>
+      <div class="section-head">
+        <span class="section-title-en">For Undergraduate Students</span>
+        <span class="section-title-ja">学部生の方へ</span>
       </div>
       <div class="edu-section-lead">卒業研究・学外実習・研究室見学を随時受け付けています。血液悪性腫瘍の研究や臨床検査医学に興味のある学部生の方は、まずはお気軽にご連絡ください。</div>
       <div class="undergrad-box">
@@ -166,11 +184,11 @@ html{scroll-behavior:smooth;}
   </div>
 
   <!-- 大学院入学経路 -->
-  <div class="edu-section fade-up">
+  <div class="content-panel fade-up">
     <div class="content-wrap">
-      <div class="edu-section-header">
-        <span class="edu-section-title-ja">大学院への進学経路</span>
-        <span class="edu-section-title-en">Graduate School Admission</span>
+      <div class="section-head">
+        <span class="section-title-en">Graduate School Admission</span>
+        <span class="section-title-ja">大学院への進学経路</span>
       </div>
       <div class="edu-section-lead">当研究分野には、以下の大学院・専攻を通じて進学することができます。それぞれの募集要項・選考方法については各専攻の公式サイトをご確認ください。</div>
       <div class="grad-grid">
@@ -191,11 +209,11 @@ html{scroll-behavior:smooth;}
   </div>
 
   <!-- 研究室の教育方針 -->
-  <div class="edu-section fade-up" style="background:var(--surface);">
+  <div class="content-panel dark fade-up">
     <div class="content-wrap">
-      <div class="edu-section-header">
-        <span class="edu-section-title-ja">研究室の教育方針</span>
-        <span class="edu-section-title-en">Our Educational Philosophy</span>
+      <div class="section-head">
+        <span class="section-title-en">Our Educational Philosophy</span>
+        <span class="section-title-ja">研究室の教育方針</span>
       </div>
       <div class="edu-section-lead">当研究室では、自立した研究者・臨床家を育てることを目標に、以下の3点を重視した教育を行っています。</div>
       <div class="policy-grid">
@@ -219,11 +237,11 @@ html{scroll-behavior:smooth;}
   </div>
 
   <!-- FAQ -->
-  <div class="edu-section fade-up">
+  <div class="content-panel fade-up">
     <div class="content-wrap">
-      <div class="edu-section-header">
-        <span class="edu-section-title-ja">よくある質問</span>
-        <span class="edu-section-title-en">FAQ</span>
+      <div class="section-head">
+        <span class="section-title-en">FAQ</span>
+        <span class="section-title-ja">よくある質問</span>
       </div>
       <div class="faq-list">
         <div class="faq-item">
@@ -247,8 +265,8 @@ html{scroll-behavior:smooth;}
   </div>
 
   <!-- CTA -->
-  <div class="cta-section fade-up">
-    <div class="cta-eyebrow">GET IN TOUCH</div>
+  <div class="cta-block fade-up">
+    <div class="cta-label">GET IN TOUCH</div>
     <div class="cta-title">お気軽にお問い合わせください</div>
     <div class="cta-body">研究室見学・大学院進学・ポスドク応募など、<br>どのようなご相談でも歓迎します。</div>
     <div class="cta-btn" onclick="location.href='contact.html'">お問い合わせはこちら</div>

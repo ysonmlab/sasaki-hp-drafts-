@@ -50,7 +50,6 @@ html{scroll-behavior:smooth;}
 .section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── セクション1: 連絡先カード ── */
-.lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:48px;}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .contact-card{padding:36px 28px;}
 .contact-card-icon{width:28px;height:28px;color:var(--accent);margin-bottom:16px;}
@@ -90,6 +89,30 @@ html{scroll-behavior:smooth;}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+  .page-hero{min-height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:36px;}
+  .page-hero-eyebrow{font-size:14px;}
+  .page-hero-title-ja{font-size:12px;}
+
+  .content-panel{padding:56px 0;}
+  .content-wrap{padding:0 24px;}
+  .section-title-en{font-size:20px;}
+
+  .contact-grid{grid-template-columns:1fr;}
+  .access-row{grid-template-columns:1fr;}
+  .related-grid{grid-template-columns:1fr;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+
+@media (max-width:480px){
+  .page-hero-title{font-size:28px;}
+  .content-wrap{padding:0 18px;}
+}
 </style>
 </head>
 <body>

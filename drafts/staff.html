@@ -49,8 +49,8 @@ html{scroll-behavior:smooth;}
 
 /* ── Section heading ── */
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
-.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:30px;color:var(--navy);}
-.section-title-ja{font-size:13px;color:var(--text-muted);letter-spacing:.1em;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
+.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── PI Profile ── */
 .prof-layout{display:flex;align-items:flex-start;position:relative;margin-bottom:8px;}
@@ -91,6 +91,37 @@ html{scroll-behavior:smooth;}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+  .page-hero{min-height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:36px;}
+  .page-hero-eyebrow{font-size:14px;}
+  .page-hero-title-ja{font-size:12px;}
+
+  .bg-zone{height:200px;}
+  .content-panel{padding:56px 0;}
+  .content-wrap{padding:0 24px;}
+  .section-title-en{font-size:20px;}
+
+  .prof-layout{flex-direction:column;}
+  .prof-photo-wrap{width:100%;}
+  .prof-text-wrap{padding:24px 20px 32px;}
+  .prof-name-ja{font-size:22px;}
+
+  .group-photo-outer{padding-bottom:40px;}
+
+  .member-card{flex-direction:column;align-items:flex-start;}
+  .member-photo-placeholder{width:100%;height:220px;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+
+@media (max-width:480px){
+  .page-hero-title{font-size:28px;}
+  .content-wrap{padding:0 18px;}
+}
 </style>
 </head>
 <body>

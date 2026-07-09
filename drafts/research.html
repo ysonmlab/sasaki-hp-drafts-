@@ -26,13 +26,12 @@ html{scroll-behavior:smooth;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
 .nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 
-.hero{width:100%;min-height:460px;background:url('../img/idx-hero_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 48px;text-align:center;}
-.hero::before{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.52);z-index:0;}
-.hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.22em;margin-bottom:22px;position:relative;z-index:1;display:flex;align-items:center;gap:12px;}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--gold);opacity:.5;}
-.hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.12;position:relative;z-index:1;margin-bottom:6px;}
-.hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:#fff;letter-spacing:.2em;margin-bottom:20px;position:relative;z-index:1;}
-.hero-desc{font-size:12px;color:var(--text-muted-navy);line-height:2;max-width:520px;position:relative;z-index:1;}
+.page-hero{width:100%;min-height:460px;background:url('../img/idx-hero_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,.65);letter-spacing:.18em;}
 
 .accent-bar{height:3px;display:flex;}
 .accent-bar-gold{width:72px;background:var(--gold);}
@@ -41,8 +40,10 @@ html{scroll-behavior:smooth;}
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
 .content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
 
+.lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid var(--border);max-width:800px;margin-left:auto;margin-right:auto;}
+
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:40px;}
-.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:45px;font-weight:700;color:var(--navy);}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
 .section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── Project Items ── */
@@ -76,6 +77,32 @@ html{scroll-behavior:smooth;}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
 .footer-univ{font-size:10px;color:var(--text-muted-navy);}
 .footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+  .page-hero{min-height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:36px;}
+  .page-hero-eyebrow{font-size:14px;}
+  .page-hero-title-ja{font-size:12px;}
+
+  .content-panel{padding:56px 0;}
+  .content-wrap{padding:0 24px;}
+  .section-title-en{font-size:20px;}
+
+  .project-item{grid-template-columns:1fr;gap:24px;padding:48px 0;}
+  .project-photo-num{font-size:64px;}
+
+  .cta-block{padding:40px 24px;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+
+@media (max-width:480px){
+  .page-hero-title{font-size:28px;}
+  .content-wrap{padding:0 18px;}
+  .lead-text{line-height:1.9;}
+}
 </style>
 </head>
 <body>
@@ -100,11 +127,12 @@ html{scroll-behavior:smooth;}
     </div>
   </nav>
 
-  <div class="hero">
-    <div class="hero-eyebrow" id="he">Research</div>
-    <div class="hero-title" id="ht">Our Research</div>
-    <div class="hero-title-ja" id="htj">研究内容</div>
-    <div class="hero-desc" id="hd">血液悪性腫瘍の克服に向け、基礎・臨床・検査医学の融合によって<br>新たな診断・治療法の開発に取り組んでいます。</div>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow" id="pe">Research</div>
+      <div class="page-hero-title" id="pt">Our Research</div>
+      <div class="page-hero-title-ja" id="ptj">研究内容</div>
+    </div>
   </div>
 
   <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
@@ -112,6 +140,9 @@ html{scroll-behavior:smooth;}
   <!-- Research Projects -->
   <div class="content-panel">
     <div class="content-wrap">
+      <div class="lead-text fade-up">
+        血液悪性腫瘍の克服に向け、基礎・臨床・検査医学の融合によって新たな診断・治療法の開発に取り組んでいます。
+      </div>
       <div class="section-head fade-up">
         <span class="section-title-en">Research Projects</span>
         <span class="section-title-ja">研究プロジェクト</span>
@@ -209,7 +240,7 @@ html{scroll-behavior:smooth;}
 <script>
 (function(){
   const nav = document.getElementById('nav');
-  const hero = document.querySelector('.hero');
+  const hero = document.querySelector('.page-hero');
   function setHeroOffset(){ if(nav && hero){ hero.style.marginTop = nav.offsetHeight + 'px'; } }
   setHeroOffset();
   window.addEventListener('resize', setHeroOffset);

@@ -53,9 +53,6 @@ html{scroll-behavior:smooth;}
 .section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
 .section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
 
-/* ── リード文 ── */
-.lead-text{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:48px;}
-
 /* ── Group Photo ── */
 .group-photo-outer{background:#FAFDFD;padding-bottom:24px;}
 .group-photo-placeholder{width:100%;aspect-ratio:16/6;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -102,7 +99,6 @@ html{scroll-behavior:smooth;}
 @media (max-width:480px){
   .page-hero-title{font-size:28px;}
   .content-wrap{padding:0 18px;}
-  .lead-text{line-height:1.9;}
 }
 </style>
 </head>
@@ -148,27 +144,27 @@ html{scroll-behavior:smooth;}
         <span class="section-title-ja">臨床検査部門</span>
       </div>
 
-      <div class="lead-text fade-up" style="margin-bottom:0;">
+      <div class="fade-up" style="font-size:14px;color:var(--text-body);line-height:2.2;">
         臨床検査医学分野は、東京科学大学病院の検査部と密接に連携し、患者さんの診断・治療に不可欠な臨床検査を提供しています。血液学・生化学・免疫学・微生物学など幅広い検査領域において、高精度な検査の実施と検査医学の発展に取り組んでいます。
       </div>
     </div>
   </div>
 
-  <div class="group-photo-outer">
-    <div class="group-photo-placeholder fade-up">
-      <img src="../img/allmember3.jpg" alt="検査部集合写真">
-    </div>
-  </div>
-
-  <div class="content-panel" style="padding-top:24px;">
+  <div class="content-panel" style="padding:24px 0;">
     <div class="content-wrap">
-      <div class="fade-up" style="margin-bottom:48px;">
+      <div class="fade-up" style="margin-bottom:0;">
         <p style="font-size:14px;color:var(--text-body);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
         <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
           東京科学大学病院検査部
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </a>
       </div>
+    </div>
+  </div>
+
+  <div class="group-photo-outer" style="padding-top:24px;">
+    <div class="group-photo-placeholder fade-up">
+      <img src="../img/allmember3.jpg" alt="検査部集合写真">
     </div>
   </div>
 

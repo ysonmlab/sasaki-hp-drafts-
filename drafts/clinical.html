@@ -20,12 +20,12 @@ html{scroll-behavior:smooth;}
 .floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
 .floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-brand{padding:12px 0;}
-.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
-.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
 .nav-links{display:flex;}
-.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
-.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
 .nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
 .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -36,9 +36,9 @@ html{scroll-behavior:smooth;}
 .page-hero{width:100%;min-height:460px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
 .page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
-.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;}
-.page-hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;}
-.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,.65);letter-spacing:.18em;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.875rem;color:rgba(255,255,255,.65);letter-spacing:.18em;}
 
 /* ── Accent bar ── */
 .accent-bar{height:3px;display:flex;}
@@ -49,9 +49,9 @@ html{scroll-behavior:smooth;}
 .content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
 .content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
 
-.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
-.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
-.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:1.625rem;color:var(--navy);}
+.section-title-ja{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── Group Photo ── */
 .group-photo-outer{background:#FAFDFD;padding-bottom:24px;}
@@ -59,22 +59,22 @@ html{scroll-behavior:smooth;}
 .group-photo-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 70%;}
 
 /* ── Pattern D: アウトラインボタン ── */
-.link-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);font-size:13px;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:background 0.25s,color 0.25s;}
+.link-outline{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1.5px solid var(--navy);color:var(--navy);font-size:1rem;font-weight:500;letter-spacing:.08em;text-decoration:none;border-radius:2px;transition:background 0.25s,color 0.25s;}
 .link-outline:hover{background:var(--navy);color:#fff;}
 .link-outline svg{transition:color 0.25s;}
 .link-outline:hover svg{color:#fff;}
 
 /* ── パターンラベル（確認用） ── */
-.pattern-label{font-size:10px;color:var(--text-muted);letter-spacing:.12em;margin-bottom:12px;}
+.pattern-label{font-size:0.875rem;color:var(--text-muted);letter-spacing:.12em;margin-bottom:12px;}
 
 /* ── Footer ── */
 .footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
-.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
-.footer-univ{font-size:10px;color:var(--text-muted-navy);}
-.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:0.75rem;color:var(--text-muted-navy);}
+.footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 
 /* ── Responsive ── */
-@media (max-width:900px){
+@media (max-width:768px){
   .floating-nav{padding:0 20px;}
   .nav-brand-en{display:none;}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
@@ -85,20 +85,16 @@ html{scroll-behavior:smooth;}
 
   .page-hero{min-height:300px;padding:40px 0 36px;}
   .page-hero-inner{padding:0 24px;}
-  .page-hero-title{font-size:36px;}
-  .page-hero-eyebrow{font-size:14px;}
-  .page-hero-title-ja{font-size:12px;}
+  .page-hero-title{font-size:1.625rem;}
+  .page-hero-eyebrow{font-size:0.875rem;}
+  .page-hero-title-ja{font-size:0.875rem;}
 
   .content-panel{padding:56px 0;}
   .content-wrap{padding:0 24px;}
-  .section-title-en{font-size:20px;}
+  .section-title-en{font-size:1.125rem;}
+  .section-head{flex-direction:column;align-items:flex-start;gap:4px;}
 
   .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
-}
-
-@media (max-width:480px){
-  .page-hero-title{font-size:28px;}
-  .content-wrap{padding:0 18px;}
 }
 </style>
 </head>
@@ -144,7 +140,7 @@ html{scroll-behavior:smooth;}
         <span class="section-title-ja">臨床検査部門</span>
       </div>
 
-      <div class="fade-up" style="font-size:14px;color:var(--text-body);line-height:2.2;">
+      <div class="fade-up" style="font-size:1rem;color:var(--text-body);line-height:2.2;">
         臨床検査医学分野は、東京科学大学病院の検査部と密接に連携し、患者さんの診断・治療に不可欠な臨床検査を提供しています。血液学・生化学・免疫学・微生物学など幅広い検査領域において、高精度な検査の実施と検査医学の発展に取り組んでいます。
       </div>
     </div>
@@ -153,7 +149,7 @@ html{scroll-behavior:smooth;}
   <div class="content-panel" style="padding:24px 0;">
     <div class="content-wrap">
       <div class="fade-up" style="margin-bottom:0;">
-        <p style="font-size:14px;color:var(--text-body);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
+        <p style="font-size:1rem;color:var(--text-body);line-height:2;margin-bottom:20px;">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
         <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
           東京科学大学病院検査部
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>

@@ -20,20 +20,20 @@ html{scroll-behavior:smooth;}
 .floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
 .floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
 .nav-brand{padding:12px 0;}
-.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#fff;font-weight:500;letter-spacing:.1em;}
-.nav-brand-en{font-size:9px;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.1em;margin-top:2px;}
 .nav-links{display:flex;}
-.nav-item{padding:15px 11px;font-size:10px;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
-.nav-lang{font-size:10px;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
 
 /* ── Hero ── */
 .page-hero{width:100%;min-height:460px;background:url('../img/idx-bgzone_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
 .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
 .page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
-.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;}
-.page-hero-title{font-family:'Inter',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;}
-.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:rgba(255,255,255,.65);letter-spacing:.18em;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.875rem;color:rgba(255,255,255,.65);letter-spacing:.18em;}
 
 /* ── Accent bar ── */
 .accent-bar{height:3px;display:flex;}
@@ -45,34 +45,33 @@ html{scroll-behavior:smooth;}
 .content-panel.dark{background:var(--surface);}
 .content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
 
-.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:36px;}
-.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:26px;color:var(--navy);}
-.section-title-ja{font-size:11px;color:var(--text-muted);letter-spacing:.1em;}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:1.625rem;color:var(--navy);}
+.section-title-ja{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
 
 /* ── セクション1: 連絡先カード ── */
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .contact-card{padding:36px 28px;}
 .contact-card-icon{width:28px;height:28px;color:var(--accent);margin-bottom:16px;}
-.contact-card-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;}
-.contact-card-body{font-size:12px;color:var(--text-muted);line-height:2;margin-bottom:20px;}
-.contact-card-name{font-size:12px;color:var(--text-body);font-weight:700;margin-bottom:4px;}
-.contact-card-mail{display:inline-block;font-size:12px;color:var(--accent);text-decoration:underline;text-underline-offset:3px;word-break:break-all;}
+.contact-card-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.contact-card-body{font-size:0.875rem;color:var(--text-muted);line-height:2;margin-bottom:20px;}
+.contact-card-name{font-size:0.875rem;color:var(--text-body);font-weight:700;margin-bottom:4px;}
+.contact-card-mail{display:inline-block;font-size:0.875rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;word-break:break-all;}
 .contact-card-mail:hover{color:var(--navy);}
 
 /* ── 単一連絡先パターン ── */
-.contact-single{padding-top:56px;margin-top:56px;}
-.contact-single-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.contact-single-desc{font-size:14px;color:var(--text-body);line-height:2.2;margin-bottom:12px;}
-.contact-single-mail{display:inline-block;font-size:13px;color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.contact-single-name{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.contact-single-desc{font-size:1rem;color:var(--text-body);line-height:2.2;margin-bottom:12px;}
+.contact-single-mail{display:inline-block;font-size:1rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
 .contact-single-mail:hover{color:var(--navy);}
-.pattern-label{font-size:10px;color:var(--text-muted);letter-spacing:.12em;margin-bottom:16px;}
+.pattern-label{font-size:0.875rem;color:var(--text-muted);letter-spacing:.12em;margin-bottom:16px;}
 
 /* ── セクション2: アクセス ── */
 .access-row{display:grid;grid-template-columns:1fr 2fr 1.5fr;gap:30px;align-items:start;}
-.access-label{font-size:10px;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;}
-.access-name{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
-.access-body{font-size:13px;color:var(--text-muted);line-height:2.1;}
-.access-map-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12px;color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.access-label{font-size:0.75rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;}
+.access-name{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.access-body{font-size:0.875rem;color:var(--text-muted);line-height:2.1;}
+.access-map-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:0.75rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
 .access-map-btn:hover{color:var(--navy);}
 .access-map-embed{width:100%;height:100%;min-height:260px;border:none;border-radius:4px;display:block;}
 
@@ -80,38 +79,34 @@ html{scroll-behavior:smooth;}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .related-link{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border:1px solid var(--border);text-decoration:none;transition:border-color 0.2s,background 0.2s;}
 .related-link:hover{border-color:var(--navy);background:var(--surface);}
-.related-link-title{font-size:14px;font-weight:700;color:var(--navy);}
-.related-link-sub{font-size:11px;color:var(--text-muted);margin-top:3px;}
-.related-link-arrow{font-size:18px;color:var(--text-muted);flex-shrink:0;}
+.related-link-title{font-size:1rem;font-weight:700;color:var(--navy);}
+.related-link-sub{font-size:0.875rem;color:var(--text-muted);margin-top:3px;}
+.related-link-arrow{font-size:1.125rem;color:var(--text-muted);flex-shrink:0;}
 
 /* ── Footer ── */
 .footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
-.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--text-on-navy);margin-bottom:4px;}
-.footer-univ{font-size:10px;color:var(--text-muted-navy);}
-.footer-copy{font-size:10px;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:0.75rem;color:var(--text-muted-navy);}
+.footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 
 /* ── Responsive ── */
-@media (max-width:900px){
+@media (max-width:768px){
   .page-hero{min-height:300px;padding:40px 0 36px;}
   .page-hero-inner{padding:0 24px;}
-  .page-hero-title{font-size:36px;}
-  .page-hero-eyebrow{font-size:14px;}
-  .page-hero-title-ja{font-size:12px;}
+  .page-hero-title{font-size:1.625rem;}
+  .page-hero-eyebrow{font-size:0.875rem;}
+  .page-hero-title-ja{font-size:0.875rem;}
 
   .content-panel{padding:56px 0;}
   .content-wrap{padding:0 24px;}
-  .section-title-en{font-size:20px;}
+  .section-title-en{font-size:1.125rem;}
+  .section-head{flex-direction:column;align-items:flex-start;gap:4px;}
 
   .contact-grid{grid-template-columns:1fr;}
   .access-row{grid-template-columns:1fr;}
   .related-grid{grid-template-columns:1fr;}
 
   .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
-}
-
-@media (max-width:480px){
-  .page-hero-title{font-size:28px;}
-  .content-wrap{padding:0 18px;}
 }
 </style>
 </head>

@@ -26,6 +26,11 @@ html{scroll-behavior:smooth;}
 .nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
 .nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
+.nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* ── Hero ── */
 .page-hero{width:100%;min-height:460px;background:url('img/idx-hero_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
@@ -88,6 +93,16 @@ html{scroll-behavior:smooth;}
 .footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 
 /* ── Responsive ── */
+@media (max-width:1024px){
+  .floating-nav{padding:0 20px;}
+  .nav-brand-en{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;right:0;width:50%;min-width:220px;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);border-left:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .nav-links.open{display:flex;}
+  .nav-item{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+  .nav-item.active{background:rgba(255,255,255,.04);}
+  .nav-toggle{display:flex;}
+}
+
 @media (max-width:768px){
   .page-hero{min-height:300px;padding:40px 0 36px;}
   .page-hero-inner{padding:0 24px;}
@@ -125,7 +140,7 @@ html{scroll-behavior:smooth;}
       <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
     </div>
     <div style="display:flex;align-items:center;">
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <div class="nav-item" onclick="location.href='index.html'">ホーム</div>
         <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
         <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
@@ -135,6 +150,9 @@ html{scroll-behavior:smooth;}
         <div class="nav-item" onclick="location.href='contact.html'">お問い合わせ</div>
       </div>
       <div class="nav-lang">EN</div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -266,6 +284,23 @@ html{scroll-behavior:smooth;}
     const st=window.scrollY||document.documentElement.scrollTop;
     if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
   },{passive:true});
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
 })();
 </script>
 </body>

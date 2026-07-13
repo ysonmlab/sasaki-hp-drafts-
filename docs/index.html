@@ -24,6 +24,11 @@
 .nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
 .nav-item.active{color:#fff;border-bottom-color:var(--gold);}
 .nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
+.nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 .hero{width:100%;min-height:700px;background:url('img/idx-hero_bg1.jpg') center/cover no-repeat var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 48px;text-align:center;}
 .hero::before{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.42);z-index:0;}
@@ -68,7 +73,7 @@
 .prof-affil{font-size:0.875rem;color:var(--text-muted);margin-bottom:18px;}
 .prof-divider{width:32px;height:2px;background:var(--accent);margin-bottom:18px;}
 .prof-quote{font-family:'Noto Sans JP',sans-serif;font-size:1rem;color:var(--text-body);line-height:2;padding-left:16px;border-left:2px solid var(--accent-pale);}
-.prof-more{display:inline-block;margin-top:16px;font-size:0.875rem;color:var(--accent);cursor:pointer;}
+.prof-more{display:none;margin-top:16px;font-size:0.875rem;color:var(--accent);cursor:pointer;}
 
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
 .section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#000;}
@@ -101,11 +106,9 @@
 .news-item:nth-child(4){transition-delay:0.24s;}
 .news-item:last-child{border-bottom:none;}
 .news-date{font-size:0.875rem;color:var(--text-muted);white-space:nowrap;font-family:'Roboto',sans-serif;min-width:52px;padding-top:1px;}
-.news-tag{font-size:0.75rem;background:var(--navy);color:#fff;padding:2px 8px;white-space:nowrap;letter-spacing:.06em;border-radius:2px;flex-shrink:0;}
+.news-tag{font-size:0.75rem;background:var(--navy);color:#fff;padding:2px 8px;white-space:nowrap;letter-spacing:.06em;border-radius:2px;flex-shrink:0;min-width:76px;text-align:center;}
 .news-tag.pub{background:var(--accent);}
 .news-title{font-size:0.875rem;color:var(--text-body);line-height:1.7;}
-.news-more{text-align:right;margin-top:12px;}
-.news-more-link{font-size:0.875rem;color:var(--accent);cursor:pointer;}
 
 .footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
 .footer-name{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text-on-navy);margin-bottom:4px;}
@@ -113,6 +116,16 @@
 .footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
 
 /* ── Responsive ── */
+@media (max-width:1024px){
+  .floating-nav{padding:0 20px;}
+  .nav-brand-en{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;right:0;width:50%;min-width:220px;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);border-left:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .nav-links.open{display:flex;}
+  .nav-item{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+  .nav-item.active{background:rgba(255,255,255,.04);}
+  .nav-toggle{display:flex;}
+}
+
 @media (max-width:768px){
   .hero{min-height:520px;padding:56px 24px;}
   .hero-title{font-size:1.625rem;}
@@ -129,9 +142,14 @@
 
   .prof-inner{grid-template-columns:1fr;justify-items:center;text-align:center;}
   .prof-name-row{flex-direction:column;align-items:center;gap:2px;}
-  .prof-quote{border-left:none;border-top:2px solid var(--accent-pale);padding-left:0;padding-top:16px;}
+  .prof-quote{border-left:none;border-top:2px solid var(--accent-pale);padding-left:0;padding-top:16px;text-align:left;display:-webkit-box;-webkit-line-clamp:10;line-clamp:10;-webkit-box-orient:vertical;overflow:hidden;}
+  .prof-quote.expanded{display:block;-webkit-line-clamp:unset;line-clamp:unset;overflow:visible;}
+  .prof-more{display:inline-block;}
 
   .research-grid{grid-template-columns:1fr;}
+
+  .news-item{flex-wrap:wrap;gap:7px;}
+  .news-title{width:100%;}
 
   .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
 }
@@ -147,7 +165,7 @@
       <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
     </div>
     <div style="display:flex;align-items:center;">
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <div class="nav-item active">ホーム</div>
         <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
         <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
@@ -157,6 +175,9 @@
         <div class="nav-item" onclick="location.href='contact.html'">お問い合わせ</div>
       </div>
       <div class="nav-lang">EN</div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -187,8 +208,8 @@
           </div>
           <div class="prof-affil">東京科学大学 医学部 / 臨床検査医学分野 教授</div>
           <div class="prof-divider"></div>
-          <div class="prof-quote">私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。<br>血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>がん研究と医療は、多くの研究者・医療者の努力によって発展してきました。私たちもその歩みを受け継ぎながら、新たな発見を患者さんの未来へとつなげていきたいと思います。<br>志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。</div>
-          <div class="prof-more">全文を読む →</div>
+          <div class="prof-quote" id="profQuote">私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。<br>血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>がん研究と医療は、多くの研究者・医療者の努力によって発展してきました。私たちもその歩みを受け継ぎながら、新たな発見を患者さんの未来へとつなげていきたいと思います。<br>志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。</div>
+          <div class="prof-more" id="profMore">全文を読む →</div>
         </div>
       </div>
     </div>
@@ -255,7 +276,6 @@
           <span class="news-title">第〇回日本臨床検査医学会総会にて口演発表を行いました</span>
         </div>
       </div>
-      <div class="news-more"><span class="news-more-link">お知らせ一覧 →</span></div>
     </div>
   </div>
 
@@ -293,6 +313,32 @@
     if(heroBg){ heroBg.style.transform=`translateY(${st*0.35}px)`; }
   }
   window.addEventListener('scroll',onScroll,{passive:true});
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  const profQuote = document.getElementById('profQuote');
+  const profMore = document.getElementById('profMore');
+  if(profQuote && profMore){
+    profMore.addEventListener('click', ()=>{
+      const isExpanded = profQuote.classList.toggle('expanded');
+      profMore.textContent = isExpanded ? '閉じる ↑' : '全文を読む →';
+    });
+  }
 })();
 </script>
 </body>

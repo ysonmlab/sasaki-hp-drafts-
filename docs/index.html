@@ -54,8 +54,13 @@
 .bg-zone{width:100%;height:400px;background-attachment:fixed;background-size:cover;background-position:center;position:relative;}
 .bg-zone::after{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.40);}
 
-.content-panel{background:#fff;padding:80px 0;position:relative;z-index:1;}
+.content-panel{background:var(--navy);padding:80px 0;position:relative;z-index:1;}
 .prof-panel{background:#fff;}
+.news-panel{background:#fff;}
+.news-panel .section-title-en{color:var(--navy);}
+.news-panel .section-title-ja{color:var(--text-muted);}
+.news-panel .news-date{color:var(--text-muted);}
+.news-panel .news-title{color:var(--text-body);}
 .content-wrap{max-width:1200px;margin:0 auto;padding:0 48px;}
 
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
@@ -77,8 +82,8 @@
 .prof-more{display:none;margin-top:16px;font-size:0.875rem;color:var(--accent);cursor:pointer;}
 
 .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:60px;justify-content:center;}
-.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#000;}
-.section-title-ja{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#fff;}
+.section-title-ja{font-size:0.875rem;color:#9BB5CC;letter-spacing:.1em;}
 
 /* ── Research: 縦広め・目立つ ── */
 .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
@@ -109,7 +114,7 @@
 .news-item:nth-child(3){transition-delay:0.16s;}
 .news-item:nth-child(4){transition-delay:0.24s;}
 .news-item:last-child{border-bottom:none;}
-.news-date{font-size:0.875rem;color:var(--text-muted);white-space:nowrap;font-family:'Roboto',sans-serif;min-width:52px;padding-top:1px;}
+.news-date{font-size:0.875rem;color:#9BB5CC;white-space:nowrap;font-family:'Roboto',sans-serif;min-width:52px;padding-top:1px;}
 .news-tag{font-size:0.75rem;background:#c49a3a;color:#fff;padding:2px 8px;white-space:nowrap;letter-spacing:.06em;border-radius:2px;flex-shrink:0;min-width:76px;text-align:center;}
 .news-tag.pub{background:var(--accent);}
 .news-title{font-size:0.875rem;color:var(--text-body);line-height:1.7;}
@@ -258,7 +263,7 @@
 
   <div class="bg-zone" style="background-image:url('img/idx-bgzone_bg2.jpg');"></div>
 
-  <div class="content-panel">
+  <div class="content-panel news-panel">
     <div class="content-wrap">
       <div class="section-head fade-up">
         <span class="section-title-en">News</span>

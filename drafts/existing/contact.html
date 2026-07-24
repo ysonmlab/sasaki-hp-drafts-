@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ – 臨床検査医学分野 – Science Tokyo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+/* ── Nav ── */
+.floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:0.75rem;color:var(--text-muted-navy);margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
+.nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── Hero ── */
+.page-hero{width:100%;height:460px;background:#002144;position:relative;z-index:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero-img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(1600px, 100%);height:100%;object-fit:cover;display:block;z-index:-1;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;text-shadow:0 2px 8px rgba(0,0,0,.55);}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.55);}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.875rem;color:rgba(255,255,255,.65);letter-spacing:.18em;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+
+/* ── Accent bar ── */
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+/* ── Layout ── */
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-panel.dark{background:var(--surface);}
+.content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
+
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#000;}
+.section-title-ja{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── セクション1: 連絡先カード ── */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.contact-card{padding:36px 28px;}
+.contact-card-icon{width:28px;height:28px;color:var(--accent);margin-bottom:16px;}
+.contact-card-title{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.contact-card-body{font-size:0.875rem;color:var(--text-muted);line-height:2;margin-bottom:20px;}
+.contact-card-name{font-size:0.875rem;color:var(--text-body);font-weight:700;margin-bottom:4px;}
+.contact-card-mail{display:inline-block;font-size:0.875rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;word-break:break-all;}
+.contact-card-mail:hover{color:var(--navy);}
+
+/* ── 単一連絡先パターン ── */
+.contact-single-name{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.contact-single-desc{font-size:1rem;color:var(--text-body);line-height:2.2;margin-bottom:12px;}
+.contact-single-mail{display:inline-block;font-size:1rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.contact-single-mail:hover{color:var(--navy);}
+.pattern-label{font-size:0.875rem;color:var(--text-muted);letter-spacing:.12em;margin-bottom:16px;}
+
+/* ── セクション2: アクセス ── */
+.access-row{display:grid;grid-template-columns:1fr 2fr 1.5fr;gap:30px;align-items:start;}
+.access-label{font-size:0.75rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;}
+.access-name{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.access-body{font-size:0.875rem;color:var(--text-muted);line-height:2.1;}
+.access-map-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:0.75rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px;}
+.access-map-btn:hover{color:var(--navy);}
+.access-map-embed{width:100%;height:100%;min-height:260px;border:none;border-radius:4px;display:block;}
+
+/* ── セクション3: 関連ページ ── */
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border:1px solid var(--border);text-decoration:none;transition:border-color 0.2s,background 0.2s;}
+.related-link:hover{border-color:var(--navy);background:var(--surface);}
+.related-link-sub{font-size:0.875rem;color:var(--text-muted);margin-top:3px;}
+
+/* ── Footer ── */
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:0.75rem;color:var(--text-muted-navy);}
+.footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:1024px){
+  .floating-nav{padding:0 20px;}
+  .nav-brand-en{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;right:0;width:50%;min-width:220px;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);border-left:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .nav-links.open{display:flex;}
+  .nav-item{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+  .nav-item.active{background:rgba(255,255,255,.04);}
+  .nav-toggle{display:flex;}
+}
+
+@media (max-width:768px){
+  .page-hero{height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:1.625rem;}
+  .page-hero-eyebrow{font-size:0.875rem;}
+  .page-hero-title-ja{font-size:0.875rem;}
+
+  .content-panel{padding:56px 0;}
+  .content-wrap{padding:0 24px;}
+  .section-title-en{font-size:1.625rem;}
+  .section-head{flex-direction:column;align-items:flex-start;gap:4px;}
+
+  .contact-grid{grid-template-columns:1fr;}
+  .access-row{grid-template-columns:1fr;}
+  .related-grid{grid-template-columns:1fr;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links" id="navLinks">
+        <div class="nav-item" onclick="location.href='index.html'">ホーム</div>
+        <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
+        <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
+        <div class="nav-item" onclick="location.href='corporate.html'">企業の方へ</div>
+        <div class="nav-item" onclick="location.href='education.html'">教育・大学院</div>
+        <div class="nav-item" onclick="location.href='clinical.html'">臨床・診療</div>
+        <div class="nav-item active">お問い合わせ</div>
+      </div>
+      <div class="nav-lang">EN</div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <img class="page-hero-img" src="img/hero_contact.png" alt="">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow" id="pe">CONTACT</div>
+      <div class="page-hero-title" id="pt">Contact Us</div>
+      <div class="page-hero-title-ja" id="ptj">お問い合わせ</div>
+    </div>
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <!-- セクション1: 連絡先 -->
+  <div class="content-panel">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Contact</span>
+        <span class="section-title-ja">連絡先</span>
+      </div>
+      <!--
+      <div class="lead-text fade-up">
+        お問い合わせの内容に応じて、以下の窓口にご連絡ください。いただいたメールには、担当者より順次ご返信いたします。
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <svg class="contact-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div class="contact-card-title">研究室全般</div>
+          <div class="contact-card-body">研究内容・研究室見学・取材・その他一般的なお問い合わせはこちらにご連絡ください。</div>
+          <div class="contact-card-name">担当者：野上彩子</div>
+          <a href="mailto:xxx@tmd.ac.jp" class="contact-card-mail">xxx@tmd.ac.jp</a>
+        </div>
+
+        <div class="contact-card">
+          <svg class="contact-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="7" r="2"/><path d="M21 21v-1.5a3 3 0 0 0-2-2.83"/></svg>
+          <div class="contact-card-title">産学連携・共同研究</div>
+          <div class="contact-card-body">共同研究・受託研究・技術移転・寄附講座など産学連携に関するご相談はこちらにご連絡ください。</div>
+          <div class="contact-card-name">担当者：野上彩子</div>
+          <a href="mailto:xxx@tmd.ac.jp" class="contact-card-mail">xxx@tmd.ac.jp</a>
+        </div>
+
+        <div class="contact-card">
+          <svg class="contact-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <div class="contact-card-title">大学院進学</div>
+          <div class="contact-card-body">大学院への進学・研究室配属・研究室見学をご希望の方はこちらにご連絡ください。</div>
+          <div class="contact-card-name">担当者：野上彩子</div>
+          <a href="mailto:xxx@tmd.ac.jp" class="contact-card-mail">xxx@tmd.ac.jp</a>
+        </div>
+
+      </div>
+      -->
+
+      <!-- 単一連絡先パターン（比較用） -->
+      <div class="contact-single fade-up">
+        <div class="contact-single-desc">研究内容・産学連携・大学院進学など、お問い合わせはこちらにご連絡ください。</div>
+        <div class="contact-single-name">担当：野上彩子</div>
+        <a href="mailto:xxx@tmd.ac.jp" class="contact-single-mail">xxx@tmd.ac.jp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション2: アクセス -->
+  <div class="content-panel dark">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Access</span>
+        <span class="section-title-ja">所在地・アクセス</span>
+      </div>
+      <div class="access-row fade-up">
+        <div>
+          <div class="access-label">ADDRESS</div>
+          <div class="access-name">臨床検査医学分野</div>
+          <div class="access-body">
+            〒113-8519<br>
+            東京都文京区湯島1-5-45<br>
+            東京科学大学病院MDタワー10階
+          </div>
+          <a href="https://maps.google.com/?q=東京科学大学病院MDタワー 東京都文京区湯島1-5-45" target="_blank" rel="noopener noreferrer" class="access-map-btn">
+            Google マップで見る →
+          </a>
+        </div>
+        <iframe class="access-map-embed" src="https://maps.google.com/maps?q=東京科学大学病院MDタワー 東京都文京区湯島1-5-45&output=embed&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <div class="access-label">TRANSPORT</div>
+          <div class="access-body">
+            JR 御茶ノ水駅 下車<br>
+            東京メトロ丸ノ内線 御茶ノ水駅 下車<br>
+            東京メトロ千代田線 新御茶ノ水駅 下車
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.page-hero');
+  function setHeroOffset(){ if(nav && hero){ hero.style.marginTop = nav.offsetHeight + 'px'; } }
+  setHeroOffset();
+  window.addEventListener('resize', setHeroOffset);
+  window.addEventListener('scroll',()=>{
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+  },{passive:true});
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

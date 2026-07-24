@@ -1,0 +1,511 @@
+/* ==========================================================================
+   common.css
+   サイト共通のすべてを集約する（reset の次に読み込む）。
+   1箇所を直せば全ページに反映される。
+   - 仕様: docs/css-architecture.md
+   - ページ単体でしか使わない装飾はここに書かず、ページ固有CSS（{page}.css）へ。
+   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   ========================================================================== */
+
+/* Google Fonts（デモに準拠。実際に使用するファミリーのみ読み込む） */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Oswald:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap');
+
+/* === デザイントークン（案件ごとに設定） =================================== */
+:root {
+  /* 配色（navy・goldの学術系配色。デモ準拠） */
+  --color-text: #1C2B3A;
+  --color-bg: #fff;
+  --color-primary: #4A90C4;    /* メインカラー（アクセントブルー） */
+  --color-secondary: #5A7490;  /* サブカラー（ミュートテキスト） */
+  --color-accent: #C9A84C;     /* アクセント（ゴールド） */
+  --color-border: #D0DDE8;
+
+  --color-navy: #0B1F3A;
+  --color-accent-pale: #D6E8F5;
+  --color-surface: #FAFDFD;
+  --color-surface-alt: #F7F9FC; /* content-panel.dark用（隣接パネルとの境目を示す僅差の色） */
+  --color-text-on-navy: #F0F4F8;
+  --color-text-muted-navy: #9BB5CC;
+
+  /* フォント */
+  --font-base: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", "Hiragino Sans", sans-serif;
+  --font-heading: "Inter", var(--font-base);
+  --font-condensed: "Oswald", sans-serif;
+
+  /* レイアウト */
+  --content-max: 1200px; /* コンテンツ最大幅 */
+  --gutter: 24px;        /* 左右の余白 */
+}
+
+/* === 基本タイポグラフィ =================================================== */
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+}
+
+/* デモでは見出しの既定フォントは本文と同じ Noto Sans JP。Inter を使うのは hero の大見出しのみ（sect側で個別指定） */
+h1, h2, h3, h4 {
+  font-family: var(--font-base);
+  line-height: 1.3;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === レイアウト補助 ======================================================= */
+/* コンテンツ幅を中央に収める共通ラッパー */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* === ヘッダー（全ページ共通） ============================================= */
+/* 各ページ先頭のhero画像に重なる不透明ヘッダー（bodyのオフセットは行わない） */
+/* 高さは固定せず、中身（nav-brand / nav-item のpadding）で自然に決まる（デモ準拠） */
+/* 半透明+blurは廃止：hero画像（写真/イラスト）によって透け方が変わりページごとに色が
+   バラついて見えるため、常に同じ色に見える不透明ネイビー固定に変更した */
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 100;
+  background: var(--color-navy);
+  border-bottom: 1px solid rgba(74, 144, 196, 0.2);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* ヘッダー内は行間を詰める（bodyのline-height:1.7を引き継がない。デモは既定の詰まった行間） */
+  line-height: 1.3;
+  /* デモ準拠：中央寄せコンテナは使わず、画面幅いっぱいに余白のみ取る */
+  padding-inline: var(--gutter);
+}
+
+.nav-brand {
+  padding-block: 12px;
+}
+.nav-brand-ja {
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+.nav-brand-en {
+  font-size: 0.75rem;
+  color: var(--color-text-muted-navy);
+  margin-top: 2px;
+}
+
+/* === グローバルナビ ======================================================= */
+.global-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-item {
+  display: block;
+  padding: 15px 11px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted-navy);
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid transparent;
+}
+.nav-item:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.nav-item.is-current {
+  color: #fff;
+  border-bottom-color: var(--color-accent);
+}
+
+.nav-lang {
+  padding: 15px 0 15px 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  margin-left: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted-navy);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* SP: ハンバーガーで開閉（JSは開閉のみ・最小限） */
+@media (max-width: 767px) {
+  .nav-brand-en {
+    display: none;
+  }
+  .nav-links {
+    display: none;
+    /* .site-header が position:fixed のため、topは高さを数値で知らなくても100%で追従する */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    /* 基本:画面幅の50% / 50%だと文字が折り返される場合のみ、折り返さない幅まで広がる */
+    width: 50vw;
+    min-width: max-content;
+    flex-direction: column;
+    background: rgba(11, 31, 58, 0.98);
+    border-bottom: 1px solid rgba(74, 144, 196, 0.2);
+    border-left: 1px solid rgba(74, 144, 196, 0.2);
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  .nav-links.is-open {
+    display: flex;
+  }
+  .nav-item {
+    padding: 16px var(--gutter);
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* === フッター（全ページ共通） ============================================= */
+.site-footer {
+  background: var(--color-navy);
+  color: var(--color-text-on-navy);
+  padding-block: 24px;
+  /* bodyのline-height:1.7を引き継がない（デモは既定の詰まった行間） */
+  line-height: 1.3;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* デモ準拠：中央寄せコンテナは使わず、画面幅いっぱいに余白のみ取る */
+  padding-inline: var(--gutter);
+}
+
+.footer-name {
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+}
+.footer-univ {
+  font-size: 0.75rem;
+  color: var(--color-text-muted-navy);
+}
+.footer-copy {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted-navy);
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .site-footer__inner {
+    text-align: left;
+  }
+}
+
+/* === page-hero（内側ページ共通・bleed + board） ============================ */
+/* index.html以外の各ページ先頭で使用。画像は各ページ固有CSSで指定する。
+   background:#002144はデモ6ページ共通の値（線画・透過pngの背景色としても機能する）。 */
+.page-hero {
+  position: relative;
+  z-index: 0; /* スタッキングコンテキストを生成し、z-index:-1の.page-hero__imgを自身のbackgroundより上に固定する */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  overflow: hidden;
+  background: #002144;
+  color: #fff;
+  text-align: center;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(6, 14, 26, 0.3) 0%, rgba(11, 31, 58, 0.4) 100%);
+}
+.page-hero__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1600px, 100%);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--gutter);
+}
+.page-hero__eyebrow {
+  margin-bottom: 12px;
+  font-family: var(--font-condensed);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.25em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+.page-hero__title {
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+.page-hero__title-ja {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.18em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .page-hero {
+    height: 460px;
+  }
+  .page-hero__eyebrow {
+    font-size: 1.125rem;
+  }
+  .page-hero__title {
+    font-size: 4rem;
+  }
+}
+
+/* === accent-bar（全ページ共通・ゴールド72px＋ネイビー残り幅） =============== */
+/* index.css に個別実装されていたものを共通化（クラス名・見た目は不変） */
+.sect-accent-bar {
+  height: 3px;
+  background: linear-gradient(to right, var(--color-accent) 0, var(--color-accent) 72px, var(--color-navy) 72px, var(--color-navy) 100%);
+}
+
+/* === content-wrap（内側ページ共通コンテンツ幅） ============================ */
+/* research/staff/corporate/education/clinical/contact の6ページで使用。indexは.containerのまま(不変)。 */
+.content-wrap {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@media (min-width: 768px) {
+  .content-wrap {
+    padding-inline: 48px;
+  }
+}
+
+/* === content-panel（複数ページ共通・本文セクションの背景ラッパー） ============ */
+/* research/staff/corporate/education/clinical/contact で使用。ページ側は
+   content-panel > content-wrap > sect-* の入れ子で使う。 */
+.content-panel {
+  padding-block: 56px;
+  background: var(--color-surface);
+}
+/* 隣接するcontent-panel同士の境目を示す修飾子（corporate/education/contactで使用） */
+.content-panel.dark {
+  background: var(--color-surface-alt);
+}
+
+@media (min-width: 768px) {
+  .content-panel {
+    padding-block: 80px;
+  }
+}
+
+/* === cta-block（複数ページ共通・寄付等の呼びかけ） ========================= */
+/* 文言はページごとにHTML側で指定。corporate.html/education.htmlでも同構造・別文言で使用予定。 */
+.cta-block {
+  padding: 40px 24px;
+  background: var(--color-navy);
+  color: #fff;
+  text-align: center;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.12);
+}
+.cta-block__label {
+  margin-bottom: 16px;
+  font-family: var(--font-condensed);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  letter-spacing: 0.25em;
+}
+.cta-block__title {
+  margin-bottom: 12px;
+  font-size: 1.625rem;
+  font-weight: 500;
+}
+.cta-block__body {
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: 28px;
+  font-size: 0.875rem;
+  line-height: 2;
+  color: var(--color-text-muted-navy);
+}
+.cta-block__btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 2px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+}
+.cta-block__btn:hover {
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+@media (min-width: 768px) {
+  .cta-block {
+    padding: 56px 48px;
+  }
+}
+
+/* === fade-up（スクロールで表示されるフェードイン） ========================== */
+/* CSSのみのスクロール駆動アニメーション（animation-timeline:view()）はブラウザ対応が
+   不十分で実際には動かないため不採用。assets/js/fade-up.js（IntersectionObserver、
+   ハンバーガー開閉と同様にCSSで代替不可能な最小限のJS）が is-inview を付与する方式にする。 */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* === 使い回す共通パーツ =================================================== */
+/* 複数ページで再利用する部品のみここに置く（例：ボタン・カード） */
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  cursor: pointer;
+}
+.btn:hover {
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+/* ボタン（アウトライン） */
+.btn-outline {
+  background: transparent;
+  border-color: rgba(74, 144, 196, 0.4);
+  color: var(--color-text-muted-navy);
+}
+.btn-outline:hover {
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* カード（画像＋テキストの縦積み） */
+.card {
+  /* 案件に合わせて実装 */
+}
+
+/* 見出し（英語タイトル＋日本語サブタイトル、複数ページで使い回す） */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.section-title-en {
+  font-family: var(--font-base);
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.section-title-ja {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-secondary);
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 767px) {
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+@media (min-width: 768px) {
+  .section-title-en {
+    font-size: 2rem;
+  }
+}

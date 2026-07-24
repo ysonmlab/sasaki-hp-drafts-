@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スタッフ – 臨床検査医学分野 / Science Tokyo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;font-size:1rem;line-height:1.75;letter-spacing:0.04em;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+/* ── Nav ── */
+.floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;line-height:normal;letter-spacing:normal;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:0.75rem;color:var(--text-muted-navy);margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;text-decoration:none;display:block;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
+.nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── Page Hero ── */
+.page-hero{width:100%;height:460px;background:#002144;position:relative;z-index:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero-img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(1600px, 100%);height:100%;object-fit:cover;display:block;z-index:-1;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;text-shadow:0 2px 8px rgba(0,0,0,.55);}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.55);}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.875rem;color:rgba(255,255,255,.65);letter-spacing:.18em;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+
+/* ── Accent bar ── */
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+/* ── Layout ── */
+.bg-zone{width:100%;height:360px;background-attachment:fixed;background-size:cover;background-position:center;position:relative;}
+.bg-zone::after{content:'';position:absolute;inset:0;background:rgba(6,14,26,0.40);}
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
+
+
+/* ── Section heading ── */
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.section-title-en{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#000;}
+.section-title-ja{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── PI Profile ── */
+.prof-layout{display:flex;align-items:flex-start;position:relative;margin-bottom:8px;}
+.prof-photo-wrap{width:40%;flex-shrink:0;position:relative;z-index:1;}
+.prof-photo-wrap img{width:100%;height:auto;display:block;}
+.prof-text-wrap{flex:1;background:rgba(250,253,253,0.72);padding:10px 36px 40px;position:relative;z-index:2;}
+.prof-name-row{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+.prof-name-ja{font-family:'Noto Sans JP',sans-serif;font-size:1.625rem;color:var(--navy);font-weight:500;}
+.prof-name-en{font-size:1rem;color:var(--text-muted);letter-spacing:.06em;}
+.prof-affil{font-size:1rem;color:var(--text-muted);margin-bottom:24px;}
+.prof-bio{font-family:'Noto Sans JP',sans-serif;font-size:1rem;color:var(--text-body);line-height:2.1;}
+.prof-link-lined{display:block;margin-top:28px;color:var(--text-body);font-size:1rem;font-weight:700;letter-spacing:.04em;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-align:right;transition:color 0.2s;}
+.prof-link-lined:hover{color:var(--navy);}
+
+/* ── Group Photo ──
+.group-photo-outer{background:#FAFDFD;padding-bottom:72px;}
+.group-photo-placeholder{width:100%;aspect-ratio:16/6;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.group-photo-placeholder img{width:100%;height:100%;object-fit:cover;object-position:center 45%;}
+.group-photo-placeholder-text{font-size:1rem;color:var(--text-muted);letter-spacing:.1em;}
+.group-photo-caption{font-size:1rem;color:var(--text-muted);text-align:center;margin-top:12px;letter-spacing:.06em;}
+── */
+
+/* ── Member Groups ── */
+.member-group{margin-bottom:56px;}
+.member-group-label{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:var(--text-muted);letter-spacing:.2em;margin-bottom:10px;}
+.member-card{display:flex;align-items:stretch;gap:20px;padding:10px 4px;}
+.member-photo-placeholder{width:30%;min-width:80px;max-width:150px;aspect-ratio:7/10;border-radius:4px;overflow:hidden;}
+.member-text-wrap{display:flex;flex-direction:column;justify-content:space-between;padding:15px 0;}
+.member-name-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;}
+.member-name-ja{font-size:1.125rem;color:var(--navy);}
+.member-name-en{font-size:0.875rem;color:var(--text-muted);letter-spacing:.04em;}
+.member-affil{font-size:0.875rem;color:var(--text-muted);}
+.member-link{display:inline-block;color:var(--text-body);font-size:0.875rem;font-weight:600;letter-spacing:.04em;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color 0.2s;}
+.member-link:hover{color:var(--navy);}
+.member-links{display:flex;flex-direction:column;gap:6px;}
+
+/* ── Footer ── */
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;line-height:normal;letter-spacing:normal;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:0.75rem;color:var(--text-muted-navy);}
+.footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:1024px){
+  .floating-nav{padding:0 20px;}
+  .nav-brand-en{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;right:0;width:50%;min-width:220px;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);border-left:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .nav-links.open{display:flex;}
+  .nav-item{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+  .nav-item.active{background:rgba(255,255,255,.04);}
+  .nav-toggle{display:flex;}
+}
+
+@media (max-width:768px){
+  .page-hero{height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:1.625rem;}
+  .page-hero-eyebrow{font-size:0.875rem;}
+  .page-hero-title-ja{font-size:0.875rem;}
+
+  .bg-zone{height:200px;}
+  .content-panel{padding:56px 0;}
+  .content-wrap{padding:0 24px;}
+  .section-title-en{font-size:1.625rem;}
+  .section-head{flex-direction:column;align-items:flex-start;gap:4px;}
+
+  .prof-layout{flex-direction:column;}
+  .prof-photo-wrap{width:100%;max-width:260px;margin:0 auto;}
+  .prof-text-wrap{padding:24px 20px 32px;}
+  .prof-name-ja{font-size:1.125rem;}
+  .prof-name-row{flex-direction:column;align-items:flex-start;gap:2px;}
+
+  .group-photo-outer{padding-bottom:40px;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+}
+
+@media (max-width:400px){
+  .member-card{flex-direction:column;align-items:flex-start;}
+  .member-photo-placeholder{width:100%;min-width:0;max-width:150px;}
+}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-item">ホーム</a>
+        <a href="research.html" class="nav-item">研究内容</a>
+        <a href="staff.html" class="nav-item active">スタッフ</a>
+        <a href="corporate.html" class="nav-item">企業の方へ</a>
+        <a href="education.html" class="nav-item">教育・大学院</a>
+        <a href="clinical.html" class="nav-item">臨床・診療</a>
+        <a href="contact.html" class="nav-item">お問い合わせ</a>
+      </div>
+      <div class="nav-lang">EN</div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <img class="page-hero-img" src="img/hero_staff.png" alt="">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow" id="pe">STAFF</div>
+      <div class="page-hero-title" id="pt">Staff</div>
+      <div class="page-hero-title-ja" id="ptj">スタッフ・メンバー紹介</div>
+    </div>
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <!-- PI Profile -->
+  <div class="content-panel" style="padding-bottom:24px;">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Principal Investigator</span>
+        <span class="section-title-ja">教授・主宰</span>
+      </div>
+      <div class="prof-layout fade-up">
+        <div class="prof-photo-wrap">
+          <img src="img/idx-profile_pht1.jpg" alt="佐々木 宏治">
+        </div>
+        <div class="prof-text-wrap">
+          <div class="prof-name-row">
+            <span class="prof-name-ja">佐々木 宏治</span>
+            <span class="prof-name-en">Koji Sasaki, MD, PhD</span>
+          </div>
+          <div class="prof-affil">東京科学大学 医学部 / 臨床検査医学分野 教授</div>
+          <div class="prof-bio">私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。<br>血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。</div>
+          <a href="https://researchmap.jp/KSasaki_ResearchMap" target="_blank" rel="noopener noreferrer" class="prof-link-lined">研究業績（researchmap） →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+  Group Photo
+  <div class="group-photo-outer">
+    <div class="group-photo-placeholder fade-up">
+      <img src="img/allmember3.jpg" alt="研究室集合写真">
+    </div>
+    <div class="content-wrap">
+      <div class="group-photo-caption">検査部一同（2026年）</div>
+    </div>
+  </div>
+  -->
+
+  <!-- Pattern C: メンバーカード -->
+  <div class="content-panel" style="padding-top:24px;">
+    <div class="content-wrap">
+      <div class="section-head fade-up">
+        <span class="section-title-en">Members</span>
+        <span class="section-title-ja">メンバー</span>
+      </div>
+
+      <!-- 准教授 -->
+      <div class="member-group">
+        <div class="member-group-label">ASSOCIATE PROFESSOR　准教授</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"><img src="img/staff_nogami.jpg" alt="野上 彩子" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;border-radius:4px;"></div>
+            <div class="member-text-wrap">
+              <div class="member-info">
+                <div class="member-name-row">
+                  <span class="member-name-ja">野上 彩子</span>
+                  <span class="member-name-en">Ayako Nogami, 〇</span>
+                </div>
+                <div class="member-affil">臨床検査医学分野 准教授</div>
+              </div>
+              <div class="member-links">
+                <a href="https://www.tmd.ac.jp/employment/clerical-work/20260519/" target="_blank" rel="noopener noreferrer" class="member-link">臨床検査医学分野研究支援員募集 →</a>
+                <a href="https://researchmap.jp/7000025998" target="_blank" rel="noopener noreferrer" class="member-link">研究業績（researchmap） →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 講師 -->
+      <div class="member-group">
+        <div class="member-group-label">LECTURER　講師</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"><img src="img/staff_kanouchi.jpg" alt="叶内 匡" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;border-radius:4px;"></div>
+            <div class="member-text-wrap">
+              <div class="member-info">
+                <div class="member-name-row">
+                  <span class="member-name-ja">叶内 匡</span>
+                  <span class="member-name-en">Tadashi Kanouchi, 〇</span>
+                </div>
+                <div class="member-affil">臨床検査医学分野 講師</div>
+              </div>
+              <a href="https://researchmap.jp/read0099089" target="_blank" rel="noopener noreferrer" class="member-link">研究業績（researchmap） →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 助教 -->
+      <div class="member-group">
+        <div class="member-group-label">ASSISTANT PROFESSOR　助教</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"><img src="img/staff_watanabe.jpg" alt="渡部 悟" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"></div>
+            <div class="member-text-wrap">
+              <div class="member-info">
+                <div class="member-name-row">
+                  <span class="member-name-ja">渡部 悟</span>
+                  <span class="member-name-en">Satoru Watanabe, 〇</span>
+                </div>
+                <div class="member-affil">臨床検査医学分野 助教</div>
+              </div>
+              <!-- <a href="#" target="_blank" rel="noopener noreferrer" class="member-link">研究業績（researchmap） →</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      博士課程（後期）
+      <div class="member-group">
+        <div class="member-group-label">PhD STUDENTS　博士課程（後期）</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">博士課程（後期）</div>
+            </div>
+          </div>
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">博士課程（後期）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!--
+      修士課程
+      <div class="member-group">
+        <div class="member-group-label">MASTER'S STUDENTS　修士課程</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">修士課程</div>
+            </div>
+          </div>
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">修士課程</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!--
+      学部生
+      <div class="member-group">
+        <div class="member-group-label">UNDERGRADUATE STUDENTS　学部生（研究配属）</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">学部生（研究配属）</div>
+            </div>
+          </div>
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">学部生（研究配属）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!--
+      研究員
+      <div class="member-group">
+        <div class="member-group-label">RESEARCH STAFF　研究員・技術補佐員</div>
+        <div class="member-list">
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">研究員・技術補佐員</div>
+            </div>
+          </div>
+          <div class="member-card fade-up">
+            <div class="member-photo-placeholder"></div>
+            <div class="member-text-wrap">
+              <div class="member-name-row">
+                <span class="member-name-ja">山田 太郎</span>
+                <span class="member-name-en">Taro Yamada</span>
+              </div>
+              <div class="member-affil">研究員・技術補佐員</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.page-hero');
+  function setHeroOffset(){ if(nav && hero){ hero.style.marginTop = nav.offsetHeight + 'px'; } }
+  setHeroOffset();
+  window.addEventListener('resize', setHeroOffset);
+  function onScroll(){
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

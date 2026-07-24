@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究内容 – 臨床検査医学分野 – Science Tokyo</title>
+  <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/research.css">
+</head>
+<body class="pg-research">
+
+  <!-- 全ページ共通ヘッダー（common.css） -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="nav-brand">
+        <p class="nav-brand-ja">臨床検査医学分野</p>
+        <p class="nav-brand-en">Dept. of Laboratory Medicine, Science Tokyo</p>
+      </div>
+      <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-item">ホーム</a></li>
+          <li><a href="research.html" class="nav-item is-current" aria-current="page">研究内容</a></li>
+          <li><a href="staff.html" class="nav-item">スタッフ</a></li>
+          <li><a href="corporate.html" class="nav-item">企業の方へ</a></li>
+          <li><a href="education.html" class="nav-item">教育・大学院</a></li>
+          <li><a href="clinical.html" class="nav-item">臨床・診療</a></li>
+          <li><a href="contact.html" class="nav-item">お問い合わせ</a></li>
+        </ul>
+        <span class="nav-lang">EN</span>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="メニューを開閉">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- page-hero（bleed + board・共通パーツ／research.htmlはオーバーレイ無し） -->
+    <section class="page-hero">
+      <img class="page-hero__img" src="assets/img/research-hero_bg1.jpg" alt="" loading="lazy">
+      <div class="page-hero__inner">
+        <p class="page-hero__eyebrow">Research</p>
+        <h1 class="page-hero__title">Our Research</h1>
+        <p class="page-hero__title-ja">研究内容</p>
+      </div>
+    </section>
+
+    <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
+    <div class="sect-accent-bar" aria-hidden="true"></div>
+
+    <!-- content-panel（共通パーツ：背景色+上下padding） -->
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- lead（rack：リード文のみ） -->
+        <section class="sect-research-lead">
+          <p class="sect-research-lead__text fade-up">
+            血液悪性腫瘍の克服に向け、基礎・臨床・検査医学の融合によって新たな診断・治療法の開発に取り組んでいます。
+          </p>
+        </section>
+
+        <!-- projects（fluid：左=タイトル+写真／右=説明文+タグ。SP縦積み／PC 2カラムgrid） -->
+        <section class="sect-research-projects">
+          <h2 class="section-head">
+            <span class="section-title-en">Research Projects</span>
+            <span class="section-title-ja">研究プロジェクト</span>
+          </h2>
+          <ul class="sect-research-projects__list">
+            <li class="sect-research-projects__item fade-up" id="detail-01">
+              <div class="sect-research-projects__head">
+                <h3 class="sect-research-projects__title">白血病・リンパ腫の発症メカニズム解明</h3>
+                <p class="sect-research-projects__title-en">Molecular Mechanisms of Leukemia and Lymphoma</p>
+              </div>
+              <div class="sect-research-projects__body">
+                <div class="sect-research-projects__photo">
+                  <img src="assets/img/research-projects_pht1.png" alt="白血病・リンパ腫の発症メカニズム解明" loading="lazy">
+                </div>
+                <div class="sect-research-projects__right">
+                  <div>
+                    <p class="sect-research-projects__desc">血液悪性腫瘍（白血病・リンパ腫）の発症・進展に関わる分子メカニズムを解明し、新規治療標的の同定と治療法の開発を目指しています。特にNotchシグナル経路をはじめとする細胞内シグナル伝達系の異常に着目し、腫瘍細胞の増殖・生存・薬剤耐性に関わる機構を多面的に解析しています。</p>
+                    <p class="sect-research-projects__desc-en">We aim to elucidate the molecular mechanisms underlying the onset and progression of hematological malignancies, with the goal of identifying novel therapeutic targets and developing new treatments. We focus particularly on aberrations in intracellular signaling pathways, including Notch signaling, and analyze the mechanisms governing tumor cell proliferation, survival, and drug resistance.</p>
+                    <ul class="sect-research-projects__tags">
+                      <li class="sect-research-projects__tag">Notch signaling</li>
+                      <li class="sect-research-projects__tag">白血病</li>
+                      <li class="sect-research-projects__tag">リンパ腫</li>
+                      <li class="sect-research-projects__tag">分子標的治療</li>
+                      <li class="sect-research-projects__tag">腫瘍微小環境</li>
+                      <li class="sect-research-projects__tag">薬剤耐性</li>
+                    </ul>
+                  </div>
+                  <a href="#" class="sect-research-projects__more">View More →</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="sect-research-projects__item fade-up" id="detail-02">
+              <div class="sect-research-projects__head">
+                <h3 class="sect-research-projects__title">新規in vitro薬剤感受性試験の開発</h3>
+                <p class="sect-research-projects__title-en">Development of Novel In Vitro Drug Sensitivity Assays</p>
+              </div>
+              <div class="sect-research-projects__body">
+                <div class="sect-research-projects__photo">
+                  <img src="assets/img/research-projects_pht2.png" alt="新規in vitro薬剤感受性試験の開発" loading="lazy">
+                </div>
+                <div class="sect-research-projects__right">
+                  <div>
+                    <p class="sect-research-projects__desc">患者由来の腫瘍細胞を用いた薬剤感受性評価プラットフォームを開発し、個別化医療の実現を目指しています。従来の細胞株ベースの試験では再現が難しい患者固有の腫瘍特性を捉えることで、最適な治療薬の選択と治療効果の予測精度向上に貢献します。</p>
+                    <p class="sect-research-projects__desc-en">We are developing a drug sensitivity evaluation platform using patient-derived tumor cells to advance personalized medicine. By capturing patient-specific tumor characteristics that are difficult to reproduce in conventional cell line-based assays, we contribute to more accurate treatment selection and improved prediction of therapeutic outcomes.</p>
+                    <ul class="sect-research-projects__tags">
+                      <li class="sect-research-projects__tag">個別化医療</li>
+                      <li class="sect-research-projects__tag">薬剤感受性試験</li>
+                      <li class="sect-research-projects__tag">患者由来細胞</li>
+                      <li class="sect-research-projects__tag">ドラッグスクリーニング</li>
+                      <li class="sect-research-projects__tag">精密医療</li>
+                    </ul>
+                  </div>
+                  <a href="#" class="sect-research-projects__more">View More →</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="sect-research-projects__item sect-research-projects__item--last fade-up" id="detail-03">
+              <div class="sect-research-projects__head">
+                <h3 class="sect-research-projects__title">感染症とタイピング技術</h3>
+                <p class="sect-research-projects__title-en">Infectious Disease and Pathogen Typing Technologies</p>
+              </div>
+              <div class="sect-research-projects__body">
+                <div class="sect-research-projects__photo">
+                  <img src="assets/img/research-projects_pht3.png" alt="感染症とタイピング技術" loading="lazy">
+                </div>
+                <div class="sect-research-projects__right">
+                  <div>
+                    <p class="sect-research-projects__desc">SARS-CoV-2をはじめとする病原体の遺伝子型解析（タイピング）と迅速診断法の開発に取り組んでいます。次世代シークエンシング（NGS）や各種遺伝子解析技術を駆使し、感染症の感染動態把握・変異株の監視・新たな検査法の臨床応用を推進しています。</p>
+                    <p class="sect-research-projects__desc-en">We are working on genotyping of pathogens including SARS-CoV-2 and the development of rapid diagnostic methods. Leveraging next-generation sequencing (NGS) and various gene analysis technologies, we advance the understanding of infectious disease dynamics, surveillance of emerging variants, and clinical application of novel diagnostic tools.</p>
+                    <ul class="sect-research-projects__tags">
+                      <li class="sect-research-projects__tag">SARS-CoV-2</li>
+                      <li class="sect-research-projects__tag">遺伝子タイピング</li>
+                      <li class="sect-research-projects__tag">次世代シークエンシング</li>
+                      <li class="sect-research-projects__tag">迅速診断</li>
+                      <li class="sect-research-projects__tag">ゲノム疫学</li>
+                    </ul>
+                  </div>
+                  <a href="#" class="sect-research-projects__more">View More →</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- cta-block（共通パーツ・文言はresearch固有） -->
+    <div class="cta-block fade-up">
+      <p class="cta-block__label">SUPPORT US</p>
+      <h2 class="cta-block__title">研究活動へのご支援のお願い</h2>
+      <p class="cta-block__body">当分野の研究・教育活動は、皆様からのご寄付に支えられています。<br>血液悪性腫瘍の克服に向けた研究の発展のため、ご支援をお願いいたします。</p>
+      <a href="contact.html" class="cta-block__btn">寄付に関するお問い合わせ</a>
+    </div>
+
+  </main>
+
+  <!-- 全ページ共通フッター（common.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="footer-name">臨床検査医学分野 ・ Department of Laboratory Medicine</p>
+      <p class="footer-univ">Institute of Science Tokyo Hospital ・ 〒113-8519 東京都文京区湯島1-5-45</p>
+      <p class="footer-copy">© Institute of Science Tokyo . All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/fade-up.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* ==========================================================================
+   contact.css
+   お問い合わせページ固有のスタイル（.pg-contact .sect-* スコープ）
+   - 共通のものは common.css に書く。ここは contact 単体の装飾のみ。
+   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - 仕様: docs/css-architecture.md／design/page-contact.md
+   ========================================================================== */
+
+/* === lead（rack：単一連絡先パターン） ====================================== */
+.pg-contact .sect-contact-lead__desc {
+  max-width: 850px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 2.2;
+}
+.pg-contact .sect-contact-lead__name {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.pg-contact .sect-contact-lead__mail {
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pg-contact .sect-contact-lead__mail:hover {
+  color: var(--color-navy);
+}
+
+/* === access（chest：SP 1カラム縦積み／PC 3カラム grid：住所／地図／交通手段） === */
+.pg-contact .sect-contact-access__row {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.pg-contact .sect-contact-access__label {
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+}
+.pg-contact .sect-contact-access__name {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.pg-contact .sect-contact-access__body {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  line-height: 2.1;
+}
+.pg-contact .sect-contact-access__map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pg-contact .sect-contact-access__map-btn:hover {
+  color: var(--color-navy);
+}
+.pg-contact .sect-contact-access__map {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  border: none;
+  border-radius: 4px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .pg-contact .sect-contact-access__row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    align-items: start;
+    gap: 30px;
+  }
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教育・大学院 – 臨床検査医学分野 – Science Tokyo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --navy:#0B1F3A;--navy-mid:#1A3557;--navy-light:#2B4E7A;
+  --accent:#4A90C4;--accent-pale:#D6E8F5;--gold:#C9A84C;
+  --text-on-navy:#F0F4F8;--text-muted-navy:#9BB5CC;
+  --surface:#F7F9FC;--text-body:#1C2B3A;--text-muted:#5A7490;--border:#D0DDE8;
+}
+.page{font-family:'Noto Sans JP',sans-serif;font-size:1rem;line-height:1.75;letter-spacing:0.04em;color:var(--text-body);width:100%;overflow-x:hidden;background:#000;}
+
+/* ── Nav ── */
+.floating-nav{position:fixed;top:0;left:0;right:0;z-index:100;width:100%;line-height:normal;letter-spacing:normal;background:rgba(11,31,58,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(74,144,196,0.2);display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background 0.4s,box-shadow 0.4s;}
+.floating-nav.scrolled{background:rgba(11,31,58,0.98);box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.nav-brand{padding:12px 0;}
+.nav-brand-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:#fff;font-weight:500;letter-spacing:.1em;}
+.nav-brand-en{font-size:0.75rem;color:var(--text-muted-navy);margin-top:2px;}
+.nav-links{display:flex;}
+.nav-item{padding:15px 11px;font-size:0.75rem;color:var(--text-muted-navy);letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;}
+.nav-item.active{color:#fff;border-bottom-color:var(--gold);}
+.nav-lang{font-size:0.75rem;color:var(--text-muted-navy);padding:15px 0 15px 14px;border-left:1px solid rgba(255,255,255,.12);margin-left:8px;cursor:pointer;}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;padding:0;margin-left:12px;cursor:pointer;}
+.nav-toggle span{display:block;width:100%;height:2px;background:#fff;transition:transform .3s,opacity .3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── Hero ── */
+.page-hero{width:100%;height:460px;background:#002144;position:relative;z-index:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 0 52px;}
+.page-hero-img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(1600px, 100%);height:100%;object-fit:cover;display:block;z-index:-1;}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.3) 0%,rgba(11,31,58,0.4) 100%);z-index:0;}
+.page-hero-inner{max-width:860px;width:100%;margin:0 auto;padding:0 32px;position:relative;z-index:1;text-align:center;}
+.page-hero-eyebrow{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:600;color:var(--gold);letter-spacing:.25em;margin-bottom:12px;text-shadow:0 2px 8px rgba(0,0,0,.55);}
+.page-hero-title{font-family:'Inter',sans-serif;font-size:4rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:8px;text-shadow:0 2px 10px rgba(0,0,0,.55);}
+.page-hero-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:0.875rem;color:rgba(255,255,255,.65);letter-spacing:.18em;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+
+/* ── Accent bar ── */
+.accent-bar{height:3px;display:flex;}
+.accent-bar-gold{width:72px;background:var(--gold);}
+.accent-bar-blue{flex:1;background:var(--navy);}
+
+/* ── 共通 ── */
+.content-wrap{max-width:1100px;margin:0 auto;padding:0 48px;}
+.content-panel{background:#FAFDFD;padding:80px 0;position:relative;z-index:1;}
+.content-panel.dark{background:var(--surface);}
+
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;}
+.section-title-en{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
+.section-title-ja{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#000;}
+.faq-title-main{font-family:'Noto Sans JP',sans-serif;font-size:2rem;font-weight:700;color:#000;}
+.faq-title-sub{font-size:0.875rem;color:var(--text-muted);letter-spacing:.1em;}
+
+/* ── リード文 ── */
+.lead-text{font-size:1rem;color:var(--text-body);line-height:2.2;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid var(--border);max-width:850px;margin-left:auto;margin-right:auto;}
+
+/* ── セクション共通 ── */
+.edu-section-lead{font-size:1rem;color:var(--text-body);line-height:1.75;margin-top:16px;margin-bottom:36px;max-width:850px;}
+
+/* ── 学部生向け ── */
+.undergrad-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);padding:28px 32px;}
+.undergrad-box-dept{font-family:'Oswald',sans-serif;font-size:0.875rem;color:var(--gold);letter-spacing:.2em;margin-bottom:8px;}
+.undergrad-box-title{font-size:1.125rem;color:var(--navy);font-weight:500;margin-bottom:10px;}
+.undergrad-box-body{font-size:1rem;color:var(--text-muted);line-height:1.75;}
+.undergrad-box-link{display:inline-block;margin-top:16px;font-size:1rem;color:var(--accent);letter-spacing:.04em;}
+.undergrad-box-link::after{content:' →';}
+
+/* ── 大学院入学経路カード ── */
+.grad-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.grad-card{border:1px solid var(--border);padding:28px 26px 32px;transition:box-shadow 0.2s;}
+.grad-card:hover{box-shadow:0 4px 16px rgba(74,144,196,0.1);}
+.grad-card-badge{display:inline-block;font-size:0.875rem;background:var(--navy);color:#fff;padding:3px 10px;letter-spacing:.1em;border-radius:2px;margin-bottom:14px;}
+.grad-card-badge.en{background:var(--accent);}
+.grad-card-title{font-size:1.125rem;color:var(--navy);font-weight:500;line-height:1.6;margin-bottom:10px;}
+.grad-card-body{font-size:1rem;color:var(--text-muted);line-height:1.75;border-top:1px solid var(--border);padding-top:12px;}
+.grad-card-link{display:inline-block;margin-top:14px;font-size:0.875rem;color:var(--accent);letter-spacing:.04em;}
+.grad-card-link::after{content:' →';}
+
+/* ── 研究室の教育方針 ── */
+.policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.policy-item{padding:24px 20px;border-top:2px solid var(--accent);}
+.policy-num{font-family:'Roboto',sans-serif;font-size:2rem;color:var(--accent-pale);margin-bottom:10px;}
+.policy-title{font-size:1.125rem;color:var(--navy);font-weight:500;margin-bottom:8px;line-height:1.6;}
+.policy-body{font-size:1rem;color:var(--text-muted);line-height:1.75;}
+
+/* ── よくある質問 ── */
+.faq-list{display:flex;flex-direction:column;}
+.faq-item{padding:20px 0;border-bottom:1px solid var(--border);}
+.faq-item:first-child{border-top:1px solid var(--border);}
+.faq-q{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px;}
+.faq-q-mark{font-family:'Roboto',sans-serif;font-size:1.125rem;color:var(--gold);font-weight:700;flex-shrink:0;line-height:1.5;}
+.faq-q-text{font-size:1rem;color:var(--navy);font-weight:500;line-height:1.7;}
+.faq-a{display:flex;gap:14px;align-items:flex-start;}
+.faq-a-mark{font-family:'Roboto',sans-serif;font-size:1.125rem;color:var(--accent);font-weight:700;flex-shrink:0;line-height:1.5;}
+.faq-a-text{font-size:1rem;color:var(--text-muted);line-height:1.75;}
+
+/* ── CTA ── */
+.cta-block{background:var(--navy);padding:56px 48px;text-align:center;border-bottom:3px solid rgba(255,255,255,.12);}
+.cta-label{font-family:'Oswald',sans-serif;font-size:0.875rem;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;}
+.cta-title{font-family:'Noto Sans JP',sans-serif;font-size:1.625rem;color:#fff;font-weight:500;margin-bottom:12px;}
+.cta-body{font-size:0.875rem;color:var(--text-muted-navy);line-height:2;margin-bottom:28px;}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;font-size:0.875rem;padding:12px 32px;letter-spacing:.08em;cursor:pointer;border-radius:2px;border:none;}
+
+/* ── Footer ── */
+.footer{background:var(--navy);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;line-height:normal;letter-spacing:normal;}
+.footer-name{font-family:'Noto Sans JP',sans-serif;font-size:0.75rem;color:var(--text-on-navy);margin-bottom:4px;}
+.footer-univ{font-size:0.75rem;color:var(--text-muted-navy);}
+.footer-copy{font-size:0.75rem;color:var(--text-muted-navy);opacity:.5;margin-top:12px;}
+
+/* ── Responsive ── */
+@media (max-width:1024px){
+  .floating-nav{padding:0 20px;}
+  .nav-brand-en{display:none;}
+  .nav-links{display:none;position:absolute;top:100%;right:0;width:50%;min-width:220px;flex-direction:column;background:rgba(11,31,58,0.98);border-bottom:1px solid rgba(74,144,196,0.2);border-left:1px solid rgba(74,144,196,0.2);max-height:70vh;overflow-y:auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+  .nav-links.open{display:flex;}
+  .nav-item{padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);width:100%;}
+  .nav-item.active{background:rgba(255,255,255,.04);}
+  .nav-toggle{display:flex;}
+}
+
+@media (max-width:768px){
+  .page-hero{height:300px;padding:40px 0 36px;}
+  .page-hero-inner{padding:0 24px;}
+  .page-hero-title{font-size:1.625rem;}
+  .page-hero-eyebrow{font-size:0.875rem;}
+  .page-hero-title-ja{font-size:0.875rem;}
+
+  .content-wrap{padding:0 24px;}
+  .content-panel{padding:56px 0;}
+  .section-title-ja{font-size:1.625rem;}
+  .faq-title-main{font-size:1.625rem;}
+  .section-head{flex-direction:column;align-items:flex-start;gap:4px;}
+
+  .grad-grid{grid-template-columns:1fr;}
+  .policy-grid{grid-template-columns:1fr;}
+
+  .cta-block{padding:40px 24px;}
+
+  .footer{flex-direction:column;text-align:center;gap:8px;padding:24px 20px;}
+  .lead-text{line-height:1.9;}
+}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+
+  <nav class="floating-nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-brand-ja">臨床検査医学分野</div>
+      <div class="nav-brand-en">DEPT. OF LABORATORY MEDICINE · Science Tokyo</div>
+    </div>
+    <div style="display:flex;align-items:center;">
+      <div class="nav-links" id="navLinks">
+        <div class="nav-item" onclick="location.href='index.html'">ホーム</div>
+        <div class="nav-item" onclick="location.href='research.html'">研究内容</div>
+        <div class="nav-item" onclick="location.href='staff.html'">スタッフ</div>
+        <div class="nav-item" onclick="location.href='corporate.html'">企業の方へ</div>
+        <div class="nav-item active">教育・大学院</div>
+        <div class="nav-item" onclick="location.href='clinical.html'">臨床・診療</div>
+        <div class="nav-item" onclick="location.href='contact.html'">お問い合わせ</div>
+      </div>
+      <div class="nav-lang">EN</div>
+      <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <img class="page-hero-img" src="img/hero_education.png" alt="">
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow" id="pe">EDUCATION &amp; GRADUATE SCHOOL</div>
+      <div class="page-hero-title" id="pt">Join Us!</div>
+      <div class="page-hero-title-ja" id="ptj">教育・大学院への参加</div>
+    </div>
+  </div>
+
+  <div class="accent-bar"><div class="accent-bar-gold"></div><div class="accent-bar-blue"></div></div>
+
+  <!-- 導入 / 学部生向け -->
+  <div class="content-panel dark fade-up">
+    <div class="content-wrap">
+      <div class="lead-text">血液腫瘍学・感染症・検査医学のフロンティアを、ともに切り拓きませんか。臨床検査医学分野は、東京科学大学の複数の大学院・専攻を通じて、様々なバックグラウンドを持つ学生・研究者を受け入れています。基礎研究から臨床応用まで幅広い研究環境で、次世代の研究者・臨床家を育成します。</div>
+
+      <div class="section-head">
+        <span class="section-title-ja">学部生の方へ</span>
+        <span class="section-title-en">For Undergraduate Students</span>
+      </div>
+      <div class="edu-section-lead">卒業研究・学外実習・研究室見学を随時受け付けています。<br>血液悪性腫瘍の研究や臨床検査医学に興味のある学部生の方は、まずはお気軽にご連絡ください。</div>
+      <div class="undergrad-box">
+        <div class="undergrad-box-dept">DEPT.</div>
+        <div class="undergrad-box-title">東京科学大学 医学部 医学科</div>
+        <div class="undergrad-box-body">医学部生の研究室配属・卒業論文研究として当分野への参加が可能です。臨床実習との両立もサポートします。研究に興味のある医学部生は担当教員までご連絡ください。</div>
+        <span class="undergrad-box-link">東京科学大学 医学部 公式サイト</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 大学院入学経路 -->
+  <div class="content-panel fade-up">
+    <div class="content-wrap">
+      <div class="section-head">
+        <span class="section-title-ja">大学院への進学経路</span>
+        <span class="section-title-en">Graduate School Admission</span>
+      </div>
+      <div class="edu-section-lead">当研究分野には、以下の大学院・専攻を通じて進学することができます。<br>それぞれの募集要項・選考方法については各専攻の公式サイトをご確認ください。</div>
+      <div class="grad-grid">
+        <div class="grad-card">
+          <span class="grad-card-badge">修士課程</span>
+          <div class="grad-card-title">東京科学大学大学院<br>医学系研究科（修士）</div>
+          <div class="grad-card-body">臨床検査医学分野が所属する大学院研究科です。医学・歯学・生命科学分野の高度専門人材を育成します。社会人入試・編入学にも対応しています。</div>
+          <span class="grad-card-link">募集要項・詳細はこちら</span>
+        </div>
+        <div class="grad-card">
+          <span class="grad-card-badge">博士課程</span>
+          <div class="grad-card-title">東京科学大学大学院<br>医学系研究科（博士）</div>
+          <div class="grad-card-body">基礎医学・臨床医学を横断した研究を推進する博士課程プログラムです。国内外の学術機関・医療機関とのネットワークを活かした研究が可能です。</div>
+          <span class="grad-card-link">募集要項・詳細はこちら</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 研究室の教育方針 -->
+  <div class="content-panel dark fade-up">
+    <div class="content-wrap">
+      <div class="section-head">
+        <span class="section-title-ja">研究室の教育方針</span>
+        <span class="section-title-en">Our Educational Philosophy</span>
+      </div>
+      <div class="edu-section-lead">当研究室では、自立した研究者・臨床家を育てることを目標に、以下の3点を重視した教育を行っています。</div>
+      <div class="policy-grid">
+        <div class="policy-item">
+          <div class="policy-num">01</div>
+          <div class="policy-title">自律的な研究姿勢</div>
+          <div class="policy-body">自らテーマを設定し、仮説を立て、検証する力を養います。週次ミーティングと個別指導で研究の進め方を丁寧にサポートします。</div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-num">02</div>
+          <div class="policy-title">国際的な発信力</div>
+          <div class="policy-body">国内外の学会発表・英語論文執筆を積極的に支援します。MDアンダーソン癌センターとの国際連携により、グローバルな研究ネットワークを構築できます。</div>
+        </div>
+        <div class="policy-item">
+          <div class="policy-num">03</div>
+          <div class="policy-title">臨床と研究の融合</div>
+          <div class="policy-body">臨床検査医学の視点から、患者さんに直結する研究テーマに取り組みます。基礎と臨床を橋渡しするトランスレーショナルリサーチを推進します。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="content-panel fade-up">
+    <div class="content-wrap">
+      <div class="section-head">
+        <span class="faq-title-main">FAQ</span>
+        <span class="faq-title-sub">よくある質問</span>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-q-mark">Q</span><span class="faq-q-text">医学部以外の出身でも参加できますか？</span></div>
+          <div class="faq-a"><span class="faq-a-mark">A</span><span class="faq-a-text">はい、歓迎します。理学・薬学・工学・生命科学など様々なバックグラウンドの学生が在籍しています。研究への意欲が最も重要です。</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-q-mark">Q</span><span class="faq-q-text">研究室見学は可能ですか？</span></div>
+          <div class="faq-a"><span class="faq-a-mark">A</span><span class="faq-a-text">随時受け付けています。まずはメールにてご連絡ください。研究室の雰囲気や現在の研究テーマについてご説明します。</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-q-mark">Q</span><span class="faq-q-text">奨学金やフェローシップのサポートはありますか？</span></div>
+          <div class="faq-a"><span class="faq-a-mark">A</span><span class="faq-a-text">JSPS特別研究員・各種奨学金の申請を積極的にサポートしています。詳細は個別にご相談ください。</span></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span class="faq-q-mark">Q</span><span class="faq-q-text">英語が得意でなくても大丈夫ですか？</span></div>
+          <div class="faq-a"><span class="faq-a-mark">A</span><span class="faq-a-text">入学時点で高い英語力は必須ではありませんが、論文読解・執筆・学会発表を通じて英語力を身に付けていくことを期待しています。</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block fade-up">
+    <div class="cta-label">GET IN TOUCH</div>
+    <div class="cta-title">お気軽にお問い合わせください</div>
+    <div class="cta-body">研究室見学・大学院進学・ポスドク応募など、<br>どのようなご相談でも歓迎します。</div>
+    <div class="cta-btn" onclick="location.href='contact.html'">お問い合わせはこちら</div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">臨床検査医学分野 · Department of Laboratory Medicine</div>
+      <div class="footer-univ">Institute of Science Tokyo Hospital · 〒113-8519 東京都文京区湯島1-5-45</div>
+      <div class="footer-copy">© Institute of Science Tokyo . All rights reserved.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.page-hero');
+  function setHeroOffset(){ if(nav && hero){ hero.style.marginTop = nav.offsetHeight + 'px'; } }
+  setHeroOffset();
+  window.addEventListener('resize', setHeroOffset);
+  window.addEventListener('scroll',()=>{
+    const st=window.scrollY||document.documentElement.scrollTop;
+    if(nav){ st>40?nav.classList.add('scrolled'):nav.classList.remove('scrolled'); }
+  },{passive:true});
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

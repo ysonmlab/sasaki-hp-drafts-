@@ -1,0 +1,73 @@
+/* ==========================================================================
+   reset.css
+   Modern CSS Reset（Josh Comeau's reset をベースに調整）
+   出典: https://www.joshwcomeau.com/css/custom-css-reset/
+   - 静的サイトのためCDNではなくプロジェクト内に同梱（ベンダリング）
+   - 差し替え可。読み込みは最初（utility / component / page より前）
+   ========================================================================== */
+
+/* 1. box-sizing をすべてに適用 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. デフォルトの margin を除去 */
+* {
+  margin: 0;
+}
+
+/* 3. 本文の行間・フォント描画 */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. メディア要素を扱いやすく */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. フォーム要素にフォントを継承 */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 6. 長い単語の折り返し */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 7. リスト初期化（必要箇所で使う前提） */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* 8. リンクの装飾初期化 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 9. ルートスタッキングコンテキスト（必要に応じて） */
+#root,
+#__next {
+  isolation: isolate;
+}

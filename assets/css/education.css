@@ -1,0 +1,233 @@
+/* ==========================================================================
+   education.css
+   教育・大学院ページ固有のスタイル（.pg-education .sect-* スコープ）
+   - 共通のものは common.css に書く。ここは education 単体の装飾のみ。
+   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - 仕様: docs/css-architecture.md／design/page-education.md
+   ========================================================================== */
+
+/* === 見出し英日の大小関係の上書き（このページのみ・デモ優先） ===============
+   common.cssの.section-title-en(大)/.section-title-ja(小)はresearch/corporate準拠だが、
+   education のデモは日本語が大・英語が小。common.css自体は変えず、対象3セクション
+   （undergrad/admission/policy）だけスコープを絞って上書きする（faqは対象外）。
+   詳細: logs/PATTERNS.md 「section-headの英日大小関係は〜」 */
+.pg-education .sect-education-undergrad .section-title-en,
+.pg-education .sect-education-admission .section-title-en,
+.pg-education .sect-education-policy .section-title-en {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+.pg-education .sect-education-undergrad .section-title-ja,
+.pg-education .sect-education-admission .section-title-ja,
+.pg-education .sect-education-policy .section-title-ja {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+@media (min-width: 768px) {
+  .pg-education .sect-education-undergrad .section-title-ja,
+  .pg-education .sect-education-admission .section-title-ja,
+  .pg-education .sect-education-policy .section-title-ja {
+    font-size: 2rem;
+  }
+}
+
+/* === lead（rack：リード文のみ。corporate-leadと同じく左寄せ） =============== */
+.pg-education .sect-education-lead {
+  padding-bottom: 56px;
+}
+.pg-education .sect-education-lead__text {
+  max-width: 850px;
+  margin-inline: auto;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+@media (min-width: 768px) {
+  .pg-education .sect-education-lead__text {
+    line-height: 2.2;
+  }
+}
+
+/* === セクション共通のリード文（undergrad/admission/policy） ================ */
+.pg-education .sect-education-undergrad__lead,
+.pg-education .sect-education-admission__lead,
+.pg-education .sect-education-policy__lead {
+  max-width: 850px;
+  margin-block: 16px 36px;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* === undergrad（rack + chest：学部生向け案内ボックス） ====================== */
+.pg-education .sect-education-undergrad__box {
+  padding: 28px 32px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface-alt);
+}
+.pg-education .sect-education-undergrad__dept {
+  margin-bottom: 8px;
+  font-family: var(--font-condensed);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+}
+.pg-education .sect-education-undergrad__title {
+  margin-bottom: 10px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-navy);
+}
+.pg-education .sect-education-undergrad__body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-secondary);
+}
+.pg-education .sect-education-undergrad__link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 1rem;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+.pg-education .sect-education-undergrad__link::after {
+  content: " →";
+}
+
+/* === admission（tile：SP1カラム／PC2カラム grid） =========================== */
+.pg-education .sect-education-admission__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.pg-education .sect-education-admission__card {
+  padding: 28px 26px 32px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s;
+}
+.pg-education .sect-education-admission__card:hover {
+  box-shadow: 0 4px 16px rgba(74, 144, 196, 0.1);
+}
+.pg-education .sect-education-admission__badge {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  background: var(--color-navy);
+  color: #fff;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+.pg-education .sect-education-admission__title {
+  margin-bottom: 10px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+.pg-education .sect-education-admission__body {
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-secondary);
+}
+.pg-education .sect-education-admission__link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+.pg-education .sect-education-admission__link::after {
+  content: " →";
+}
+
+@media (min-width: 768px) {
+  .pg-education .sect-education-admission__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* === policy（tile：SP1カラム／PC3カラム grid） =============================== */
+.pg-education .sect-education-policy__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.pg-education .sect-education-policy__item {
+  padding: 24px 20px;
+  border-top: 2px solid var(--color-primary);
+}
+.pg-education .sect-education-policy__num {
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: var(--color-accent-pale);
+}
+.pg-education .sect-education-policy__title {
+  margin-bottom: 8px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+.pg-education .sect-education-policy__body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .pg-education .sect-education-policy__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === faq（rack：常時全文表示・開閉なし） ==================================== */
+.pg-education .sect-education-faq__list {
+  display: flex;
+  flex-direction: column;
+}
+.pg-education .sect-education-faq__item {
+  padding-block: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+.pg-education .sect-education-faq__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.pg-education .sect-education-faq__q {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-navy);
+}
+.pg-education .sect-education-faq__a {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-secondary);
+}
+.pg-education .sect-education-faq__mark {
+  flex-shrink: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.pg-education .sect-education-faq__q .sect-education-faq__mark {
+  color: var(--color-accent);
+}
+.pg-education .sect-education-faq__a .sect-education-faq__mark {
+  color: var(--color-primary);
+}

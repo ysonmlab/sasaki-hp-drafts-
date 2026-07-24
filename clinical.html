@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臨床・診療 – 臨床検査医学分野 – Science Tokyo</title>
+  <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/clinical.css">
+</head>
+<body class="pg-clinical">
+
+  <!-- 全ページ共通ヘッダー（common.css） -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="nav-brand">
+        <p class="nav-brand-ja">臨床検査医学分野</p>
+        <p class="nav-brand-en">Dept. of Laboratory Medicine, Science Tokyo</p>
+      </div>
+      <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-item">ホーム</a></li>
+          <li><a href="research.html" class="nav-item">研究内容</a></li>
+          <li><a href="staff.html" class="nav-item">スタッフ</a></li>
+          <li><a href="corporate.html" class="nav-item">企業の方へ</a></li>
+          <li><a href="education.html" class="nav-item">教育・大学院</a></li>
+          <li><a href="clinical.html" class="nav-item is-current" aria-current="page">臨床・診療</a></li>
+          <li><a href="contact.html" class="nav-item">お問い合わせ</a></li>
+        </ul>
+        <span class="nav-lang">EN</span>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="メニューを開閉">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- page-hero（bleed + board・共通パーツ／標準仕様どおりオーバーレイあり） -->
+    <section class="page-hero">
+      <img class="page-hero__img" src="assets/img/clinical-hero_bg1.png" alt="" loading="lazy">
+      <div class="page-hero__inner">
+        <p class="page-hero__eyebrow">CLINICAL</p>
+        <h1 class="page-hero__title">Clinical Practice</h1>
+        <p class="page-hero__title-ja">臨床・診療</p>
+      </div>
+    </section>
+
+    <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
+    <div class="sect-accent-bar" aria-hidden="true"></div>
+
+    <!-- content-panel（共通パーツ：背景色+上下padding）。本ページは1つのみ使用・cta-blockは使用しない -->
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- lab（rack：SP/PC共通1カラム。案内ボックスの枠なし・アウトラインボタンのみ） -->
+        <section class="sect-clinical-lab">
+          <h2 class="section-head">
+            <span class="section-title-en">Clinical Laboratory</span>
+            <span class="section-title-ja">臨床検査部門</span>
+          </h2>
+          <p class="sect-clinical-lab__lead">
+            臨床検査医学分野は、東京科学大学病院の検査部と密接に連携し、患者さんの診断・治療に不可欠な臨床検査を提供しています。血液学・生化学・免疫学・微生物学など幅広い検査領域において、高精度な検査の実施と検査医学の発展に取り組んでいます。
+          </p>
+          <p class="sect-clinical-lab__note">臨床検査に関する詳細・診療案内はこちらからご覧ください</p>
+          <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
+            東京科学大学病院検査部
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- clinical-photo（department・bleed：画面幅いっぱい。content-wrapの外・コンテンツ幅に収めない） -->
+    <div class="clinical-photo">
+      <img src="assets/img/clinical-photo_pht1.jpg" alt="検査部集合写真" loading="lazy">
+    </div>
+
+  </main>
+
+  <!-- 全ページ共通フッター（common.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="footer-name">臨床検査医学分野 ・ Department of Laboratory Medicine</p>
+      <p class="footer-univ">Institute of Science Tokyo Hospital ・ 〒113-8519 東京都文京区湯島1-5-45</p>
+      <p class="footer-copy">© Institute of Science Tokyo . All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+</body>
+</html>

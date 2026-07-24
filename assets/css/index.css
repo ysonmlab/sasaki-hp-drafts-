@@ -1,0 +1,450 @@
+/* ==========================================================================
+   index.css
+   トップページ固有のスタイル（.pg-index .sect-* スコープ）
+   - 共通のものは common.css に書く。ここはトップ単体の装飾のみ。
+   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - 仕様: docs/css-architecture.md／drafts/existing/index.html（デモ）に準拠
+   ========================================================================== */
+
+/* 本文セクション（profile / research / news）の内容幅は他ページの.content-wrapに合わせて1100px
+   （デモは1200pxだが、research/staff等の内側ページと揃えるため1100pxに統一） */
+.pg-index .sect-top-profile .container,
+.pg-index .sect-top-research .container,
+.pg-index .sect-top-news .container {
+  max-width: 1100px;
+}
+
+/* === hero（bleed + board：ヘッダーは重なる。bodyのオフセットはしない） ===== */
+.pg-index .sect-top-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+  padding-block: 56px;
+  background: url("../img/top-hero_bg1.jpg") center/cover no-repeat var(--color-navy);
+  color: #fff;
+  text-align: center;
+}
+.pg-index .sect-top-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 14, 26, 0.42);
+}
+.pg-index .sect-top-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pg-index .sect-top-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  font-family: var(--font-condensed);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.22em;
+}
+.pg-index .sect-top-hero__eyebrow::before,
+.pg-index .sect-top-hero__eyebrow::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0.5;
+}
+.pg-index .sect-top-hero__title {
+  margin-bottom: 6px;
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.pg-index .sect-top-hero__title-ja {
+  margin-bottom: 28px;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+}
+.pg-index .sect-top-hero__desc {
+  max-width: 560px;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 2;
+  color: var(--color-text-muted-navy);
+}
+
+@media (min-width: 768px) {
+  .pg-index .sect-top-hero {
+    min-height: 700px;
+    padding-block: 72px;
+  }
+  .pg-index .sect-top-hero__eyebrow {
+    font-size: 1.125rem;
+  }
+  .pg-index .sect-top-hero__title {
+    font-size: 4rem;
+  }
+  .pg-index .sect-top-hero__desc {
+    max-width: 560px;
+  }
+}
+
+/* 装飾バー（ゴールド＋ネイビー）は common.css の .sect-accent-bar に共通化済み */
+
+/* === divider（装飾帯・department／背景スクロール演出） ===================== */
+.pg-index .sect-top-divider-1,
+.pg-index .sect-top-divider-2,
+.pg-index .sect-top-divider-3 {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+.pg-index .sect-top-divider-1::after,
+.pg-index .sect-top-divider-2::after,
+.pg-index .sect-top-divider-3::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 14, 26, 0.4);
+}
+.pg-index .sect-top-divider-1 {
+  background-image: url("../img/top-divider_bg1.jpg");
+}
+.pg-index .sect-top-divider-2 {
+  background-image: url("../img/top-divider_bg2.jpg");
+}
+.pg-index .sect-top-divider-3 {
+  background-image: url("../img/top-divider_bg3.jpg");
+}
+
+@media (min-width: 768px) {
+  .pg-index .sect-top-divider-1,
+  .pg-index .sect-top-divider-2,
+  .pg-index .sect-top-divider-3 {
+    height: 400px;
+    /* PCのみパララックス風（fixed）。SPはscroll固定描画不具合を回避（docs/css-gotchas.md） */
+    background-attachment: fixed;
+  }
+}
+
+/* === profile（SP縦積み中央寄せ／PC grid：写真固定幅＋テキスト可変幅） ======= */
+.pg-index .sect-top-profile {
+  padding-block: 56px;
+  background: var(--color-surface);
+}
+.pg-index .sect-top-profile__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 24px;
+  text-align: center;
+}
+.pg-index .sect-top-profile__media img {
+  width: 96px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--color-accent-pale);
+  border: 1px solid var(--color-border);
+}
+.pg-index .sect-top-profile__label {
+  margin-bottom: 14px;
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+}
+.pg-index .sect-top-profile__name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #000;
+}
+.pg-index .sect-top-profile__name-en {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-secondary);
+}
+.pg-index .sect-top-profile__affiliation {
+  margin-bottom: 18px;
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+}
+.pg-index .sect-top-profile__divider {
+  width: 32px;
+  height: 2px;
+  margin-inline: auto;
+  margin-bottom: 18px;
+  background: var(--color-primary);
+}
+.pg-index .sect-top-profile__quote {
+  padding-top: 16px;
+  border-top: 2px solid var(--color-accent-pale);
+  font-size: 1rem;
+  line-height: 2;
+  text-align: left;
+}
+/* SPのみ「全文を読む」で続きを開閉（detailsの標準機能）。
+   PCは常に全文表示のため、続きの文章はPC専用の.quote-restに複製して常時表示し、
+   .more（details）自体を非表示にする（closedなdetailsの中身はcontent-visibility:hiddenで
+   隠され、displayの上書きだけでは表示を戻せないブラウザがあるため）。
+   文面を変更する場合は.moreとquote-restの両方を合わせて修正すること。 */
+.pg-index .sect-top-profile__more summary {
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  list-style: none;
+}
+.pg-index .sect-top-profile__more summary::-webkit-details-marker {
+  display: none;
+}
+.pg-index .sect-top-profile__more[open] summary .sect-top-profile__more-open,
+.pg-index .sect-top-profile__more:not([open]) summary .sect-top-profile__more-close {
+  display: none;
+}
+.pg-index .sect-top-profile__more p {
+  margin-top: 16px;
+}
+/* 開いた状態は「閉じる」を全文の後ろに表示するため、summaryを末尾に並べ替える */
+.pg-index .sect-top-profile__more[open] {
+  display: flex;
+  flex-direction: column;
+}
+.pg-index .sect-top-profile__more[open] summary {
+  order: 2;
+}
+.pg-index .sect-top-profile__more[open] p {
+  order: 1;
+  margin-top: 0;
+}
+.pg-index .sect-top-profile__quote-rest {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .pg-index .sect-top-profile__more {
+    display: none;
+  }
+  .pg-index .sect-top-profile__quote-rest {
+    display: block;
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pg-index .sect-top-profile__inner {
+    grid-template-columns: auto 1fr;
+    justify-items: stretch;
+    align-items: start;
+    gap: 32px;
+    text-align: left;
+  }
+  .pg-index .sect-top-profile__media img {
+    width: 96px;
+  }
+  .pg-index .sect-top-profile__name {
+    justify-content: flex-start;
+  }
+  .pg-index .sect-top-profile__divider {
+    margin-inline: 0;
+  }
+  .pg-index .sect-top-profile__quote {
+    padding-top: 0;
+    padding-left: 16px;
+    border-top: none;
+    border-left: 2px solid var(--color-accent-pale);
+  }
+}
+
+/* === research（SP:1カラム／PC:3カラム grid・navy背景+ゴールド枠カード） ===== */
+.pg-index .sect-top-research {
+  padding-block: 56px;
+  background: var(--color-navy);
+}
+/* navy背景のため見出し色を反転（common.cssの既定はnews等の白背景向け） */
+.pg-index .sect-top-research .section-title-en {
+  color: #fff;
+}
+.pg-index .sect-top-research .section-title-ja {
+  color: var(--color-text-muted-navy);
+}
+.pg-index .sect-top-research__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.pg-index .sect-top-research__card {
+  container-type: inline-size;
+  position: relative;
+  padding: 48px 24px 32px;
+  background: #fafdfd;
+  border: 1px solid var(--color-accent);
+  border-radius: 16px;
+  overflow: hidden;
+  /* fade-upの opacity/transform に border-radius のアニメーションを追加 */
+  transition: opacity 0.65s ease, transform 0.65s ease, border-radius 0.65s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.pg-index .sect-top-research__card.is-inview {
+  border-radius: 30px;
+}
+/* カード全体を研究内容ページの該当プロジェクトへのリンクにする（タイトルの<a>にstretched-linkを重ねる） */
+.pg-index .sect-top-research__card:has(.sect-top-research__link:hover) {
+  border-color: var(--color-navy);
+  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.15);
+}
+.pg-index .sect-top-research__link {
+  color: inherit;
+  text-decoration: none;
+}
+.pg-index .sect-top-research__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.pg-index .sect-top-research__card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 20px;
+  background: var(--color-accent);
+}
+.pg-index .sect-top-research__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 0;
+  --num-size: clamp(2.25rem, 27cqw, 6rem);
+}
+.pg-index .sect-top-research__num {
+  flex-shrink: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: var(--num-size);
+  line-height: 1;
+  color: var(--color-accent-pale);
+}
+.pg-index .sect-top-research__pic {
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 100%;
+  width: calc(var(--num-size) * 1.875);
+  height: auto;
+  opacity: 0.85;
+}
+.pg-index .sect-top-research__title {
+  margin-top: 12px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--color-navy);
+}
+.pg-index .sect-top-research__body {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--color-secondary);
+}
+
+/* カードの表示ずれ（フェードイン）を少しずつ遅らせる */
+.pg-index .sect-top-research__card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.pg-index .sect-top-research__card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+@media (min-width: 768px) {
+  .pg-index .sect-top-research__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === news（縦積みリスト） ================================================== */
+.pg-index .sect-top-news {
+  padding-block: 56px;
+  background: var(--color-surface);
+}
+/* border-colorの#2B4E7Aはデモの--navy-light（indexページ限定の値。他ページには波及させない） */
+.pg-index .sect-top-news__list {
+  border: 2px solid #2b4e7a;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.pg-index .sect-top-news__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 14px 20px;
+  border-bottom: 2px solid #2b4e7a;
+}
+.pg-index .sect-top-news__item:last-child {
+  border-bottom: none;
+}
+.pg-index .sect-top-news__date {
+  min-width: 52px;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  white-space: nowrap;
+}
+.pg-index .sect-top-news__tag {
+  flex-shrink: 0;
+  min-width: 76px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: #c49a3a;
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  white-space: nowrap;
+}
+.pg-index .sect-top-news__tag--pub {
+  background: var(--color-primary);
+}
+
+/* 表示ずれ（フェードイン）を少しずつ遅らせる */
+.pg-index .sect-top-news__item:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.pg-index .sect-top-news__item:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.pg-index .sect-top-news__item:nth-child(4) {
+  transition-delay: 0.24s;
+}
+.pg-index .sect-top-news__title {
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .pg-index .sect-top-news__item {
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+  .pg-index .sect-top-news__title {
+    width: auto;
+    flex: 1;
+  }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スタッフ – 臨床検査医学分野 – Science Tokyo</title>
+  <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/staff.css">
+</head>
+<body class="pg-staff">
+
+  <!-- 全ページ共通ヘッダー（common.css） -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="nav-brand">
+        <p class="nav-brand-ja">臨床検査医学分野</p>
+        <p class="nav-brand-en">Dept. of Laboratory Medicine, Science Tokyo</p>
+      </div>
+      <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-item">ホーム</a></li>
+          <li><a href="research.html" class="nav-item">研究内容</a></li>
+          <li><a href="staff.html" class="nav-item is-current" aria-current="page">スタッフ</a></li>
+          <li><a href="corporate.html" class="nav-item">企業の方へ</a></li>
+          <li><a href="education.html" class="nav-item">教育・大学院</a></li>
+          <li><a href="clinical.html" class="nav-item">臨床・診療</a></li>
+          <li><a href="contact.html" class="nav-item">お問い合わせ</a></li>
+        </ul>
+        <span class="nav-lang">EN</span>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="メニューを開閉">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- page-hero（bleed + board・共通パーツ／staff.htmlは標準仕様どおりオーバーレイあり） -->
+    <section class="page-hero">
+      <img class="page-hero__img" src="assets/img/staff-hero_bg1.png" alt="" loading="lazy">
+      <div class="page-hero__inner">
+        <p class="page-hero__eyebrow">STAFF</p>
+        <h1 class="page-hero__title">Staff</h1>
+        <p class="page-hero__title-ja">スタッフ・メンバー紹介</p>
+      </div>
+    </section>
+
+    <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
+    <div class="sect-accent-bar" aria-hidden="true"></div>
+
+    <!-- content-panel（共通パーツ：背景色+上下padding）。profile/membersの間隔だけstaff.css側で上書きする -->
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- profile（fluid：SP縦積み／PC 写真40%+テキスト60%） -->
+        <section class="sect-staff-profile">
+          <h2 class="section-head">
+            <span class="section-title-en">Principal Investigator</span>
+            <span class="section-title-ja">教授・主宰</span>
+          </h2>
+          <div class="sect-staff-profile__layout">
+            <div class="sect-staff-profile__photo">
+              <img src="assets/img/common_pht1.jpg" alt="佐々木 宏治" loading="lazy">
+            </div>
+            <div class="sect-staff-profile__text">
+              <p class="sect-staff-profile__name">
+                <span class="sect-staff-profile__name-ja">佐々木 宏治</span>
+                <span class="sect-staff-profile__name-en">Koji Sasaki, MD, PhD</span>
+              </p>
+              <p class="sect-staff-profile__affiliation">東京科学大学 医学部 / 臨床検査医学分野 教授</p>
+              <p class="sect-staff-profile__bio">
+                私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>
+                東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。<br>
+                血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>
+                志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。
+              </p>
+              <a href="https://researchmap.jp/KSasaki_ResearchMap" target="_blank" rel="noopener noreferrer" class="sect-staff-profile__link">研究業績（researchmap） →</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- members（rack：役職グループを縦に並べる。各グループ内はfluidカード） -->
+        <section class="sect-staff-members">
+          <h2 class="section-head">
+            <span class="section-title-en">Members</span>
+            <span class="section-title-ja">メンバー</span>
+          </h2>
+
+          <div class="sect-staff-members__group">
+            <p class="sect-staff-members__group-label">ASSOCIATE PROFESSOR　准教授</p>
+            <div class="sect-staff-members__card">
+              <div class="sect-staff-members__photo">
+                <img src="assets/img/staff-members_pht1.jpg" alt="野上 彩子" loading="lazy">
+              </div>
+              <div class="sect-staff-members__text">
+                <div>
+                  <p class="sect-staff-members__name">
+                    <span class="sect-staff-members__name-ja">野上 彩子</span>
+                    <span class="sect-staff-members__name-en">Ayako Nogami, MD, PhD</span>
+                  </p>
+                  <p class="sect-staff-members__affiliation">臨床検査医学分野 准教授</p>
+                </div>
+                <div class="sect-staff-members__links">
+                  <a href="https://www.tmd.ac.jp/employment/clerical-work/20260519/" target="_blank" rel="noopener noreferrer" class="sect-staff-members__link">臨床検査医学分野研究支援員募集 →</a>
+                  <a href="https://researchmap.jp/7000025998" target="_blank" rel="noopener noreferrer" class="sect-staff-members__link">研究業績（researchmap） →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sect-staff-members__group">
+            <p class="sect-staff-members__group-label">LECTURER　講師</p>
+            <div class="sect-staff-members__card">
+              <div class="sect-staff-members__photo">
+                <img src="assets/img/staff-members_pht2.jpg" alt="叶内 匡" loading="lazy">
+              </div>
+              <div class="sect-staff-members__text">
+                <div>
+                  <p class="sect-staff-members__name">
+                    <span class="sect-staff-members__name-ja">叶内 匡</span>
+                    <span class="sect-staff-members__name-en">Tadashi Kanouchi, MD, PhD</span>
+                  </p>
+                  <p class="sect-staff-members__affiliation">臨床検査医学分野 講師</p>
+                </div>
+                <div class="sect-staff-members__links">
+                  <a href="https://researchmap.jp/read0099089" target="_blank" rel="noopener noreferrer" class="sect-staff-members__link">研究業績（researchmap） →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sect-staff-members__group">
+            <p class="sect-staff-members__group-label">ASSISTANT PROFESSOR　助教</p>
+            <div class="sect-staff-members__card">
+              <div class="sect-staff-members__photo">
+                <img src="assets/img/staff-members_pht3.jpg" alt="渡部 悟" loading="lazy">
+              </div>
+              <div class="sect-staff-members__text">
+                <div>
+                  <p class="sect-staff-members__name">
+                    <span class="sect-staff-members__name-ja">渡部 悟</span>
+                    <span class="sect-staff-members__name-en">Satoru Watanabe, PhD</span>
+                  </p>
+                  <p class="sect-staff-members__affiliation">臨床検査医学分野 助教</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 全ページ共通フッター（common.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="footer-name">臨床検査医学分野 ・ Department of Laboratory Medicine</p>
+      <p class="footer-univ">Institute of Science Tokyo Hospital ・ 〒113-8519 東京都文京区湯島1-5-45</p>
+      <p class="footer-copy">© Institute of Science Tokyo . All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* ==========================================================================
+   clinical.css
+   臨床・診療ページ固有のスタイル（.pg-clinical .sect-* スコープ）
+   - 共通のものは common.css に書く。ここは clinical 単体の装飾のみ。
+   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - 仕様: docs/css-architecture.md／design/page-clinical.md
+   ========================================================================== */
+
+/* === lab（rack：SP/PC共通1カラム。案内ボックスの枠なし・アウトラインボタンのみ） === */
+.pg-clinical .sect-clinical-lab__lead {
+  max-width: 850px;
+  margin-bottom: 32px;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.pg-clinical .sect-clinical-lab__note {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+@media (min-width: 768px) {
+  .pg-clinical .sect-clinical-lab__lead {
+    line-height: 2.2;
+  }
+}
+
+/* === link-outline（clinical固有のアウトラインボタン。他ページ未使用のためcommon化しない） === */
+.pg-clinical .link-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1.5px solid var(--color-navy);
+  border-radius: 2px;
+  color: var(--color-navy);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  transition: background 0.25s, color 0.25s;
+}
+.pg-clinical .link-outline:hover {
+  background: var(--color-navy);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* === clinical-photo（department・bleed：画面幅いっぱい。content-wrapの外側） === */
+.pg-clinical .clinical-photo {
+  aspect-ratio: 16 / 6;
+  overflow: hidden;
+  border-block: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.pg-clinical .clinical-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+}

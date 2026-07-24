@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臨床検査医学分野 – Science Tokyo</title>
+  <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body class="pg-index">
+
+  <!-- 全ページ共通ヘッダー（common.css） -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="nav-brand">
+        <p class="nav-brand-ja">臨床検査医学分野</p>
+        <p class="nav-brand-en">Dept. of Laboratory Medicine, Science Tokyo</p>
+      </div>
+      <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-item is-current" aria-current="page">ホーム</a></li>
+          <li><a href="research.html" class="nav-item">研究内容</a></li>
+          <li><a href="staff.html" class="nav-item">スタッフ</a></li>
+          <li><a href="corporate.html" class="nav-item">企業の方へ</a></li>
+          <li><a href="education.html" class="nav-item">教育・大学院</a></li>
+          <li><a href="clinical.html" class="nav-item">臨床・診療</a></li>
+          <li><a href="contact.html" class="nav-item">お問い合わせ</a></li>
+        </ul>
+        <span class="nav-lang">EN</span>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="メニューを開閉">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- hero（bleed + board） -->
+    <section class="sect-top-hero">
+      <div class="container sect-top-hero__inner">
+        <p class="sect-top-hero__eyebrow">Science Tokyo</p>
+        <h1 class="sect-top-hero__title">Laboratory Medicine</h1>
+        <p class="sect-top-hero__title-ja">Advancing the Frontiers of Hematologic Cancer Research</p>
+        <p class="sect-top-hero__desc">Decoding blood cancers. Developing tomorrow's therapies.<br>Advancing the future of cancer care.</p>
+      </div>
+    </section>
+
+    <!-- 装飾バー（ゴールド＋ネイビー） -->
+    <div class="sect-accent-bar" aria-hidden="true"></div>
+
+    <!-- profile（fluid：SP縦積み／PC grid） -->
+    <section class="sect-top-profile">
+      <div class="container">
+        <div class="sect-top-profile__inner fade-up">
+          <div class="sect-top-profile__media">
+            <img src="assets/img/common_pht1.jpg" alt="佐々木 宏治" loading="lazy" width="500" height="750">
+          </div>
+          <div class="sect-top-profile__body">
+            <p class="sect-top-profile__label">PROFESSOR</p>
+            <h2 class="sect-top-profile__name">
+              佐々木 宏治 <span class="sect-top-profile__name-en">Koji Sasaki, MD, PhD</span>
+            </h2>
+            <p class="sect-top-profile__affiliation">東京科学大学 医学部 / 臨床検査医学分野 教授</p>
+            <div class="sect-top-profile__divider" aria-hidden="true"></div>
+            <div class="sect-top-profile__quote">
+              <p>
+                私は血液悪性腫瘍の克服を目指し、臨床と研究の両面から取り組んでいます。<br><br>
+                東京医科歯科大学卒業後、同大学で血液内科の研修を行い、その後米国へ留学しました。ニューヨークで内科研修を修了後、2013年よりMDアンダーソン癌センターにて白血病、造血幹細胞移植・細胞療法、血液腫瘍学の専門研修を重ね、2017年から白血病科スタッフとして診療・研究に従事しています。
+              </p>
+              <!-- SP専用：折りたたみ表示（続きを読む）。PC専用の.sect-top-profile__quote-restと文面を揃えること -->
+              <details class="sect-top-profile__more">
+                <summary>
+                  <span class="sect-top-profile__more-open">全文を読む →</span>
+                  <span class="sect-top-profile__more-close">閉じる ↑</span>
+                </summary>
+                <p>
+                  血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>
+                  がん研究と医療は、多くの研究者・医療者の努力によって発展してきました。私たちもその歩みを受け継ぎながら、新たな発見を患者さんの未来へとつなげていきたいと思います。<br>
+                  志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。
+                </p>
+              </details>
+              <!-- PC専用：常時表示。SP専用の.sect-top-profile__more内の文面と揃えること -->
+              <p class="sect-top-profile__quote-rest">
+                血液悪性腫瘍は、病態解明と治療開発が最も進んでいる分野の一つです。近年は分子標的治療や細胞療法の進歩により、多くの患者さんに新たな希望がもたらされています。私は白血病・リンパ腫の病態を深く理解し、その知見を新しい治療法の開発へとつなげることで、がん克服への道を切り拓きたいと考えています。<br>
+                がん研究と医療は、多くの研究者・医療者の努力によって発展してきました。私たちもその歩みを受け継ぎながら、新たな発見を患者さんの未来へとつなげていきたいと思います。<br>
+                志をともにする皆さんと研究・教育・臨床の現場で協力しながら、より良い医療の実現を目指せることを楽しみにしています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- divider-1（装飾帯・department） -->
+    <div class="sect-top-divider-1" aria-hidden="true"></div>
+
+    <!-- research（tile） -->
+    <section class="sect-top-research">
+      <div class="container">
+        <h2 class="section-head fade-up">
+          <span class="section-title-en">Research</span>
+          <span class="section-title-ja">主な研究テーマ</span>
+        </h2>
+        <ul class="sect-top-research__list">
+          <li class="sect-top-research__card fade-up">
+            <div class="sect-top-research__head">
+              <span class="sect-top-research__num">01</span>
+              <img src="assets/img/top-research_pic1.png" alt="" loading="lazy" class="sect-top-research__pic">
+            </div>
+            <h3 class="sect-top-research__title"><a href="research.html#detail-01" class="sect-top-research__link">白血病・リンパ腫の発症メカニズム解明</a></h3>
+            <p class="sect-top-research__body">Notchシグナル等を標的とした血液悪性腫瘍の分子機構と新規治療法の探索</p>
+          </li>
+          <li class="sect-top-research__card fade-up">
+            <div class="sect-top-research__head">
+              <span class="sect-top-research__num">02</span>
+              <img src="assets/img/top-research_pic2.png" alt="" loading="lazy" class="sect-top-research__pic">
+            </div>
+            <h3 class="sect-top-research__title"><a href="research.html#detail-02" class="sect-top-research__link">新規in vitro薬剤感受性試験の開発</a></h3>
+            <p class="sect-top-research__body">個別化医療実現のための患者由来腫瘍細胞を用いた感受性評価プラットフォーム</p>
+          </li>
+          <li class="sect-top-research__card fade-up">
+            <div class="sect-top-research__head">
+              <span class="sect-top-research__num">03</span>
+              <img src="assets/img/top-research_pic3.png" alt="" loading="lazy" class="sect-top-research__pic">
+            </div>
+            <h3 class="sect-top-research__title"><a href="research.html#detail-03" class="sect-top-research__link">感染症とタイピング技術</a></h3>
+            <p class="sect-top-research__body">SARS-CoV-2等の病原体の遺伝子型解析と迅速診断法の開発・臨床応用</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- divider-2（装飾帯・department） -->
+    <div class="sect-top-divider-2" aria-hidden="true"></div>
+
+    <!-- news（rack） -->
+    <section class="sect-top-news">
+      <div class="container">
+        <h2 class="section-head fade-up">
+          <span class="section-title-en">News</span>
+          <span class="section-title-ja">お知らせ・新着情報</span>
+        </h2>
+        <ul class="sect-top-news__list">
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.05</span>
+            <span class="sect-top-news__tag sect-top-news__tag--pub">論文</span>
+            <span class="sect-top-news__title">Notchリガンド抗体の白血病細胞増殖抑制効果に関する論文を国際誌に発表しました</span>
+          </li>
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.04</span>
+            <span class="sect-top-news__tag">お知らせ</span>
+            <span class="sect-top-news__title">2024年度 大学院生・研究員の募集を開始しました。詳細はこちらをご確認ください</span>
+          </li>
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.03</span>
+            <span class="sect-top-news__tag sect-top-news__tag--pub">論文</span>
+            <span class="sect-top-news__title">SARS-CoV-2変異株の遺伝子タイピング新手法について論文が掲載されました</span>
+          </li>
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.01</span>
+            <span class="sect-top-news__tag">学会</span>
+            <span class="sect-top-news__title">第〇回日本臨床検査医学会総会にて口演発表を行いました</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- divider-3（装飾帯・department） -->
+    <div class="sect-top-divider-3" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- 全ページ共通フッター（common.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="footer-name">臨床検査医学分野 ・ Department of Laboratory Medicine</p>
+      <p class="footer-univ">Institute of Science Tokyo Hospital ・ 〒113-8519 東京都文京区湯島1-5-45</p>
+      <p class="footer-copy">© Institute of Science Tokyo . All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/fade-up.js"></script>
+</body>
+</html>

@@ -48,14 +48,14 @@ SP（縦積み）
 .fluid { display: flex; flex-direction: column; gap: 24px; }
 
 /* PC: 横並び */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .fluid { flex-direction: row; align-items: center; }
   .fluid__media,
   .fluid__body { flex: 1; }
 }
 
 /* 互い違い（偶数行を反転） */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .fluid--reverse { flex-direction: row-reverse; }
 }
 ```

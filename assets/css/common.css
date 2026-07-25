@@ -4,7 +4,7 @@
    1箇所を直せば全ページに反映される。
    - 仕様: docs/css-architecture.md
    - ページ単体でしか使わない装飾はここに書かず、ページ固有CSS（{page}.css）へ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    ========================================================================== */
 
 /* Google Fonts（デモに準拠。実際に使用するファミリーのみ読み込む） */
@@ -177,7 +177,7 @@ img {
 }
 
 /* SP: ハンバーガーで開閉（JSは開閉のみ・最小限） */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .nav-brand-en {
     display: none;
   }
@@ -210,7 +210,7 @@ img {
     display: flex;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .nav-links {
     display: flex;
   }
@@ -251,7 +251,7 @@ img {
   opacity: 0.5;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .site-footer__inner {
     text-align: left;
   }
@@ -318,7 +318,7 @@ img {
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .page-hero {
     height: 460px;
   }
@@ -345,7 +345,7 @@ img {
   padding-inline: 24px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .content-wrap {
     padding-inline: 48px;
   }
@@ -363,7 +363,7 @@ img {
   background: var(--color-surface-alt);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .content-panel {
     padding-block: 80px;
   }
@@ -413,7 +413,7 @@ img {
   opacity: 0.88;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .cta-block {
     padding: 56px 48px;
   }
@@ -497,14 +497,14 @@ img {
   letter-spacing: 0.1em;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .section-head {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .section-title-en {
     font-size: 2rem;
   }

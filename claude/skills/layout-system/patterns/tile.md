@@ -44,7 +44,7 @@ SP（1〜2列）
 }
 
 /* PC: 3列 */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .tile { grid-template-columns: repeat(3, 1fr); }
 }
 ```

@@ -2,7 +2,7 @@
    index.css
    トップページ固有のスタイル（.pg-index .sect-* スコープ）
    - 共通のものは common.css に書く。ここはトップ単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／drafts/existing/index.html（デモ）に準拠
    ========================================================================== */
 
@@ -78,7 +78,7 @@
   color: var(--color-text-muted-navy);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-index .sect-top-hero {
     min-height: 700px;
     padding-block: 72px;
@@ -125,7 +125,7 @@
   background-image: url("../img/top-divider_bg3.jpg");
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-index .sect-top-divider-1,
   .pg-index .sect-top-divider-2,
   .pg-index .sect-top-divider-3 {
@@ -235,7 +235,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-index .sect-top-profile__more {
     display: none;
   }
@@ -245,7 +245,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-index .sect-top-profile__inner {
     grid-template-columns: auto 1fr;
     justify-items: stretch;
@@ -282,9 +282,11 @@
 .pg-index .sect-top-research .section-title-ja {
   color: var(--color-text-muted-navy);
 }
+/* SP〜タブレット幅は幅に応じてauto-fitで自動2〜3列（間延び対策。claude/skills/layout-system/patterns/tile.md参照）。
+   1024px以上は下部の@mediaで固定3列に切り替える */
 .pg-index .sect-top-research__list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
 }
 .pg-index .sect-top-research__card {
@@ -370,7 +372,7 @@
   transition-delay: 0.2s;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-index .sect-top-research__list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -438,7 +440,7 @@
   color: var(--color-text);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-index .sect-top-news__item {
     flex-wrap: nowrap;
     gap: 14px;

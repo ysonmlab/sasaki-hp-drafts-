@@ -2,7 +2,7 @@
    corporate.css
    企業の方へページ固有のスタイル（.pg-corporate .sect-* スコープ）
    - 共通のものは common.css に書く。ここは corporate 単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／design/page-corporate.md
    ========================================================================== */
 
@@ -19,7 +19,7 @@
   line-height: 1.9;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-corporate .sect-corporate-lead__text {
     line-height: 2.2;
   }
@@ -70,7 +70,7 @@
   color: var(--color-text);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-corporate .sect-corporate-collab__list {
     grid-template-columns: 1fr 1fr;
     column-gap: 48px;
@@ -94,6 +94,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  /* SP〜タブレット幅で説明文が横に間延びしないよう、ノード自体の幅を制限して中央寄せ
+     （460px：各ステップの説明文がちょうど2行に収まる幅） */
+  max-width: 460px;
+  margin-inline: auto;
   padding-block: 16px;
   text-align: center;
 }
@@ -126,7 +131,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-corporate .sect-corporate-process__list {
     flex-direction: row;
     align-items: flex-start;
@@ -135,6 +140,8 @@
   .pg-corporate .sect-corporate-process__node {
     flex: 1;
     min-width: 0;
+    max-width: none;
+    margin-inline: 0;
     padding-block: 0;
   }
   .pg-corporate .sect-corporate-process__sep {

@@ -2,7 +2,7 @@
    contact.css
    お問い合わせページ固有のスタイル（.pg-contact .sect-* スコープ）
    - 共通のものは common.css に書く。ここは contact 単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／design/page-contact.md
    ========================================================================== */
 
@@ -73,7 +73,7 @@
   display: block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-contact .sect-contact-access__row {
     display: grid;
     grid-template-columns: 1fr 2fr 1.5fr;

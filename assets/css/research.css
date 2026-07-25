@@ -2,7 +2,7 @@
    research.css
    研究内容ページ固有のスタイル（.pg-research .sect-* スコープ）
    - 共通のものは common.css に書く。ここは research 単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／design/page-research.md
    ========================================================================== */
 
@@ -74,11 +74,10 @@
   height: 100%;
   object-fit: cover;
 }
-/* 右カラム：説明文＋タグ＋View More（下端に寄せる） */
+/* 右カラム：説明文＋タグ */
 .pg-research .sect-research-projects__right {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .pg-research .sect-research-projects__desc {
   margin-bottom: 24px;
@@ -105,21 +104,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.04em;
 }
-.pg-research .sect-research-projects__more {
-  display: block;
-  text-align: right;
-  font-size: 1rem;
-  color: var(--color-secondary);
-  letter-spacing: 0.04em;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-.pg-research .sect-research-projects__more:hover {
-  color: var(--color-navy);
-}
-
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-research .sect-research-lead__text {
     line-height: 2.2;
   }

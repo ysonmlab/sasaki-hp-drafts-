@@ -9,6 +9,37 @@
     ## YYYY-MM-DD {page-name}
     - 内容
 
+## 2026-07-25 index（修正：Researchカードをauto-fitグリッドで幅に応じた自動列数に変更）
+- 「ホームの研究テーマ部分もmax-widthを設定しておくと良いか」との相談を受け、corporateのProcessと同様に900px前後で1カラムのカードが間延びして見える点を確認
+- ただしこちらは各カードに「01/02/03」の番号が内包されており、corporate Processの矢印区切りのような「間の要素」に依存していないため、auto-fitグリッド化しても順番が分かりにくくなる心配が無いと判断し、max-width案ではなくauto-fitグリッド案を採用
+- `.sect-top-research__list`を`grid-template-columns:1fr`から`repeat(auto-fit, minmax(280px, 1fr))`に変更（1024px以上の固定3列指定は既存のまま維持、実質的にauto-fitの自然な結果と一致するため据え置き）
+- Chrome headlessで390px（1列）・700px（2列）・950px（3列）・1440px（PC固定3列）を確認し、いずれも崩れが無いことを確認
+
+## 2026-07-25 corporate（修正：Process部分のauto-fitグリッドを縦1列に戻す／max-widthを460pxに調整）
+- auto-fitグリッド化（幅に応じて自動2〜3列）を実施したところ、「矢印区切り（`__sep`）が2〜3列グリッドの行間では機能せず、手順の順番が分かりにくくなるのでは」という懸念が挙がった
+- 番号ラベル等での順番表現の追加は今回のスコープに含めず、まずは間延び対策としての「1列＋各ノードmax-width中央寄せ」の状態に戻す方針で合意（plan: reflective-zooming-blanket）。`.sect-corporate-process__list`を`display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))`から`display:flex;flex-direction:column`に戻し、PC（1024px以上）側の冗長な`display:flex`明示指定も削除
+- 続けて、各ステップのmax-widthを380px→460pxに変更。460pxだと5ステップすべての説明文がちょうど2行に収まることを確認した上で採用
+- Chrome headlessで900px（1列・中央寄せ・説明文2行）・1440px（PC横並び＋矢印、崩れなし）を確認
+- 「process部分の間延び感」について相談を受け、まず`.sect-corporate-process__node`に`max-width:380px; margin-inline:auto;`を追加して中央寄せ・幅制限で対応
+- 追加で「max-widthを設定した状態で、幅に合わせて2個や3個ずつ表示できないか（indexのResearchカードのようなグリッド発想）」との要望を受け、`.sect-corporate-process__list`を`display:flex;flex-direction:column`から`display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))`に変更。新しい固定ブレイクポイントを追加せず、幅に応じて1列（〜551px）／2列（552〜767px）／3列（768〜1023px）に自動で切り替わる構成にした（`claude/skills/layout-system/patterns/tile.md`の「auto-fill/auto-fitで自動列数」パターンを適用）
+- PC（1024px以上）は`display:flex`に明示的に戻し、従来通り5ステップ横並び＋矢印区切りのレイアウトを維持
+- Chrome headlessで390px（1列）・650px（2列）・900px（3列）・1440px（PC横並び＋矢印）を確認し、いずれも崩れが無いことを確認
+
+## 2026-07-25 common/全ページ（修正：SP/PCブレイクポイントを768px→1024pxに統一）
+- 「ヘッダーのナビリストが900px以下ぐらいから2行になる」との指摘を受け調査。ナビ項目7個＋英語ブランド名が768px幅では収まらず（概算で必要幅は900px超）、PC用スタイル（`white-space:nowrap`指定なし）が適用された768〜900px台で`.nav-item`のテキストが折り返されていたことが原因と判明
+- 対応として、セクションごとに個別のブレイクポイントを設定するのではなく（非エンジニア保守・単一ルールというCLAUDE.md方針に反するため不採用）、サイト全体の唯一のSP/PC境界を`max-width:767px`/`min-width:768px`から`max-width:1023px`/`min-width:1024px`へ統一変更する方針で合意
+- `common.css`（10箇所）と全7ページ固有CSS（clinical/contact/corporate/education/index/research/staff、合計約25箇所）の`767px`/`768px`を一括で`1023px`/`1024px`に置換。併せて`claude/skills/layout-system/patterns/fluid.md`・`tile.md`のサンプルコードも1024pxに更新
+- 768〜1023px帯域では一部セクション（staff profile／corporate process／index researchカード／education policy／research projects）がSPレイアウト（縦積み・1カラム）のまま間延びして見える点をユーザーに事前提示し、許容の上で実施
+- Chrome headlessで900px/1023px（ハンバーガー表示）・1024px（横並びナビ、折り返しなし）の切り替わりと、SP(390px)/PC(1440px)双方の主要ページ表示に崩れが無いことを確認
+
+## 2026-07-25 research（修正：CTA「研究活動へのご支援のお願い」のスクロールアニメーション廃止）
+- 「研究活動へのご支援のお願い部分はスクロール時の動きはなくても良い」との要望を受け、research.html の `cta-block` から `fade-up` クラスを削除。他セクション（lead文・プロジェクトカード）のfade-upには影響なし
+
+## 2026-07-25 research（修正：View Moreリンクを削除）
+- 「View Moreはリンク先がないので削除して」との指示を受け、research.html の3プロジェクトカードすべてから `<a href="#" class="sect-research-projects__more">View More →</a>` を削除
+- research.css の未使用化した `.sect-research-projects__more` / `:hover` ルールを削除。`.sect-research-projects__right` の `justify-content: space-between` も子要素が1つになり無意味化したため削除（説明文＋タグのみのシンプルな縦積みに）
+- Chrome headlessでカード下端の見た目に崩れが無いことを確認
+
 ## 2026-07-24 index/research（機能追加：ResearchカードからResearch内容ページへのリンク）
 - 「ホームのResearchカードをクリックすると研究内容ページのそれぞれの部分にリンクするようにしたい」との要望を受け実装
 - research.html側は既に各プロジェクトに `id="detail-01/02/03"` が付与済みだったため、index.html のカードタイトル（`sect-top-research__title`）内テキストを `<a href="research.html#detail-0N" class="sect-top-research__link">` でラップ

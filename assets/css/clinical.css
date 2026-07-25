@@ -2,7 +2,7 @@
    clinical.css
    臨床・診療ページ固有のスタイル（.pg-clinical .sect-* スコープ）
    - 共通のものは common.css に書く。ここは clinical 単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／design/page-clinical.md
    ========================================================================== */
 
@@ -19,7 +19,7 @@
   line-height: 2;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-clinical .sect-clinical-lab__lead {
     line-height: 2.2;
   }

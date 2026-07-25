@@ -2,7 +2,7 @@
    education.css
    教育・大学院ページ固有のスタイル（.pg-education .sect-* スコープ）
    - 共通のものは common.css に書く。ここは education 単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／design/page-education.md
    ========================================================================== */
 
@@ -25,7 +25,7 @@
   font-weight: 700;
   color: var(--color-text);
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-education .sect-education-undergrad .section-title-ja,
   .pg-education .sect-education-admission .section-title-ja,
   .pg-education .sect-education-policy .section-title-ja {
@@ -46,7 +46,7 @@
   line-height: 1.9;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-education .sect-education-lead__text {
     line-height: 2.2;
   }
@@ -147,7 +147,7 @@
   content: " →";
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-education .sect-education-admission__list {
     grid-template-columns: 1fr 1fr;
   }
@@ -182,7 +182,7 @@
   color: var(--color-secondary);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-education .sect-education-policy__list {
     grid-template-columns: repeat(3, 1fr);
   }

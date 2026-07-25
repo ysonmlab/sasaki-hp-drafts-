@@ -2,7 +2,7 @@
    staff.css
    スタッフページ固有のスタイル（.pg-staff .sect-* スコープ）
    - 共通のものは common.css に書く。ここは staff 単体の装飾のみ。
-   - media query は SP(max-width:767px) → PC(min-width:768px) の順。
+   - media query は SP(max-width:1023px) → PC(min-width:1024px) の順。
    - 仕様: docs/css-architecture.md／design/page-staff.md
    ========================================================================== */
 
@@ -78,7 +78,7 @@
   color: var(--color-navy);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .pg-staff .sect-staff-profile__layout {
     flex-direction: row;
     align-items: flex-start;

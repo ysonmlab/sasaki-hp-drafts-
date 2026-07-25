@@ -63,7 +63,12 @@
 - Chrome headlessで6ページ（research/staff/corporate/education/clinical/contact）すべての900px幅表示を確認し、間延びが解消されていることを確認。1440px（1100px上限・複数カラムレイアウト）・390px（700px上限より内側のため従来通り）にも崩れが無いことを確認
 - 追加で「850pxぐらいが妥当では」との提案を受け、1024px未満のmax-widthを700px→850pxに再調整。corporate-lead__text等、他ページのリード文が既に`max-width:850px`で実績があり768〜1023px帯でも問題が出ていなかった値と揃える形にした。research/staffの900px幅表示を再確認し、850pxでも間延びなく読みやすいことを確認
 
-## 2026-07-26 index（修正：Researchカードのグリッド幅指定を調整）
+## 2026-07-26 index（修正：profile/research/newsの.containerに1024px未満用max-widthを追加）
+- 「ホームには1024px未満のmax-widthが設定されていない？」との質問を受け確認。`.container`（common.css）は`max-width:1200px`固定でブレイクポイント無し、index.css側のprofile/research/news用の1100px上書きも同様に固定値で、他ページの`.content-wrap`（1024px未満850px／以上1100px）のような間延び対策が入っていなかったことが判明
+- 900px幅で実際にプロフィール紹介文が間延びして見えることを確認した上で、`.pg-index .sect-top-profile/.sect-top-research/.sect-top-news .container`のmax-widthを「1024px未満:850px／1024px以上:1100px」に変更（他ページのcontent-wrapと同じ値に統一）
+- Chrome headlessで900px（プロフィール文が850px幅に収まる）・1440px（従来通り1100px・複数カラム維持）を確認
+
+## 2026-07-25 index（修正：Researchカードのグリッド幅指定を調整）
 - ユーザー指定により`.sect-top-research__list`を`grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))`から`repeat(auto-fit, minmax(200px, 350px))`に変更し、`justify-content:center`を追加、`gap`を16px→32pxに変更
 - max側が`1fr`ではなく`350px`の固定値になったため、auto-fitの列数判定がmax値（350px）基準になり、900px前後でも1〜2列（カードは最大350px・余白は中央寄せ）で収まる挙動に変化。1024px以上の固定3列（`repeat(3,1fr)`）は変更なし
 - Chrome headlessで390px（1列中央寄せ）・700px（1列）・950px（2列）・1440px（PC固定3列）を確認し、崩れが無いことを確認

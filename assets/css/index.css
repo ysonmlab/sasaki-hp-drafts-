@@ -6,12 +6,20 @@
    - 仕様: docs/css-architecture.md／drafts/existing/index.html（デモ）に準拠
    ========================================================================== */
 
-/* 本文セクション（profile / research / news）の内容幅は他ページの.content-wrapに合わせて1100px
+/* 本文セクション（profile / research / news）の内容幅は他ページの.content-wrapに合わせる。
+   1024px未満は850px（他ページのcontent-wrapと同じ値。間延び対策）、1024px以上は1100px
    （デモは1200pxだが、research/staff等の内側ページと揃えるため1100pxに統一） */
 .pg-index .sect-top-profile .container,
 .pg-index .sect-top-research .container,
 .pg-index .sect-top-news .container {
-  max-width: 1100px;
+  max-width: 850px;
+}
+@media (min-width: 1024px) {
+  .pg-index .sect-top-profile .container,
+  .pg-index .sect-top-research .container,
+  .pg-index .sect-top-news .container {
+    max-width: 1100px;
+  }
 }
 
 /* === hero（bleed + board：ヘッダーは重なる。bodyのオフセットはしない） ===== */

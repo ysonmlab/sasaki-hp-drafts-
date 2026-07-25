@@ -9,6 +9,65 @@
     ## YYYY-MM-DD {page-name}
     - 内容
 
+## 2026-07-26 common（修正：ヘッダーEN切り替えの配置調整）
+- 「SPでハンバーガーメニューにしたときEN表示とかぶっている」との指摘を受け対応。7ページ共通で`<span class="nav-lang">EN</span>`を`.global-nav`直下から`#navLinks`内の最後の`<li>`（`.nav-lang-item`）に移動し、SPではハンバーガー展開時のドロップダウン内に表示される構成に変更
+- 「他のメニュー項目と揃って表示されるのは分かりにくい。ページリンクではないと分かるように差別化したい」との指摘を受け、`.nav-lang`を角丸ボーダーのバッジ形状（inline-flex、border-radius:999px）に変更してnav-itemと視覚的に区別。あわせてPCで発生していた縦位置のズレ（span要素の縦paddingがボックス高さに正しく反映されていなかったのが原因）も、親`.nav-lang-item`に`display:flex; align-items:center`を設定することで解消
+- SPのバッジ行は当初中央配置にしたが、「左側配置で良いかも」との指摘を受け、他のnav-itemと同じ左揃えに変更
+
+## 2026-07-26 common（修正：フッター表記を変更）
+- 全7ページ（index/research/staff/corporate/education/clinical/contact）の`footer-univ`から「Hospital」を削除し、「Institute of Science Tokyo ・ 〒113-8519 東京都文京区湯島1-5-45」に統一
+- 続けて「Institute of Science Tokyo」と住所の間を「・」区切りから`<br>`による改行に変更。Chrome headlessでPC(1440px)表示を確認
+- 「1行目（臨床検査医学分野 ・ Department of Laboratory Medicine）が日本語・英語併記なのに対し、2行目がInstitute of Science Tokyoのみなのは不自然では」との指摘を受け、「東京科学大学 ・ Institute of Science Tokyo」に変更し、1行目と同じ日英併記の形に揃えた
+
+## 2026-07-26 contact（修正：Accessを住所+地図／TRANSPORTの2段構成に変更）
+- 「住所・地図・TRANSPORTが3つ均等に縦積みなのを、[住所+地図]／[TRANSPORT]の2段に分けた方が狭い時に見やすいのでは」との相談を受け対応。「住所テキストと地図を左右に並べる（幅があるとき）」方針で合意
+- contact.html：住所ブロックとiframe地図を新設の`.sect-contact-access__top`でラップし、TRANSPORTは`.row`の直下に残す構成に変更
+- contact.css：`.sect-contact-access__top`を基本は縦積み、600px以上で`flex-direction:row`（住所260px固定＋地図が残り幅）に変更。1024px以上（PCの3カラムgrid）では`.top`を`display:contents`にして中の住所/地図を`.row`の直接の子として扱わせることで、既存の3カラムgrid表示をそのまま維持
+- Chrome headlessで390px（縦積み）・700px（住所+地図が横並び、TRANSPORTは別行）・1440px（従来通り3カラム、変化なし）を確認
+
+## 2026-07-26 contact（修正：PC 3カラムの比率調整とTRANSPORT前の余白追加）
+- 「1024px以上の3カラム比率（1fr 2fr 1.5fr）が中途半端。住所+地図とTRANSPORTの間をもう少し空けたい」との相談を受け対応
+- `grid-template-columns`を`1fr 2fr 1.5fr`から、よりシンプルな`1fr 2fr 1fr`に変更
+- `.sect-contact-access__transport`に`margin-inline-start:30px`を追加し、既存の`gap:30px`と合わせてTRANSPORT前だけ間隔を広げた（住所-地図間のgapは30pxのまま変更なし）
+- Chrome headlessで1440px幅を確認。比率変更に伴いTRANSPORT列がやや狭くなり、「東京メトロ丸ノ内線 御茶ノ水駅下車」の行が折り返されるようになった（崩れではないが見た目の変化点としてユーザーに報告済み）
+- 折り返しが気になるとの指摘を受け再修正。「grid-template-columnsで3分割するより、.top（住所+地図）と.transportで分けた方が良いのでは」との提案を受け、`.sect-contact-access__row`を3カラムgridから`display:flex`（top:transport = 2:1）に変更し、`.sect-contact-access__top`が内部で`grid-template-columns:1fr 2fr`（住所:地図）を持つ入れ子構造に変更。TRANSPORTの幅を住所・地図の比率と独立して確保できるようになり、3行とも折り返さなくなった
+- Chrome headlessで1440px幅を再確認し、TRANSPORTの折り返しが解消されたことを確認
+- 「広い幅ではtop+transportの横並びが良い。1024pxより手前から横並びにできないか」との相談を受け、`.top`+`.transport`の横並び切り替えを`@media(min-width:1024px)`から`@media(min-width:900px)`に変更（900px幅でも住所/地図/TRANSPORTの3ブロックとも折り返さず収まることを確認済み）
+- Chrome headlessで850px（縦積み、従来通り）・900px（横並びに切り替わる、折り返しなし）を確認
+- 「できていない（transportが横に来ていない）」との指摘を受け原因を調査。`@media(min-width:900px)`の`.row`に`flex-direction:row`を明示しておらず、ベースルールの`flex-direction:column`（無条件指定）がそのまま効いてしまい縦積みのままだったことが判明。`flex-direction:row`を明示指定して修正
+- Chrome headlessで900px幅を再確認し、住所+地図とTRANSPORTが横並び・gap48pxで表示されることを確認
+
+## 2026-07-26 contact（修正：TRANSPORT右側の無駄な余白を解消）
+- 「sect-contact-access__transportの右に無駄な余白がある」との指摘を受け調査。`.transport`が`flex:1 1 0%`で行の残り幅を比率で機械的に配分されており、中身（3行の交通手段リスト）より広い幅を確保していたことが原因と判明
+- `.transport`を`flex:0 0 auto; max-width:260px;`に変更し、中身に応じた幅に留めるよう修正。あわせて`.top`（住所+地図）を`flex:1 1 auto`から`flex:1 1 0%; min-width:0;`に変更し、余った分の幅を`.top`側が正しく吸収して伸びるように修正（`flex-basis:auto`のままだとgrid内包の影響で伸びきらない挙動になっていたため）
+- Chrome headlessで900px・1440px幅を確認し、TRANSPORT右の余白が解消され、住所+地図側が残り幅いっぱいまで伸びることを確認
+
+## 2026-07-26 contact（修正：Google Maps埋め込みをピン付き公式embedコードに差し替え）
+- 「地図はMDタワーの位置にピンを刺した画像に差し替え可能か」との相談を受け、まず現行のiframe（`q=施設名+住所&output=embed`形式）でも本来ピンは立つ仕様だが、非公式な形式のため場所が一意に定まらずジャンルアイコンが混在する場合がある点を説明。画像化（スクリーンショット保存）はGoogleマップの利用規約上好ましくないため非推奨とし、正規表現かつ規約に沿う対応として「Googleマップの共有→地図を埋め込む」機能で生成した公式embedコードへの差し替えを提案
+- ユーザーから提供された公式embedコード（`https://www.google.com/maps/embed?pb=...`形式、場所ID・座標入り）でcontact.htmlのiframe srcを差し替え。サイズ・枠線はこれまで通りcontact.css側のCSS指定（width/height:100%等）に任せ、Google生成コードの固定width/height/style属性は使用せず、`allowfullscreen`のみ追加
+- Chrome headlessで1440px幅を確認。オンライン環境のため実際の地図タイルが正しく表示されることを確認
+
+## 2026-07-26 contact（修正：top+transport横並びの切り替えを900px→1024pxに戻す）
+- 「900pxという値の根拠」を問われ、独自に計算して提案した値であり必須ではないことを説明。「サイト共通のブレイクポイントは1024pxに統一する方針だったはず」との指摘を受け、`@media(min-width:900px)`を`@media(min-width:1024px)`に戻した
+- Chrome headlessで900px（縦積みに戻る）・1024px（横並び）を確認
+
+## 2026-07-26 staff（修正：メンバーカードの氏名が狭幅で改行される問題）
+- 「メンバーカードの氏名（日本語+英語）が400〜440pxで改行されるのが気になる」との指摘を受け対応
+- 当初は氏名専用の別ブレイクポイント（451px→550pxに調整）を追加する形で対応したが、「カード内に切り替え点が複数（写真+テキスト用の399pxと氏名用の550px）あるのは保守上好ましくないのでは。399px自体を引き上げて1つにまとめられないか」との相談を受け再検討
+- `399px`は`staff.css`内の`.pg-staff`スコープのみで使用（他ページ・common.cssに影響なし）と確認した上で、氏名専用ブレイクポイントを削除し、代わりに写真+テキストの縦積み切り替え点を399px→499pxに引き上げる方針に変更。縦積み時はテキストが写真分の幅を取られず全幅使えるため、499px以下でも氏名が改行されなくなり、切り替え点を1つ（499px）に集約できた
+- Chrome headlessで350px・460px（縦積み、改行なし）・500px・600px（横並び、改行なし）を確認
+- research/staff/corporate/education/clinical/contact各ページの本文（説明文・段落）を1つずつmax-widthで対策していたが、「content-wrap自体に1024px未満用の値を設定する方が自然では」との提案を受け再検討
+- 既存の`.content-wrap{max-width:1100px}`は1024px未満のビューポートでは実質発動しない（1100pxを下回るため）ことを確認。大画面用の上限があるのと同じ発想で、1024px未満にも専用の上限を追加する方針に合意
+- `.content-wrap`を「1024px未満:max-width:700px」「1024px以上:max-width:1100px」に変更。各セクション個別のmax-width（research projects__right、corporate process node 460px等）はcontent-wrap（700px）より小さい値のため競合せず、そのまま機能する
+- 副次効果として、以前「変更なし」で保留していたstaffのプロフィール文の間延びも、content-wrap側の変更で自然に解消された
+- Chrome headlessで6ページ（research/staff/corporate/education/clinical/contact）すべての900px幅表示を確認し、間延びが解消されていることを確認。1440px（1100px上限・複数カラムレイアウト）・390px（700px上限より内側のため従来通り）にも崩れが無いことを確認
+- 追加で「850pxぐらいが妥当では」との提案を受け、1024px未満のmax-widthを700px→850pxに再調整。corporate-lead__text等、他ページのリード文が既に`max-width:850px`で実績があり768〜1023px帯でも問題が出ていなかった値と揃える形にした。research/staffの900px幅表示を再確認し、850pxでも間延びなく読みやすいことを確認
+
+## 2026-07-26 index（修正：Researchカードのグリッド幅指定を調整）
+- ユーザー指定により`.sect-top-research__list`を`grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))`から`repeat(auto-fit, minmax(200px, 350px))`に変更し、`justify-content:center`を追加、`gap`を16px→32pxに変更
+- max側が`1fr`ではなく`350px`の固定値になったため、auto-fitの列数判定がmax値（350px）基準になり、900px前後でも1〜2列（カードは最大350px・余白は中央寄せ）で収まる挙動に変化。1024px以上の固定3列（`repeat(3,1fr)`）は変更なし
+- Chrome headlessで390px（1列中央寄せ）・700px（1列）・950px（2列）・1440px（PC固定3列）を確認し、崩れが無いことを確認
+
 ## 2026-07-25 index（修正：Researchカードをauto-fitグリッドで幅に応じた自動列数に変更）
 - 「ホームの研究テーマ部分もmax-widthを設定しておくと良いか」との相談を受け、corporateのProcessと同様に900px前後で1カラムのカードが間延びして見える点を確認
 - ただしこちらは各カードに「01/02/03」の番号が内包されており、corporate Processの矢印区切りのような「間の要素」に依存していないため、auto-fitグリッド化しても順番が分かりにくくなる心配が無いと判断し、max-width案ではなくauto-fitグリッド案を採用

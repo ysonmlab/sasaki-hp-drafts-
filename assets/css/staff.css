@@ -191,8 +191,9 @@
   color: var(--color-navy);
 }
 
-/* 400px未満のみ写真+テキストを縦積みに切替 */
-@media (max-width: 399px) {
+/* 500px未満は写真+テキストを縦積みに切替（テキスト側が横幅いっぱい使えるようになり、
+   氏名（日本語/英語）の改行対策も兼ねる） */
+@media (max-width: 499px) {
   .pg-staff .sect-staff-members__card {
     flex-direction: column;
   }

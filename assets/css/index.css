@@ -286,8 +286,9 @@
    1024px以上は下部の@mediaで固定3列に切り替える */
 .pg-index .sect-top-research__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  justify-content: center;
+  gap: 32px;
 }
 .pg-index .sect-top-research__card {
   container-type: inline-size;

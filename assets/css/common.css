@@ -139,12 +139,20 @@ img {
   border-bottom-color: var(--color-accent);
 }
 
+/* nav-lang: ページ遷移リンクではなく言語切替のため、バッジ形状でnav-itemと差別化する */
+.nav-lang-item {
+  display: flex;
+  align-items: center;
+}
 .nav-lang {
-  padding: 15px 0 15px 14px;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  margin-left: 8px;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
   color: var(--color-text-muted-navy);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
 }
 
 .nav-toggle {
@@ -206,6 +214,12 @@ img {
     white-space: nowrap;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
+  /* SP: バッジを専用行に左寄せ配置し、上に区切り線を入れてリンク一覧と分離する */
+  .nav-lang-item {
+    padding: 14px var(--gutter);
+    margin-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
   .nav-toggle {
     display: flex;
   }
@@ -213,6 +227,9 @@ img {
 @media (min-width: 1024px) {
   .nav-links {
     display: flex;
+  }
+  .nav-lang-item {
+    margin-left: 12px;
   }
   .nav-toggle {
     display: none;
@@ -338,15 +355,19 @@ img {
 }
 
 /* === content-wrap（内側ページ共通コンテンツ幅） ============================ */
-/* research/staff/corporate/education/clinical/contact の6ページで使用。indexは.containerのまま(不変)。 */
+/* research/staff/corporate/education/clinical/contact の6ページで使用。indexは.containerのまま(不変)。
+   1024px未満は、幅未指定のまま伸びていた本文（説明文等）が間延びしないよう850pxで頭打ちにする
+   （他ページのリード文で実績のある max-width:850px と合わせた値）。
+   1024px以上はPCの複数カラムレイアウト用に1100pxへ広げる。 */
 .content-wrap {
-  max-width: 1100px;
+  max-width: 850px;
   margin-inline: auto;
   padding-inline: 24px;
 }
 
 @media (min-width: 1024px) {
   .content-wrap {
+    max-width: 1100px;
     padding-inline: 48px;
   }
 }

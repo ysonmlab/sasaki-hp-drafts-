@@ -29,11 +29,29 @@
   color: var(--color-navy);
 }
 
-/* === access（chest：SP 1カラム縦積み／PC 3カラム grid：住所／地図／交通手段） === */
+/* === access（chest：SP 1カラム縦積み／中間幅は住所+地図を1段目・TRANSPORTを2段目に分割／PC 3カラム grid） === */
 .pg-contact .sect-contact-access__row {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+.pg-contact .sect-contact-access__top {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (min-width: 600px) {
+  .pg-contact .sect-contact-access__top {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .pg-contact .sect-contact-access__address {
+    flex: 0 0 260px;
+  }
+  .pg-contact .sect-contact-access__map {
+    flex: 1 1 auto;
+  }
 }
 .pg-contact .sect-contact-access__label {
   margin-bottom: 10px;
@@ -74,10 +92,24 @@
 }
 
 @media (min-width: 1024px) {
+  /* rowは[top(住所+地図)]と[transport]の2分割。TRANSPORTの幅は住所/地図の比率と独立して決まる。
+     サイト共通のSP/PCブレイクポイント（1024px）に統一 */
   .pg-contact .sect-contact-access__row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+  }
+  .pg-contact .sect-contact-access__top {
     display: grid;
-    grid-template-columns: 1fr 2fr 1.5fr;
-    align-items: start;
+    grid-template-columns: 1fr 2fr;
     gap: 30px;
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+  /* 比率で伸縮させず、中身（交通手段リスト）に応じた幅に留めて右の余白を減らす */
+  .pg-contact .sect-contact-access__transport {
+    flex: 0 0 auto;
+    max-width: 260px;
   }
 }

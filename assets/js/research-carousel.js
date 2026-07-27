@@ -30,4 +30,20 @@
     }, { root: list, threshold: 0.6 });
     cards.forEach((card) => observer.observe(card));
   }
+
+  // fade-up.js は各カードをブラウザのビューポート基準で個別に監視しているが、
+  // 2・3枚目はカルーセルの横スクロールで隠れているだけでも画面外（右側）扱いになり、
+  // 矢印を押して初めて画面内に入った瞬間にfade-upの出現アニメーションが遅れて発火し、
+  // 「カードが跳ねる」ように見えてしまう。1枚目（常に画面内にある）を代表として監視し、
+  // セクションが画面に入った時点で3枚とも先にis-inviewを付けてしまうことでこれを防ぐ。
+  if (cards[0] && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        cards.forEach((card) => card.classList.add('is-inview'));
+        obs.disconnect();
+      });
+    }, { threshold: 0.1 });
+    revealObserver.observe(cards[0]);
+  }
 })();

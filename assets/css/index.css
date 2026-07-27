@@ -301,7 +301,9 @@
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 24px;
+  /* 矢印(幅40px・left/right:4px)がカードに重ならないよう、矢印分の余白をリスト自体に確保する */
+  padding-inline: 48px;
+  scroll-padding-inline: 48px;
   scrollbar-width: none; /* 矢印が主導線のためスクロールバーは隠す（Firefox） */
 }
 .pg-index .sect-top-research__list::-webkit-scrollbar {
@@ -333,24 +335,6 @@
 .pg-index .sect-top-research__nav:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
-}
-.pg-index .sect-top-research__dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-.pg-index .sect-top-research__dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-}
-.pg-index .sect-top-research__dot.is-active {
-  background: var(--color-accent);
 }
 .pg-index .sect-top-research__card {
   container-type: inline-size;
@@ -439,13 +423,13 @@
 }
 
 @media (min-width: 1024px) {
-  .pg-index .sect-top-research__nav,
-  .pg-index .sect-top-research__dots {
-    display: none; /* 3枚とも収まるため矢印・ドット・スクロール不要 */
+  .pg-index .sect-top-research__nav {
+    display: none; /* 3枚とも収まるため矢印・スクロール不要 */
   }
   .pg-index .sect-top-research__list {
     overflow: visible;
     scroll-snap-type: none;
+    padding-inline: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;

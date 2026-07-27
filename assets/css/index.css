@@ -290,17 +290,74 @@
 .pg-index .sect-top-research .section-title-ja {
   color: var(--color-text-muted-navy);
 }
-/* SP〜タブレット幅は幅に応じてauto-fitで自動2〜3列（間延び対策。claude/skills/layout-system/patterns/tile.md参照）。
-   1024px以上は下部の@mediaで固定3列に切り替える */
+/* SP〜タブレット幅は矢印+ドット付きの横スクロール（ピーク）カルーセル。
+   矢印はlistの上に重ねるオーバーレイにして、隣のカードの見切れ幅を確保する。
+   1024px以上は下部の@mediaで矢印/ドットを隠し、固定3列gridに切り替える */
+.pg-index .sect-top-research__carousel {
+  position: relative;
+}
 .pg-index .sect-top-research__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 24px;
+  scrollbar-width: none; /* 矢印が主導線のためスクロールバーは隠す（Firefox） */
+}
+.pg-index .sect-top-research__list::-webkit-scrollbar {
+  display: none;
+}
+.pg-index .sect-top-research__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(11, 31, 58, 0.75);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  cursor: pointer;
+}
+.pg-index .sect-top-research__nav--prev {
+  left: 4px;
+}
+.pg-index .sect-top-research__nav--next {
+  right: 4px;
+}
+.pg-index .sect-top-research__nav:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.pg-index .sect-top-research__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.pg-index .sect-top-research__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.pg-index .sect-top-research__dot.is-active {
+  background: var(--color-accent);
 }
 .pg-index .sect-top-research__card {
   container-type: inline-size;
   position: relative;
+  flex: 0 0 82%;
+  max-width: 340px;
+  scroll-snap-align: center;
   padding: 48px 24px 32px;
   background: #fafdfd;
   border: 1px solid var(--color-accent);
@@ -382,8 +439,20 @@
 }
 
 @media (min-width: 1024px) {
+  .pg-index .sect-top-research__nav,
+  .pg-index .sect-top-research__dots {
+    display: none; /* 3枚とも収まるため矢印・ドット・スクロール不要 */
+  }
   .pg-index .sect-top-research__list {
+    overflow: visible;
+    scroll-snap-type: none;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .pg-index .sect-top-research__card {
+    flex: none;
+    max-width: none;
   }
 }
 

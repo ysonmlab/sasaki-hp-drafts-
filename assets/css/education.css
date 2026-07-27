@@ -6,6 +6,11 @@
    - 仕様: docs/css-architecture.md／design/page-education.md
    ========================================================================== */
 
+/* content-panel.darkは複数ページ共通パーツのため、このページのみ背景色を上書きする */
+.pg-education .content-panel.dark {
+  background: #E7ECF3;
+}
+
 /* === 見出し英日の大小関係の上書き（このページのみ・デモ優先） ===============
    common.cssの.section-title-en(大)/.section-title-ja(小)はresearch/corporate準拠だが、
    education のデモは日本語が大・英語が小。common.css自体は変えず、対象3セクション
@@ -67,7 +72,7 @@
   padding: 28px 32px;
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-accent);
-  background: var(--color-surface-alt);
+  background: #fff;
 }
 .pg-education .sect-education-undergrad__dept {
   margin-bottom: 8px;
@@ -107,10 +112,8 @@
 .pg-education .sect-education-admission__card {
   padding: 28px 26px 32px;
   border: 1px solid var(--color-border);
-  transition: box-shadow 0.2s;
-}
-.pg-education .sect-education-admission__card:hover {
-  box-shadow: 0 4px 16px rgba(74, 144, 196, 0.1);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-surface-alt);
 }
 .pg-education .sect-education-admission__badge {
   display: inline-block;
@@ -158,15 +161,16 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  margin-top: 48px;
 }
 .pg-education .sect-education-policy__item {
-  padding: 24px 20px;
+  padding: 10px 20px 24px;
   border-top: 2px solid var(--color-primary);
 }
 .pg-education .sect-education-policy__num {
   margin-bottom: 10px;
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--color-accent-pale);
 }
 .pg-education .sect-education-policy__title {

@@ -78,11 +78,11 @@ images: なし
 
 images:
 - assets/img/Molecular Mechanisms of Leukemia and Lymphoma.png
-  → research-projects_pht1.png（alt="白血病・リンパ腫の発症メカニズム解明"）
+  → research-projects_pht1.jpg（alt="白血病・リンパ腫の発症メカニズム解明"）
 - assets/img/Development of Novel In Vitro Drug Sensitivity Assays.png
-  → research-projects_pht2.png（alt="新規in vitro薬剤感受性試験の開発"）
+  → research-projects_pht2.jpg（alt="新規in vitro薬剤感受性試験の開発"）
 - assets/img/Infectious Disease and Pathogen Typing Technologies.png
-  → research-projects_pht3.png（alt="感染症とタイピング技術"）
+  → research-projects_pht3.jpg（alt="感染症とタイピング技術"）
 
 ---
 

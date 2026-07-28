@@ -408,8 +408,9 @@ img {
 }
 .cta-block__title {
   margin-bottom: 12px;
-  font-size: 1.625rem;
+  font-size: clamp(1.125rem, calc(-0.614rem + 8.7vw), 1.625rem);
   font-weight: 500;
+  white-space: nowrap;
 }
 .cta-block__body {
   max-width: 640px;

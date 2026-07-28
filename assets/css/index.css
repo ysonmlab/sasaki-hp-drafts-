@@ -22,7 +22,7 @@
   }
 }
 
-/* === hero（bleed + board：ヘッダーは重なる。bodyのオフセットはしない） ===== */
+/* === hero（bleed + board：ヘッダーはsticky。hero自体は重ならない） ===== */
 .pg-index .sect-top-hero {
   position: relative;
   display: flex;

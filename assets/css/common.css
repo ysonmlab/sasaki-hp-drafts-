@@ -74,12 +74,12 @@ img {
 }
 
 /* === ヘッダー（全ページ共通） ============================================= */
-/* 各ページ先頭のhero画像に重なる不透明ヘッダー（bodyのオフセットは行わない） */
+/* sticky で常に画面上部に表示。hero画像には重ねず、hero側はヘッダーの下から始まる */
 /* 高さは固定せず、中身（nav-brand / nav-item のpadding）で自然に決まる（デモ準拠） */
 /* 半透明+blurは廃止：hero画像（写真/イラスト）によって透け方が変わりページごとに色が
    バラついて見えるため、常に同じ色に見える不透明ネイビー固定に変更した */
 .site-header {
-  position: fixed;
+  position: sticky;
   inset-block-start: 0;
   inset-inline: 0;
   z-index: 100;
@@ -200,12 +200,9 @@ img {
 
 /* SP: ハンバーガーで開閉（JSは開閉のみ・最小限） */
 @media (max-width: 1023px) {
-  .nav-brand-en {
-    display: none;
-  }
   .nav-links {
     display: none;
-    /* .site-header が position:fixed のため、topは高さを数値で知らなくても100%で追従する */
+    /* .site-header が position:sticky のため、topは高さを数値で知らなくても100%で追従する */
     position: absolute;
     top: 100%;
     right: 0;
@@ -236,6 +233,17 @@ img {
   }
   .nav-toggle {
     display: flex;
+  }
+}
+/* 500px未満はロゴ＋文字を縦積みに切替（staff.cssの写真+テキストと同じ基準） */
+@media (max-width: 499px) {
+  .nav-brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .nav-brand-text {
+    text-align: center;
   }
 }
 @media (min-width: 1024px) {

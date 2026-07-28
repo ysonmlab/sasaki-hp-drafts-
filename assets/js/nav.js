@@ -16,17 +16,3 @@
     });
   });
 })();
-
-// page-hero（内側ページ共通）を固定ヘッダーの高さ分だけ押し下げる（デモ準拠・CSSで代替不可のため）
-// .page-heroが無いページ（index.html等）では何もしない
-(function () {
-  const header = document.querySelector('.site-header');
-  const hero = document.querySelector('.page-hero');
-  if (!header || !hero) return;
-
-  function setHeroOffset() {
-    hero.style.marginTop = header.offsetHeight + 'px';
-  }
-  setHeroOffset();
-  window.addEventListener('resize', setHeroOffset);
-})();

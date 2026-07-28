@@ -25,41 +25,54 @@
   }
 }
 
-/* === collab（tile：SP1カラム／PC2カラム。行末のみ区切り線なし） ============= */
+/* === collab（tile：SP1カラム／PC2カラム。カード型＋ホバーで浮き上がる） ===== */
+/* 見出しをこのセクションのみ中央寄せ（section-head/section-title-enは共通パーツのためスコープを絞る） */
+.pg-corporate .sect-corporate-collab .section-head {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.pg-corporate .sect-corporate-collab .section-title-en {
+  width: 100%;
+  text-align: center;
+}
 .pg-corporate .sect-corporate-collab__list {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 20px;
 }
 .pg-corporate .sect-corporate-collab__item {
-  position: relative;
-  padding-block: 40px;
-}
-.pg-corporate .sect-corporate-collab__item::after {
-  content: "";
-  position: absolute;
-  left: 7.5%;
-  bottom: 0;
-  width: 85%;
-  height: 1px;
-  background: var(--color-border);
-}
-.pg-corporate .sect-corporate-collab__item:last-child::after {
-  display: none;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: var(--color-navy);
+  border: 1px solid var(--color-navy);
+  overflow: hidden;
 }
 .pg-corporate .sect-corporate-collab__header {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
+  gap: 16px;
+  margin: -32px -28px 18px;
+  padding: 20px 28px;
+  background: #fff;
+}
+.pg-corporate .sect-corporate-collab__icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-accent-pale);
 }
 .pg-corporate .sect-corporate-collab__icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  color: #ffa66d;
+  width: 26px;
+  height: 26px;
+  color: var(--color-navy);
 }
 .pg-corporate .sect-corporate-collab__title {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-navy);
@@ -67,24 +80,37 @@
 .pg-corporate .sect-corporate-collab__body {
   font-size: 1rem;
   line-height: 2.1;
-  color: var(--color-text);
+  color: var(--color-text-on-navy);
 }
 
 @media (min-width: 1024px) {
   .pg-corporate .sect-corporate-collab__list {
     grid-template-columns: 1fr 1fr;
-    column-gap: 48px;
+    gap: 32px;
   }
-  /* PCは2カラムのため、最終行（末尾2件）だけ区切り線を消す */
-  .pg-corporate .sect-corporate-collab__item:last-child::after {
-    display: block;
+  .pg-corporate .sect-corporate-collab__item {
+    padding: 40px 36px;
   }
-  .pg-corporate .sect-corporate-collab__item:nth-last-child(-n + 2)::after {
-    display: none;
+  .pg-corporate .sect-corporate-collab__header {
+    margin: -40px -36px 18px;
+    padding: 24px 36px;
   }
 }
 
 /* === process（shelf：SP縦積み／PC横一列＋矢印区切り） ======================= */
+/* このページのprocessセクションのみ、共通content-panel.darkより背景を濃くする */
+.pg-corporate .content-panel.dark {
+  background: #E7ECF3;
+}
+/* 見出しをこのセクションのみ中央寄せ（section-head/section-title-enは共通パーツのためスコープを絞る） */
+.pg-corporate .sect-corporate-process .section-head {
+  justify-content: center;
+  align-items: center;
+}
+.pg-corporate .sect-corporate-process .section-title-en {
+  width: 100%;
+  text-align: center;
+}
 .pg-corporate .sect-corporate-process__list {
   display: flex;
   flex-direction: column;
@@ -102,7 +128,6 @@
   padding-block: 16px;
   text-align: center;
 }
-/* #ffa66dはこのページ限定のアクセント色（common.cssには追加しない） */
 .pg-corporate .sect-corporate-process__icon {
   display: flex;
   align-items: center;
@@ -112,8 +137,7 @@
   height: 64px;
   margin-bottom: 20px;
   border-radius: 50%;
-  background: #ffa66d;
-  box-shadow: 0 6px 20px rgba(255, 166, 109, 0.35);
+  background: var(--color-navy);
 }
 .pg-corporate .sect-corporate-process__title {
   margin-bottom: 8px;
@@ -148,9 +172,15 @@
     display: flex;
     flex: 0 0 40px;
     align-items: flex-start;
-    padding-top: 22px;
-    font-size: 1.625rem;
-    line-height: 1;
-    color: var(--color-primary);
+    justify-content: center;
+    padding-top: 24px;
+  }
+  .pg-corporate .sect-corporate-process__sep::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 11px solid var(--color-accent);
   }
 }

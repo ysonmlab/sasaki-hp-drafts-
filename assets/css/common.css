@@ -102,14 +102,18 @@ img {
   align-items: center;
   gap: 12px;
   padding-block: 12px;
+  text-decoration: none;
+  color: inherit;
 }
 .nav-brand-logo {
-  height: 40px;
+  height: 45px;
   width: auto;
+  max-width: none;
   min-width: 17mm;
+  flex-shrink: 0;
 }
 .nav-brand-ja {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -133,7 +137,8 @@ img {
 .nav-item {
   display: block;
   padding: 15px 11px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--color-text-muted-navy);
   letter-spacing: 0.05em;
   border-bottom: 2px solid transparent;
@@ -170,6 +175,7 @@ img {
   gap: 5px;
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   background: none;
   border: none;
   padding: 0;

@@ -291,6 +291,7 @@
   color: var(--color-text-muted-navy);
 }
 /* SP〜タブレット幅は矢印+ドット付きの横スクロール（ピーク）カルーセル。
+   containerの外に出したbleed要素のため、SPでは画面幅いっぱいに広がる。
    矢印はlistの上に重ねるオーバーレイにして、隣のカードの見切れ幅を確保する。
    1024px以上は下部の@mediaで矢印/ドットを隠し、固定3列gridに切り替える */
 .pg-index .sect-top-research__carousel {
@@ -301,9 +302,9 @@
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  /* 矢印(幅40px・left/right:4px)がカードに重ならないよう、矢印分の余白をリスト自体に確保する */
-  padding-inline: 48px;
-  scroll-padding-inline: 48px;
+  /* 矢印(幅32px・left/right:0)がカードに重ならないよう、矢印分の余白をリスト自体に確保する */
+  padding-inline: 36px;
+  scroll-padding-inline: 36px;
   scrollbar-width: none; /* 矢印が主導線のためスクロールバーは隠す（Firefox） */
 }
 .pg-index .sect-top-research__list::-webkit-scrollbar {
@@ -317,8 +318,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(11, 31, 58, 0.75);
@@ -327,10 +328,10 @@
   cursor: pointer;
 }
 .pg-index .sect-top-research__nav--prev {
-  left: 4px;
+  left: 0;
 }
 .pg-index .sect-top-research__nav--next {
-  right: 4px;
+  right: 0;
 }
 .pg-index .sect-top-research__nav:hover {
   border-color: var(--color-accent);
@@ -339,8 +340,8 @@
 .pg-index .sect-top-research__card {
   container-type: inline-size;
   position: relative;
-  flex: 0 0 82%;
-  max-width: 340px;
+  /* 82%だと画面幅が狭いほどカードも細くなるため、下限pxを設けて正方形に近い比率を保つ（狭幅ではスクロールで対応） */
+  flex: 0 0 clamp(300px, 82%, 340px);
   scroll-snap-align: center;
   padding: 48px 24px 32px;
   background: #fafdfd;
@@ -423,6 +424,12 @@
 }
 
 @media (min-width: 1024px) {
+  /* PCではcarouselがbleedのままだと見出しとズレるため、.containerと同じ幅・中央寄せに戻す */
+  .pg-index .sect-top-research__carousel {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
   .pg-index .sect-top-research__nav {
     display: none; /* 3枚とも収まるため矢印・スクロール不要 */
   }

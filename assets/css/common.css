@@ -98,7 +98,14 @@ img {
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding-block: 12px;
+}
+.nav-brand-logo {
+  height: 40px;
+  width: auto;
 }
 .nav-brand-ja {
   font-size: 0.75rem;

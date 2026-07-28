@@ -106,6 +106,7 @@ img {
 .nav-brand-logo {
   height: 40px;
   width: auto;
+  min-width: 17mm;
 }
 .nav-brand-ja {
   font-size: 0.75rem;

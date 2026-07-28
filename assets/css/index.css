@@ -340,8 +340,9 @@
 .pg-index .sect-top-research__card {
   container-type: inline-size;
   position: relative;
-  /* 82%だと画面幅が狭いほどカードも細くなるため、下限pxを設けて正方形に近い比率を保つ（狭幅ではスクロールで対応） */
-  flex: 0 0 clamp(300px, 82%, 340px);
+  /* 82%だと画面幅が狭いほどカードも細くなるため、下限pxを設けて正方形に近い比率を保つ（狭幅ではスクロールで対応）。
+     上限はタブレット幅での間延び防止のため必要 */
+  flex: 0 0 clamp(310px, 82%, 340px);
   scroll-snap-align: center;
   padding: 48px 24px 32px;
   background: #fafdfd;

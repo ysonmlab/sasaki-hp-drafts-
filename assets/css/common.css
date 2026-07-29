@@ -173,6 +173,17 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
 }
+/* リンク化に伴い、a:hoverの下線がバッジ形状を崩さないよう明示的に上書きする（nav-itemのhoverと揃える） */
+.nav-lang:hover,
+.nav-lang:focus-visible {
+  color: #fff;
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+.nav-lang:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
 
 .nav-toggle {
   display: none;
@@ -466,6 +477,44 @@ img {
 @media (min-width: 1024px) {
   .cta-block {
     padding: 56px 48px;
+  }
+}
+
+/* === lang-notice（英語ページ共通・準備中プレースホルダー） ================= */
+/* index-en/research-en/staff-en/corporate-en/education-en/clinical-en/contact-en
+   の7ページで使用。content-panel > content-wrap の内側に置く（他のsect-*と同じ入れ子）。 */
+.lang-notice {
+  max-width: 640px;
+  margin-inline: auto;
+  padding-block: 24px;
+  text-align: center;
+}
+.lang-notice__label {
+  margin-bottom: 12px;
+  font-family: var(--font-condensed);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+}
+.lang-notice__title {
+  margin-bottom: 16px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.lang-notice__body {
+  margin-bottom: 28px;
+  color: var(--color-secondary);
+  line-height: 1.9;
+}
+
+@media (min-width: 1024px) {
+  .lang-notice {
+    padding-block: 40px;
+  }
+  .lang-notice__title {
+    font-size: 1.75rem;
   }
 }
 

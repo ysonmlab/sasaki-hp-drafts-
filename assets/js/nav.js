@@ -9,7 +9,7 @@
     navToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  navLinks.querySelectorAll('.nav-item').forEach((item) => {
+  navLinks.querySelectorAll('.nav-item, .nav-lang').forEach((item) => {
     item.addEventListener('click', () => {
       navLinks.classList.remove('is-open');
       navToggle.setAttribute('aria-expanded', 'false');

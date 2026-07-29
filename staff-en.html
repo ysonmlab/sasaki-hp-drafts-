@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff – Dept. of Laboratory Medicine – Science Tokyo</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/img/favicon.ico">
+  <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/staff.css">
+</head>
+<body class="pg-staff-en">
+
+  <!-- 全ページ共通ヘッダー（common.css） -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index-en.html" class="nav-brand">
+        <img src="assets/img/ScienceTokyo_Primary%20logo_RGB_reverse.png" alt="Science Tokyo" class="nav-brand-logo" width="120" height="32" loading="lazy">
+        <div class="nav-brand-text">
+          <p class="nav-brand-ja">臨床検査医学分野</p>
+          <p class="nav-brand-en">Dept. of Laboratory Medicine</p>
+        </div>
+      </a>
+      <nav class="global-nav" aria-label="Global navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="research-en.html" class="nav-item">Research</a></li>
+          <li><a href="staff-en.html" class="nav-item is-current" aria-current="page">Staff</a></li>
+          <li><a href="corporate-en.html" class="nav-item">Collaboration</a></li>
+          <li><a href="education-en.html" class="nav-item">Education</a></li>
+          <li><a href="clinical-en.html" class="nav-item">Clinical Practice</a></li>
+          <li><a href="contact-en.html" class="nav-item">Contact</a></li>
+          <li class="nav-lang-item"><a href="staff.html" class="nav-lang">JA</a></li>
+        </ul>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- page-hero（bleed + board・共通パーツ） -->
+    <section class="page-hero">
+      <img class="page-hero__img" src="assets/img/staff-hero_bg1.png" alt="" loading="lazy">
+      <div class="page-hero__inner">
+        <p class="page-hero__eyebrow">STAFF</p>
+        <h1 class="page-hero__title">Staff</h1>
+      </div>
+    </section>
+
+    <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
+    <div class="sect-accent-bar" aria-hidden="true"></div>
+
+    <!-- content-panel（共通パーツ：背景色+上下padding） -->
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
+        <section class="lang-notice">
+          <p class="lang-notice__label">Coming Soon</p>
+          <h2 class="lang-notice__title">English content is coming soon</h2>
+          <p class="lang-notice__body">
+            We are currently preparing the English version of this page.<br>
+            Please refer to the Japanese page for full details in the meantime.
+          </p>
+          <a href="staff.html" class="btn">View this page in Japanese</a>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 全ページ共通フッター（common.css） -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="footer-name">臨床検査医学分野 ・ Department of Laboratory Medicine</p>
+      <p class="footer-univ">東京科学大学 ・ Institute of Science Tokyo<br>〒113-8519 東京都文京区湯島1-5-45</p>
+      <p class="footer-copy">© Institute of Science Tokyo . All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/cursor.js"></script>
+</body>
+</html>

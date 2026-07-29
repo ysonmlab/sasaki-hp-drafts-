@@ -36,6 +36,12 @@
   --content-max: 1200px; /* コンテンツ最大幅 */
   --gutter: 24px;        /* 左右の余白 */
 }
+/* 500px未満は左右の余白を詰めて窮屈さを緩和（staff.cssと同じ基準） */
+@media (max-width: 499px) {
+  :root {
+    --gutter: 16px;
+  }
+}
 
 /* === 基本タイポグラフィ =================================================== */
 body {
@@ -74,12 +80,12 @@ img {
 }
 
 /* === ヘッダー（全ページ共通） ============================================= */
-/* 各ページ先頭のhero画像に重なる不透明ヘッダー（bodyのオフセットは行わない） */
+/* sticky で常に画面上部に表示。hero画像には重ねず、hero側はヘッダーの下から始まる */
 /* 高さは固定せず、中身（nav-brand / nav-item のpadding）で自然に決まる（デモ準拠） */
 /* 半透明+blurは廃止：hero画像（写真/イラスト）によって透け方が変わりページごとに色が
    バラついて見えるため、常に同じ色に見える不透明ネイビー固定に変更した */
 .site-header {
-  position: fixed;
+  position: sticky;
   inset-block-start: 0;
   inset-inline: 0;
   z-index: 100;
@@ -98,10 +104,22 @@ img {
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding-block: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.nav-brand-logo {
+  height: 45px;
+  width: auto;
+  max-width: none;
+  min-width: 17mm;
+  flex-shrink: 0;
 }
 .nav-brand-ja {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -125,7 +143,8 @@ img {
 .nav-item {
   display: block;
   padding: 15px 11px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--color-text-muted-navy);
   letter-spacing: 0.05em;
   border-bottom: 2px solid transparent;
@@ -154,6 +173,17 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
 }
+/* リンク化に伴い、a:hoverの下線がバッジ形状を崩さないよう明示的に上書きする（nav-itemのhoverと揃える） */
+.nav-lang:hover,
+.nav-lang:focus-visible {
+  color: #fff;
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+.nav-lang:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
 
 .nav-toggle {
   display: none;
@@ -162,6 +192,7 @@ img {
   gap: 5px;
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   background: none;
   border: none;
   padding: 0;
@@ -186,12 +217,9 @@ img {
 
 /* SP: ハンバーガーで開閉（JSは開閉のみ・最小限） */
 @media (max-width: 1023px) {
-  .nav-brand-en {
-    display: none;
-  }
   .nav-links {
     display: none;
-    /* .site-header が position:fixed のため、topは高さを数値で知らなくても100%で追従する */
+    /* .site-header が position:sticky のため、topは高さを数値で知らなくても100%で追従する */
     position: absolute;
     top: 100%;
     right: 0;
@@ -222,6 +250,17 @@ img {
   }
   .nav-toggle {
     display: flex;
+  }
+}
+/* 500px未満は英語表記を非表示にし、ロゴ＋日本語タイトルを縦積みに切替（staff.cssと同じ基準） */
+@media (max-width: 499px) {
+  .nav-brand-en {
+    display: none;
+  }
+  .nav-brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
   }
 }
 @media (min-width: 1024px) {
@@ -438,6 +477,44 @@ img {
 @media (min-width: 1024px) {
   .cta-block {
     padding: 56px 48px;
+  }
+}
+
+/* === lang-notice（英語ページ共通・準備中プレースホルダー） ================= */
+/* index-en/research-en/staff-en/corporate-en/education-en/clinical-en/contact-en
+   の7ページで使用。content-panel > content-wrap の内側に置く（他のsect-*と同じ入れ子）。 */
+.lang-notice {
+  max-width: 640px;
+  margin-inline: auto;
+  padding-block: 24px;
+  text-align: center;
+}
+.lang-notice__label {
+  margin-bottom: 12px;
+  font-family: var(--font-condensed);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
+}
+.lang-notice__title {
+  margin-bottom: 16px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.lang-notice__body {
+  margin-bottom: 28px;
+  color: var(--color-secondary);
+  line-height: 1.9;
+}
+
+@media (min-width: 1024px) {
+  .lang-notice {
+    padding-block: 40px;
+  }
+  .lang-notice__title {
+    font-size: 1.75rem;
   }
 }
 

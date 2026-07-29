@@ -184,3 +184,9 @@
     border-left: 11px solid var(--color-accent);
   }
 }
+
+/* === EN版（corporate-en.html）専用の装飾 ====================================
+   corporate-en.html もこのファイルを読み込む（JA/ENでページ内容が近いため1ファイルに統合）。
+   追加する場合は必ず `.pg-corporate-en` から書き始め、`.pg-corporate` のルールと混ざらないようにすること。
+   例: .pg-corporate-en .sect-xxx { ... }
+   現時点は common.css の共通パーツのみで構成されているため未使用。 */

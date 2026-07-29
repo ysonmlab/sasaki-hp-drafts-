@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clinical Practice – Dept. of Laboratory Medicine – Science Tokyo</title>
-  <meta name="description" content="The English version of this Clinical Practice page is currently in preparation. Please see the Japanese page for full details.">
+  <meta name="description" content="Clinical laboratory services provided by the Department of Laboratory Medicine in partnership with the Clinical Laboratory of Institute of Science Tokyo Hospital.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/img/favicon.ico">
   <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/clinical.css">
 </head>
-<body class="pg-clinical-en">
+<body class="pg-clinical pg-clinical-en">
 
   <!-- 全ページ共通ヘッダー（common.css） -->
   <header class="site-header">
@@ -45,7 +45,7 @@
 
   <main>
 
-    <!-- page-hero（bleed + board・共通パーツ） -->
+    <!-- page-hero（bleed + board・共通パーツ／標準仕様どおりオーバーレイあり） -->
     <section class="page-hero">
       <img class="page-hero__img" src="assets/img/clinical-hero_bg1.png" alt="" loading="lazy">
       <div class="page-hero__inner">
@@ -57,22 +57,31 @@
     <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
     <div class="sect-accent-bar" aria-hidden="true"></div>
 
-    <!-- content-panel（共通パーツ：背景色+上下padding） -->
+    <!-- content-panel（共通パーツ：背景色+上下padding）。本ページは1つのみ使用・cta-blockは使用しない -->
     <div class="content-panel">
       <div class="content-wrap">
 
-        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
-        <section class="lang-notice">
-          <p class="lang-notice__label">Coming Soon</p>
-          <h2 class="lang-notice__title">English content is coming soon</h2>
-          <p class="lang-notice__body">
-            We are currently preparing the English version of this page.<br>
-            Please refer to the Japanese page for full details in the meantime.
+        <!-- lab（rack：SP/PC共通1カラム。案内ボックスの枠なし・アウトラインボタンのみ） -->
+        <section class="sect-clinical-lab">
+          <h2 class="section-head">
+            <span class="section-title-en">Clinical Laboratory</span>
+          </h2>
+          <p class="sect-clinical-lab__lead">
+            The Department of Laboratory Medicine works closely with the Clinical Laboratory of Institute of Science Tokyo Hospital to provide the clinical testing essential for diagnosing and treating patients. Across a broad range of testing areas — including hematology, biochemistry, immunology, and microbiology — we are committed to delivering highly accurate testing and advancing the field of laboratory medicine.
           </p>
-          <a href="clinical.html" class="btn">View this page in Japanese</a>
+          <p class="sect-clinical-lab__note">For more information on clinical testing and patient services, please see the link below.</p>
+          <a href="https://www.tmd.ac.jp/med/mlah/" target="_blank" rel="noopener noreferrer" class="link-outline">
+            Institute of Science Tokyo Hospital — Clinical Laboratory
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
         </section>
 
       </div>
+    </div>
+
+    <!-- clinical-photo（department・bleed：画面幅いっぱい。content-wrapの外・コンテンツ幅に収めない） -->
+    <div class="clinical-photo">
+      <img src="assets/img/clinical-photo_pht1.jpg" alt="Clinical Laboratory staff group photo" loading="lazy">
     </div>
 
   </main>

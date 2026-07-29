@@ -115,7 +115,8 @@
 }
 
 /* === EN版（contact-en.html）専用の装飾 ======================================
-   contact-en.html もこのファイルを読み込む（JA/ENでページ内容が近いため1ファイルに統合）。
-   追加する場合は必ず `.pg-contact-en` から書き始め、`.pg-contact` のルールと混ざらないようにすること。
-   例: .pg-contact-en .sect-xxx { ... }
-   現時点は common.css の共通パーツのみで構成されているため未使用。 */
+   contact-en.html は body に `.pg-contact` と `.pg-contact-en` の両方を持つため、
+   上記の `.pg-contact` ルールがそのまま適用される（レイアウト・余白等はJA版と共通）。
+   英語コンテンツだけに必要な微調整（英文が長くなる場合の line-height / max-width 等）
+   がある場合のみ、ここに `.pg-contact-en .sect-xxx { ... }` として追記する。
+   現時点は調整不要のため未使用。 */

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us – Dept. of Laboratory Medicine – Science Tokyo</title>
-  <meta name="description" content="The English version of this Contact page is currently in preparation. Please see the Japanese page for full details.">
+  <meta name="description" content="Contact information and access map for the Department of Laboratory Medicine, Institute of Science Tokyo.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/img/favicon.ico">
   <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/contact.css">
 </head>
-<body class="pg-contact-en">
+<body class="pg-contact pg-contact-en">
 
   <!-- 全ページ共通ヘッダー（common.css） -->
   <header class="site-header">
@@ -45,7 +45,7 @@
 
   <main>
 
-    <!-- page-hero（bleed + board・共通パーツ） -->
+    <!-- page-hero（bleed + board・共通パーツ／標準仕様どおりオーバーレイあり） -->
     <section class="page-hero">
       <img class="page-hero__img" src="assets/img/contact-hero_bg1.png" alt="" loading="lazy">
       <div class="page-hero__inner">
@@ -57,19 +57,55 @@
     <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
     <div class="sect-accent-bar" aria-hidden="true"></div>
 
-    <!-- content-panel（共通パーツ：背景色+上下padding） -->
+    <!-- content-panel（共通パーツ：標準／連絡先）。本ページ自体が問い合わせ先のためcta-blockは使用しない -->
     <div class="content-panel">
       <div class="content-wrap">
 
-        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
-        <section class="lang-notice">
-          <p class="lang-notice__label">Coming Soon</p>
-          <h2 class="lang-notice__title">English content is coming soon</h2>
-          <p class="lang-notice__body">
-            We are currently preparing the English version of this page.<br>
-            Please refer to the Japanese page for full details in the meantime.
-          </p>
-          <a href="contact.html" class="btn">View this page in Japanese</a>
+        <!-- lead（rack：単一連絡先パターン） -->
+        <section class="sect-contact-lead">
+          <h2 class="section-head">
+            <span class="section-title-en">Contact</span>
+          </h2>
+          <p class="sect-contact-lead__desc">For inquiries about our research, industry-academia collaboration, graduate admissions, and more, please contact us here.</p>
+          <p class="sect-contact-lead__name">Contact: Ayako Nogami</p>
+          <a href="mailto:nogami.a.615d@m.isct.ac.jp" class="sect-contact-lead__mail">nogami.a.615d@m.isct.ac.jp</a>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- content-panel dark（共通パーツ：隣接パネルとの境目用の僅差の背景色／アクセス） -->
+    <div class="content-panel dark">
+      <div class="content-wrap">
+
+        <!-- access（chest：PC 3カラム grid（住所／地図／交通手段）／SP 1カラム縦積み・DOM順のまま） -->
+        <section class="sect-contact-access">
+          <h2 class="section-head">
+            <span class="section-title-en">Access</span>
+          </h2>
+          <div class="sect-contact-access__row">
+            <div class="sect-contact-access__top">
+              <div class="sect-contact-access__address">
+                <p class="sect-contact-access__label">ADDRESS</p>
+                <p class="sect-contact-access__name">Department of Laboratory Medicine</p>
+                <p class="sect-contact-access__body">
+                  Institute of Science Tokyo Hospital, MD Tower 10F<br>
+                  1-5-45 Yushima, Bunkyo-ku, Tokyo 113-8519<br>
+                  Japan
+                </p>
+                <a href="https://maps.google.com/?q=東京科学大学病院MDタワー 東京都文京区湯島1-5-45" target="_blank" rel="noopener noreferrer" class="sect-contact-access__map-btn">View on Google Maps →</a>
+              </div>
+              <iframe class="sect-contact-access__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9886871962503!2d139.76348819999998!3d35.70189600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c183c7a6ff1%3A0x70a99d116db0a0d4!2zTUTjgr_jg6_jg7w!5e0!3m2!1sja!2sus!4v1785010852482!5m2!1sja!2sus" title="Map of Institute of Science Tokyo Hospital MD Tower" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+            <div class="sect-contact-access__transport">
+              <p class="sect-contact-access__label">TRANSPORT</p>
+              <p class="sect-contact-access__body">
+                JR Ochanomizu Station<br>
+                Tokyo Metro Marunouchi Line, Ochanomizu Station<br>
+                Tokyo Metro Chiyoda Line, Shin-ochanomizu Station
+              </p>
+            </div>
+          </div>
         </section>
 
       </div>

@@ -9,6 +9,26 @@
     ## YYYY-MM-DD {page-name}
     - 内容
 
+## 2026-07-29 corporate-en（修正：CTAタイトルの横はみ出し）
+- 「スクロールでヘッダーが消える／幅を狭めると右に余白ができる（600px前後・不定期）」との報告を受け調査。ヘッダーのsticky挙動は実ブラウザでの再現検証（Chrome DevTools Protocolで実スクロールを再現）では問題なく、余白症状のみ再現条件を特定
+- 原因：common.cssの`.cta-block__title`は`white-space: nowrap`＋`clamp(1.125rem, calc(-0.614rem + 8.7vw), 1.625rem)`で、約412px以上の画面幅ではフォントサイズが1.625rem固定になる。JA版の短いタイトル（例:「産学連携・共同研究のご相談」）では問題にならないが、corporate-en.htmlの英訳タイトル「Inquiries About Industry-Academia Collaboration」（48文字）は1行だと非常に横長になり、コンテナ幅がその実測幅を下回る約600〜700px幅で横はみ出しが発生していた（ページ全体の横スクロールとして「右の余白」に見えていた）
+- 対策：`.pg-corporate-en .cta-block__title { white-space: normal; }`をcorporate.cssの「EN版専用の装飾」欄に追加し、このページのみ2行折り返しを許可。common.css（他ページ・JA版と共通）は無変更
+- Chrome DevTools Protocolで実際に600px幅までリサイズしてタイトルが折り返され、`document.documentElement.scrollWidth`が`window.innerWidth`を超えないことを確認。他の6ページ（JA版corporate.html含む）も同条件で横はみ出しが無いことを確認済み
+
+## 2026-07-29 index-en/research-en/staff-en/corporate-en/education-en/clinical-en/contact-en（修正：EN版CSSの重複解消）
+- 直前の対応でEN版7ページ分のページ固有CSSを`.pg-{page}`から`.pg-{page}-en`へ丸ごと複製していたが、「JA版のCSSをそのまま使い、必要な箇所だけEN用に上書きする方が二重メンテナンスにならず良いのでは」との指摘を受け方式を変更
+- 各EN版HTMLのbodyクラスを`.pg-{page}-en`単独から`.pg-{page} .pg-{page}-en`の2クラス併記に変更。これにより既存の`.pg-{page} .sect-*`ルール（JA版と共通、無変更）がそのままEN版にも適用される
+- 7つのページ固有CSS（index.css/research.css/staff.css/corporate.css/education.css/clinical.css/contact.css）から、直前の対応で複製した`.pg-{page}-en`ルール一式を削除。「EN版専用の装飾」コメントは「英語コンテンツだけの微調整（英文が長くなる場合のline-height等）が必要な場合のみここに追記する」という趣旨に書き換え（現状は追記なし・未使用）
+- Chrome headlessでPC(1440px)表示を7ページとも再確認し、CSS重複削除前後で見た目に差分がないことを確認
+
+## 2026-07-29 index-en/research-en/staff-en/corporate-en/education-en/clinical-en/contact-en（下訳追加）
+- 「準備中」プレースホルダー（lang-notice）だった英語版7ページに、日本語版の内容を英訳した下訳コンテンツを追加。DOM構造・クラス名はJA版と同一のものを再利用し、bodyクラスのみ`.pg-{page}-en`に変更
+- 各ページ固有CSS（research.css等）に、あらかじめ用意されていた「EN版専用の装飾」コメント欄の指示に従い、`.pg-{page}`ルールを`.pg-{page}-en`として複製・追加（`.pg-{page}`側は無変更）。JA版と同一レイアウトを英語コンテンツで再現する（※このCSS重複は直後の対応で解消。上の項目を参照）
+- research.htmlに既存だった`__title-en`/`__desc-en`（英語見出し・英語説明文）は、EN版では小さいサブテキストではなくメイン本文としてそのまま採用（訳質を統一するため）
+- staff/index の氏名・education の見出し英日大小関係（`.section-title-ja`が大きいセクション）など、既存のJA版CSS上書きパターンをEN版にもそのまま踏襲
+- 各ページ`<meta name="description">`を「準備中」文言から内容に即した英文へ更新
+- Chrome headlessでPC(1440px)・SP(390px)表示を7ページとも確認。トップページのヒーロー文言オーバーフロー（`sect-top-hero__title-ja`）はJA版索引ページにも存在する既存事象であり、今回の対応範囲外として変更していない
+
 ## 2026-07-26 common（修正：ヘッダーEN切り替えの配置調整）
 - 「SPでハンバーガーメニューにしたときEN表示とかぶっている」との指摘を受け対応。7ページ共通で`<span class="nav-lang">EN</span>`を`.global-nav`直下から`#navLinks`内の最後の`<li>`（`.nav-lang-item`）に移動し、SPではハンバーガー展開時のドロップダウン内に表示される構成に変更
 - 「他のメニュー項目と揃って表示されるのは分かりにくい。ページリンクではないと分かるように差別化したい」との指摘を受け、`.nav-lang`を角丸ボーダーのバッジ形状（inline-flex、border-radius:999px）に変更してnav-itemと視覚的に区別。あわせてPCで発生していた縦位置のズレ（span要素の縦paddingがボックス高さに正しく反映されていなかったのが原因）も、親`.nav-lang-item`に`display:flex; align-items:center`を設定することで解消

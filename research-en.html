@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Research – Dept. of Laboratory Medicine – Science Tokyo</title>
-  <meta name="description" content="The English version of this Research page is currently in preparation. Please see the Japanese page for full details.">
+  <meta name="description" content="Research projects at the Department of Laboratory Medicine, Institute of Science Tokyo, covering the molecular mechanisms of leukemia and lymphoma, novel drug sensitivity assays, and infectious disease typing technologies.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/img/favicon.ico">
   <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/research.css">
 </head>
-<body class="pg-research-en">
+<body class="pg-research pg-research-en">
 
   <!-- 全ページ共通ヘッダー（common.css） -->
   <header class="site-header">
@@ -45,7 +45,7 @@
 
   <main>
 
-    <!-- page-hero（bleed + board・共通パーツ） -->
+    <!-- page-hero（bleed + board・共通パーツ／research-en.htmlはオーバーレイ無し） -->
     <section class="page-hero">
       <img class="page-hero__img" src="assets/img/research-hero_bg1.jpg" alt="" loading="lazy">
       <div class="page-hero__inner">
@@ -61,18 +61,100 @@
     <div class="content-panel">
       <div class="content-wrap">
 
-        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
-        <section class="lang-notice">
-          <p class="lang-notice__label">Coming Soon</p>
-          <h2 class="lang-notice__title">English content is coming soon</h2>
-          <p class="lang-notice__body">
-            We are currently preparing the English version of this page.<br>
-            Please refer to the Japanese page for full details in the meantime.
+        <!-- lead（rack：リード文のみ） -->
+        <section class="sect-research-lead">
+          <p class="sect-research-lead__text fade-up">
+            We are working to overcome hematologic malignancies by integrating basic, clinical, and laboratory medicine to develop new diagnostic and therapeutic approaches.
           </p>
-          <a href="research.html" class="btn">View this page in Japanese</a>
+        </section>
+
+        <!-- projects（fluid：左=タイトル+写真／右=説明文+タグ。SP縦積み／PC 2カラムgrid） -->
+        <section class="sect-research-projects">
+          <h2 class="section-head">
+            <span class="section-title-en">Research Projects</span>
+          </h2>
+          <ul class="sect-research-projects__list">
+            <li class="sect-research-projects__item fade-up" id="detail-01">
+              <div class="sect-research-projects__head">
+                <h3 class="sect-research-projects__title">Molecular Mechanisms of Leukemia and Lymphoma</h3>
+              </div>
+              <div class="sect-research-projects__body">
+                <div class="sect-research-projects__photo">
+                  <img src="assets/img/research-projects_pht1.jpg" alt="Molecular Mechanisms of Leukemia and Lymphoma" loading="lazy">
+                </div>
+                <div class="sect-research-projects__right">
+                  <div>
+                    <p class="sect-research-projects__desc">We aim to elucidate the molecular mechanisms underlying the onset and progression of hematological malignancies, with the goal of identifying novel therapeutic targets and developing new treatments. We focus particularly on aberrations in intracellular signaling pathways, including Notch signaling, and analyze the mechanisms governing tumor cell proliferation, survival, and drug resistance.</p>
+                    <ul class="sect-research-projects__tags">
+                      <li class="sect-research-projects__tag">Notch signaling</li>
+                      <li class="sect-research-projects__tag">Leukemia</li>
+                      <li class="sect-research-projects__tag">Lymphoma</li>
+                      <li class="sect-research-projects__tag">Molecular-Targeted Therapy</li>
+                      <li class="sect-research-projects__tag">Tumor Microenvironment</li>
+                      <li class="sect-research-projects__tag">Drug Resistance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="sect-research-projects__item fade-up" id="detail-02">
+              <div class="sect-research-projects__head">
+                <h3 class="sect-research-projects__title">Development of Novel In Vitro Drug Sensitivity Assays</h3>
+              </div>
+              <div class="sect-research-projects__body">
+                <div class="sect-research-projects__photo">
+                  <img src="assets/img/research-projects_pht2.jpg" alt="Development of Novel In Vitro Drug Sensitivity Assays" loading="lazy">
+                </div>
+                <div class="sect-research-projects__right">
+                  <div>
+                    <p class="sect-research-projects__desc">We are developing a drug sensitivity evaluation platform using patient-derived tumor cells to advance personalized medicine. By capturing patient-specific tumor characteristics that are difficult to reproduce in conventional cell line-based assays, we contribute to more accurate treatment selection and improved prediction of therapeutic outcomes.</p>
+                    <ul class="sect-research-projects__tags">
+                      <li class="sect-research-projects__tag">Personalized Medicine</li>
+                      <li class="sect-research-projects__tag">Drug Sensitivity Testing</li>
+                      <li class="sect-research-projects__tag">Patient-Derived Cells</li>
+                      <li class="sect-research-projects__tag">Drug Screening</li>
+                      <li class="sect-research-projects__tag">Precision Medicine</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="sect-research-projects__item sect-research-projects__item--last fade-up" id="detail-03">
+              <div class="sect-research-projects__head">
+                <h3 class="sect-research-projects__title">Infectious Disease and Pathogen Typing Technologies</h3>
+              </div>
+              <div class="sect-research-projects__body">
+                <div class="sect-research-projects__photo">
+                  <img src="assets/img/research-projects_pht3.jpg" alt="Infectious Disease and Pathogen Typing Technologies" loading="lazy">
+                </div>
+                <div class="sect-research-projects__right">
+                  <div>
+                    <p class="sect-research-projects__desc">We are working on genotyping of pathogens including SARS-CoV-2 and the development of rapid diagnostic methods. Leveraging next-generation sequencing (NGS) and various gene analysis technologies, we advance the understanding of infectious disease dynamics, surveillance of emerging variants, and clinical application of novel diagnostic tools.</p>
+                    <ul class="sect-research-projects__tags">
+                      <li class="sect-research-projects__tag">SARS-CoV-2</li>
+                      <li class="sect-research-projects__tag">Genetic Typing</li>
+                      <li class="sect-research-projects__tag">Next-Generation Sequencing</li>
+                      <li class="sect-research-projects__tag">Rapid Diagnosis</li>
+                      <li class="sect-research-projects__tag">Genomic Epidemiology</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </section>
 
       </div>
+    </div>
+
+    <!-- cta-block（共通パーツ・文言はresearch固有） -->
+    <div class="cta-block">
+      <p class="cta-block__label">SUPPORT US</p>
+      <h2 class="cta-block__title">Support Our Research</h2>
+      <p class="cta-block__body">Our research and education activities are supported by the generosity of our donors.<br>We would greatly appreciate your support in advancing research toward overcoming hematologic malignancies.</p>
+      <a href="contact-en.html" class="cta-block__btn">Inquiries About Donations</a>
     </div>
 
   </main>
@@ -88,5 +170,6 @@
 
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/fade-up.js"></script>
 </body>
 </html>

@@ -186,7 +186,16 @@
 }
 
 /* === EN版（corporate-en.html）専用の装飾 ====================================
-   corporate-en.html もこのファイルを読み込む（JA/ENでページ内容が近いため1ファイルに統合）。
-   追加する場合は必ず `.pg-corporate-en` から書き始め、`.pg-corporate` のルールと混ざらないようにすること。
-   例: .pg-corporate-en .sect-xxx { ... }
-   現時点は common.css の共通パーツのみで構成されているため未使用。 */
+   corporate-en.html は body に `.pg-corporate` と `.pg-corporate-en` の両方を持つため、
+   上記の `.pg-corporate` ルールがそのまま適用される（レイアウト・余白等はJA版と共通）。
+   英語コンテンツだけに必要な微調整（英文が長くなる場合の line-height / max-width 等）
+   がある場合のみ、ここに `.pg-corporate-en .sect-xxx { ... }` として追記する。 */
+
+/* cta-block__title（common.css）はJA版の短いタイトルを前提に white-space: nowrap
+   固定＋フォントサイズ clamp（約412px以上では1.625remで頭打ち）になっており、
+   英訳タイトル「Inquiries About Industry-Academia Collaboration」のように長い文字列だと
+   コンテナ幅を超えて横はみ出しする（600〜700px幅あたりで顕在化）。
+   このページのみ折り返しを許可して回避する（common.css・JA版・他EN版は無変更）。 */
+.pg-corporate-en .cta-block__title {
+  white-space: normal;
+}

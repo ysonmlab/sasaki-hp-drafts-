@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Staff – Dept. of Laboratory Medicine – Science Tokyo</title>
-  <meta name="description" content="The English version of this Staff page is currently in preparation. Please see the Japanese page for full details.">
+  <meta name="description" content="Meet the faculty and members of the Department of Laboratory Medicine, Institute of Science Tokyo, led by Professor Koji Sasaki.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/img/favicon.ico">
   <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/staff.css">
 </head>
-<body class="pg-staff-en">
+<body class="pg-staff pg-staff-en">
 
   <!-- 全ページ共通ヘッダー（common.css） -->
   <header class="site-header">
@@ -45,7 +45,7 @@
 
   <main>
 
-    <!-- page-hero（bleed + board・共通パーツ） -->
+    <!-- page-hero（bleed + board・共通パーツ／staff-en.htmlは標準仕様どおりオーバーレイあり） -->
     <section class="page-hero">
       <img class="page-hero__img" src="assets/img/staff-hero_bg1.png" alt="" loading="lazy">
       <div class="page-hero__inner">
@@ -57,19 +57,106 @@
     <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
     <div class="sect-accent-bar" aria-hidden="true"></div>
 
-    <!-- content-panel（共通パーツ：背景色+上下padding） -->
+    <!-- content-panel（共通パーツ：背景色+上下padding）。profile/membersの間隔だけstaff.css側で上書きする -->
     <div class="content-panel">
       <div class="content-wrap">
 
-        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
-        <section class="lang-notice">
-          <p class="lang-notice__label">Coming Soon</p>
-          <h2 class="lang-notice__title">English content is coming soon</h2>
-          <p class="lang-notice__body">
-            We are currently preparing the English version of this page.<br>
-            Please refer to the Japanese page for full details in the meantime.
-          </p>
-          <a href="staff.html" class="btn">View this page in Japanese</a>
+        <!-- profile（fluid：SP縦積み／PC 写真40%+テキスト60%） -->
+        <section class="sect-staff-profile">
+          <h2 class="section-head">
+            <span class="section-title-en">Principal Investigator</span>
+            <span class="section-title-ja">Professor &amp; Lab Director</span>
+          </h2>
+          <div class="sect-staff-profile__layout">
+            <div class="sect-staff-profile__photo">
+              <img src="assets/img/common_pht1.jpg" alt="Koji Sasaki" loading="lazy">
+            </div>
+            <div class="sect-staff-profile__text">
+              <p class="sect-staff-profile__name">
+                <span class="sect-staff-profile__name-en">Koji Sasaki, MD, PhD</span>
+              </p>
+              <p class="sect-staff-profile__affiliation">Professor, Department of Laboratory Medicine / Faculty of Medicine, Institute of Science Tokyo</p>
+              <p class="sect-staff-profile__bio">
+                I am committed to overcoming hematologic malignancies, working at the intersection of clinical practice and research.<br><br>
+                After graduating from Tokyo Medical and Dental University, I completed my residency in hematology at the same institution before moving to the United States. Following an internal medicine residency in New York, I undertook specialized fellowship training in leukemia, hematopoietic stem cell transplantation and cellular therapy, and hematologic oncology at MD Anderson Cancer Center beginning in 2013, and have served on the faculty of the Department of Leukemia since 2017, engaged in both clinical care and research.<br>
+                Hematologic malignancies are among the fields where our understanding of disease mechanisms and the development of new treatments have advanced the furthest. Recent progress in molecular-targeted therapies and cellular therapies has brought new hope to many patients. By deepening our understanding of the pathobiology of leukemia and lymphoma and translating that knowledge into new treatments, I hope to help pave the way toward overcoming cancer.<br>
+                I look forward to working together with like-minded colleagues across research, education, and clinical practice to help realize better healthcare for all.
+              </p>
+              <a href="https://researchmap.jp/KSasaki_ResearchMap" target="_blank" rel="noopener noreferrer" class="sect-staff-profile__link">Research Publications (researchmap) →</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- members（rack：役職グループを縦に並べる。各グループ内はfluidカード） -->
+        <section class="sect-staff-members">
+          <h2 class="section-head">
+            <span class="section-title-en">Members</span>
+          </h2>
+
+          <div class="sect-staff-members__group">
+            <p class="sect-staff-members__group-label">ASSOCIATE PROFESSOR</p>
+            <div class="sect-staff-members__card">
+              <div class="sect-staff-members__photo">
+                <img src="assets/img/staff-members_pht1.jpg" alt="Ayako Nogami" loading="lazy">
+              </div>
+              <div class="sect-staff-members__text">
+                <div>
+                  <p class="sect-staff-members__name">
+                    <span class="sect-staff-members__name-en">Ayako Nogami, MD, PhD</span>
+                  </p>
+                  <p class="sect-staff-members__affiliation">Associate Professor, Department of Laboratory Medicine</p>
+                </div>
+                <div class="sect-staff-members__links">
+                  <a href="https://www.tmd.ac.jp/employment/clerical-work/20260519/" target="_blank" rel="noopener noreferrer" class="sect-staff-members__link">Research Support Staff Recruitment →</a>
+                  <a href="https://researchmap.jp/7000025998" target="_blank" rel="noopener noreferrer" class="sect-staff-members__link">Research Publications (researchmap) →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sect-staff-members__group">
+            <p class="sect-staff-members__group-label">LECTURER</p>
+            <div class="sect-staff-members__card">
+              <div class="sect-staff-members__photo">
+                <img src="assets/img/staff-members_pht2.jpg" alt="Tadashi Kanouchi" loading="lazy">
+              </div>
+              <div class="sect-staff-members__text">
+                <div>
+                  <p class="sect-staff-members__name">
+                    <span class="sect-staff-members__name-en">Tadashi Kanouchi, MD, PhD</span>
+                  </p>
+                  <p class="sect-staff-members__affiliation">Lecturer, Department of Laboratory Medicine</p>
+                </div>
+                <div class="sect-staff-members__links">
+                  <a href="https://researchmap.jp/read0099089" target="_blank" rel="noopener noreferrer" class="sect-staff-members__link">Research Publications (researchmap) →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sect-staff-members__group">
+            <p class="sect-staff-members__group-label">ASSISTANT PROFESSOR</p>
+            <div class="sect-staff-members__card">
+              <div class="sect-staff-members__photo">
+                <img src="assets/img/staff-members_pht3.jpg" alt="Satoru Watanabe" loading="lazy">
+              </div>
+              <div class="sect-staff-members__text">
+                <div>
+                  <p class="sect-staff-members__name">
+                    <span class="sect-staff-members__name-en">Satoru Watanabe, PhD</span>
+                  </p>
+                  <p class="sect-staff-members__affiliation">Assistant Professor, Department of Laboratory Medicine</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </section>
 
       </div>

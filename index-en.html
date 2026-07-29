@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laboratory Medicine – Science Tokyo</title>
-  <meta name="description" content="The English version of the Laboratory Medicine (Science Tokyo) website is currently in preparation. Please see the Japanese site for full details.">
+  <meta name="description" content="Department of Laboratory Medicine, Institute of Science Tokyo — clinical and research information on hematologic malignancies, diagnostics, and translational medicine led by Professor Koji Sasaki.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/img/favicon.ico">
   <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/index.css">
 </head>
-<body class="pg-index-en">
+<body class="pg-index pg-index-en">
 
   <!-- 全ページ共通ヘッダー（common.css） -->
   <header class="site-header">
@@ -45,34 +45,147 @@
 
   <main>
 
-    <!-- page-hero（共通パーツ・index-enのみヒーロー画像なし＝紺色フォールバック背景を利用） -->
-    <section class="page-hero">
-      <div class="page-hero__inner">
-        <p class="page-hero__eyebrow">Science Tokyo</p>
-        <h1 class="page-hero__title">Laboratory Medicine</h1>
+    <!-- hero（bleed + board） -->
+    <section class="sect-top-hero">
+      <div class="container sect-top-hero__inner">
+        <p class="sect-top-hero__eyebrow">Science Tokyo</p>
+        <h1 class="sect-top-hero__title">Laboratory Medicine</h1>
+        <p class="sect-top-hero__title-ja">Advancing the Frontiers of Hematologic Cancer Research</p>
+        <p class="sect-top-hero__desc">Decoding blood cancers. Developing tomorrow's therapies.<br>Advancing the future of cancer care.</p>
       </div>
     </section>
 
-    <!-- 装飾バー（ゴールド＋ネイビー・共通パーツ） -->
+    <!-- 装飾バー（ゴールド＋ネイビー） -->
     <div class="sect-accent-bar" aria-hidden="true"></div>
 
-    <!-- content-panel（共通パーツ：背景色+上下padding） -->
-    <div class="content-panel">
-      <div class="content-wrap">
-
-        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
-        <section class="lang-notice">
-          <p class="lang-notice__label">Coming Soon</p>
-          <h2 class="lang-notice__title">English content is coming soon</h2>
-          <p class="lang-notice__body">
-            We are currently preparing the English version of this page.<br>
-            Please refer to the Japanese page for full details in the meantime.
-          </p>
-          <a href="index.html" class="btn">View this page in Japanese</a>
-        </section>
-
+    <!-- profile（fluid：SP縦積み／PC grid） -->
+    <section class="sect-top-profile">
+      <div class="container">
+        <div class="sect-top-profile__inner fade-up">
+          <div class="sect-top-profile__media">
+            <img src="assets/img/common_pht1.jpg" alt="Koji Sasaki" loading="lazy" width="500" height="750">
+          </div>
+          <div class="sect-top-profile__body">
+            <p class="sect-top-profile__label">PROFESSOR</p>
+            <h2 class="sect-top-profile__name">
+              Koji Sasaki, MD, PhD
+            </h2>
+            <p class="sect-top-profile__affiliation">Professor, Department of Laboratory Medicine / Faculty of Medicine, Institute of Science Tokyo</p>
+            <div class="sect-top-profile__divider" aria-hidden="true"></div>
+            <div class="sect-top-profile__quote">
+              <p>
+                I am committed to overcoming hematologic malignancies, working at the intersection of clinical practice and research.<br><br>
+                After graduating from Tokyo Medical and Dental University, I completed my residency in hematology at the same institution before moving to the United States. Following an internal medicine residency in New York, I undertook specialized fellowship training in leukemia, hematopoietic stem cell transplantation and cellular therapy, and hematologic oncology at MD Anderson Cancer Center beginning in 2013, and have served on the faculty of the Department of Leukemia since 2017, engaged in both clinical care and research.
+              </p>
+              <!-- SP専用：折りたたみ表示（続きを読む）。PC専用の.sect-top-profile__quote-restと文面を揃えること -->
+              <details class="sect-top-profile__more">
+                <summary>
+                  <span class="sect-top-profile__more-open">Read more →</span>
+                  <span class="sect-top-profile__more-close">Close ↑</span>
+                </summary>
+                <p>
+                  Hematologic malignancies are among the fields where our understanding of disease mechanisms and the development of new treatments have advanced the furthest. Recent progress in molecular-targeted therapies and cellular therapies has brought new hope to many patients. By deepening our understanding of the pathobiology of leukemia and lymphoma and translating that knowledge into new treatments, I hope to help pave the way toward overcoming cancer.<br>
+                  Cancer research and care have advanced through the dedication of countless researchers and clinicians. Building on that legacy, we hope to carry new discoveries forward for the benefit of our patients' futures.<br>
+                  I look forward to working together with like-minded colleagues across research, education, and clinical practice to help realize better healthcare for all.
+                </p>
+              </details>
+              <!-- PC専用：常時表示。SP専用の.sect-top-profile__more内の文面と揃えること -->
+              <p class="sect-top-profile__quote-rest">
+                Hematologic malignancies are among the fields where our understanding of disease mechanisms and the development of new treatments have advanced the furthest. Recent progress in molecular-targeted therapies and cellular therapies has brought new hope to many patients. By deepening our understanding of the pathobiology of leukemia and lymphoma and translating that knowledge into new treatments, I hope to help pave the way toward overcoming cancer.<br>
+                Cancer research and care have advanced through the dedication of countless researchers and clinicians. Building on that legacy, we hope to carry new discoveries forward for the benefit of our patients' futures.<br>
+                I look forward to working together with like-minded colleagues across research, education, and clinical practice to help realize better healthcare for all.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- divider-1（装飾帯・department） -->
+    <div class="sect-top-divider-1" aria-hidden="true"></div>
+
+    <!-- research（tile） -->
+    <section class="sect-top-research">
+      <div class="container">
+        <h2 class="section-head fade-up">
+          <span class="section-title-en">Research</span>
+          <span class="section-title-ja">Key Research Themes</span>
+        </h2>
+      </div>
+      <!-- carousel はcontainerの外（bleed：画面幅いっぱい。clinical.cssの.clinical-photoと同じ手法） -->
+      <div class="sect-top-research__carousel">
+        <button type="button" class="sect-top-research__nav sect-top-research__nav--prev" aria-label="Previous research theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <ul class="sect-top-research__list" id="researchCarouselList">
+          <li class="sect-top-research__card fade-up">
+            <div class="sect-top-research__head">
+              <span class="sect-top-research__num">01</span>
+              <img src="assets/img/top-research_pic1.png" alt="" loading="lazy" width="1376" height="694" class="sect-top-research__pic">
+            </div>
+            <h3 class="sect-top-research__title"><a href="research-en.html#detail-01" class="sect-top-research__link">Molecular Mechanisms of Leukemia and Lymphoma</a></h3>
+            <p class="sect-top-research__body">Exploring the molecular mechanisms of hematologic malignancies and novel therapies targeting pathways such as Notch signaling</p>
+          </li>
+          <li class="sect-top-research__card fade-up">
+            <div class="sect-top-research__head">
+              <span class="sect-top-research__num">02</span>
+              <img src="assets/img/top-research_pic2.png" alt="" loading="lazy" width="1376" height="694" class="sect-top-research__pic">
+            </div>
+            <h3 class="sect-top-research__title"><a href="research-en.html#detail-02" class="sect-top-research__link">Development of Novel In Vitro Drug Sensitivity Assays</a></h3>
+            <p class="sect-top-research__body">A drug sensitivity evaluation platform using patient-derived tumor cells to advance personalized medicine</p>
+          </li>
+          <li class="sect-top-research__card fade-up">
+            <div class="sect-top-research__head">
+              <span class="sect-top-research__num">03</span>
+              <img src="assets/img/top-research_pic3.png" alt="" loading="lazy" width="1376" height="694" class="sect-top-research__pic">
+            </div>
+            <h3 class="sect-top-research__title"><a href="research-en.html#detail-03" class="sect-top-research__link">Infectious Disease and Pathogen Typing Technologies</a></h3>
+            <p class="sect-top-research__body">Genotyping of pathogens such as SARS-CoV-2 and the development and clinical application of rapid diagnostic methods</p>
+          </li>
+        </ul>
+        <button type="button" class="sect-top-research__nav sect-top-research__nav--next" aria-label="Next research theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- divider-2（装飾帯・department） -->
+    <div class="sect-top-divider-2" aria-hidden="true"></div>
+
+    <!-- news（rack） -->
+    <section class="sect-top-news">
+      <div class="container">
+        <h2 class="section-head fade-up">
+          <span class="section-title-en">News</span>
+          <span class="section-title-ja">Latest Updates</span>
+        </h2>
+        <ul class="sect-top-news__list">
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.05</span>
+            <span class="sect-top-news__tag sect-top-news__tag--pub">Publication</span>
+            <span class="sect-top-news__title">Published a paper in an international journal on the inhibitory effects of a Notch ligand antibody on leukemia cell proliferation</span>
+          </li>
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.04</span>
+            <span class="sect-top-news__tag">News</span>
+            <span class="sect-top-news__title">Began recruiting graduate students and research fellows for the 2024 academic year. Please see the Japanese page for details</span>
+          </li>
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.03</span>
+            <span class="sect-top-news__tag sect-top-news__tag--pub">Publication</span>
+            <span class="sect-top-news__title">A paper on a new genotyping method for SARS-CoV-2 variants was published</span>
+          </li>
+          <li class="sect-top-news__item fade-up">
+            <span class="sect-top-news__date">2024.01</span>
+            <span class="sect-top-news__tag">Conference</span>
+            <span class="sect-top-news__title">Gave an oral presentation at the Annual Meeting of the Japanese Society of Laboratory Medicine</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- divider-3（装飾帯・department） -->
+    <div class="sect-top-divider-3" aria-hidden="true"></div>
 
   </main>
 
@@ -87,5 +200,7 @@
 
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/fade-up.js"></script>
+  <script src="assets/js/research-carousel.js"></script>
 </body>
 </html>

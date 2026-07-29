@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Us! – Dept. of Laboratory Medicine – Science Tokyo</title>
-  <meta name="description" content="The English version of this Education page is currently in preparation. Please see the Japanese page for full details.">
+  <meta name="description" content="Graduate school admissions, undergraduate opportunities, and educational philosophy at the Department of Laboratory Medicine, Institute of Science Tokyo.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="assets/img/favicon.ico">
   <!-- CSS 読み込み順：reset → common → ページ固有（相対パス・docs/css-architecture.md） -->
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/education.css">
 </head>
-<body class="pg-education-en">
+<body class="pg-education pg-education-en">
 
   <!-- 全ページ共通ヘッダー（common.css） -->
   <header class="site-header">
@@ -61,18 +61,125 @@
     <div class="content-panel">
       <div class="content-wrap">
 
-        <!-- lang-notice（共通パーツ・英語ページ7枚共通の「準備中」案内） -->
-        <section class="lang-notice">
-          <p class="lang-notice__label">Coming Soon</p>
-          <h2 class="lang-notice__title">English content is coming soon</h2>
-          <p class="lang-notice__body">
-            We are currently preparing the English version of this page.<br>
-            Please refer to the Japanese page for full details in the meantime.
+        <!-- lead（rack：リード文のみ） -->
+        <section class="sect-education-lead">
+          <p class="sect-education-lead__text">
+            Join us in pushing forward the frontiers of hematologic oncology, infectious disease, and laboratory medicine. The Department of Laboratory Medicine welcomes students and researchers from diverse backgrounds through several graduate programs at the Institute of Science Tokyo. In a research environment spanning basic science to clinical application, we cultivate the next generation of researchers and clinicians.
           </p>
-          <a href="education.html" class="btn">View this page in Japanese</a>
+        </section>
+
+        <!-- undergrad（rack + chest：学部生向け） -->
+        <section class="sect-education-undergrad">
+          <h2 class="section-head">
+            <span class="section-title-ja">For Undergraduate Students</span>
+          </h2>
+          <p class="sect-education-undergrad__lead">We accept inquiries for senior thesis research, off-campus internships, and lab tours on a rolling basis.<br>If you are an undergraduate interested in research on hematologic malignancies or laboratory medicine, please feel free to contact us.</p>
+          <div class="sect-education-undergrad__box">
+            <p class="sect-education-undergrad__dept">DEPT.</p>
+            <p class="sect-education-undergrad__title">School of Medicine, Institute of Science Tokyo</p>
+            <p class="sect-education-undergrad__body">Medical students may join our department for laboratory placement or senior thesis research. We also support balancing this work with clinical clerkships. Medical students interested in research are encouraged to contact the relevant faculty member.</p>
+            <a href="https://www.med.tmd.ac.jp/" target="_blank" rel="noopener noreferrer" class="sect-education-undergrad__link">Institute of Science Tokyo School of Medicine — Official Site</a>
+          </div>
         </section>
 
       </div>
+    </div>
+
+    <!-- content-panel dark（共通パーツ：隣接パネルとの境目用の僅差の背景色） -->
+    <div class="content-panel dark">
+      <div class="content-wrap">
+
+        <!-- admission（tile：PC 2カラム／SP 1カラム） -->
+        <section class="sect-education-admission">
+          <h2 class="section-head">
+            <span class="section-title-ja">Graduate School Admission</span>
+          </h2>
+          <p class="sect-education-admission__lead">Prospective students can join our laboratory through the following graduate programs.<br>Please check each program's official website for application requirements and selection procedures.</p>
+          <ul class="sect-education-admission__list">
+            <li class="sect-education-admission__card">
+              <span class="sect-education-admission__badge">Master's Program</span>
+              <p class="sect-education-admission__title">Institute of Science Tokyo Graduate School<br>School of Medicine (Master's)</p>
+              <p class="sect-education-admission__body">This is the graduate school to which the Department of Laboratory Medicine belongs. It trains highly specialized professionals in medicine, dentistry, and the life sciences, and also accommodates working-professional and transfer admissions.</p>
+              <a href="https://www.tmd.ac.jp/faculties/graduate_school/master/" class="sect-education-admission__link" target="_blank" rel="noopener">Master's Program — Medical, Dental, and Health Sciences</a>
+            </li>
+            <li class="sect-education-admission__card">
+              <span class="sect-education-admission__badge">Doctoral Program</span>
+              <p class="sect-education-admission__title">Institute of Science Tokyo Graduate School<br>School of Medicine (Doctoral)</p>
+              <p class="sect-education-admission__body">This doctoral program advances research spanning both basic and clinical medicine. Students can conduct research leveraging networks with academic and medical institutions in Japan and abroad.</p>
+              <a href="https://www.tmd.ac.jp/faculties/graduate_school/medicine_and_dentistry/" class="sect-education-admission__link" target="_blank" rel="noopener">Doctoral Program in Medical and Dental Sciences</a>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- content-panel（共通パーツ：背景色+上下padding） -->
+    <div class="content-panel">
+      <div class="content-wrap">
+
+        <!-- policy（tile：PC 3カラム／SP 1カラム） -->
+        <section class="sect-education-policy">
+          <h2 class="section-head">
+            <span class="section-title-ja">Our Educational Philosophy</span>
+          </h2>
+          <p class="sect-education-policy__lead">Our laboratory aims to cultivate independent researchers and clinicians, with education centered on the following three priorities.</p>
+          <ul class="sect-education-policy__list">
+            <li class="sect-education-policy__item">
+              <p class="sect-education-policy__num">01</p>
+              <p class="sect-education-policy__title">Independent Research Skills</p>
+              <p class="sect-education-policy__body">We foster the ability to set your own research themes, form hypotheses, and test them. Weekly meetings and one-on-one mentoring provide careful support in developing your research.</p>
+            </li>
+            <li class="sect-education-policy__item">
+              <p class="sect-education-policy__num">02</p>
+              <p class="sect-education-policy__title">Global Communication Skills</p>
+              <p class="sect-education-policy__body">We actively support presentations at domestic and international conferences and the writing of English-language papers. Our international collaboration with MD Anderson Cancer Center allows students to build a global research network.</p>
+            </li>
+            <li class="sect-education-policy__item">
+              <p class="sect-education-policy__num">03</p>
+              <p class="sect-education-policy__title">Bridging Clinical Practice and Research</p>
+              <p class="sect-education-policy__body">From the perspective of laboratory medicine, we pursue research themes directly connected to patient care, advancing translational research that bridges basic science and clinical practice.</p>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- content-panel dark（共通パーツ：policyとの境目を分けるため別パネルにする） -->
+    <div class="content-panel dark">
+      <div class="content-wrap">
+
+        <!-- faq（rack：常時全文表示） -->
+        <section class="sect-education-faq">
+          <h2 class="section-head">
+            <span class="section-title-en">FAQ</span>
+          </h2>
+          <dl class="sect-education-faq__list">
+            <div class="sect-education-faq__item">
+              <dt class="sect-education-faq__q"><span class="sect-education-faq__mark" aria-hidden="true">Q</span><span>Can I join if I did not study medicine as an undergraduate?</span></dt>
+              <dd class="sect-education-faq__a"><span class="sect-education-faq__mark" aria-hidden="true">A</span><span>Yes, we welcome you. Our students come from a variety of backgrounds, including science, pharmacy, engineering, and the life sciences. Enthusiasm for research matters most.</span></dd>
+            </div>
+            <div class="sect-education-faq__item">
+              <dt class="sect-education-faq__q"><span class="sect-education-faq__mark" aria-hidden="true">Q</span><span>Can I visit the laboratory?</span></dt>
+              <dd class="sect-education-faq__a"><span class="sect-education-faq__mark" aria-hidden="true">A</span><span>Yes, we accept visits at any time. Please contact us by email first, and we will explain the laboratory atmosphere and our current research themes.</span></dd>
+            </div>
+            <div class="sect-education-faq__item">
+              <dt class="sect-education-faq__q"><span class="sect-education-faq__mark" aria-hidden="true">Q</span><span>Is support available for scholarships or fellowships?</span></dt>
+              <dd class="sect-education-faq__a"><span class="sect-education-faq__mark" aria-hidden="true">A</span><span>We actively support applications for JSPS Research Fellowships and various scholarships. Please contact us individually for details.</span></dd>
+            </div>
+          </dl>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- cta-block（共通パーツ・文言はeducation固有） -->
+    <div class="cta-block">
+      <p class="cta-block__label">GET IN TOUCH</p>
+      <h2 class="cta-block__title">Feel Free to Get in Touch</h2>
+      <p class="cta-block__body">Whether it's a lab visit, graduate admission, or a postdoc application,<br>we welcome inquiries of any kind.</p>
+      <a href="contact-en.html" class="cta-block__btn">Contact Us</a>
     </div>
 
   </main>

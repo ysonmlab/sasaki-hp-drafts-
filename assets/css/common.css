@@ -36,6 +36,12 @@
   --content-max: 1200px; /* コンテンツ最大幅 */
   --gutter: 24px;        /* 左右の余白 */
 }
+/* 500px未満は左右の余白を詰めて窮屈さを緩和（staff.cssと同じ基準） */
+@media (max-width: 499px) {
+  :root {
+    --gutter: 16px;
+  }
+}
 
 /* === 基本タイポグラフィ =================================================== */
 body {
@@ -235,15 +241,15 @@ img {
     display: flex;
   }
 }
-/* 500px未満はロゴ＋文字を縦積みに切替（staff.cssの写真+テキストと同じ基準） */
+/* 500px未満は英語表記を非表示にし、ロゴ＋日本語タイトルを縦積みに切替（staff.cssと同じ基準） */
 @media (max-width: 499px) {
+  .nav-brand-en {
+    display: none;
+  }
   .nav-brand {
     flex-direction: column;
     align-items: center;
     gap: 4px;
-  }
-  .nav-brand-text {
-    text-align: center;
   }
 }
 @media (min-width: 1024px) {

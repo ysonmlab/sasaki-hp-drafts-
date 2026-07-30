@@ -2,6 +2,10 @@
 // CSSのみのスクロール駆動アニメーション(animation-timeline:view())はブラウザ対応が不十分なため、
 // IntersectionObserverでの代替に留める。
 (function () {
+  // CSS の初期非表示は、JavaScript が実行できる環境に限る。
+  // JS 無効・取得失敗時にも本文を読めるようにするため、先に状態クラスを付与する。
+  document.documentElement.classList.add('js');
+
   const targets = document.querySelectorAll('.fade-up');
   if (!targets.length) return;
 

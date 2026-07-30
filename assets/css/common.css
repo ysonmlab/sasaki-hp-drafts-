@@ -65,6 +65,13 @@ a:hover {
   text-decoration: underline;
 }
 
+/* キーボード操作中の現在位置を、背景色を問わず分かるよう共通表示する。
+   :focus-visible はマウスクリック時には表示しないため、通常の見た目は変わらない。 */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -522,17 +529,19 @@ img {
 /* CSSのみのスクロール駆動アニメーション（animation-timeline:view()）はブラウザ対応が
    不十分で実際には動かないため不採用。assets/js/fade-up.js（IntersectionObserver、
    ハンバーガー開閉と同様にCSSで代替不可能な最小限のJS）が is-inview を付与する方式にする。 */
-.fade-up {
+/* JavaScript が無効または読み込みに失敗した場合は、内容を隠さずそのまま表示する。
+   .js は fade-up.js の実行開始時にのみ html 要素へ付与される。 */
+.js .fade-up {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
-.fade-up.is-inview {
+.js .fade-up.is-inview {
   opacity: 1;
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .fade-up {
+  .js .fade-up {
     opacity: 1;
     transform: none;
     transition: none;

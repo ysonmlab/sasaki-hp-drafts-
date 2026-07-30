@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"c:\\\\Users\\\\ysonm\\\\OneDrive\\\\Desktop\\\\sasakiHP\" diff main..feature/en-language-toggle -- clinical.html research.html staff.html corporate.html education.html contact.html)"
+    ]
+  }
+}

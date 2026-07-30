@@ -21,12 +21,71 @@
 }
 .pg-contact .sect-contact-lead__mail {
   display: inline-block;
+  max-width: 100%;
   font-size: 1rem;
   text-decoration: underline;
   text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
 .pg-contact .sect-contact-lead__mail:hover {
   color: var(--color-navy);
+}
+.pg-contact .sect-contact-lead__card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 480px;
+  padding: 15px;
+}
+.pg-contact .sect-contact-lead__icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-accent-pale);
+}
+.pg-contact .sect-contact-lead__icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-navy);
+}
+.pg-contact .sect-contact-lead__info {
+  min-width: 0;
+}
+.pg-contact .sect-contact-lead__info .sect-contact-lead__name,
+.pg-contact .sect-contact-lead__info .sect-contact-lead__mail {
+  margin-bottom: 0;
+}
+.pg-contact .sect-contact-lead__info .sect-contact-lead__name {
+  margin-bottom: 4px;
+}
+@media (max-width: 499px) {
+  .pg-contact .sect-contact-lead__card {
+    gap: 14px;
+  }
+  .pg-contact .sect-contact-lead__icon-badge {
+    width: 44px;
+    height: 44px;
+  }
+  .pg-contact .sect-contact-lead__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+/* 極小幅：アイコンと横並びだとメールアドレスの幅が足りず折り返しでもはみ出すため、
+   アイコンを上・テキストを下に積んでテキストにカード幅を丸ごと使わせる */
+@media (max-width: 359px) {
+  .pg-contact .sect-contact-lead__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .pg-contact .sect-contact-lead__info {
+    width: 100%;
+  }
 }
 
 /* === access（chest：SP 1カラム縦積み／中間幅は住所+地図を1段目・TRANSPORTを2段目に分割／PC 3カラム grid） === */

@@ -90,20 +90,6 @@
   line-height: 2;
   color: var(--color-secondary);
 }
-.pg-research .sect-research-projects__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 32px;
-}
-.pg-research .sect-research-projects__tag {
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(201, 168, 76, 0.15);
-  color: #7a5c1e;
-  font-size: 0.875rem;
-  letter-spacing: 0.04em;
-}
 @media (min-width: 1024px) {
   .pg-research .sect-research-lead__text {
     line-height: 2.2;

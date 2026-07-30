@@ -6,11 +6,6 @@
    - 仕様: docs/css-architecture.md／design/page-education.md
    ========================================================================== */
 
-/* content-panel.darkは複数ページ共通パーツのため、このページのみ背景色を上書きする */
-.pg-education .content-panel.dark {
-  background: #E7ECF3;
-}
-
 /* === 見出し英日の大小関係の上書き（このページのみ・デモ優先） ===============
    common.cssの.section-title-en(大)/.section-title-ja(小)はresearch/corporate準拠だが、
    education のデモは日本語が大・英語が小。common.css自体は変えず、対象3セクション

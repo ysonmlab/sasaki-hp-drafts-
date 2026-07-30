@@ -23,7 +23,7 @@
   --color-navy: #0B1F3A;
   --color-accent-pale: #D6E8F5;
   --color-surface: #FAFDFD;
-  --color-surface-alt: #F7F9FC; /* content-panel.dark用（隣接パネルとの境目を示す僅差の色） */
+  --color-surface-alt: #F7F9FC; /* education admission cardの背景用 */
   --color-text-on-navy: #F0F4F8;
   --color-text-muted-navy: #9BB5CC;
 
@@ -427,7 +427,7 @@ img {
 }
 /* 隣接するcontent-panel同士の境目を示す修飾子（corporate/education/contactで使用） */
 .content-panel.dark {
-  background: var(--color-surface-alt);
+  background: #E7ECF3;
 }
 
 @media (min-width: 1024px) {
@@ -487,44 +487,6 @@ img {
   }
 }
 
-/* === lang-notice（英語ページ共通・準備中プレースホルダー） ================= */
-/* index-en/research-en/staff-en/corporate-en/education-en/clinical-en/contact-en
-   の7ページで使用。content-panel > content-wrap の内側に置く（他のsect-*と同じ入れ子）。 */
-.lang-notice {
-  max-width: 640px;
-  margin-inline: auto;
-  padding-block: 24px;
-  text-align: center;
-}
-.lang-notice__label {
-  margin-bottom: 12px;
-  font-family: var(--font-condensed);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  letter-spacing: 0.2em;
-}
-.lang-notice__title {
-  margin-bottom: 16px;
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-.lang-notice__body {
-  margin-bottom: 28px;
-  color: var(--color-secondary);
-  line-height: 1.9;
-}
-
-@media (min-width: 1024px) {
-  .lang-notice {
-    padding-block: 40px;
-  }
-  .lang-notice__title {
-    font-size: 1.75rem;
-  }
-}
-
 /* === fade-up（スクロールで表示されるフェードイン） ========================== */
 /* CSSのみのスクロール駆動アニメーション（animation-timeline:view()）はブラウザ対応が
    不十分で実際には動かないため不採用。assets/js/fade-up.js（IntersectionObserver、
@@ -550,40 +512,6 @@ img {
 
 /* === 使い回す共通パーツ =================================================== */
 /* 複数ページで再利用する部品のみここに置く（例：ボタン・カード） */
-
-/* ボタン */
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 2px;
-  border: 1px solid transparent;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 0.875rem;
-  letter-spacing: 0.08em;
-  text-align: center;
-  cursor: pointer;
-}
-.btn:hover {
-  text-decoration: none;
-  opacity: 0.88;
-}
-
-/* ボタン（アウトライン） */
-.btn-outline {
-  background: transparent;
-  border-color: rgba(74, 144, 196, 0.4);
-  color: var(--color-text-muted-navy);
-}
-.btn-outline:hover {
-  color: #fff;
-  border-color: var(--color-primary);
-}
-
-/* カード（画像＋テキストの縦積み） */
-.card {
-  /* 案件に合わせて実装 */
-}
 
 /* 見出し（英語タイトル＋日本語サブタイトル、複数ページで使い回す） */
 .section-head {

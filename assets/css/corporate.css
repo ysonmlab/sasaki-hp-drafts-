@@ -98,10 +98,6 @@
 }
 
 /* === process（shelf：SP縦積み／PC横一列＋矢印区切り） ======================= */
-/* このページのprocessセクションのみ、共通content-panel.darkより背景を濃くする */
-.pg-corporate .content-panel.dark {
-  background: #E7ECF3;
-}
 /* 見出しをこのセクションのみ中央寄せ（section-head/section-title-enは共通パーツのためスコープを絞る） */
 .pg-corporate .sect-corporate-process .section-head {
   justify-content: center;

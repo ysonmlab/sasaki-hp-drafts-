@@ -64,7 +64,7 @@
   width: 100%;
   max-width: 320px;
   margin-inline: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 12px;
   background: var(--color-surface);
@@ -72,7 +72,7 @@
 .pg-research .sect-research-projects__photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 /* 右カラム：説明文＋タグ */
 .pg-research .sect-research-projects__right {

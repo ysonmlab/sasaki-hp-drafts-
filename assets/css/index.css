@@ -104,11 +104,17 @@
 
 /* 装飾バー（ゴールド＋ネイビー）は common.css の .sect-accent-bar に共通化済み */
 
-/* === divider（装飾帯・department／背景パララックス演出） ====================
+/* === divider（装飾帯・department／背景固定パララックス演出） ================
    background-attachment:fixed はiOS等のモバイルで不安定（docs/css-gotchas.md）なため不採用。
-   内側の__bg要素をassets/js/parallax.js（IntersectionObserver+rAFでtransformを更新）で
-   動かす方式にし、SP/PCで同じ視差効果にする。__bgはinsetを負の値にして上下に余白を持たせ、
-   transformで動かしても縁が見えないようにする（トップページのみの明示的なJS例外・CLAUDE.md参照）。 */
+   JS(scrollイベント+rAF)でtransformを追従させる方式も試したが、ネイティブのスクロール描画に
+   対してJSの計算が1フレーム以上遅れるため、はやいスクロールで背景がうねつくように見える問題が
+   あった。CSSのscroll駆動アニメーション（view-timeline／animation-timeline）はブラウザの
+   合成スレッドだけで動きJSのラグが原理的に発生しないため、これに一本化する（JS不要・SP/PC共通）。
+   帯（.sect-top-divider-*、overflow:hiddenの窓）がビューポートを通過する進行度をview-timelineで
+   取得し、内側の__bg（帯の最大高さ400pxを余裕を持って覆える600pxの固定サイズ）をその進行度に
+   応じてtranslateYさせることで、窓を通して見える背景がビューポートに対して静止して見えるように
+   する（=background-attachment:fixedの見た目を再現）。非対応ブラウザ（Safari 18.1以前など）では
+   animation-timelineが無視され、背景は動かない静止画として表示される（表示は崩れない）。 */
 .pg-index .sect-top-divider-1,
 .pg-index .sect-top-divider-2,
 .pg-index .sect-top-divider-3 {
@@ -116,15 +122,33 @@
   width: 100%;
   height: 240px;
   overflow: hidden;
+  --divider-h: 240px;
+  view-timeline-name: --divider-scroll;
+  view-timeline-axis: block;
 }
 .pg-index .sect-top-divider-1__bg,
 .pg-index .sect-top-divider-2__bg,
 .pg-index .sect-top-divider-3__bg {
   position: absolute;
-  inset: -20% 0;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  height: 600px;
+  margin-top: -300px;
   background-size: cover;
   background-position: center;
-  will-change: transform;
+  animation-name: divider-parallax;
+  animation-timeline: --divider-scroll;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+@keyframes divider-parallax {
+  from {
+    transform: translateY(calc(-50vh - (var(--divider-h) / 2)));
+  }
+  to {
+    transform: translateY(calc(50vh + (var(--divider-h) / 2)));
+  }
 }
 .pg-index .sect-top-divider-1::after,
 .pg-index .sect-top-divider-2::after,
@@ -147,7 +171,8 @@
   .pg-index .sect-top-divider-1__bg,
   .pg-index .sect-top-divider-2__bg,
   .pg-index .sect-top-divider-3__bg {
-    transform: none !important;
+    animation: none;
+    transform: none;
   }
 }
 
@@ -156,6 +181,7 @@
   .pg-index .sect-top-divider-2,
   .pg-index .sect-top-divider-3 {
     height: 400px;
+    --divider-h: 400px;
   }
 }
 

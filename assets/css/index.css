@@ -114,10 +114,13 @@
        clip-path は「子孫のposition:fixedの基準（包含ブロック）を乗っ取る」transform等とは
        異なり、基準はビューポートのままで、見た目の描画だけを自分の矩形にクリップする
        （実機検証で確認済み）。
-     - 内側の__bgは position:fixed; top:0; left:0; height:100dvh で本物のビューポート固定。
+     - 内側の__bgは position:fixed; top:0; left:0; height:100lvh で本物のビューポート固定。
        帯（overflow:hiddenならぬclip-pathの窓）を通して見える範囲だけが変わるため、
        JS・アニメーションのタイミングに一切依存せず、常にネイティブ合成でズレなく描画される。
-   非対応ブラウザは実質存在しない（clip-pathもposition:fixedも枯れた機能）。 */
+   非対応ブラウザは実質存在しない（clip-pathもposition:fixedも枯れた機能）。
+   heightはdvh（動的ビューポート高さ）ではなくlvh（アドレスバー等が隠れた最大サイズで固定）を使う
+   こと。iOS Safariはページ最下部（バウンス領域）でアドレスバーが再表示され、dvhの値がその瞬間に
+   変わるため、background-size:coverの再計算で画像が一瞬拡大縮小して見える不具合があった。 */
 .pg-index .sect-top-divider-1,
 .pg-index .sect-top-divider-2,
 .pg-index .sect-top-divider-3 {
@@ -136,7 +139,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100dvh;
+  height: 100lvh;
   z-index: -1;
   background-size: cover;
   background-position: center;

@@ -106,56 +106,37 @@
 
 /* === divider（装飾帯・department／背景固定パララックス演出） ================
    background-attachment:fixed はiOS等のモバイルで不安定（docs/css-gotchas.md）なため不採用。
-   JS(scrollイベント+rAF)でtransformを追従させる方式も試したが、ネイティブのスクロール描画に
-   対してJSの計算が1フレーム以上遅れるため、はやいスクロールで背景がうねつくように見える問題が
-   あった。CSSのscroll駆動アニメーション（view-timeline／animation-timeline）はブラウザの
-   合成スレッドだけで動きJSのラグが原理的に発生しないため、これに一本化する（JS不要・SP/PC共通）。
-   帯（.sect-top-divider-*、overflow:hiddenの窓）がビューポートを通過する進行度をview-timelineで
-   取得し、内側の__bg（帯の最大高さ400pxを余裕を持って覆える600pxの固定サイズ）をその進行度に
-   応じてtranslateYさせることで、窓を通して見える背景がビューポートに対して静止して見えるように
-   する（=background-attachment:fixedの見た目を再現）。非対応ブラウザ（Safari 18.1以前など）では
-   animation-timelineが無視され、背景は動かない静止画として表示される（表示は崩れない）。
-   translateYの計算にはvhではなくdvh（動的ビューポート単位）を使うこと。iOS Safariはアドレスバーの
-   表示/非表示でビューポートの実高さが変わるが、vhは変動しない大きい方の高さで固定されるため、
-   view-timeline側の実際の進行度とズレて帯の縁に隙間が見えることがある。 */
+   JS(scrollイベント+rAF)でtransformを追従させる方式、CSSのscroll駆動アニメーション
+   （view-timeline／animation-timeline）も試したが、前者はJSの計算が1フレーム以上遅れて
+   スクロール中に背景がうねつく、後者はSafariの実装精度の問題で帯の縁に隙間が出る、という
+   問題があった。最終的に、以下のCSSのみの方式に統一した：
+     - 帯（.sect-top-divider-*）に clip-path:inset(0) を指定。
+       clip-path は「子孫のposition:fixedの基準（包含ブロック）を乗っ取る」transform等とは
+       異なり、基準はビューポートのままで、見た目の描画だけを自分の矩形にクリップする
+       （実機検証で確認済み）。
+     - 内側の__bgは position:fixed; top:0; left:0; height:100dvh で本物のビューポート固定。
+       帯（overflow:hiddenならぬclip-pathの窓）を通して見える範囲だけが変わるため、
+       JS・アニメーションのタイミングに一切依存せず、常にネイティブ合成でズレなく描画される。
+   非対応ブラウザは実質存在しない（clip-pathもposition:fixedも枯れた機能）。 */
 .pg-index .sect-top-divider-1,
 .pg-index .sect-top-divider-2,
 .pg-index .sect-top-divider-3 {
   position: relative;
   width: 100%;
   height: 240px;
-  overflow: hidden;
-  --divider-h: 240px;
-  view-timeline-name: --divider-scroll;
-  view-timeline-axis: block;
-  /* Safariでoverflowのクリップ境界がデバイスのピクセルグリッドにスナップされず、
-     上下の縁に髪の毛のような隙間が出ることがあるため、帯を独立した合成レイヤーに
-     昇格させて境界のスナップ精度を上げる（既知のSafari向け回避策） */
-  transform: translateZ(0);
+  clip-path: inset(0);
 }
 .pg-index .sect-top-divider-1__bg,
 .pg-index .sect-top-divider-2__bg,
 .pg-index .sect-top-divider-3__bg {
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  top: 50%;
-  height: 600px;
-  margin-top: -300px;
+  height: 100dvh;
+  z-index: -1;
   background-size: cover;
   background-position: center;
-  animation-name: divider-parallax;
-  animation-timeline: --divider-scroll;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
-}
-@keyframes divider-parallax {
-  from {
-    transform: translateY(calc(-50dvh - (var(--divider-h) / 2)));
-  }
-  to {
-    transform: translateY(calc(50dvh + (var(--divider-h) / 2)));
-  }
 }
 .pg-index .sect-top-divider-1::after,
 .pg-index .sect-top-divider-2::after,
@@ -174,21 +155,12 @@
 .pg-index .sect-top-divider-3__bg {
   background-image: url("../img/top-divider_bg3.jpg");
 }
-@media (prefers-reduced-motion: reduce) {
-  .pg-index .sect-top-divider-1__bg,
-  .pg-index .sect-top-divider-2__bg,
-  .pg-index .sect-top-divider-3__bg {
-    animation: none;
-    transform: none;
-  }
-}
 
 @media (min-width: 1024px) {
   .pg-index .sect-top-divider-1,
   .pg-index .sect-top-divider-2,
   .pg-index .sect-top-divider-3 {
     height: 400px;
-    --divider-h: 400px;
   }
 }
 

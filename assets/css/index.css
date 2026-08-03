@@ -104,16 +104,42 @@
 
 /* 装飾バー（ゴールド＋ネイビー）は common.css の .sect-accent-bar に共通化済み */
 
-/* === divider（装飾帯・department／背景スクロール演出） ===================== */
+/* === divider（装飾帯・department／背景固定パララックス演出） ================
+   background-attachment:fixed はiOS等のモバイルで不安定（docs/css-gotchas.md）なため不採用。
+   JS(scrollイベント+rAF)でtransformを追従させる方式、CSSのscroll駆動アニメーション
+   （view-timeline／animation-timeline）も試したが、前者はJSの計算が1フレーム以上遅れて
+   スクロール中に背景がうねつく、後者はSafariの実装精度の問題で帯の縁に隙間が出る、という
+   問題があった。最終的に、以下のCSSのみの方式に統一した：
+     - 帯（.sect-top-divider-*）に clip-path:inset(0) を指定。
+       clip-path は「子孫のposition:fixedの基準（包含ブロック）を乗っ取る」transform等とは
+       異なり、基準はビューポートのままで、見た目の描画だけを自分の矩形にクリップする
+       （実機検証で確認済み）。
+     - 内側の__bgは position:fixed; top:0; left:0; height:100dvh で本物のビューポート固定。
+       帯（overflow:hiddenならぬclip-pathの窓）を通して見える範囲だけが変わるため、
+       JS・アニメーションのタイミングに一切依存せず、常にネイティブ合成でズレなく描画される。
+   非対応ブラウザは実質存在しない（clip-pathもposition:fixedも枯れた機能）。 */
 .pg-index .sect-top-divider-1,
 .pg-index .sect-top-divider-2,
 .pg-index .sect-top-divider-3 {
   position: relative;
   width: 100%;
   height: 240px;
+  clip-path: inset(0);
+  /* clip-pathの境界はサブピクセル単位のにじみが出ることがあるため、背景色を
+     __bg画像に近い暗紺にしておき、にじんでも目立たないようにする保険 */
+  background: var(--color-navy);
+}
+.pg-index .sect-top-divider-1__bg,
+.pg-index .sect-top-divider-2__bg,
+.pg-index .sect-top-divider-3__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  z-index: -1;
   background-size: cover;
   background-position: center;
-  background-attachment: scroll;
 }
 .pg-index .sect-top-divider-1::after,
 .pg-index .sect-top-divider-2::after,
@@ -123,13 +149,13 @@
   inset: 0;
   background: rgba(6, 14, 26, 0.4);
 }
-.pg-index .sect-top-divider-1 {
+.pg-index .sect-top-divider-1__bg {
   background-image: url("../img/top-divider_bg1.jpg");
 }
-.pg-index .sect-top-divider-2 {
+.pg-index .sect-top-divider-2__bg {
   background-image: url("../img/top-divider_bg2.jpg");
 }
-.pg-index .sect-top-divider-3 {
+.pg-index .sect-top-divider-3__bg {
   background-image: url("../img/top-divider_bg3.jpg");
 }
 
@@ -138,8 +164,6 @@
   .pg-index .sect-top-divider-2,
   .pg-index .sect-top-divider-3 {
     height: 400px;
-    /* PCのみパララックス風（fixed）。SPはscroll固定描画不具合を回避（docs/css-gotchas.md） */
-    background-attachment: fixed;
   }
 }
 

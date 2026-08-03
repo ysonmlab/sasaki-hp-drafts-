@@ -125,6 +125,10 @@
   --divider-h: 240px;
   view-timeline-name: --divider-scroll;
   view-timeline-axis: block;
+  /* Safariでoverflowのクリップ境界がデバイスのピクセルグリッドにスナップされず、
+     上下の縁に髪の毛のような隙間が出ることがあるため、帯を独立した合成レイヤーに
+     昇格させて境界のスナップ精度を上げる（既知のSafari向け回避策） */
+  transform: translateZ(0);
 }
 .pg-index .sect-top-divider-1__bg,
 .pg-index .sect-top-divider-2__bg,

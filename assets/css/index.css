@@ -114,7 +114,10 @@
    取得し、内側の__bg（帯の最大高さ400pxを余裕を持って覆える600pxの固定サイズ）をその進行度に
    応じてtranslateYさせることで、窓を通して見える背景がビューポートに対して静止して見えるように
    する（=background-attachment:fixedの見た目を再現）。非対応ブラウザ（Safari 18.1以前など）では
-   animation-timelineが無視され、背景は動かない静止画として表示される（表示は崩れない）。 */
+   animation-timelineが無視され、背景は動かない静止画として表示される（表示は崩れない）。
+   translateYの計算にはvhではなくdvh（動的ビューポート単位）を使うこと。iOS Safariはアドレスバーの
+   表示/非表示でビューポートの実高さが変わるが、vhは変動しない大きい方の高さで固定されるため、
+   view-timeline側の実際の進行度とズレて帯の縁に隙間が見えることがある。 */
 .pg-index .sect-top-divider-1,
 .pg-index .sect-top-divider-2,
 .pg-index .sect-top-divider-3 {
@@ -148,10 +151,10 @@
 }
 @keyframes divider-parallax {
   from {
-    transform: translateY(calc(-50vh - (var(--divider-h) / 2)));
+    transform: translateY(calc(-50dvh - (var(--divider-h) / 2)));
   }
   to {
-    transform: translateY(calc(50vh + (var(--divider-h) / 2)));
+    transform: translateY(calc(50dvh + (var(--divider-h) / 2)));
   }
 }
 .pg-index .sect-top-divider-1::after,

@@ -98,57 +98,26 @@
   content: " →";
 }
 
-/* === admission（tile：SP1カラム／PC2カラム grid） =========================== */
-.pg-education .sect-education-admission__list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-.pg-education .sect-education-admission__card {
-  padding: 28px 26px 32px;
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-accent);
-  background: var(--color-surface-alt);
-}
-.pg-education .sect-education-admission__badge {
+/* === admission（rack：リード文+募集要項ページへのアウトラインボタン） ========= */
+.pg-education .sect-education-admission__btn {
   display: inline-block;
-  margin-bottom: 14px;
-  padding: 3px 10px;
+  padding: 12px 32px;
+  border: 1px solid var(--color-navy);
   border-radius: 2px;
-  background: var(--color-navy);
-  color: #fff;
-  font-size: 0.875rem;
-  letter-spacing: 0.1em;
-}
-.pg-education .sect-education-admission__title {
-  margin-bottom: 10px;
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.6;
   color: var(--color-navy);
-}
-.pg-education .sect-education-admission__body {
-  padding-top: 12px;
-  border-top: 1px solid var(--color-border);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-secondary);
-}
-.pg-education .sect-education-admission__link {
-  display: inline-block;
-  margin-top: 14px;
   font-size: 0.875rem;
-  color: var(--color-primary);
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
-.pg-education .sect-education-admission__link::after {
+.pg-education .sect-education-admission__btn::after {
   content: " →";
 }
-
-@media (min-width: 1024px) {
-  .pg-education .sect-education-admission__list {
-    grid-template-columns: 1fr 1fr;
-  }
+.pg-education .sect-education-admission__btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
 }
 
 /* === policy（tile：SP1カラム／PC3カラム grid） =============================== */

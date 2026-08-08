@@ -62,7 +62,7 @@
 }
 .pg-research .sect-research-projects__photo {
   width: 100%;
-  max-width: 320px;
+  max-width: 520px;
   margin-inline: auto;
   aspect-ratio: 3 / 2;
   overflow: hidden;
@@ -98,13 +98,19 @@
   .pg-research .sect-research-projects__item {
     padding-block: 64px;
   }
+  /* PCは説明文量が多いため、写真を左に浮かせて文章が囲むように回り込ませる（floatの許容例外） */
   .pg-research .sect-research-projects__body {
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
+    display: block;
+    overflow: hidden;
   }
   .pg-research .sect-research-projects__photo {
+    float: left;
+    width: 560px;
     max-width: none;
-    margin-inline: 0;
+    margin: 0 40px 24px 0;
+  }
+  .pg-research .sect-research-projects__right {
+    display: block;
   }
 }
 

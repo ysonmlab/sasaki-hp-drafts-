@@ -7,22 +7,14 @@
    ========================================================================== */
 
 /* === lab（rack：SP/PC共通1カラム。案内ボックスの枠なし・アウトラインボタンのみ） === */
-.pg-clinical .sect-clinical-lab__lead {
-  max-width: 850px;
+/* リード文本体（幅・行間）は common.css の .section-lead 共通パーツ。ここは余白のみ上書き。 */
+.pg-clinical .section-lead {
   margin-bottom: 32px;
-  font-size: 1rem;
-  line-height: 1.9;
 }
 .pg-clinical .sect-clinical-lab__note {
   margin-bottom: 20px;
   font-size: 1rem;
   line-height: 2;
-}
-
-@media (min-width: 1024px) {
-  .pg-clinical .sect-clinical-lab__lead {
-    line-height: 2.2;
-  }
 }
 
 /* === link-outline（clinical固有のアウトラインボタン。他ページ未使用のためcommon化しない） === */

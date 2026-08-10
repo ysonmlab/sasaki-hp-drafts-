@@ -12,17 +12,8 @@
 }
 
 /* === lead（rack：SP/PC共通1カラム。下部を区切り線で分ける） ================ */
-/* content-panel が上下paddingを持つため、ここではprojectsとの間隔のみ指定する */
-.pg-research .sect-research-lead {
-  padding-bottom: 56px;
-}
-.pg-research .sect-research-lead__text {
-  max-width: 850px;
-  margin-inline: auto;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--color-border);
-  font-size: 1rem;
-  line-height: 1.9;
+/* 本体は common.css の .page-lead 共通パーツ。research のみ中央寄せテキストにする上書き。 */
+.pg-research .page-lead__text {
   text-align: center;
 }
 
@@ -91,10 +82,6 @@
   color: var(--color-secondary);
 }
 @media (min-width: 1024px) {
-  .pg-research .sect-research-lead__text {
-    line-height: 2.2;
-  }
-
   .pg-research .sect-research-projects__item {
     padding-block: 64px;
   }

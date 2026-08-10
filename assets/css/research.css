@@ -74,10 +74,29 @@
   height: 100%;
   object-fit: contain;
 }
-/* 右カラム：説明文＋タグ */
+/* 右カラム：説明文＋Read Moreボタン（縦積み。ボタンは.textの直後＝文章の下に自然に並ぶ） */
 .pg-research .sect-research-projects__right {
   display: flex;
   flex-direction: column;
+}
+/* 本文プレビュー：.photoと同じ幅上限・同じ比率にすることで、常に写真と同じ高さで打ち切れる（本文量が変わっても計算不要）。
+   .right > .text（プレビュー側）だけに限定してかける。モーダル内に複製される.textは
+   .rightの外（dialog内）にあるためこのルールの対象外となり、常に全文が表示される。 */
+.pg-research .sect-research-projects__right > .sect-research-projects__text {
+  position: relative;
+  max-width: 520px;
+  margin-inline: auto;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.pg-research .sect-research-projects__right > .sect-research-projects__text::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 64px;
+  background: linear-gradient(to bottom, transparent, var(--color-surface));
+  pointer-events: none;
 }
 .pg-research .sect-research-projects__desc {
   margin-bottom: 24px;
@@ -90,6 +109,114 @@
   line-height: 2;
   color: var(--color-secondary);
 }
+
+/* === Read More ボタン（.rightの中、.textの直後＝文章の下に配置） === */
+.pg-research .sect-research-projects__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.pg-research .sect-research-projects__more:hover {
+  text-decoration: underline;
+}
+
+/* === Read More モーダル（<dialog>：::backdropで背景暗幕、Escape・フォーカス制御はブラウザ標準機能） ===
+   カード風の見た目（大きめの角丸・影）＋ふわっと浮かび上がる開閉アニメーション。
+   アニメーションは@starting-style（CSSのみ・JS不要）。未対応ブラウザでは単に瞬時表示になるだけで、
+   機能自体は損なわれない（プログレッシブエンハンスメント）。 */
+.pg-research .sect-research-projects__dialog {
+  position: relative;
+  width: min(90vw, 820px);
+  max-height: min(85vh, 85dvh);
+  margin: auto;
+  padding: 32px 28px;
+  border: none;
+  border-radius: 20px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 24px 60px rgba(11, 31, 58, 0.24);
+  /* dialog自体はスクロールさせず、内側の.dialog-innerだけがスクロールする（二重スクロールバー防止）。
+     .dialog-innerをflexの残り高さいっぱいに広げることで、paddingの数値をここで計算し直す必要がなくなる。 */
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.25s ease, transform 0.25s ease,
+    overlay 0.25s ease allow-discrete, display 0.25s ease allow-discrete;
+}
+/* displayは[open]の時だけ上書きする（dialog:not([open])のdisplay:noneを崩さないため） */
+.pg-research .sect-research-projects__dialog[open] {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: scale(1);
+}
+@starting-style {
+  .pg-research .sect-research-projects__dialog[open] {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+.pg-research .sect-research-projects__dialog::backdrop {
+  background: rgba(11, 31, 58, 0.6);
+  opacity: 0;
+  transition: opacity 0.25s ease allow-discrete;
+}
+.pg-research .sect-research-projects__dialog[open]::backdrop {
+  opacity: 1;
+}
+@starting-style {
+  .pg-research .sect-research-projects__dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+.pg-research .sect-research-projects__dialog-inner {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* .dialogのflexの残り高さいっぱいに広がる。min-height:0がないとflexアイテムは中身の高さまで
+     広がろうとしてしまい、この要素自身がスクロールせず.dialogの方があふれてしまう。 */
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.pg-research .sect-research-projects__dialog-inner [data-modal-photo] {
+  margin-bottom: 24px;
+}
+.pg-research .sect-research-projects__dialog-inner [data-modal-title] {
+  margin-bottom: 20px;
+  padding-right: 40px;
+}
+.pg-research .sect-research-projects__dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-surface-alt);
+  color: var(--color-navy);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.pg-research .sect-research-projects__dialog-close:hover {
+  background: var(--color-accent-pale);
+}
+/* モーダル表示中は背景ページのスクロールを止める（保険。:has()はindex.css/staff.cssで使用済みのパターン） */
+.pg-research:has(.sect-research-projects__dialog[open]) {
+  overflow: hidden;
+}
+
 @media (min-width: 1024px) {
   .pg-research .sect-research-lead__text {
     line-height: 2.2;
@@ -98,19 +225,27 @@
   .pg-research .sect-research-projects__item {
     padding-block: 64px;
   }
-  /* PCは説明文量が多いため、写真を左に浮かせて文章が囲むように回り込ませる（floatの許容例外） */
+  /* PCは左に写真・右に説明文を並べる2カラムgrid（floatは使わない） */
   .pg-research .sect-research-projects__body {
-    display: block;
-    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
   }
-  .pg-research .sect-research-projects__photo {
-    float: left;
-    width: 560px;
+  /* .bodyの直下（プレビュー側）の写真のみ対象。モーダル内の複製写真はSPと同じ見た目（中央寄せ・幅上限）を保つ */
+  .pg-research .sect-research-projects__body > .sect-research-projects__photo {
     max-width: none;
-    margin: 0 40px 24px 0;
+    margin-inline: 0;
   }
-  .pg-research .sect-research-projects__right {
-    display: block;
+  /* 本文プレビューも同様に、.bodyの直下（プレビュー側）のみ幅上限を外す。
+     これで写真列と同じ実幅になり、aspect-ratioで高さが自動的に一致する。
+     モーダル内の複製本文はSPと同じ中央寄せ・幅上限を保つ（モーダルの見た目を統一するため）。 */
+  .pg-research .sect-research-projects__right > .sect-research-projects__text {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .pg-research .sect-research-projects__dialog {
+    padding: 48px;
   }
 }
 

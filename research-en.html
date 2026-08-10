@@ -84,13 +84,28 @@
                   <img src="assets/img/research-projects_pht1.jpg" alt="From Leukemia to Cancer Genomics and Beyond" loading="lazy">
                 </div>
                 <div class="sect-research-projects__right">
-                  <div>
+                  <div class="sect-research-projects__text">
                     <p class="sect-research-projects__desc">Our research centers on leukemia and leukemia-related disorders, with the goals of improving diagnostic accuracy, refining risk stratification, developing prognostic models, and optimizing treatment strategies. Using large-scale real-world clinical data, we evaluate treatment outcomes and reassess existing therapeutic algorithms to establish evidence-based frameworks that support individualized clinical decision-making. Methodologies developed in hematologic malignancies are readily applicable to a broader range of cancers, including solid tumors, providing a foundation for advances across oncology.</p>
                     <p class="sect-research-projects__desc">A key component of this effort is the implementation of genomic analysis within routine clinical laboratory practice. Cancer genomics, in which genetic information directly informs diagnosis, risk stratification, and therapeutic decision-making, provides an important starting point for building a comprehensive genomic medicine program. Within the clinical laboratory, we focus on the validation and standardization of genomic testing while working closely with clinical departments to establish systems that support appropriate interpretation of genomic findings and their integration into patient care.</p>
                     <p class="sect-research-projects__desc">The analytical infrastructure and operational expertise developed through cancer genomics extend well beyond oncology. Genomic information is increasingly relevant to hereditary disorders, pharmacogenomics, infectious diseases, and many other areas of medicine where it can inform clinical decision-making. Building on the experience gained in cancer genomics, our long-term goal is to advance genomic medicine across routine clinical practice.</p>
                   </div>
+                  <!-- Read More: body text lives in .text above only. Placed right after .text so it sits below the paragraphs. -->
+                  <button type="button" class="sect-research-projects__more" aria-haspopup="dialog">
+                    Read more <span aria-hidden="true">→</span>
+                  </button>
                 </div>
               </div>
+              <!-- Modal: empty container. assets/js/research-modal.js clones the .text content into it. -->
+              <dialog class="sect-research-projects__dialog">
+                <button type="button" class="sect-research-projects__dialog-close" data-modal-close aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="sect-research-projects__dialog-inner">
+                  <div data-modal-photo></div>
+                  <div data-modal-title></div>
+                  <div data-modal-body></div>
+                </div>
+              </dialog>
             </li>
 
             <li class="sect-research-projects__item fade-up" id="detail-02">
@@ -102,13 +117,26 @@
                   <img src="assets/img/research-projects_pht2.jpg" alt="Next-Generation Patient Safety Systems: Medical AI Built on Laboratory Data" loading="lazy">
                 </div>
                 <div class="sect-research-projects__right">
-                  <div>
+                  <div class="sect-research-projects__text">
                     <p class="sect-research-projects__desc">The clinical laboratory serves as a cross-disciplinary unit where laboratory specimens and data generated across diverse clinical services are continuously integrated into standardized, quality-controlled, structured datasets. Despite this, clinically significant laboratory abnormalities are not always fully incorporated into clinical decision-making, leading to delayed diagnosis or treatment and representing an important patient safety challenge.</p>
                     <p class="sect-research-projects__desc">To address this issue, we are developing medical AI systems that leverage the cross-disciplinary nature of laboratory data to support early detection of clinically important findings and improve patient care. Our work spans renal, hepatic, cardiovascular, hematologic, oncologic, infectious disease, emergency, and critical care settings, with the goal of identifying abnormalities that may otherwise be overlooked and facilitating timely diagnostic evaluation and treatment.</p>
                     <p class="sect-research-projects__desc">The scope extends beyond quantitative morphological assessment to encompass the full spectrum of laboratory medicine, including clinical chemistry, immunology, hematology, and microbiology. Building on the clinical laboratory's expertise in data quality, standardization, and laboratory science, we work closely with clinical departments, health informatics specialists, and AI researchers to develop and implement medical AI systems that can be safely integrated into routine clinical practice. We also maintain secure on-premise analytical environments to ensure the protection and responsible use of clinical data throughout research and implementation.</p>
                   </div>
+                  <button type="button" class="sect-research-projects__more" aria-haspopup="dialog">
+                    Read more <span aria-hidden="true">→</span>
+                  </button>
                 </div>
               </div>
+              <dialog class="sect-research-projects__dialog">
+                <button type="button" class="sect-research-projects__dialog-close" data-modal-close aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="sect-research-projects__dialog-inner">
+                  <div data-modal-photo></div>
+                  <div data-modal-title></div>
+                  <div data-modal-body></div>
+                </div>
+              </dialog>
             </li>
 
             <li class="sect-research-projects__item sect-research-projects__item--last fade-up" id="detail-03">
@@ -120,13 +148,26 @@
                   <img src="assets/img/research-projects_pht3.jpg" alt="Clinical Data Biobank and Collaborative Research Platform" loading="lazy">
                 </div>
                 <div class="sect-research-projects__right">
-                  <div>
+                  <div class="sect-research-projects__text">
                     <p class="sect-research-projects__desc">We are establishing a clinical data biobank that systematically collects residual clinical specimens and associated clinical information under broad informed consent. Operating through the clinical laboratory enables the continuous accumulation of specimens with well-controlled pre-analytical handling and storage quality together with standardized laboratory data, providing a robust foundation for translational research.</p>
                     <p class="sect-research-projects__desc">The collection is not restricted to a single disease area. In addition to malignant diseases, it includes specimens and pathogen-related information generated through clinical microbiology. Infectious diseases affect patients across all clinical specialties, and rapid, accurate diagnosis is often critical for improving outcomes. Accordingly, the development of diagnostic approaches that enable early identification of causative organisms and support appropriate initial antimicrobial therapy represents one of the major research themes supported by this biobank.</p>
                     <p class="sect-research-projects__desc">The clinical biobank is designed as a shared research infrastructure supporting genomic analysis, medical AI, biomarker discovery, infectious disease research, and other translational studies. We aim to make this resource broadly available through collaborative research with investigators and clinical departments within and beyond our institution, fostering interdisciplinary research from basic science to clinical implementation.</p>
                   </div>
+                  <button type="button" class="sect-research-projects__more" aria-haspopup="dialog">
+                    Read more <span aria-hidden="true">→</span>
+                  </button>
                 </div>
               </div>
+              <dialog class="sect-research-projects__dialog">
+                <button type="button" class="sect-research-projects__dialog-close" data-modal-close aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="sect-research-projects__dialog-inner">
+                  <div data-modal-photo></div>
+                  <div data-modal-title></div>
+                  <div data-modal-body></div>
+                </div>
+              </dialog>
             </li>
           </ul>
         </section>
@@ -156,5 +197,6 @@
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/cursor.js"></script>
   <script src="assets/js/fade-up.js"></script>
+  <script src="assets/js/research-modal.js"></script>
 </body>
 </html>

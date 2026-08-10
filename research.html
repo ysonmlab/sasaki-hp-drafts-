@@ -87,13 +87,28 @@
                   <img src="assets/img/research-projects_pht1.jpg" alt="白血病を起点とした悪性腫瘍研究とゲノム医療の展開" loading="lazy">
                 </div>
                 <div class="sect-research-projects__right">
-                  <div>
+                  <div class="sect-research-projects__text">
                     <p class="sect-research-projects__desc">白血病および白血病関連疾患を中心に、診断精度の向上、リスク層別化の高度化、予後予測モデルの構築、および治療戦略の最適化に取り組んでいます。実臨床から得られる大規模データを用いて治療成績を検証し、既存の治療アルゴリズムを再評価することで、患者一人ひとりに最適な治療選択を支える新たな診療基盤の構築を目指しています。造血器腫瘍領域で培われた解析手法や知見は、固形腫瘍を含む悪性腫瘍全体へと展開可能であり、がん医療全体の発展への貢献を目指しています。</p>
                     <p class="sect-research-projects__desc">この取り組みを支える基盤の一つとして、ゲノム解析技術の臨床検査への実装を進めています。がんゲノム医療は、遺伝子情報が診断・リスク層別化・治療選択に直結する領域であり、ゲノム医療体制を構築するための重要な出発点です。検査部門では、解析技術の検証や標準化を進めるとともに、各診療科との連携のもと、結果の適切な解釈と臨床への還元を支える体制の整備に取り組んでいます。</p>
                     <p class="sect-research-projects__desc">ここで培われる解析基盤や運用体制は、がん領域にとどまるものではありません。遺伝性疾患、薬剤応答性、感染症など、ゲノム情報が診療上の意思決定に重要な役割を果たす多様な領域への展開が期待されます。私たちは、がんゲノム医療で培った経験を基盤として、ゲノム医療を日常診療全体へと発展させることを目指しています。</p>
                   </div>
+                  <!-- Read More：本文は上の.textに1箇所だけ記述。文章の下に配置（.textの直後） -->
+                  <button type="button" class="sect-research-projects__more" aria-haspopup="dialog">
+                    全文を読む <span aria-hidden="true">→</span>
+                  </button>
                 </div>
               </div>
+              <!-- モーダル本体：中身は空。assets/js/research-modal.jsが上の.textを複製して差し込む -->
+              <dialog class="sect-research-projects__dialog">
+                <button type="button" class="sect-research-projects__dialog-close" data-modal-close aria-label="閉じる">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="sect-research-projects__dialog-inner">
+                  <div data-modal-photo></div>
+                  <div data-modal-title></div>
+                  <div data-modal-body></div>
+                </div>
+              </dialog>
             </li>
 
             <li class="sect-research-projects__item fade-up" id="detail-02">
@@ -106,13 +121,26 @@
                   <img src="assets/img/research-projects_pht2.jpg" alt="次世代医療安全システムの開発 —— 検査データを起点とした医療AI" loading="lazy">
                 </div>
                 <div class="sect-research-projects__right">
-                  <div>
+                  <div class="sect-research-projects__text">
                     <p class="sect-research-projects__desc">検査部は、院内のさまざまな診療科から日々検体と検査情報が集約される診療科横断的な部門であり、標準化・精度管理された構造化データを継続的に蓄積しています。一方で、検査で得られた重要な異常所見が診療に十分反映されないまま経過し、診断や治療の遅れにつながることは、医療安全上の重要な課題です。</p>
                     <p class="sect-research-projects__desc">私たちは、診療科横断的に蓄積される検査データの特性を生かし、このような課題の早期検知と診療支援を目的とした医療AIの開発に取り組んでいます。腎疾患、肝疾患、循環器疾患、血液疾患、悪性腫瘍、感染症、救急・集中治療など幅広い領域を対象に、見過ごされる可能性のある異常を早期に検出し、適切な追加検査や治療につなげる次世代の医療安全システムの構築を目指しています。</p>
                     <p class="sect-research-projects__desc">対象は形態学的評価の定量化にとどまらず、生化学、免疫、血液、微生物など、臨床検査データ全体に及びます。検査部門が担う品質管理・標準化の基盤と検査データに対する専門性を生かし、各診療科、医療情報部門、AI研究者との連携のもと、実臨床で活用される医療AIの開発と社会実装を推進しています。また、院内完結型の解析環境を整備し、医療情報の安全性と信頼性を確保した研究・実装を重視しています。</p>
                   </div>
+                  <button type="button" class="sect-research-projects__more" aria-haspopup="dialog">
+                    全文を読む <span aria-hidden="true">→</span>
+                  </button>
                 </div>
               </div>
+              <dialog class="sect-research-projects__dialog">
+                <button type="button" class="sect-research-projects__dialog-close" data-modal-close aria-label="閉じる">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="sect-research-projects__dialog-inner">
+                  <div data-modal-photo></div>
+                  <div data-modal-title></div>
+                  <div data-modal-body></div>
+                </div>
+              </dialog>
             </li>
 
             <li class="sect-research-projects__item sect-research-projects__item--last fade-up" id="detail-03">
@@ -125,13 +153,26 @@
                   <img src="assets/img/research-projects_pht3.jpg" alt="クリニカルバイオバンクの構築と共同研究基盤" loading="lazy">
                 </div>
                 <div class="sect-research-projects__right">
-                  <div>
+                  <div class="sect-research-projects__text">
                     <p class="sect-research-projects__desc">日常診療で生じる残余検体と臨床情報を、包括同意のもとで体系的に集積するクリニカルバイオバンクの構築を進めています。検査部門を基盤とすることで、前処理条件や保存品質が適切に管理された検体と、標準化された臨床検査データを組み合わせて継続的に蓄積できることが、本バイオバンクの大きな特徴です。</p>
                     <p class="sect-research-projects__desc">収集対象は特定の疾患領域に限定されません。悪性腫瘍に加え、微生物検査に由来する検体や病原体情報も対象としています。感染症は、診療科や基礎疾患を問わずあらゆる患者に関わる重要な診療領域であり、迅速かつ高精度な診断が転帰を大きく左右します。本バイオバンクでは、起炎菌の早期推定や適切な初期治療の選択を支援する新たな診断法の開発も重要な研究テーマの一つと位置づけています。</p>
                     <p class="sect-research-projects__desc">本バイオバンクは、ゲノム解析、医療AI、バイオマーカー探索、感染症診断など、多様な研究を支える共通基盤として位置づけています。学内外の研究者や診療科との共同研究を積極的に推進し、基礎研究から臨床応用まで幅広い研究展開を支えるオープンな研究基盤を目指しています。</p>
                   </div>
+                  <button type="button" class="sect-research-projects__more" aria-haspopup="dialog">
+                    全文を読む <span aria-hidden="true">→</span>
+                  </button>
                 </div>
               </div>
+              <dialog class="sect-research-projects__dialog">
+                <button type="button" class="sect-research-projects__dialog-close" data-modal-close aria-label="閉じる">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <div class="sect-research-projects__dialog-inner">
+                  <div data-modal-photo></div>
+                  <div data-modal-title></div>
+                  <div data-modal-body></div>
+                </div>
+              </dialog>
             </li>
           </ul>
         </section>
@@ -161,5 +202,6 @@
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/cursor.js"></script>
   <script src="assets/js/fade-up.js"></script>
+  <script src="assets/js/research-modal.js"></script>
 </body>
 </html>

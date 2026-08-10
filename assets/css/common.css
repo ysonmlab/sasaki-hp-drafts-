@@ -436,6 +436,44 @@ img {
   }
 }
 
+/* === page-lead（複数ページ共通・冒頭の単独リード文。中央寄せの箱＋下線区切り） === */
+/* corporate/education/research の3ページで使用。テキストは左寄せが基本（中央寄せに
+   したい場合は .pg-{page} .page-lead__text 側で text-align:center を上書きする。
+   research が該当例）。 */
+.page-lead {
+  padding-bottom: 56px;
+}
+.page-lead__text {
+  max-width: 850px;
+  margin-inline: auto;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+@media (min-width: 1024px) {
+  .page-lead__text {
+    line-height: 2.2;
+  }
+}
+
+/* === section-lead（複数ページ共通・セクション内の導入文。見出し直後、後続コンテンツへ地続き） === */
+/* education(undergrad/admission/policy)/clinical(lab) で使用。左寄せのまま、後続のbox/list/
+   button等（幅制限なし）と地続きになる想定。PCではcontent-wrap(1100px)に対して850pxのままだと
+   右側だけ余白が空いて見えるため、1000pxまで広げて余白を抑える。余白（margin）はページごとの
+   文脈で異なるため .pg-{page} 側で上書きする。 */
+.section-lead {
+  max-width: 850px;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+@media (min-width: 1024px) {
+  .section-lead {
+    max-width: 1000px;
+    line-height: 2.2;
+  }
+}
+
 /* === cta-block（複数ページ共通・寄付等の呼びかけ） ========================= */
 /* 文言はページごとにHTML側で指定。corporate.html/education.htmlでも同構造・別文言で使用予定。 */
 .cta-block {

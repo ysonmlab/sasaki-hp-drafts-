@@ -33,33 +33,11 @@
   }
 }
 
-/* === lead（rack：リード文のみ。corporate-leadと同じく左寄せ） =============== */
-.pg-education .sect-education-lead {
-  padding-bottom: 56px;
-}
-.pg-education .sect-education-lead__text {
-  max-width: 850px;
-  margin-inline: auto;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--color-border);
-  font-size: 1rem;
-  line-height: 1.9;
-}
+/* === lead（rack：リード文のみ。冒頭の単独リード文は common.css の .page-lead 共通パーツ） === */
 
-@media (min-width: 1024px) {
-  .pg-education .sect-education-lead__text {
-    line-height: 2.2;
-  }
-}
-
-/* === セクション共通のリード文（undergrad/admission/policy） ================ */
-.pg-education .sect-education-undergrad__lead,
-.pg-education .sect-education-admission__lead,
-.pg-education .sect-education-policy__lead {
-  max-width: 850px;
+/* === セクション共通のリード文（undergrad/admission/policy）：本体は common.css の .section-lead。ここは余白のみ === */
+.pg-education .section-lead {
   margin-block: 16px 36px;
-  font-size: 1rem;
-  line-height: 1.75;
 }
 
 /* === undergrad（rack + chest：学部生向け案内ボックス） ====================== */

@@ -6,24 +6,7 @@
    - 仕様: docs/css-architecture.md／design/page-corporate.md
    ========================================================================== */
 
-/* === lead（rack：リード文のみ。研究lead等と異なり左寄せ） =================== */
-.pg-corporate .sect-corporate-lead {
-  padding-bottom: 56px;
-}
-.pg-corporate .sect-corporate-lead__text {
-  max-width: 850px;
-  margin-inline: auto;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--color-border);
-  font-size: 1rem;
-  line-height: 1.9;
-}
-
-@media (min-width: 1024px) {
-  .pg-corporate .sect-corporate-lead__text {
-    line-height: 2.2;
-  }
-}
+/* === lead（rack：リード文のみ。common.css の .page-lead 共通パーツを使用。ページ固有の上書きなし） === */
 
 /* === collab（tile：SP1カラム／PC2カラム。カード型＋ホバーで浮き上がる） ===== */
 /* 見出しをこのセクションのみ中央寄せ（section-head/section-title-enは共通パーツのためスコープを絞る） */
